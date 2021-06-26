@@ -1,27 +1,40 @@
 {
-  "npmScope": "neonse",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
+    "npmScope": "neonse",
+    "affected": {
+        "defaultBase": "master"
     },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
-      }
+    "implicitDependencies": {
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        ".eslintrc.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/workspace/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"]
+            }
+        }
+    },
+    "projects": {
+        "api": {
+            "tags": []
+        },
+        "store": {
+            "tags": []
+        },
+        "store-e2e": {
+            "tags": [],
+            "implicitDependencies": ["store"]
+        },
+        "ui": {
+            "tags": []
+        },
+        "ui-e2e": {
+            "tags": [],
+            "implicitDependencies": ["ui"]
+        }
     }
-  },
-  "projects": {}
 }
