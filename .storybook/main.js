@@ -4,14 +4,11 @@ module.exports = {
         layout: 'centered',
     },
     addons: [
-        // {
-        //     name: '@storybook/addon-docs',
-        //     options: {
-        //         configureJSX: true,
-        //         babelOptions: {},
-        //         sourceLoaderOptions: null,
-        //         transcludeMarkdown: true,
-        //     },
-        // },
+        '@storybook/addon-viewport',
+        // 'storybook-addon-pseudo-states',
+        '@storybook/addon-toolbars',
+        // '@storybook/addon-docs',
+        '@storybook/addon-a11y',
+        '@storybook/addon-controls',
     ],
 }

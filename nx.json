@@ -22,6 +22,12 @@
         "api": {
             "tags": []
         },
+        "prisma": {
+            "tags": []
+        },
+        "products": {
+            "tags": []
+        },
         "store": {
             "tags": []
         },

@@ -1,0 +1,182 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Models
+
+enum Role {
+  READER
+  BUYER
+  AUTHOR
+  SELLER
+  EDITOR
+  MANAGER
+  ADMIN
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  IT44
+  IT46
+  IT48
+  IT50
+  IT52
+  OS
+  JP0
+  JP1
+  JP2
+  JP3
+  JP4
+  EU41
+  EU42
+  EU43
+  EU44
+  EU45
+}
+
+// User Model
+
+model User {
+  id                 String  @id @default(cuid())
+  email              String
+  username           String?
+  password           String
+  jwtToken           String
+  resetPasswordToken String
+  identifierToken    String // for guest ?
+
+  profile Profile? // a user has one profile
+  @@unique([email, username, jwtToken])
+}
+
+model Profile {
+  id         String    @id @default(cuid())
+  user       User?     @relation(fields: [userId], references: [id])
+  userId     String?
+  role       Role      @default(READER)
+  brands     Brand[] // many to many
+  brandId    String?
+  name       String
+  phone      BigInt?
+  avatar     String?
+  point      Int?
+  level      Int?
+  addresses  Address[] // a profile has multiple addresses
+  cards      Card[] // a profile has multiple cards
+  // self relation
+  followedBy Profile[] @relation("UserFollows", references: [id])
+  following  Profile[] @relation("UserFollows", references: [id])
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  profile   Profile @relation(fields: [profileId], references: [id])
+  profileId String
+  name      String
+  email     String?
+  phone     String?
+  street    String
+  district  String?
+  city      String
+  state     String?
+  zip       String?
+  country   String
+}
+
+model Card {
+  id         String   @id @default(cuid())
+  cardHolder Profile  @relation(fields: [profileId], references: [id])
+  profileId  String
+  number     BigInt
+  name       String
+  expiration DateTime
+  bank       String?
+}
+
+// Product
+
+model Product {
+  id          String            @id @default(cuid())
+  name        String
+  sku         String
+  images      String[]
+  brands      Brand[]
+  types       ProductType[]
+  categories  ProductCategory[]
+  variants    ProductVariant[]
+  discription String
+  price       Decimal
+  featured    Boolean
+  stock       Int
+  sold        Int
+}
+
+model ProductVariant {
+  id        String   @id @default(cuid())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  name      String?
+  sku       String
+  images    String[]
+  brands    String // just for display
+  style     String
+  size      Size
+  price     Decimal
+  sale      Decimal
+  stock     Int
+  sold      Int
+}
+
+model ProductCategory {
+  id       String            @id @default(cuid())
+  name     String
+  slug     String
+  parentId String?
+  parent   ProductCategory?  @relation("ParentChildren", fields: [parentId], references: [id]) // a product category could have a parent
+  children ProductCategory[] @relation("ParentChildren") // a product category could have many children
+  products Product[]
+  types    ProductType[]
+
+  @@unique([name, slug])
+}
+
+model ProductType {
+  id         String            @id @default(cuid())
+  name       String
+  slug       String
+  products   Product[]
+  categories ProductCategory[]
+
+  @@unique([name, slug])
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  founders    Profile[] // many to many
+  country     String?
+  year        Int?
+  description String?
+  products    Product[] // many to many
+
+}
+
+model Locale {
+  id   String @id @default(cuid())
+  name String
+  code String @unique
+}

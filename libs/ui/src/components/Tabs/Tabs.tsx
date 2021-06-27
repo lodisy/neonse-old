@@ -15,6 +15,7 @@ type Tab = {
 const StyledTabs = styled(ReactTabs.Root, {
     display: 'flex',
     overflow: 'hidden',
+    backgroundColor: '$secondaryBackground',
     '&[data-orientation="horizontal"]': {
         flexDirection: 'column',
     },
@@ -27,28 +28,30 @@ const StyledTabList = styled(ReactTabs.List, {
     '&[data-orientation="vertical"]': {
         flexDirection: 'column',
     },
+    backgroundColor: '$secondaryButtonBackground',
+    '&[data-state="active"]': {
+        backgroundColor: '$buttonBackground',
+    },
 })
 
 const StyledTab = styled(ReactTabs.Trigger, {
     cursor: 'pointer',
     flexShrink: 0,
+    color: '$secondaryButtonText',
     '& > :first-of-type': {
         padding: '$1 $2',
     },
     userSelect: 'none',
-    '&:hover': { color: '$linkHover' },
-
-    '&[data-state="active"][data-orientation="vertical"]': {
-        color: 'black',
-    },
-    '&[data-state="active"][data-orientation="horizontal"]': {
-        color: 'black',
+    '&:hover': { color: '$buttonText' },
+    '&[data-state="active"]': {
+        color: '$buttonText',
     },
 })
 
 const StyledContent = styled(motion.div, {
     flexGrow: 1,
     padding: '$2',
+    color: '$secondaryParagraph',
 })
 
 const StyledIndicator = styled(motion.div, {
@@ -65,21 +68,22 @@ const StyledIndicator = styled(motion.div, {
         width: 2,
     },
 })
-const StyledIndicatorBackground = styled('div', {
-    borderRadius: '$1',
-    position: 'absolute',
-    background: '#ff9900',
-    '&[data-orientation="horizontal"]': {
-        width: '100%',
-        height: 2,
-        bottom: 0,
-    },
-    '&[data-orientation="vertical"]': {
-        height: '100%',
-        width: 2,
-        right: 0,
-    },
-})
+
+// const StyledIndicatorBackground = styled('div', {
+//     borderRadius: '$1',
+//     position: 'absolute',
+//     background: '#ff9900',
+//     '&[data-orientation="horizontal"]': {
+//         width: '100%',
+//         height: 2,
+//         bottom: 0,
+//     },
+//     '&[data-orientation="vertical"]': {
+//         height: '100%',
+//         width: 2,
+//         right: 0,
+//     },
+// })
 
 // animation
 
@@ -142,11 +146,11 @@ export const Tabs = ({ title = 'Tabs', orientation = 'horizontal', defaultValue,
                         <React.Fragment key={i}>
                             <StyledTab value={i.toString()}>
                                 {tab.title}
-                                {i === page && <StyledIndicator data-orientation={orientation} />}
+                                {/* {i === page && <StyledIndicator data-orientation={orientation} />} */}
                             </StyledTab>
                         </React.Fragment>
                     ))}
-                    <StyledIndicatorBackground data-orientation={orientation} />
+                    {/* <StyledIndicatorBackground data-orientation={orientation} /> */}
                 </StyledTabList>
 
                 <AnimatePresence

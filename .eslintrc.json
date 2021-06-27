@@ -2,7 +2,23 @@
     "root": true,
     "ignorePatterns": ["**/*"],
     "plugins": ["@nrwl/nx", "import"],
-
+    // 新增 -- start
+    "rules": {
+        // turn on errors for missing imports
+        "import/no-unresolved": "error"
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                "project": "./tsconfig.base.json"
+            }
+        }
+    },
+    // 新增 -- end
     "overrides": [
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

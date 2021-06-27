@@ -11,7 +11,7 @@ const stitches = createCss({
             buttonBackground: '	hsl(240, 11%, 14%)',
             buttonText: 'hsl(0, 14%, 97%)',
             secondaryButtonBackground: 'hsl(223, 9%, 31%)',
-            secondaryButtonText: 'hsl(0, 14%, 97%)',
+            secondaryButtonText: 'hsl(0, 14%, 85%)',
             disabledButtonBackground: 'hsl(221, 11%, 71%)',
             disabledButtonText: 'hsl(0, 14%, 97%)',
             heading: 'hsl(210,20%,16%)',
@@ -130,6 +130,31 @@ const stitches = createCss({
 
 const { styled, css, global, keyframes, getCssString, theme } = stitches
 
+// global reset style
+
+export const globalStyles = global({
+    'html, body': {
+        padding: 0,
+        margin: 0,
+        fontFamily: '$default',
+    },
+    '*': {
+        boxSizing: 'border-box',
+        userSelect: 'none',
+        textDecoration: 'none',
+        listStyle: 'none',
+    },
+    ':focus:not(:focus-visible)': {
+        outline: 'none !important',
+    },
+    '*:not(body)': {
+        transition: 'all 300ms ease',
+        transitionProperty: 'background-color, color',
+    },
+})
+
+// dark theme
+
 export const darkTheme = theme('dark', {
     colors: {
         /** colors of element */
@@ -170,6 +195,8 @@ export const darkTheme = theme('dark', {
         wechat: 'hsl(0, 0%, 100%)',
     },
 })
+
+// other themes
 
 export const sommerTheme = theme('sommer', {
     colors: {
