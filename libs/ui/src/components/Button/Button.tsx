@@ -1,12 +1,5 @@
-/* eslint-disable-next-line */
-export interface ButtonProps {}
+import React from 'react'
 
-export function Button(props: ButtonProps) {
-    return (
-        <div>
-            <h1>Welcome to Button!</h1>
-        </div>
-    )
+export const Button = () => {
+    return <div></div>
 }
-
-export default Button

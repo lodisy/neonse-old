@@ -12,7 +12,7 @@ export type ModalProps = {
     children?: React.ReactNode
 } & Dialog.DialogOwnProps
 
-const Modal = ({ trigger, disableOverlay = false, children, ...otherProps }: ModalProps) => {
+export const Modal = ({ trigger, disableOverlay = false, children, ...otherProps }: ModalProps) => {
     return (
         <Dialog.Root {...otherProps}>
             <Dialog.Trigger>{trigger}</Dialog.Trigger>
@@ -24,5 +24,3 @@ const Modal = ({ trigger, disableOverlay = false, children, ...otherProps }: Mod
         </Dialog.Root>
     )
 }
-
-export default Modal

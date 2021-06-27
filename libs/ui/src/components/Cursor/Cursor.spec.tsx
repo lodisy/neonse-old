@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import { Button } from './Button'
+import { Cursor } from './Cursor'
 
-describe('Button', () => {
+describe('Cursor', () => {
     it('should render successfully', () => {
-        const { baseElement } = render(<Button />)
+        const { baseElement } = render(<Cursor />)
         expect(baseElement).toBeTruthy()
     })
 })

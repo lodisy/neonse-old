@@ -1,4 +1,17 @@
 module.exports = {
-  stories: [],
-  addons: ['@storybook/addon-knobs/register'],
-};
+    stories: [],
+    parameters: {
+        layout: 'centered',
+    },
+    addons: [
+        // {
+        //     name: '@storybook/addon-docs',
+        //     options: {
+        //         configureJSX: true,
+        //         babelOptions: {},
+        //         sourceLoaderOptions: null,
+        //         transcludeMarkdown: true,
+        //     },
+        // },
+    ],
+}

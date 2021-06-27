@@ -8,17 +8,13 @@
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true,
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"]
-        }
+        "noFallthroughCasesInSwitch": true
     },
     "files": [],
     "include": [],
     "references": [
         {
-            "path": "./tsconfig.lib.json"
+            "path": "./tsconfig.components.json"
         },
         {
             "path": "./tsconfig.spec.json"
