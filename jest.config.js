@@ -6,5 +6,9 @@ module.exports = {
         '<rootDir>/libs/ui',
         '<rootDir>/libs/products',
         '<rootDir>/libs/prisma',
+        '<rootDir>/libs/users',
+        '<rootDir>/libs/auth',
+        '<rootDir>/libs/password',
+        '<rootDir>/libs/configs',
     ],
 }

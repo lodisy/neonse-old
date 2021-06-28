@@ -50,16 +50,17 @@ enum Size {
 // User Model
 
 model User {
-  id                 String  @id @default(cuid())
-  email              String
-  username           String?
+  id                 String    @id @default(cuid())
+  email              String    @unique
+  username           String?   @unique
   password           String
-  jwtToken           String
-  resetPasswordToken String
-  identifierToken    String // for guest ?
+  jwtToken           String    @unique
+  resetPasswordToken String    @unique
+  identifierToken    String    @unique // for guest ?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime? @updatedAt
+  profile            Profile? // a user has one profile
 
-  profile Profile? // a user has one profile
-  @@unique([email, username, jwtToken])
 }
 
 model Profile {
@@ -68,7 +69,7 @@ model Profile {
   userId     String?
   role       Role      @default(READER)
   brands     Brand[] // many to many
-  brandId    String?
+  brandId    String?   @unique
   name       String
   phone      BigInt?
   avatar     String?
@@ -100,7 +101,7 @@ model Card {
   id         String   @id @default(cuid())
   cardHolder Profile  @relation(fields: [profileId], references: [id])
   profileId  String
-  number     BigInt
+  number     BigInt   @unique
   name       String
   expiration DateTime
   bank       String?
@@ -111,7 +112,7 @@ model Card {
 model Product {
   id          String            @id @default(cuid())
   name        String
-  sku         String
+  sku         String            @unique
   images      String[]
   brands      Brand[]
   types       ProductType[]
@@ -122,6 +123,8 @@ model Product {
   featured    Boolean
   stock       Int
   sold        Int
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime?         @updatedAt
 }
 
 model ProductVariant {
@@ -129,7 +132,7 @@ model ProductVariant {
   product   Product  @relation(fields: [productId], references: [id])
   productId String
   name      String?
-  sku       String
+  sku       String   @unique
   images    String[]
   brands    String // just for display
   style     String
@@ -143,24 +146,20 @@ model ProductVariant {
 model ProductCategory {
   id       String            @id @default(cuid())
   name     String
-  slug     String
+  slug     String            @unique
   parentId String?
   parent   ProductCategory?  @relation("ParentChildren", fields: [parentId], references: [id]) // a product category could have a parent
   children ProductCategory[] @relation("ParentChildren") // a product category could have many children
   products Product[]
   types    ProductType[]
-
-  @@unique([name, slug])
 }
 
 model ProductType {
   id         String            @id @default(cuid())
-  name       String
-  slug       String
+  name       String            @unique
+  slug       String            @unique
   products   Product[]
   categories ProductCategory[]
-
-  @@unique([name, slug])
 }
 
 model Brand {

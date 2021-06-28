@@ -22,6 +22,15 @@
         "api": {
             "tags": []
         },
+        "auth": {
+            "tags": []
+        },
+        "configs": {
+            "tags": []
+        },
+        "password": {
+            "tags": []
+        },
         "prisma": {
             "tags": []
         },
@@ -41,6 +50,9 @@
         "ui-e2e": {
             "tags": [],
             "implicitDependencies": ["ui"]
+        },
+        "users": {
+            "tags": []
         }
     }
 }

@@ -15,9 +15,13 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@neonse/auth": ["libs/auth/src/index.ts"],
+            "@neonse/configs": ["libs/configs/src/index.ts"],
+            "@neonse/password": ["libs/password/src/index.ts"],
             "@neonse/prisma": ["libs/prisma/src/index.ts"],
             "@neonse/products": ["libs/products/src/index.ts"],
-            "@neonse/ui": ["libs/ui/src/index.ts"]
+            "@neonse/ui": ["libs/ui/src/index.ts"],
+            "@neonse/users": ["libs/users/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
