@@ -10,5 +10,10 @@ module.exports = {
         '<rootDir>/libs/auth',
         '<rootDir>/libs/password',
         '<rootDir>/libs/configs',
+        '<rootDir>/libs/ui/src/libs',
+        '<rootDir>/libs/ui/src/libs/icons',
+        '<rootDir>/libs/ui/src/theme',
+        '<rootDir>/libs/ui/src/icons',
+        '<rootDir>/libs/ui/src/components',
     ],
 }

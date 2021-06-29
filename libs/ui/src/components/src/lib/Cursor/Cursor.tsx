@@ -1,5 +1,5 @@
+import { styled } from '@neonse/ui/theme'
 import React from 'react'
-import { styled } from '../../stitches.config'
 import { Portal } from '../Portal'
 
 const StyledCursor = styled('div', {

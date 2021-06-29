@@ -1,4 +1,4 @@
-import { styled } from '@/stitches.config'
+import { styled } from '@neonse/ui/theme'
 import * as Dialog from '@radix-ui/react-dialog'
 import React from 'react'
 

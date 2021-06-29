@@ -51,6 +51,16 @@
             "tags": [],
             "implicitDependencies": ["ui"]
         },
+        "ui-components": {
+            "tags": []
+        },
+        "ui-icons": {
+            "tags": []
+        },
+
+        "ui-theme": {
+            "tags": []
+        },
         "users": {
             "tags": []
         }

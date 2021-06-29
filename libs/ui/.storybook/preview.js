@@ -40,6 +40,13 @@ export const parameters = {
             ...customViewports,
         },
     },
+    themes: {
+        default: 'theme',
+        list: [
+            { name: 'dark', class: 'dark', color: '#000' },
+            { name: 'sommer', class: 'sommer', color: 'pink' },
+        ],
+    },
 }
 
 // .storybook/preview.js
