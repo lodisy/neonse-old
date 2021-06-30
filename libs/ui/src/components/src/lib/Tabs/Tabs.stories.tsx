@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react'
 import * as React from 'react'
-import { darkTheme } from '../../stitches.config'
 import type { TabsProps } from './Tabs'
 import { Tabs } from './Tabs'
 
@@ -9,7 +8,7 @@ export default {
     title: 'Tabs',
 } as Meta
 
-const Template: Story<TabsProps> = (args) => <Tabs className={darkTheme} {...args} />
+const Template: Story<TabsProps> = (args) => <Tabs {...args} />
 
 const tabs = [
     {

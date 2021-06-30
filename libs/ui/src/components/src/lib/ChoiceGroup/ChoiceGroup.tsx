@@ -1,24 +1,42 @@
 import { styled } from '@neonse/ui/theme'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
+import { Tooltip } from '../Tooltip'
 
-const StyledRoot = styled(RadioGroup.Root, {})
+const StyledRoot = styled('div', {
+    display: 'flex',
+    '&[data-orientation="vertical"]': {
+        flexDirection: 'column',
+    },
+})
 
-const StyledChoice = styled(RadioGroup.Item, {
+const StyledChoice = styled('div', {
     position: 'relative',
     cursor: 'pointer',
-    minWidth: 250,
-    width: 'auto',
+    size: {
+        value: 300,
+        ratio: 1.5,
+    },
     padding: '$1',
-    backgroundColor: '$secondaryBackground',
+    backgroundColor: '$background',
     borderRadius: '$2',
     display: 'flex',
-    verticalAlign: 'middle',
+    alignItems: 'center',
     justifyContent: 'center',
-    // '&:focus': {
-    //     outline: 'none',
-    //     boxShadow: 'inset 0 0 0 1px dodgerblue, 0 0 0 1px dodgerblue',
-    // },
+    border: 'none',
+    flexShrink: 0,
+    margin: '$2',
+    smoothen: ['color', 'background-color'],
+    '&:hover': {
+        backgroundColor: '$backgroundHovered',
+        boxShadow: '$2',
+    },
+    '&[data-state="checked"]': {
+        b: '$border',
+        backgroundColor: '$backgroundActive',
+        boxShadow: '$1',
+    },
 })
 
 const StyledIndicator = styled(RadioGroup.Indicator, {
@@ -28,7 +46,6 @@ const StyledIndicator = styled(RadioGroup.Indicator, {
     width: 7,
     height: 7,
     borderRadius: '$round',
-    backgroundColor: 'dodgerblue',
 })
 
 export type Choice = {
@@ -56,24 +73,23 @@ export const ChoiceGroup = ({
         onValueChange && onValueChange(value)
     }
 
-    console.log(value)
-
     return (
-        <StyledRoot
+        <RadioGroup.Root
             aria-label={label}
             value={value}
             orientation={orientation}
             onValueChange={handleValueChange}
+            as={StyledRoot}
             {...otherProps}
         >
             {choices.map((choice) => (
-                <StyledChoice key={choice.value} value={choice.value}>
+                <RadioGroup.Item key={choice.value} value={choice.value} as={StyledChoice}>
                     {React.cloneElement(choice.label, {
-                        'data-state': value === choice.value ? 'checked' : 'unchecked',
+                        'data-checked': value === choice.value ? 'true' : 'false',
                     })}
-                    <StyledIndicator />
-                </StyledChoice>
+                    <RadioGroup.Indicator as={StyledIndicator} />
+                </RadioGroup.Item>
             ))}
-        </StyledRoot>
+        </RadioGroup.Root>
     )
 }

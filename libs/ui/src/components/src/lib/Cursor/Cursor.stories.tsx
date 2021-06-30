@@ -6,8 +6,9 @@ export default {
     title: 'Cursor',
 }
 
-export const primary = () => {
-    /* eslint-disable-next-line */
-
-    return <Cursor />
-}
+export const Default = () => (
+    <>
+        <div>Some text</div>
+        <Cursor />
+    </>
+)

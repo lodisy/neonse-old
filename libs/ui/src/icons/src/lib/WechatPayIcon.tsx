@@ -6,7 +6,7 @@ type Props = {
 }
 
 const StyledPath = styled('path', {
-    fill: '$wechat',
+    fill: '$wechatIcon',
 })
 
 const StyledPathText = styled('path', {

@@ -9,16 +9,19 @@ const StyledPath = styled('path', {
     fillRule: 'evenodd',
     clipRule: 'evenodd',
     fill: '$stripe',
+    smoothen: ['fill'],
 })
 const StyledPolygon = styled('polygon', {
     fillRule: 'evenodd',
     clipRule: 'evenodd',
     fill: '$stripe',
+    smoothen: ['fill'],
 })
 const StyledRect = styled('rect', {
     fillRule: 'evenodd',
     clipRule: 'evenodd',
     fill: '$stripe',
+    smoothen: ['fill'],
 })
 
 export const StripeIcon = ({ width = 150, height }: Props) => {

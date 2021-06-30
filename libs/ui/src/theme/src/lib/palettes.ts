@@ -1,73 +1,129 @@
-import { colors } from './colors'
+import { gray, grayDark, red, grass, amber, blackA, whiteA, purpleDark, cyanDark } from '@radix-ui/colors'
+
+/**
+ * Step use case:
+ * - 1 for App background
+ * - 2 for Subtle background
+ * - 3 for UI element background
+ * - 4 for Hovered UI element background
+ * - 5 for Ative or selected UI element background
+ * - 6 for Subtle borders and separators
+ * - 7 for UI element border and focused rings
+ * - 8 for Hovered UI element border
+ * - 9 for Solid background (white or black text)
+ * - 10 for Solid background hovered (white or black text)
+ * - 11 for Text
+ * - 12 for High contrast Text
+ */
 
 export const palettes = {
     common: {
-        errorBackground: colors.imperialRed,
-        errorText: colors.lightGray,
-        warningBakcground: colors.sunglow,
-        warningText: colors.lightGray,
-        successBackground: colors.limePeel,
-        successText: colors.lightGray,
+        errorBackground: red.red4,
+        errorText: red.red11,
+        successBackground: grass.grass4,
+        successText: grass.grass11,
+        warningBackground: amber.amber4,
+        warningText: amber.amber11,
     },
 
     default: {
-        background: colors.cultured,
-        backgroundSecondary: colors.lightGray,
-        heading: colors.richBlack,
-        headingSecondary: colors.eerieBlack,
-        label: colors.charlestonGreen,
-        paragraph: colors.jet,
-        paragraphSecondary: colors.dimGray,
+        base: gray.gray2,
 
-        buttonBackground: colors.richBlack,
-        buttonBackgroundSecondary: colors.gunmetal,
-        buttonBackgroundHovered: colors.cultured,
-        buttonBackgroundSecondaryHovered: colors.warmGray,
-        buttonBackgroundDisabled: colors.slateGray,
-        buttonText: colors.cultured,
-        buttonTextSecondary: colors.warmGray,
-        buttonTextHovered: colors.richBlack,
-        buttonTextSecondaryHovered: colors.gunmetal,
-        buttonTextDisabled: colors.cadetBlueCrayola,
+        background: gray.gray3,
+        backgroundHovered: gray.gray4,
+        backgroundActive: gray.gray5,
 
-        inputBackground: colors.warmGray,
-        inputBackgroundFocused: colors.lightGray,
-        inputBackgroundDisabled: colors.slateGray,
+        border: gray.gray6,
+        borderFocused: gray.gray7,
+        borderHovered: gray.gray8,
 
-        border: colors.warmGray,
-        borderFocused: colors.gainsboro,
-        borderDisabled: colors.slateGray,
+        solidBackground: gray.gray12,
+        solidBackgroundHovered: gray.gray11,
+        solidBackgroundDisabled: gray.gray9,
+        solidBackgroundText: gray.gray1,
 
-        // box shadows
+        text: gray.gray11,
+        textContrast: gray.gray12,
+
+        overlay: blackA.blackA6,
+
+        // shadows
+
+        shadow1: blackA.blackA1,
+        shadow2: blackA.blackA2,
+        shadow3: blackA.blackA3,
+        shadow4: blackA.blackA4,
+        shadow5: blackA.blackA5,
+        shadow6: blackA.blackA6,
+        shadow7: blackA.blackA7,
+        shadow8: blackA.blackA8,
+        shadow9: blackA.blackA9,
+        shadow10: blackA.blackA10,
+        shadow11: blackA.blackA11,
+        shadow12: blackA.blackA12,
+
+        // icons
+        alipayIcon: 'hsl(199, 100%, 45%)',
+        alipayIconText: gray.gray1,
+        alipayText: gray.gray11,
+
+        stripe: 'hsl(243, 100%, 68%)',
+
+        wechatIcon: 'hsl(120, 75%, 39%)',
+        wechatText: gray.gray11,
     },
     dark: {
-        background: colors.richBlack,
-        backgroundSecondary: colors.eerieBlack,
-        heading: colors.cultured,
-        headingSecondary: colors.lightGray,
-        label: colors.cadetBlueCrayola,
-        paragraph: colors.slateGray,
-        paragraphSecondary: colors.davysGray,
+        base: grayDark.gray2,
 
-        buttonBackground: colors.cultured,
-        buttonBackgroundSecondary: colors.lightGray,
-        buttonBackgroundHovered: colors.richBlack,
-        buttonBackgroundSecondaryHovered: colors.eerieBlack,
-        buttonBackgroundDisabled: colors.gunmetal,
-        buttonText: colors.eerieBlack,
-        buttonTextSecondary: colors.lightGray,
-        buttonTextHovered: colors.richBlack,
-        buttonTextSecondaryHovered: colors.eerieBlack,
-        buttonTextDisabled: colors.cadetBlueCrayola,
+        background: grayDark.gray3,
+        backgroundHovered: grayDark.gray4,
+        backgroundActive: grayDark.gray5,
 
-        inputBackground: colors.eerieBlack,
-        inputBackgroundFocused: colors.jet,
-        inputBackgroundDisabled: colors.slateGray,
+        border: grayDark.gray6,
+        borderFocused: grayDark.gray7,
+        borderHovered: grayDark.gray8,
+
+        solidBackground: grayDark.gray12,
+        solidBackgroundHovered: grayDark.gray11,
+        solidBackgroundDisabled: grayDark.gray9,
+        solidBackgroundText: grayDark.gray1,
+
+        text: grayDark.gray11,
+        textContrast: grayDark.gray12,
+
+        overlay: whiteA.whiteA6,
+
+        // shadows
+
+        shadow1: whiteA.whiteA1,
+        shadow2: whiteA.whiteA2,
+        shadow3: whiteA.whiteA3,
+        shadow4: whiteA.whiteA4,
+        shadow5: whiteA.whiteA5,
+        shadow6: whiteA.whiteA6,
+        shadow7: whiteA.whiteA7,
+        shadow8: whiteA.whiteA8,
+        shadow9: whiteA.whiteA9,
+        shadow10: whiteA.whiteA10,
+        shadow11: whiteA.whiteA11,
+        shadow12: whiteA.whiteA12,
+
+        // icons
+        alipayIcon: 'hsl(199, 100%, 45%)',
+        alipayIconText: grayDark.gray1,
+        alipayText: grayDark.gray11,
+
+        stripe: 'hsl(0, 0%, 100%)',
+
+        wechatIcon: 'hsl(120, 75%, 39%)',
+        wechatText: grayDark.gray11,
     },
-    night: {},
+    night: {
+        base: purpleDark.purple1,
+
+        background: purpleDark.purple2,
+        backgroundHovered: cyanDark.cyan1,
+    },
     sommer: {},
     eiscream: {},
-    frankreich: {
-        background: colors.honeydew,
-    },
 }

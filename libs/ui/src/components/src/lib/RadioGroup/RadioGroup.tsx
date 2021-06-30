@@ -1,7 +1,7 @@
+import { styled } from '@neonse/ui/theme'
 import * as ReactRadioGroup from '@radix-ui/react-radio-group'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import React from 'react'
-import { styled } from '../../stitches.config'
 
 const StyledRoot = styled(ReactRadioGroup.Root, {
     display: 'flex',
@@ -55,7 +55,7 @@ const StyledIndicator = styled(ReactRadioGroup.Indicator, {
 })
 
 const StyledValue = styled('span', {
-    color: '$secondaryParagraph',
+    color: '$paragraphSecondary',
     '&:[data-state="checked"]': {
         color: '$paragraph',
         fontWeight: '$bold',

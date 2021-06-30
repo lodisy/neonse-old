@@ -2,7 +2,6 @@ export const colors = {
     stripe: 'hsl(243, 100%, 68%)',
     wechat: 'hsl(120, 75%, 39%)',
     wechatText: 'hsl(0, 0%, 30%)',
-    alipay: 'hsl(199, 100%, 45%)',
 
     sunglow: 'hsl(44, 100%, 61%)',
     limePeel: 'hsl(83, 68%, 47%)',

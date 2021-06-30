@@ -15,7 +15,8 @@ type Tab = {
 const StyledTabs = styled(ReactTabs.Root, {
     display: 'flex',
     overflow: 'hidden',
-    backgroundColor: '$secondaryBackground',
+    borderRadius: '$1',
+    backgroundColor: '$background',
     '&[data-orientation="horizontal"]': {
         flexDirection: 'column',
     },
@@ -28,62 +29,31 @@ const StyledTabList = styled(ReactTabs.List, {
     '&[data-orientation="vertical"]': {
         flexDirection: 'column',
     },
-    backgroundColor: '$secondaryButtonBackground',
+    backgroundColor: '$background',
     '&[data-state="active"]': {
-        backgroundColor: '$buttonBackground',
+        backgroundColor: '$backgroundActive',
     },
 })
 
 const StyledTab = styled(ReactTabs.Trigger, {
     cursor: 'pointer',
     flexShrink: 0,
-    color: '$secondaryButtonText',
+    color: '$text',
     '& > :first-of-type': {
         padding: '$1 $2',
     },
     userSelect: 'none',
-    '&:hover': { color: '$buttonText' },
+    '&:hover': { color: '$textContrast' },
     '&[data-state="active"]': {
-        color: '$buttonText',
+        color: '$textContrast',
     },
 })
 
 const StyledContent = styled(motion.div, {
     flexGrow: 1,
     padding: '$2',
-    color: '$secondaryParagraph',
+    color: '$text',
 })
-
-const StyledIndicator = styled(motion.div, {
-    borderRadius: '$1',
-    position: 'relative',
-    background: '#fff',
-    zIndex: 1,
-    '&[data-orientation="horizontal"]': {
-        width: '100%',
-        height: 2,
-    },
-    '&[data-orientation="vertical"]': {
-        height: '100%',
-        width: 2,
-    },
-})
-
-// const StyledIndicatorBackground = styled('div', {
-//     borderRadius: '$1',
-//     position: 'absolute',
-//     background: '#ff9900',
-//     '&[data-orientation="horizontal"]': {
-//         width: '100%',
-//         height: 2,
-//         bottom: 0,
-//     },
-//     '&[data-orientation="vertical"]': {
-//         height: '100%',
-//         width: 2,
-//         right: 0,
-//     },
-// })
 
 // animation
 
@@ -150,7 +120,6 @@ export const Tabs = ({ title = 'Tabs', orientation = 'horizontal', defaultValue,
                             </StyledTab>
                         </React.Fragment>
                     ))}
-                    {/* <StyledIndicatorBackground data-orientation={orientation} /> */}
                 </StyledTabList>
 
                 <AnimatePresence

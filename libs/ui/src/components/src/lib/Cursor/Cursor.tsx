@@ -3,7 +3,7 @@ import React from 'react'
 import { Portal } from '../Portal'
 
 const StyledCursor = styled('div', {
-    border: '2px solid yellow',
+    border: '2px solid $paragraph',
     position: 'fixed',
     size: 40,
     borderRadius: '$round',

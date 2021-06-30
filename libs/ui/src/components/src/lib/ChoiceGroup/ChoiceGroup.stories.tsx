@@ -1,14 +1,18 @@
+import { AlipayIcon, StripeIcon, WechatPayIcon } from '@neonse/ui/icons'
 import { Meta, Story } from '@storybook/react'
 import * as React from 'react'
-import { AlipayIcon } from '../../assets/icons/AlipayIcon'
-import { StripeIcon } from '../../assets/icons/StripeIcon'
-import { WechatPayIcon } from '../../assets/icons/WechatPayIcon'
 import type { ChoiceGroupProps } from './ChoiceGroup'
 import { Choice, ChoiceGroup } from './ChoiceGroup'
 
 export default {
     component: ChoiceGroup,
     title: 'ChoiceGroup',
+    argTypes: {
+        orientation: {
+            options: ['horizontal', 'vertical'],
+            type: 'select',
+        },
+    },
 } as Meta
 
 const choices = [
@@ -47,4 +51,5 @@ export const Vertical = Template.bind({})
 
 Vertical.args = {
     choices: choices,
+    orientation: 'vertical',
 }

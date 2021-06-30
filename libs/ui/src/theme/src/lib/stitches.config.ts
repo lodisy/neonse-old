@@ -14,7 +14,7 @@ const stitches = createCss({
             ...palettes.default,
             ...palettes.common,
         },
-        shadows: { ...shadows },
+        shadows: { ...shadows.default },
         fonts: { ...fonts.fontFamilies },
         fontSizes: {
             ...fonts.fontSizes,
@@ -43,20 +43,12 @@ const stitches = createCss({
 
 const { styled, css, global, keyframes, getCssString, theme } = stitches
 
-// global reset style
-
-export const globalStyles = global({
-    '@import': './global.css',
-
-    body: {
-        fontFamily: '$default',
-    },
-})()
-
 export const darkTheme = theme('dark', {
     colors: {
         ...palettes.dark,
+        ...palettes.common,
     },
+    shadows: { ...shadows.dark },
 })
 
 export const sommerTheme = theme('sommer', {
@@ -64,5 +56,25 @@ export const sommerTheme = theme('sommer', {
         ...palettes.sommer,
     },
 })
+
+export const globalStyles = global({
+    '*': {
+        boxSizing: 'border-box',
+        padding: 0,
+        margin: 0,
+        userSelect: 'none',
+        listStyle: 'none',
+        textDecoration: 'none',
+        fontFamily: '$default',
+    },
+    body: {
+        backgroundColor: '$base',
+        smooth: 'ease',
+    },
+    ':focus:not(:focus-visible)': {
+        outline: 'none!important',
+    },
+    '&.dark': darkTheme,
+})()
 
 export { styled, css, keyframes, getCssString }

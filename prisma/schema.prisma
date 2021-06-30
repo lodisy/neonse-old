@@ -47,6 +47,17 @@ enum Size {
   EU45
 }
 
+model File {
+  id         String   @id @default(cuid())
+  name       String
+  alt        String?
+  caption    String?
+  type       String
+  size       Bytes
+  dimensions String?
+  createdAt  DateTime @default(now())
+}
+
 // User Model
 
 model User {

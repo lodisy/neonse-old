@@ -40,8 +40,9 @@ export const parameters = {
             ...customViewports,
         },
     },
+
     themes: {
-        default: 'theme',
+        default: 't-liNcAN',
         list: [
             { name: 'dark', class: 'dark', color: '#000' },
             { name: 'sommer', class: 'sommer', color: 'pink' },
@@ -51,20 +52,17 @@ export const parameters = {
 
 // .storybook/preview.js
 
-export const globalTypes = {
-    locale: {
-        name: 'Locale',
-        description: 'Internationalization locale',
-        defaultValue: 'en',
-        toolbar: {
-            icon: 'globe',
-            items: [
-                { value: 'en', right: '🇺🇸', title: 'English' },
-                { value: 'fr', right: '🇫🇷', title: 'Français' },
-                { value: 'es', right: '🇪🇸', title: 'Español' },
-                { value: 'zh', right: '🇨🇳', title: '中文' },
-                { value: 'kr', right: '🇰🇷', title: '한국어' },
-            ],
-        },
-    },
-}
+// export const globalTypes = {
+//     locale: {
+//         name: 'Locale',
+//         description: 'Internationalization locale',
+//         defaultValue: 'en',
+//         toolbar: {
+//             icon: 'globe',
+//             items: [
+//                 { value: 'en', right: '🇺🇸', title: 'English' },
+//                 { value: 'zh', right: '🇨🇳', title: '中文' },
+//             ],
+//         },
+//     },
+// }
