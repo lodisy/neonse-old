@@ -1,8 +1,8 @@
 import { AlipayIcon, StripeIcon, WechatPayIcon } from '@neonse/ui/icons'
 import { Meta, Story } from '@storybook/react'
 import * as React from 'react'
-import type { ChoiceGroupProps } from './ChoiceGroup'
-import { Choice, ChoiceGroup } from './ChoiceGroup'
+import type { ChoiceGroupProps, ChoiceType } from './ChoiceGroup'
+import { ChoiceGroup } from './ChoiceGroup'
 
 export default {
     component: ChoiceGroup,
@@ -28,18 +28,9 @@ const choices = [
         label: <WechatPayIcon />,
         value: 'wechat',
     },
-] as Choice[]
+] as ChoiceType[]
 
-const Template: Story<ChoiceGroupProps> = (args) => (
-    <div
-        style={{
-            width: 400,
-            height: 300,
-        }}
-    >
-        <ChoiceGroup {...args} />
-    </div>
-)
+const Template: Story<ChoiceGroupProps> = (args) => <ChoiceGroup {...args} />
 
 export const Horizontal = Template.bind({})
 

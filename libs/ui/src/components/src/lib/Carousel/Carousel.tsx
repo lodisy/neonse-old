@@ -1,10 +1,14 @@
+/**
+ * TODO padding not working
+ */
+
 import React, { useRef, useEffect } from 'react'
 import { animated, useSpring, SpringConfig } from 'react-spring'
 import { useDrag, rubberbandIfOutOfBounds } from '@use-gesture/react'
-import { styled } from '@neonse/ui/theme'
+import { styled, css } from '@neonse/ui/theme'
+import { Flex } from '../Flex'
 
 const StyledCarousel = styled('div', {
-    width: '80vw',
     overflow: 'hidden',
 })
 
@@ -17,15 +21,9 @@ const StyledContainer = styled(animated.div, {
     cursor: 'grab',
 })
 
-const StyledItem = styled('div', {
-    height: 150,
+const StyledItem = styled(Flex, {
+    minHeight: 150,
     borderRadius: '$1',
-    backgroundColor: '$background',
-    marginRight: 15,
-    minWidth: 'calc(33.33% - 15px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
 })
 
 const fasterConfig: SpringConfig = {
@@ -38,6 +36,9 @@ export type CarouselProps = {
     index?: number
     onIndexChange?: (index: number, isLast: boolean) => void
     children: React.ReactNode
+    slidesPerView?: number
+    gap?: number
+    width?: string
     padding?: number
     springConfig?: SpringConfig
     rubberBandConst?: number
@@ -47,7 +48,16 @@ export const Carousel = ({
     index,
     children,
     onIndexChange,
-    padding = 0,
+    slidesPerView = 3,
+    width = '80vw',
+    gap = 15,
+    /**
+     * Optional will adjust the positioning of the slide after the first page
+     * Useful if you want to show the next slide already a little bit.
+     * Only works properly if you apply right padding on the `containerClassName`
+     * You should set it to the appliedPadding / 2
+     */
+    padding = 0, // 用来显示部分下一张 slide
     springConfig = fasterConfig,
     rubberBandConst = 0.2,
 }: CarouselProps) => {
@@ -70,7 +80,7 @@ export const Carousel = ({
     const scrollWidth = () => containerRef.current?.scrollWidth || 0
 
     // this is the full width of the wrapper element
-    const width = () => containerRef.current?.parentElement?.clientWidth || 0
+    const containerWidth = () => containerRef.current?.parentElement?.clientWidth || 0
 
     // determine the current index based on the current position
     const currentIndex = (ref = scrollRef.current) => Math.round(Math.abs(ref - padding) / (scrollWidth() / length))
@@ -82,7 +92,7 @@ export const Carousel = ({
             itemWidth.current = item[0].contentRect.width
             currentIndexRef.current = currentIndex()
             // reset position when the elements are resized
-            const maxScroll = -(scrollWidth() - width())
+            const maxScroll = -(scrollWidth() - containerWidth())
             scrollRef.current = Math.max(
                 -(scrollWidth() / length) * currentIndexRef.current + (currentIndexRef.current > 0 ? padding : 0),
                 maxScroll,
@@ -108,7 +118,7 @@ export const Carousel = ({
     useEffect(() => {
         scrollRef.current = 0
         currentIndexRef.current = 0
-        const maxScroll = -(scrollWidth() - width())
+        const maxScroll = -(scrollWidth() - containerWidth())
         if (onIndexChange) {
             onIndexChange(currentIndexRef.current, isLast(maxScroll))
         }
@@ -120,7 +130,7 @@ export const Carousel = ({
 
     useEffect(() => {
         if (index !== undefined && index !== currentIndexRef.current) {
-            const maxScroll = -(scrollWidth() - width())
+            const maxScroll = -(scrollWidth() - containerWidth())
             scrollRef.current = Math.max(-(scrollWidth() / length) * index + (index > 0 ? padding : 0), maxScroll)
             currentIndexRef.current = index
             if (onIndexChange) {
@@ -134,7 +144,7 @@ export const Carousel = ({
 
     useDrag(
         ({ down, direction: [dX], delta: [deltaX], movement: [moveX], velocity: [vX] }) => {
-            const thisWith = width()
+            const thisWith = containerWidth()
             const thisScrollWidth = scrollWidth()
 
             // General movement
@@ -216,12 +226,26 @@ export const Carousel = ({
     )
 
     return (
-        <StyledCarousel>
+        <StyledCarousel
+            css={{
+                width,
+                paddingRight: padding >= gap / 2 ? `calc(${padding}px * 2 - ${gap}px)` : 0,
+            }}
+        >
             <StyledContainer role="region" aria-label="carousel" draggable="false" ref={containerRef} style={spring}>
                 {React.Children.map(children, (child, i) =>
-                    React.cloneElement(<StyledItem key={i}>{child}</StyledItem>, {
-                        'data-index': i,
-                    }),
+                    React.cloneElement(
+                        <StyledItem key={i} align="center" justify="center">
+                            {child}
+                        </StyledItem>,
+                        {
+                            'data-index': i,
+                            style: {
+                                marginRight: gap,
+                                minWidth: `calc(1 / ${slidesPerView} * 100% - ${gap}px)`,
+                            },
+                        },
+                    ),
                 )}
             </StyledContainer>
         </StyledCarousel>

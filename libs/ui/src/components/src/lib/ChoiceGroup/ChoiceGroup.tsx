@@ -1,14 +1,15 @@
 /**
  * TODO
- * - integrate with tooltip / Add swipe
+ * - Styling responsive
+ * - integrate with tooltip
  * - Indicator and Action / Status Button
  */
 
-import { styled } from '@neonse/ui/theme'
+import { styled, css } from '@neonse/ui/theme'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
 import { CheckIcon, FocusCircleIcon } from '@neonse/ui/icons'
-import { animated, useSprings } from 'react-spring'
+import { Carousel } from '../Carousel'
 
 const StyledRoot = styled('div', {
     display: 'flex',
@@ -44,7 +45,7 @@ const StyledActionButton = styled('button', {
     border: 'none',
 })
 
-const StyledChoice = styled(animated.div, {
+const StyledChoice = styled('div', {
     position: 'relative',
     cursor: 'pointer',
     size: {
@@ -59,7 +60,6 @@ const StyledChoice = styled(animated.div, {
     justifyContent: 'center',
     border: 'none',
     flexShrink: 0,
-    margin: '$2',
     smoothen: ['color', 'background-color'],
     '&:hover': {
         backgroundColor: '$backgroundHovered',
@@ -75,19 +75,20 @@ const StyledChoice = styled(animated.div, {
     },
 })
 
-export type Choice = {
+export type ChoiceType = {
     label: React.ReactElement
     value: string
 }
 
 export type ChoiceGroupProps = {
-    choices: Choice[]
+    choices: ChoiceType[]
     label?: string
     onValueChange?: (value: string) => void
 } & RadioGroup.RadioGroupOwnProps
 
 export const ChoiceGroup = ({
     choices = [],
+
     label,
     onValueChange,
     orientation = 'horizontal',
@@ -100,8 +101,6 @@ export const ChoiceGroup = ({
         onValueChange && onValueChange(value)
     }
 
-    // animation
-
     return (
         <RadioGroup.Root
             aria-label={label}
@@ -111,18 +110,63 @@ export const ChoiceGroup = ({
             as={StyledRoot}
             {...otherProps}
         >
-            {choices.map((choice) => (
-                <RadioGroup.Item key={choice.value} value={choice.value} as={StyledChoice}>
-                    {React.cloneElement(choice.label, {
-                        'data-checked': value === choice.value ? 'true' : 'false',
-                    })}
-                    <RadioGroup.Indicator as={StyledIndicator}>
-                        <CheckIcon />
-                        <FocusCircleIcon />
-                    </RadioGroup.Indicator>
-                    <StyledActionButton onClick={() => alert('edit')}>edit</StyledActionButton>
-                </RadioGroup.Item>
-            ))}
+            {orientation !== 'vertical' ? (
+                <Carousel
+                    width={'60vw'}
+                    slidesPerView={2}
+                    padding={50}
+                    springConfig={{
+                        tension: 150,
+                        friction: 50,
+                        velocity: 0.1,
+                    }}
+                >
+                    {choices.map((choice) => (
+                        <RadioGroup.Item
+                            key={choice.value}
+                            value={choice.value}
+                            as={StyledChoice}
+                            css={{
+                                size: {
+                                    width: 300,
+                                    ratio: 1.5,
+                                },
+                            }}
+                        >
+                            {React.cloneElement(choice.label, {
+                                'data-checked': value === choice.value ? 'true' : 'false',
+                            })}
+                            <RadioGroup.Indicator as={StyledIndicator}>
+                                <CheckIcon />
+                                <FocusCircleIcon />
+                            </RadioGroup.Indicator>
+                            <StyledActionButton onClick={() => alert('edit')}>edit</StyledActionButton>
+                        </RadioGroup.Item>
+                    ))}
+                </Carousel>
+            ) : (
+                <>
+                    {choices.map((choice) => (
+                        <RadioGroup.Item
+                            key={choice.value}
+                            value={choice.value}
+                            as={StyledChoice}
+                            css={{
+                                marginY: '$1',
+                            }}
+                        >
+                            {React.cloneElement(choice.label, {
+                                'data-checked': value === choice.value ? 'true' : 'false',
+                            })}
+                            <RadioGroup.Indicator as={StyledIndicator}>
+                                <CheckIcon />
+                                <FocusCircleIcon />
+                            </RadioGroup.Indicator>
+                            <StyledActionButton onClick={() => alert('edit')}>edit</StyledActionButton>
+                        </RadioGroup.Item>
+                    ))}
+                </>
+            )}
         </RadioGroup.Root>
     )
 }
