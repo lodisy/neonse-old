@@ -6,7 +6,7 @@ import { Choice, ChoiceGroup } from './ChoiceGroup'
 
 export default {
     component: ChoiceGroup,
-    title: 'ChoiceGroup',
+    title: 'Components/ChoiceGroup',
     argTypes: {
         orientation: {
             options: ['horizontal', 'vertical'],

@@ -5,7 +5,7 @@ import { Tabs } from './Tabs'
 
 export default {
     component: Tabs,
-    title: 'Tabs',
+    title: 'Components/Tabs',
 } as Meta
 
 const Template: Story<TabsProps> = (args) => <Tabs {...args} />

@@ -2,25 +2,54 @@ import React from 'react'
 import * as ReactAvatar from '@radix-ui/react-avatar'
 import { styled } from '@neonse/ui/theme'
 import { Image } from '../Image'
-import type { ImageProps } from '../Image'
+import { Slot } from '@radix-ui/react-slot'
+import NextImage, { ImageProps } from 'next/image'
 
 const StyledAvatar = styled(ReactAvatar.Root, {
-    display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     verticalAlign: 'middle',
     overflow: 'hidden',
     userSelect: 'none',
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexShrink: 0,
+    position: 'relative',
+    border: 'none',
+    fontFamily: 'inherit',
+    lineHeight: '1',
+    margin: '0',
+    outline: 'none',
+    padding: '0',
+    fontWeight: '500',
+    color: '$textContrast',
+    backgroundColor: '$solidBackground',
+    '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        borderRadius: 'inherit',
+        boxShadow: 'inset 0px 0px 1px rgba(0, 0, 0, 0.12)',
+    },
     variants: {
         size: {
             small: {
-                size: 32,
+                size: {
+                    width: 32,
+                },
             },
             medium: {
-                size: 48,
+                size: {
+                    width: 48,
+                },
             },
             large: {
-                size: 64,
+                size: {
+                    width: 64,
+                },
             },
         },
         shape: {
@@ -31,16 +60,61 @@ const StyledAvatar = styled(ReactAvatar.Root, {
                 borderRadius: '$1',
             },
         },
+
+        inactive: {
+            true: {
+                opacity: '.3',
+            },
+        },
+        interactive: {
+            true: {
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: '0',
+                    right: '0',
+                    bottom: '0',
+                    left: '0',
+                    backgroundColor: 'rgba(0,0,0,.08)',
+                    opacity: '0',
+                    pointerEvents: 'none',
+                    transition: 'opacity 25ms linear',
+                },
+                '@hover': {
+                    '&:hover': {
+                        '&::after': {
+                            opacity: '1',
+                        },
+                    },
+                },
+                '&[data-state="open"]': {
+                    '&::after': {
+                        backgroundColor: 'rgba(0,0,0,.12)',
+                        opacity: '1',
+                    },
+                },
+            },
+        },
+    },
+    defaultVariants: {
+        size: 'medium',
+        shape: 'round',
     },
 })
 
 const StyledFallback = styled(ReactAvatar.Fallback, {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'dodgerblue',
+    textTransform: 'uppercase',
+    variants: {
+        size: {
+            '1': {
+                fontSize: '10px',
+                lineHeight: '15px',
+            },
+        },
+    },
+    defaultVariants: {
+        size: '1',
+    },
 })
 
 type AvatarProps = {
@@ -48,11 +122,13 @@ type AvatarProps = {
     shape?: 'round' | 'squire'
 } & ImageProps
 
-export const Avatar = ({ src, size = 'medium', shape = 'round', ...otherProps }: AvatarProps) => {
+export const Avatar = ({ src, size = 'medium', shape = 'round', blurDataURL, ...otherProps }: AvatarProps) => {
     return (
         <StyledAvatar size={size} shape={shape}>
-            <Image src={src} {...otherProps} />
-            <StyledFallback></StyledFallback>
+            <ReactAvatar.Image as={Slot}>
+                <NextImage layout="fill" placeholder="blur" src={src} blurDataURL={blurDataURL} {...otherProps} />
+            </ReactAvatar.Image>
+            <StyledFallback>{}</StyledFallback>
         </StyledAvatar>
     )
 }

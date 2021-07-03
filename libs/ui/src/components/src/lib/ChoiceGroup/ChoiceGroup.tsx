@@ -1,8 +1,14 @@
+/**
+ * TODO
+ * - integrate with tooltip / Add swipe
+ * - Indicator and Action / Status Button
+ */
+
 import { styled } from '@neonse/ui/theme'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
-import { Tooltip } from '../Tooltip'
+import { CheckIcon, FocusCircleIcon } from '@neonse/ui/icons'
+import { animated, useSprings } from 'react-spring'
 
 const StyledRoot = styled('div', {
     display: 'flex',
@@ -10,12 +16,39 @@ const StyledRoot = styled('div', {
         flexDirection: 'column',
     },
 })
+const StyledIndicator = styled('span', {
+    position: 'absolute',
+    top: 16,
+    left: 16,
 
-const StyledChoice = styled('div', {
+    size: {
+        width: 20,
+        ratio: 1,
+    },
+    borderRadius: '$round',
+    '& svg': {
+        position: 'absolute',
+    },
+})
+
+const StyledActionButton = styled('button', {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    opacity: 0,
+    size: {
+        width: 30,
+        ratio: 1,
+    },
+    borderRadius: '$round',
+    border: 'none',
+})
+
+const StyledChoice = styled(animated.div, {
     position: 'relative',
     cursor: 'pointer',
     size: {
-        value: 300,
+        width: 300,
         ratio: 1.5,
     },
     padding: '$1',
@@ -31,21 +64,15 @@ const StyledChoice = styled('div', {
     '&:hover': {
         backgroundColor: '$backgroundHovered',
         boxShadow: '$2',
+        [`& ${StyledActionButton}`]: {
+            opacity: 1,
+            transition: 'opacity 300ms ease',
+        },
     },
     '&[data-state="checked"]': {
-        b: '$border',
         backgroundColor: '$backgroundActive',
         boxShadow: '$1',
     },
-})
-
-const StyledIndicator = styled(RadioGroup.Indicator, {
-    position: 'absolute',
-    top: 16,
-    right: 16,
-    width: 7,
-    height: 7,
-    borderRadius: '$round',
 })
 
 export type Choice = {
@@ -73,6 +100,8 @@ export const ChoiceGroup = ({
         onValueChange && onValueChange(value)
     }
 
+    // animation
+
     return (
         <RadioGroup.Root
             aria-label={label}
@@ -87,7 +116,11 @@ export const ChoiceGroup = ({
                     {React.cloneElement(choice.label, {
                         'data-checked': value === choice.value ? 'true' : 'false',
                     })}
-                    <RadioGroup.Indicator as={StyledIndicator} />
+                    <RadioGroup.Indicator as={StyledIndicator}>
+                        <CheckIcon />
+                        <FocusCircleIcon />
+                    </RadioGroup.Indicator>
+                    <StyledActionButton onClick={() => alert('edit')}>edit</StyledActionButton>
                 </RadioGroup.Item>
             ))}
         </RadioGroup.Root>

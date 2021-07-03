@@ -7,6 +7,7 @@ import { shadows } from './shadows'
 import { space } from './space'
 import { utils } from './utils'
 import { zIndices } from './zIndices'
+export type { StitchesVariants } from '@stitches/react'
 
 const stitches = createCss({
     theme: {
@@ -57,6 +58,12 @@ export const sommerTheme = theme('sommer', {
     },
 })
 
+export const nightTheme = theme('night', {
+    colors: {
+        ...palettes.night,
+        ...palettes.common,
+    },
+})
 export const globalStyles = global({
     '*': {
         boxSizing: 'border-box',
@@ -66,15 +73,18 @@ export const globalStyles = global({
         listStyle: 'none',
         textDecoration: 'none',
         fontFamily: '$default',
+        alignItems: 'center',
+        appearance: 'none',
     },
     body: {
-        backgroundColor: '$base',
+        background: '$base',
         smooth: 'ease',
     },
     ':focus:not(:focus-visible)': {
         outline: 'none!important',
     },
     '&.dark': darkTheme,
+    '&.night': nightTheme,
 })()
 
 export { styled, css, keyframes, getCssString }

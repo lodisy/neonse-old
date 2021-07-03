@@ -45,7 +45,7 @@ export const parameters = {
         default: 't-liNcAN',
         list: [
             { name: 'dark', class: 'dark', color: '#000' },
-            { name: 'sommer', class: 'sommer', color: 'pink' },
+            { name: 'night', class: 'night', color: 'cyan' },
         ],
     },
 }

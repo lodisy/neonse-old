@@ -4,7 +4,7 @@ import React from 'react'
 import { Portal } from '../Portal'
 import { Slot } from '@radix-ui/react-slot'
 
-const StyledContent = styled('div', {
+export const StyledContent = styled('div', {
     backgroundColor: '$background',
     fontSize: '$xs',
     color: '$text',

@@ -1888,6 +1888,14 @@
     multer "1.4.2"
     tslib "2.2.0"
 
+"@nestjs/platform-ws@^7.6.18":
+  version "7.6.18"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-ws/-/platform-ws-7.6.18.tgz#eb79c5977d0b0834243cdd90c4da113999ca79f7"
+  integrity sha512-35iv5rSI/DuMLBkPJJeDJYp+dpoba7nG5OdQsNQjJ8HuxEi5STLweimDxGazxzbLDNSHFE2ghKM1/Uc732i1zQ==
+  dependencies:
+    tslib "2.2.0"
+    ws "7.4.5"
+
 "@nestjs/schematics@^7.0.0", "@nestjs/schematics@^7.3.1":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-7.3.1.tgz#68b559d2e6a8a9ecf6c984f87eaa7d4e37a910be"
@@ -1905,6 +1913,14 @@
   integrity sha512-1AVk9vWZlPpx4CmzY6z9z0DHFgGCadfr01QdisGFAN740JwKqZWEqz12cVd+nsXDlYQPFRkp2ICBIS/6k1qZGQ==
   dependencies:
     optional "0.1.4"
+    tslib "2.2.0"
+
+"@nestjs/websockets@^7.6.18":
+  version "7.6.18"
+  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-7.6.18.tgz#504426eb241ce528226a8d3ed308c6793cbe4d6c"
+  integrity sha512-QBp+zVAGMksNKa5HnfpZfXzO8FbDO+vGcGbxuXLPqEeH2/HsS1O09uPvi4uG02WtGWIJ+DewWdq/odsukl4lDg==
+  dependencies:
+    iterare "1.2.1"
     tslib "2.2.0"
 
 "@next/env@11.0.1":
@@ -2529,7 +2545,7 @@
     "@radix-ui/react-polymorphic" "0.0.12"
     "@radix-ui/react-primitive" "0.0.14"
 
-"@radix-ui/react-polymorphic@0.0.12":
+"@radix-ui/react-polymorphic@0.0.12", "@radix-ui/react-polymorphic@^0.0.12":
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-polymorphic/-/react-polymorphic-0.0.12.tgz#bf4ae516669b68e059549538104d97322f7c876b"
   integrity sha512-/GYNMicBnGzjD1d2fCAuzql1VeFrp8mqM3xfzT1kxhnV85TKdURO45jBfMgqo17XNXoNhWIAProUsCO4qFAAIg==
@@ -2650,6 +2666,24 @@
     "@radix-ui/react-use-callback-ref" "0.0.5"
     "@radix-ui/react-use-direction" "0.0.1"
     "@radix-ui/react-use-layout-effect" "0.0.5"
+
+"@radix-ui/react-slider@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slider/-/react-slider-0.0.16.tgz#014fe1a054e058781e180544a79a37050e07eb8d"
+  integrity sha512-Ercee3lIFbsYDmo5MMNjH8AO14U6NdNGqbbFhdHQD6FNu0tQTg2PlCt7tD9QTwtZ7Gue5n/5ADp4r5m67RXIaA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/number" "0.0.6"
+    "@radix-ui/primitive" "0.0.5"
+    "@radix-ui/react-compose-refs" "0.0.5"
+    "@radix-ui/react-context" "0.0.5"
+    "@radix-ui/react-polymorphic" "0.0.12"
+    "@radix-ui/react-primitive" "0.0.14"
+    "@radix-ui/react-use-controllable-state" "0.0.6"
+    "@radix-ui/react-use-direction" "0.0.1"
+    "@radix-ui/react-use-layout-effect" "0.0.5"
+    "@radix-ui/react-use-previous" "0.0.5"
+    "@radix-ui/react-use-size" "0.0.6"
 
 "@radix-ui/react-slot@0.0.12", "@radix-ui/react-slot@^0.0.12":
   version "0.0.12"
@@ -4374,6 +4408,13 @@
     "@types/webpack-sources" "*"
     anymatch "^3.0.0"
     source-map "^0.6.0"
+
+"@types/ws@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-7.4.5.tgz#8ff0f7efcd8fea19f51f9dd66cb8b498d172a752"
+  integrity sha512-8mbDgtc8xpxDDem5Gwj76stBDJX35KQ3YBoayxlqUQcL5BZUthiqP/VQ4PQnLHqM4PmlbyO74t98eJpURO+gPA==
+  dependencies:
+    "@types/node" "*"
 
 "@types/yargs-parser@*":
   version "20.2.0"
@@ -14362,10 +14403,10 @@ react-helmet-async@^1.0.7:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-hook-form@^7.9.0:
-  version "7.9.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.9.0.tgz#0b5ed2f262a1e3cc64cfcf855f09a6e236d46ac3"
-  integrity sha512-1SazsTvsC5A4jLxc8fIf0bB92kEp4MGjP69k8s+2nI1spHPha5UkLwaebOXhO9vY95aGqcyBU67pRiv+6T5KZQ==
+react-hook-form@^7.10.0:
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.10.0.tgz#665c9897957a2a8bbf720cef9e913ba1b22b0e86"
+  integrity sha512-J6jJDw61TDNG0cEyLlYKUTPTwJH1Gfp8S8+m5Dt3mLY5vEy7UwKr60rl11ESofKmliFH8DconTVFnZgblhGvyg==
 
 react-instantsearch-core@^6.11.1:
   version "6.11.1"
@@ -17669,6 +17710,11 @@ write-file-atomic@^3.0.0:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
+ws@7.4.5:
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.5.tgz#a484dd851e9beb6fdb420027e3885e8ce48986c1"
+  integrity sha512-xzyu3hFvomRfXKH8vOFMU3OguG6oOvhXMo3xsGy3xWExqaM2dxBbVxuD99O7m3ZUFMvvscsZDqxfgMaRr/Nr1g==
+
 ws@^6.2.1:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
@@ -17680,6 +17726,11 @@ ws@^7.4.5:
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.0.tgz#0033bafea031fb9df041b2026fc72a571ca44691"
   integrity sha512-6ezXvzOZupqKj4jUqbQ9tXuJNo+BR2gU8fFRk3XCP3e0G6WT414u5ELe6Y0vtp7kmSJ3F7YWObSNr1ESsgi4vw==
+
+ws@^7.5.1:
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.1.tgz#44fc000d87edb1d9c53e51fbc69a0ac1f6871d66"
+  integrity sha512-2c6faOUH/nhoQN6abwMloF7Iyl0ZS2E9HGtsiLrWn0zOOMWlhtDmdf/uihDt6jnuCxgtwGBNy6Onsoy2s2O2Ow==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"

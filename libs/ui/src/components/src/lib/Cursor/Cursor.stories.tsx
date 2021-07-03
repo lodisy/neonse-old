@@ -3,7 +3,7 @@ import { Cursor } from './Cursor'
 
 export default {
     component: Cursor,
-    title: 'Cursor',
+    title: 'Components/Cursor',
 }
 
 export const Default = () => (

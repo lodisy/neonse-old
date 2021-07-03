@@ -4,7 +4,7 @@ import { Popover } from './Popover'
 
 export default {
     component: Popover,
-    title: 'Popover',
+    title: 'Components/Popover',
     argTypes: {
         status: {
             options: ['default', 'warning', 'error'],

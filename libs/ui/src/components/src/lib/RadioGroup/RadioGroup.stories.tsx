@@ -5,7 +5,7 @@ import { RadioGroup } from './RadioGroup'
 
 export default {
     component: RadioGroup,
-    title: 'RadioGroup',
+    title: 'Components/RadioGroup',
 } as Meta
 
 const radios = ['cat', 'dog', 'fish']

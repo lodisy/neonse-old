@@ -1,3 +1,4 @@
-export * from './components/src/index'
-export * from './icons/src/index'
-export * from './theme/src/index'
+export * from '@neonse/ui/components'
+export * from '@neonse/ui/icons'
+export * from '@neonse/ui/theme'
+export * from '@neonse/ui/animations'

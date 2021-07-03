@@ -1,7 +1,8 @@
+import { keyframes } from './stitches.config'
 const size =
     (config: any) =>
-    ({ value, ratio = 1 }: { value: string | number; ratio?: number }) => ({
-        width: value,
+    ({ width, ratio = 1 }: { width: string | number; ratio?: number }) => ({
+        width,
         aspectRatio: ratio,
     })
 
@@ -36,6 +37,23 @@ const smoothen = (config: any) => (props: string[]) => ({
     transitionTimingFunction: 'ease-in',
 })
 
+const linearGradient =
+    (config: any) =>
+    ({ deg = 90, from, to }: { deg: number; from: string; to: string }) => ({
+        background: `linear-gradient(${deg} ${from} ${to})`,
+    })
+
+const blur = (config: any) => (value: string) => ({
+    backdropFilter: `blur(${value})`,
+})
+
+const transY = (config: any) => (value: string) => ({
+    transform: `translateY(${value})`,
+})
+const transX = (config: any) => (value: string) => ({
+    transform: `translateX(${value})`,
+})
+
 export const utils = {
     size,
     marginX,
@@ -44,4 +62,8 @@ export const utils = {
     disabled,
     b,
     smoothen,
+    linearGradient,
+    blur,
+    transY,
+    transX,
 }

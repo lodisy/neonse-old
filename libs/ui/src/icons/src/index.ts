@@ -1,3 +1,5 @@
 export * from './lib/AlipayIcon'
 export * from './lib/StripeIcon'
 export * from './lib/WechatPayIcon'
+export * from './lib/CheckIcon'
+export * from './lib/FocusCircleIcon'

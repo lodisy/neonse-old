@@ -5,7 +5,7 @@ import { Tooltip } from './Tooltip'
 
 export default {
     component: Tooltip,
-    title: 'Tooltip',
+    title: 'Components/Tooltip',
 } as Meta
 
 export const Default = () => (

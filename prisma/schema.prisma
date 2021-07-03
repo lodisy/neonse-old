@@ -65,20 +65,25 @@ model User {
   email              String    @unique
   username           String?   @unique
   password           String
+  roles              Role[]
   jwtToken           String    @unique
   resetPasswordToken String    @unique
   identifierToken    String    @unique // for guest ?
   createdAt          DateTime  @default(now())
   updatedAt          DateTime? @updatedAt
   profile            Profile? // a user has one profile
+}
 
+model Guest {
+  identifierToken String  @unique
+  email           String?
 }
 
 model Profile {
-  id         String    @id @default(cuid())
-  user       User?     @relation(fields: [userId], references: [id])
-  userId     String?
-  role       Role      @default(READER)
+  id     String  @id @default(cuid())
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
   brands     Brand[] // many to many
   brandId    String?   @unique
   name       String

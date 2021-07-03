@@ -5,7 +5,7 @@ import { ScrollArea } from './ScrollArea'
 
 export default {
     component: ScrollArea,
-    title: 'ScrollArea',
+    title: 'Components/ScrollArea',
 } as Meta
 
 const Template: Story<ScrollAreaProps> = (args) => (

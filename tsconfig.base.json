@@ -15,14 +15,17 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@neonse/=ui/src/animations": ["libs/=ui/src/animations/src/index.ts"],
             "@neonse/auth": ["libs/auth/src/index.ts"],
+            "@neonse/chat": ["libs/chat/src/index.ts"],
             "@neonse/configs": ["libs/configs/src/index.ts"],
             "@neonse/password": ["libs/password/src/index.ts"],
             "@neonse/prisma": ["libs/prisma/src/index.ts"],
             "@neonse/products": ["libs/products/src/index.ts"],
             "@neonse/ui": ["libs/ui/src/index.ts"],
-            "@neonse/ui/icons": ["libs/ui/src/icons/src/index.ts"],
             "@neonse/ui/components": ["libs/ui/src/components/src/index.ts"],
+            "@neonse/ui/icons": ["libs/ui/src/icons/src/index.ts"],
+            "@neonse/ui/animations": ["libs/ui/src/animations/src/index.ts"],
             "@neonse/ui/theme": ["libs/ui/src/theme/src/index.ts"],
             "@neonse/users": ["libs/users/src/index.ts"]
         }

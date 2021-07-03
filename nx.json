@@ -25,6 +25,9 @@
         "auth": {
             "tags": []
         },
+        "chat": {
+            "tags": []
+        },
         "configs": {
             "tags": []
         },
@@ -47,17 +50,19 @@
         "ui": {
             "tags": []
         },
+        "ui-components": {
+            "tags": []
+        },
         "ui-e2e": {
             "tags": [],
             "implicitDependencies": ["ui"]
         },
-        "ui-components": {
-            "tags": []
-        },
         "ui-icons": {
             "tags": []
         },
-
+        "ui-animations": {
+            "tags": []
+        },
         "ui-theme": {
             "tags": []
         },

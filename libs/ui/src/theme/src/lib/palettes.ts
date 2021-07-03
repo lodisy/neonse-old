@@ -14,6 +14,8 @@ import { gray, grayDark, red, grass, amber, blackA, whiteA, purpleDark, cyanDark
  * - 10 for Solid background hovered (white or black text)
  * - 11 for Text
  * - 12 for High contrast Text
+ *
+ * TODO night theme gradient
  */
 
 export const palettes = {
@@ -30,6 +32,7 @@ export const palettes = {
         base: gray.gray2,
 
         background: gray.gray3,
+
         backgroundHovered: gray.gray4,
         backgroundActive: gray.gray5,
 
@@ -119,10 +122,35 @@ export const palettes = {
         wechatText: grayDark.gray11,
     },
     night: {
-        base: purpleDark.purple1,
+        base: `linear-gradient(90deg, ${purpleDark.purple1}, ${cyanDark.cyan1})`,
 
         background: purpleDark.purple2,
-        backgroundHovered: cyanDark.cyan1,
+        backgroundHovered: purpleDark.purple4,
+        backgroundActive: purpleDark.purple5,
+
+        border: purpleDark.purple6,
+        borderFocused: purpleDark.purple7,
+        borderHovered: purpleDark.purple8,
+
+        solidBackground: cyanDark.cyan12,
+        solidBackgroundHovered: cyanDark.cyan11,
+        solidBackgroundDisabled: cyanDark.cyan9,
+        solidBackgroundText: cyanDark.cyan1,
+
+        text: cyanDark.cyan11,
+        textContrast: cyanDark.cyan12,
+
+        overlay: whiteA.whiteA6,
+
+        // icons
+        alipayIcon: 'hsl(199, 100%, 45%)',
+        alipayIconText: grayDark.gray1,
+        alipayText: grayDark.gray11,
+
+        stripe: 'hsl(0, 0%, 100%)',
+
+        wechatIcon: 'hsl(120, 75%, 39%)',
+        wechatText: grayDark.gray11,
     },
     sommer: {},
     eiscream: {},

@@ -72,6 +72,27 @@
                 }
             }
         },
+        "chat": {
+            "root": "libs/chat",
+            "sourceRoot": "libs/chat/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/chat/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/chat"],
+                    "options": {
+                        "jestConfig": "libs/chat/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "configs": {
             "root": "libs/configs",
             "sourceRoot": "libs/configs/src",
@@ -286,6 +307,27 @@
                 }
             }
         },
+        "ui-components": {
+            "root": "libs/ui/src/components",
+            "sourceRoot": "libs/ui/src/components/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/ui/src/components/**/*.{ts,tsx,js,jsx}"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/ui/src/components"],
+                    "options": {
+                        "jestConfig": "libs/ui/src/components/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "ui-e2e": {
             "root": "apps/ui-e2e",
             "sourceRoot": "apps/ui-e2e/src",
@@ -312,27 +354,6 @@
                 }
             }
         },
-        "ui-components": {
-            "root": "libs/ui/src/components",
-            "sourceRoot": "libs/ui/src/components/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/ui/src/components/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/ui/src/components"],
-                    "options": {
-                        "jestConfig": "libs/ui/src/components/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
         "ui-icons": {
             "root": "libs/ui/src/icons",
             "sourceRoot": "libs/ui/src/icons/src",
@@ -354,7 +375,27 @@
                 }
             }
         },
-
+        "ui-animations": {
+            "root": "libs/ui/src/animations",
+            "sourceRoot": "libs/ui/src/animations/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/ui/src/animations/**/*.{ts,tsx,js,jsx}"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/ui/src/animations"],
+                    "options": {
+                        "jestConfig": "libs/ui/src/animations/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "ui-theme": {
             "root": "libs/ui/src/theme",
             "sourceRoot": "libs/ui/src/theme/src",
