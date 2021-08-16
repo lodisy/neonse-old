@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { EnumFileTypeFilter } from '../prisma/enum-file-type-filter.input';
 import { BytesFilter } from '../prisma/bytes-filter.input';
@@ -24,7 +23,7 @@ export class FileWhereInput {
     @Field(() => [FileWhereInput], {nullable:true})
     NOT?: Array<FileWhereInput>;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     id?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})
@@ -40,7 +39,7 @@ export class FileWhereInput {
     caption?: StringNullableFilter;
 
     @Field(() => EnumFileTypeFilter, {nullable:true})
-    type?: EnumFileTypeFilter;
+    format?: EnumFileTypeFilter;
 
     @Field(() => BytesFilter, {nullable:true})
     size?: BytesFilter;

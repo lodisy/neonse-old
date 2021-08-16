@@ -41,16 +41,12 @@ export class Profile {
     followedBy?: Array<Profile>;
     @Field(() => [Profile], {nullable:true})
     following?: Array<Profile>;
-
     @Field(() => [Review], {nullable:true})
     reviews?: Array<Review>;
-
     @Field(() => [File], {nullable:true})
     uploads?: Array<File>;
-
     @Field(() => [Like], {nullable:true})
     likes?: Array<Like>;
-
     @Field(() => [Comment], {nullable:true})
     comments?: Array<Comment>;
 }

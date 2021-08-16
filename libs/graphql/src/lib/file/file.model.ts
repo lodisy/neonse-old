@@ -25,40 +25,30 @@ export class File {
     dimensions!: string | null;
     @Field(() => Date, {nullable:false})
     createdAt!: Date;
-
     @Field(() => String, {nullable:true})
     title!: string | null;
-
     @Field(() => Int, {nullable:true})
     width!: number | null;
-
     @Field(() => Int, {nullable:true})
     height!: number | null;
-
     @Field(() => Source, {nullable:true})
     source?: Source;
-
     @Field(() => Boolean, {nullable:true})
     autoPlay!: boolean | null;
-
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
-
     @Field(() => Profile, {nullable:true})
     profile?: Profile;
-
     @Field(() => String, {nullable:true})
     profileId!: string | null;
-
     @Field(() => Profile, {nullable:true})
     profileAvatar?: Profile;
-
     @Field(() => String, {nullable:true})
     profileAvatarId!: string | null;
-
     @Field(() => Review, {nullable:true})
     review?: Review;
-
     @Field(() => String, {nullable:true})
     reviewId!: string | null;
+    @Field(() => FileType, {nullable:false})
+    format!: keyof typeof FileType;
 }

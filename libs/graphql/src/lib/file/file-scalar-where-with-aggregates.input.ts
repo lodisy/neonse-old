@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 import { EnumFileTypeWithAggregatesFilter } from '../prisma/enum-file-type-with-aggregates-filter.input';
 import { BytesWithAggregatesFilter } from '../prisma/bytes-with-aggregates-filter.input';
@@ -21,7 +20,7 @@ export class FileScalarWhereWithAggregatesInput {
     @Field(() => [FileScalarWhereWithAggregatesInput], {nullable:true})
     NOT?: Array<FileScalarWhereWithAggregatesInput>;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     id?: StringWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
@@ -37,7 +36,7 @@ export class FileScalarWhereWithAggregatesInput {
     caption?: StringNullableWithAggregatesFilter;
 
     @Field(() => EnumFileTypeWithAggregatesFilter, {nullable:true})
-    type?: EnumFileTypeWithAggregatesFilter;
+    format?: EnumFileTypeWithAggregatesFilter;
 
     @Field(() => BytesWithAggregatesFilter, {nullable:true})
     size?: BytesWithAggregatesFilter;

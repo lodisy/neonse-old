@@ -22,7 +22,7 @@ export class FileMaxAggregate {
     caption?: string;
 
     @Field(() => FileType, {nullable:true})
-    type?: keyof typeof FileType;
+    format?: keyof typeof FileType;
 
     @Field(() => String, {nullable:true})
     size?: Buffer;

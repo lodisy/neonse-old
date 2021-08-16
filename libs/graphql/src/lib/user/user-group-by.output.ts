@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { Role } from '../prisma/role.enum';
+import { HideField } from '@nestjs/graphql';
 import { UserCountAggregate } from './user-count-aggregate.output';
 import { UserMinAggregate } from './user-min-aggregate.output';
 import { UserMaxAggregate } from './user-max-aggregate.output';
@@ -17,20 +17,17 @@ export class UserGroupBy {
     @Field(() => String, {nullable:true})
     username?: string;
 
-    @Field(() => String, {nullable:false})
+    @HideField()
     password!: string;
 
-    @Field(() => [Role], {nullable:true})
-    roles?: Array<keyof typeof Role>;
-
-    @Field(() => String, {nullable:false})
+    @HideField()
     jwtToken!: string;
 
-    @Field(() => String, {nullable:false})
-    resetPasswordToken!: string;
+    @HideField()
+    resetPasswordToken?: string;
 
-    @Field(() => String, {nullable:false})
-    identifierToken!: string;
+    @HideField()
+    identifierToken?: string;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

@@ -27,16 +27,6 @@ generator nestgraphql {
 
 // shared
 
-enum Role {
-  READER
-  BUYER
-  AUTHOR
-  SELLER
-  EDITOR
-  MANAGER
-  ADMIN
-}
-
 enum Size {
   XS
   S
@@ -97,30 +87,31 @@ model Source {
 
 enum FileType {
   // image
-  JPEG
-  JPG
-  PNG
-  GIF
-  WEBP
+  jpg
+  jpeg
+  png
+  gif
+  webp
+  raw
+  svg
   // video
-  MP4
-  WEBM
+  mp4
+  webm
   // sound
-  MP3
-  OGG
+  mp3
+  ogg
   // PDF
-  PDF
+  pdf
   OTHER
 }
 
 model File {
-  /// @HideField({input:true})
   id              String   @id @default(cuid())
   name            String
   alt             String?
   title           String?
   caption         String?
-  type            FileType
+  format          FileType
   size            Bytes
   width           Int?
   height          Int?
@@ -136,26 +127,47 @@ model File {
   reviewId        String?
 }
 
+// 角色
+
+enum RoleStatus {
+  NORMAL
+  ABNORMAL
+}
+
+model Role {
+  id          String      @id @default(cuid())
+  /// @Validator.MaxLength(10)
+  name        String
+  slug        String      @unique
+  /// @Validator.MaxLength(50)
+  description String?
+  /// @HideField({input:true, output:false})
+  status      RoleStatus? @default(NORMAL)
+  isDefault   Boolean?    @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime?   @updatedAt
+  users       User[]
+}
+
 // User Model
 
 model User {
-  /// @HideField({input:true})
   id                 String    @id @default(cuid())
   /// @Validator.IsEmail()
   email              String    @unique
   username           String?   @unique
   /// @Validator.MinLength(6)
   /// @Validator.MaxLength(10)
-  /// @HideField({input:true})
+  /// @HideField()
   password           String
-  /// @HideField({input:true})
+  /// @HideField({ output: true, input: true })
   roles              Role[]
-  /// @HideField({input:true})
+  /// @HideField({ output: true, input: true })
   jwtToken           String    @unique
-  /// @HideField({input:true})
-  resetPasswordToken String    @unique
-  /// @HideField({input:true})
-  identifierToken    String    @unique
+  /// @HideField({ output: true, input: true })
+  resetPasswordToken String?   @unique
+  /// @HideField({ output: true, input: true })
+  identifierToken    String?   @unique
   /// @HideField({input:true})
   createdAt          DateTime  @default(now())
   /// @HideField({input:true})
@@ -339,7 +351,7 @@ model Comment {
   id        String   @id @default(cuid())
   name      String
   email     String
-  by        Profile? @relation(fields: [profileId], references: [id]) // 可选已注册用户
+  by        Profile? @relation(fields: [profileId], references: [id]) // 可�������已注册用户
   profileId String?  @unique
   content   String
 }

@@ -5,22 +5,16 @@ import { Profile } from '../profile/profile.model';
 
 @ObjectType()
 export class Comment {
-
     @Field(() => ID, {nullable:false})
     id!: string;
-
     @Field(() => String, {nullable:false})
     name!: string;
-
     @Field(() => String, {nullable:false})
     email!: string;
-
     @Field(() => Profile, {nullable:true})
     by?: Profile;
-
     @Field(() => String, {nullable:true})
     profileId!: string | null;
-
     @Field(() => String, {nullable:false})
     content!: string;
 }

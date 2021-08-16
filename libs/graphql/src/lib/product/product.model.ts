@@ -43,10 +43,8 @@ export class Product {
     updatedAt!: Date | null;
     @Field(() => Boolean, { nullable: true, defaultValue: true })
     draft!: boolean | null;
-
     @Field(() => [Review], {nullable:true})
     reviews?: Array<Review>;
-
     @Field(() => [Like], {nullable:true})
     likes?: Array<Like>;
 }

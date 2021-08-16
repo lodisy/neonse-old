@@ -25,6 +25,11 @@ export { EnumFileTypeFieldUpdateOperationsInput } from './enum-file-type-field-u
 export { EnumFileTypeFilter } from './enum-file-type-filter.input';
 export { EnumFileTypeWithAggregatesFilter } from './enum-file-type-with-aggregates-filter.input';
 export { EnumRoleNullableListFilter } from './enum-role-nullable-list-filter.input';
+export { EnumRoleStatusFieldUpdateOperationsInput } from './enum-role-status-field-update-operations.input';
+export { EnumRoleStatusFilter } from './enum-role-status-filter.input';
+export { EnumRoleStatusNullableFilter } from './enum-role-status-nullable-filter.input';
+export { EnumRoleStatusNullableWithAggregatesFilter } from './enum-role-status-nullable-with-aggregates-filter.input';
+export { EnumRoleStatusWithAggregatesFilter } from './enum-role-status-with-aggregates-filter.input';
 export { EnumSizeFieldUpdateOperationsInput } from './enum-size-field-update-operations.input';
 export { EnumSizeFilter } from './enum-size-filter.input';
 export { EnumSizeWithAggregatesFilter } from './enum-size-with-aggregates-filter.input';
@@ -52,6 +57,10 @@ export { NestedEnumContentTypeFilter } from './nested-enum-content-type-filter.i
 export { NestedEnumContentTypeWithAggregatesFilter } from './nested-enum-content-type-with-aggregates-filter.input';
 export { NestedEnumFileTypeFilter } from './nested-enum-file-type-filter.input';
 export { NestedEnumFileTypeWithAggregatesFilter } from './nested-enum-file-type-with-aggregates-filter.input';
+export { NestedEnumRoleStatusFilter } from './nested-enum-role-status-filter.input';
+export { NestedEnumRoleStatusNullableFilter } from './nested-enum-role-status-nullable-filter.input';
+export { NestedEnumRoleStatusNullableWithAggregatesFilter } from './nested-enum-role-status-nullable-with-aggregates-filter.input';
+export { NestedEnumRoleStatusWithAggregatesFilter } from './nested-enum-role-status-with-aggregates-filter.input';
 export { NestedEnumSizeFilter } from './nested-enum-size-filter.input';
 export { NestedEnumSizeWithAggregatesFilter } from './nested-enum-size-with-aggregates-filter.input';
 export { NestedFloatFilter } from './nested-float-filter.input';
@@ -67,6 +76,7 @@ export { NestedStringWithAggregatesFilter } from './nested-string-with-aggregate
 export { NullableBigIntFieldUpdateOperationsInput } from './nullable-big-int-field-update-operations.input';
 export { NullableBoolFieldUpdateOperationsInput } from './nullable-bool-field-update-operations.input';
 export { NullableDateTimeFieldUpdateOperationsInput } from './nullable-date-time-field-update-operations.input';
+export { NullableEnumRoleStatusFieldUpdateOperationsInput } from './nullable-enum-role-status-field-update-operations.input';
 export { NullableIntFieldUpdateOperationsInput } from './nullable-int-field-update-operations.input';
 export { NullableStringFieldUpdateOperationsInput } from './nullable-string-field-update-operations.input';
 export { ProductCreateimagesInput } from './product-createimages.input';
@@ -74,6 +84,7 @@ export { ProductUpdateimagesInput } from './product-updateimages.input';
 export { ProductVariantCreateimagesInput } from './product-variant-createimages.input';
 export { ProductVariantUpdateimagesInput } from './product-variant-updateimages.input';
 export { QueryMode } from './query-mode.enum';
+export { RoleStatus } from './role-status.enum';
 export { Role } from './role.enum';
 export { Size } from './size.enum';
 export { SortOrder } from './sort-order.enum';

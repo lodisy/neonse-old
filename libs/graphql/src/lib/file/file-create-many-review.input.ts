@@ -1,13 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { FileType } from '../prisma/file-type.enum';
 import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class FileCreateManyReviewInput {
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     id?: string;
 
     @Field(() => String, {nullable:false})
@@ -23,7 +22,7 @@ export class FileCreateManyReviewInput {
     caption?: string;
 
     @Field(() => FileType, {nullable:false})
-    type!: keyof typeof FileType;
+    format!: keyof typeof FileType;
 
     @Field(() => String, {nullable:false})
     size!: Buffer;

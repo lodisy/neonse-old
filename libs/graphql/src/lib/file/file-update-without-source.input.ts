@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { EnumFileTypeFieldUpdateOperationsInput } from '../prisma/enum-file-type-field-update-operations.input';
 import { BytesFieldUpdateOperationsInput } from '../prisma/bytes-field-update-operations.input';
@@ -15,7 +14,7 @@ import { ReviewUpdateOneWithoutMediaInput } from '../review/review-update-one-wi
 @InputType()
 export class FileUpdateWithoutSourceInput {
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
@@ -31,7 +30,7 @@ export class FileUpdateWithoutSourceInput {
     caption?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => EnumFileTypeFieldUpdateOperationsInput, {nullable:true})
-    type?: EnumFileTypeFieldUpdateOperationsInput;
+    format?: EnumFileTypeFieldUpdateOperationsInput;
 
     @Field(() => BytesFieldUpdateOperationsInput, {nullable:true})
     size?: BytesFieldUpdateOperationsInput;

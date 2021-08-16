@@ -21,7 +21,7 @@ export class FileCountAggregate {
     caption!: number;
 
     @Field(() => Int, {nullable:false})
-    type!: number;
+    format!: number;
 
     @Field(() => Int, {nullable:false})
     size!: number;

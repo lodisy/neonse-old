@@ -1,9 +1,9 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { EnumRoleNullableListFilter } from '../prisma/enum-role-nullable-list-filter.input';
+import { RoleListRelationFilter } from '../role/role-list-relation-filter.input';
+import { HideField } from '@nestjs/graphql';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { ProfileRelationFilter } from '../profile/profile-relation-filter.input';
@@ -20,7 +20,7 @@ export class UserWhereInput {
     @Field(() => [UserWhereInput], {nullable:true})
     NOT?: Array<UserWhereInput>;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     id?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})
@@ -29,20 +29,20 @@ export class UserWhereInput {
     @Field(() => StringNullableFilter, {nullable:true})
     username?: StringNullableFilter;
 
-    @HideField()
+    @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
 
     @HideField()
-    roles?: EnumRoleNullableListFilter;
+    roles?: RoleListRelationFilter;
 
     @HideField()
     jwtToken?: StringFilter;
 
     @HideField()
-    resetPasswordToken?: StringFilter;
+    resetPasswordToken?: StringNullableFilter;
 
     @HideField()
-    identifierToken?: StringFilter;
+    identifierToken?: StringNullableFilter;
 
     @HideField()
     createdAt?: DateTimeFilter;

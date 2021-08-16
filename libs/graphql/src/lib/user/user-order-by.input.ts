@@ -6,7 +6,7 @@ import { HideField } from '@nestjs/graphql';
 @InputType()
 export class UserOrderByInput {
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
@@ -15,11 +15,8 @@ export class UserOrderByInput {
     @Field(() => SortOrder, {nullable:true})
     username?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     password?: keyof typeof SortOrder;
-
-    @HideField()
-    roles?: keyof typeof SortOrder;
 
     @HideField()
     jwtToken?: keyof typeof SortOrder;

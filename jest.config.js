@@ -18,5 +18,7 @@ module.exports = {
         '<rootDir>/libs/=ui/src/animations',
         '<rootDir>/libs/ui/src/animations',
         '<rootDir>/libs/graphql',
+        '<rootDir>/libs/shared',
+        '<rootDir>/libs/role',
     ],
 }

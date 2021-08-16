@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { FileType } from '../prisma/file-type.enum';
 import { Int } from '@nestjs/graphql';
 import { ProfileCreateNestedOneWithoutUploadsInput } from '../profile/profile-create-nested-one-without-uploads.input';
@@ -10,7 +9,7 @@ import { ReviewCreateNestedOneWithoutMediaInput } from '../review/review-create-
 @InputType()
 export class FileCreateWithoutSourceInput {
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     id?: string;
 
     @Field(() => String, {nullable:false})
@@ -26,7 +25,7 @@ export class FileCreateWithoutSourceInput {
     caption?: string;
 
     @Field(() => FileType, {nullable:false})
-    type!: keyof typeof FileType;
+    format!: keyof typeof FileType;
 
     @Field(() => String, {nullable:false})
     size!: Buffer;

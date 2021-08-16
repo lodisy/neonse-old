@@ -8,28 +8,20 @@ import { File } from '../file/file.model';
 
 @ObjectType()
 export class Review {
-
     @Field(() => ID, {nullable:false})
     id!: string;
-
     @Field(() => Profile, {nullable:false})
     by?: Profile;
-
     @Field(() => String, {nullable:false})
     profileId!: string;
-
     @Field(() => Product, {nullable:false})
     for?: Product;
-
     @Field(() => String, {nullable:false})
     productId!: string;
-
     @Field(() => Int, {nullable:false})
     rate!: number;
-
     @Field(() => String, {nullable:true})
     description!: string | null;
-
     @Field(() => [File], {nullable:true})
     media?: Array<File>;
 }

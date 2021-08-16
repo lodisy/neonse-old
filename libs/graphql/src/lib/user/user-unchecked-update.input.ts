@@ -1,17 +1,16 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
+import { HideField } from '@nestjs/graphql';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { UserUpdaterolesInput } from '../prisma/user-updateroles.input';
 import { ProfileUncheckedUpdateOneWithoutUserInput } from '../profile/profile-unchecked-update-one-without-user.input';
 
 @InputType()
 export class UserUncheckedUpdateInput {
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
@@ -20,26 +19,23 @@ export class UserUncheckedUpdateInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     username?: NullableStringFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     password?: StringFieldUpdateOperationsInput;
 
     @HideField()
     jwtToken?: StringFieldUpdateOperationsInput;
 
     @HideField()
-    resetPasswordToken?: StringFieldUpdateOperationsInput;
+    resetPasswordToken?: NullableStringFieldUpdateOperationsInput;
 
     @HideField()
-    identifierToken?: StringFieldUpdateOperationsInput;
+    identifierToken?: NullableStringFieldUpdateOperationsInput;
 
     @HideField()
     createdAt?: DateTimeFieldUpdateOperationsInput;
 
     @HideField()
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput;
-
-    @HideField()
-    roles?: UserUpdaterolesInput;
 
     @Field(() => ProfileUncheckedUpdateOneWithoutUserInput, {nullable:true})
     profile?: ProfileUncheckedUpdateOneWithoutUserInput;

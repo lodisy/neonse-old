@@ -27,7 +27,7 @@ export class FileGroupBy {
     caption?: string;
 
     @Field(() => FileType, {nullable:false})
-    type!: keyof typeof FileType;
+    format!: keyof typeof FileType;
 
     @Field(() => String, {nullable:false})
     size!: Buffer;

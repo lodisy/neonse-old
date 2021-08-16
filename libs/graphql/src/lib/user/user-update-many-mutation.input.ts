@@ -1,16 +1,15 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
+import { HideField } from '@nestjs/graphql';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { UserUpdaterolesInput } from '../prisma/user-updateroles.input';
 
 @InputType()
 export class UserUpdateManyMutationInput {
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
@@ -19,24 +18,21 @@ export class UserUpdateManyMutationInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     username?: NullableStringFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     password?: StringFieldUpdateOperationsInput;
 
     @HideField()
     jwtToken?: StringFieldUpdateOperationsInput;
 
     @HideField()
-    resetPasswordToken?: StringFieldUpdateOperationsInput;
+    resetPasswordToken?: NullableStringFieldUpdateOperationsInput;
 
     @HideField()
-    identifierToken?: StringFieldUpdateOperationsInput;
+    identifierToken?: NullableStringFieldUpdateOperationsInput;
 
     @HideField()
     createdAt?: DateTimeFieldUpdateOperationsInput;
 
     @HideField()
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput;
-
-    @HideField()
-    roles?: UserUpdaterolesInput;
 }

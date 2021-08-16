@@ -40,6 +40,12 @@
         "products": {
             "tags": []
         },
+        "role": {
+            "tags": []
+        },
+        "shared": {
+            "tags": []
+        },
         "store": {
             "tags": []
         },

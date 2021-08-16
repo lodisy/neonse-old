@@ -1,9 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
-import { EnumRoleNullableListFilter } from '../prisma/enum-role-nullable-list-filter.input';
+import { HideField } from '@nestjs/graphql';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullable-with-aggregates-filter.input';
 
@@ -19,7 +18,7 @@ export class UserScalarWhereWithAggregatesInput {
     @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
     NOT?: Array<UserScalarWhereWithAggregatesInput>;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     id?: StringWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
@@ -28,20 +27,17 @@ export class UserScalarWhereWithAggregatesInput {
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     username?: StringNullableWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     password?: StringWithAggregatesFilter;
-
-    @HideField()
-    roles?: EnumRoleNullableListFilter;
 
     @HideField()
     jwtToken?: StringWithAggregatesFilter;
 
     @HideField()
-    resetPasswordToken?: StringWithAggregatesFilter;
+    resetPasswordToken?: StringNullableWithAggregatesFilter;
 
     @HideField()
-    identifierToken?: StringWithAggregatesFilter;
+    identifierToken?: StringNullableWithAggregatesFilter;
 
     @HideField()
     createdAt?: DateTimeWithAggregatesFilter;

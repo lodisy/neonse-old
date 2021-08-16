@@ -22,6 +22,8 @@
             "@neonse/password": ["libs/password/src/index.ts"],
             "@neonse/prisma": ["libs/prisma/src/index.ts"],
             "@neonse/products": ["libs/products/src/index.ts"],
+            "@neonse/role": ["libs/role/src/index.ts"],
+            "@neonse/shared": ["libs/shared/src/index.ts"],
             "@neonse/ui": ["libs/ui/src/index.ts"],
             "@neonse/ui/animations": ["libs/ui/src/animations/src/index.ts"],
             "@neonse/ui/components": ["libs/ui/src/components/src/index.ts"],

@@ -1,11 +1,10 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class FileMinAggregateInput {
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
@@ -21,7 +20,7 @@ export class FileMinAggregateInput {
     caption?: true;
 
     @Field(() => Boolean, {nullable:true})
-    type?: true;
+    format?: true;
 
     @Field(() => Boolean, {nullable:true})
     size?: true;
