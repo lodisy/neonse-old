@@ -13,6 +13,10 @@ const items = ['a', 'b', 'c', 'd', 'e', 'f']
 export const Default = () => {
     return (
         <Carousel
+            width={{
+                '@initial': '80vw',
+                '@sm': '100vw',
+            }}
             slidesPerView={3}
             springConfig={{
                 mass: 1,

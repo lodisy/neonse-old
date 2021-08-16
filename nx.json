@@ -25,10 +25,10 @@
         "auth": {
             "tags": []
         },
-        "chat": {
+        "configs": {
             "tags": []
         },
-        "configs": {
+        "graphql": {
             "tags": []
         },
         "password": {
@@ -47,7 +47,13 @@
             "tags": [],
             "implicitDependencies": ["store"]
         },
+        "store-native": {
+            "tags": []
+        },
         "ui": {
+            "tags": []
+        },
+        "ui-animations": {
             "tags": []
         },
         "ui-components": {
@@ -60,14 +66,12 @@
         "ui-icons": {
             "tags": []
         },
-        "ui-animations": {
-            "tags": []
-        },
         "ui-theme": {
             "tags": []
         },
         "users": {
             "tags": []
         }
-    }
+    },
+    "plugins": ["@nxrocks/nx-flutter"]
 }

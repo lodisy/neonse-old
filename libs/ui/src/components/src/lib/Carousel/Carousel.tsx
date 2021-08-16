@@ -1,12 +1,11 @@
 /**
- * TODO padding not working
+ * TODO responsive
  */
 
 import React, { useRef, useEffect } from 'react'
-import { animated, useSpring, SpringConfig } from 'react-spring'
+import { animated, useSpring, SpringConfig } from '@react-spring/web'
 import { useDrag, rubberbandIfOutOfBounds } from '@use-gesture/react'
-import { styled, css } from '@neonse/ui/theme'
-import { Flex } from '../Flex'
+import { styled } from '@neonse/ui/theme'
 
 const StyledCarousel = styled('div', {
     overflow: 'hidden',
@@ -21,7 +20,10 @@ const StyledContainer = styled(animated.div, {
     cursor: 'grab',
 })
 
-const StyledItem = styled(Flex, {
+const StyledItem = styled('div', {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     minHeight: 150,
     borderRadius: '$1',
 })
@@ -37,8 +39,9 @@ export type CarouselProps = {
     onIndexChange?: (index: number, isLast: boolean) => void
     children: React.ReactNode
     slidesPerView?: number
+    aspectRatio?: number
     gap?: number
-    width?: string
+    width?: string | Object
     padding?: number
     springConfig?: SpringConfig
     rubberBandConst?: number
@@ -49,14 +52,9 @@ export const Carousel = ({
     children,
     onIndexChange,
     slidesPerView = 3,
+    aspectRatio = 4 / 3,
     width = '80vw',
     gap = 15,
-    /**
-     * Optional will adjust the positioning of the slide after the first page
-     * Useful if you want to show the next slide already a little bit.
-     * Only works properly if you apply right padding on the `containerClassName`
-     * You should set it to the appliedPadding / 2
-     */
     padding = 0, // 用来显示部分下一张 slide
     springConfig = fasterConfig,
     rubberBandConst = 0.2,
@@ -215,7 +213,6 @@ export const Carousel = ({
         {
             axis: 'x',
             target: containerRef,
-            // inertia: true,
             pointer: {
                 touch: true,
                 capture: false,
@@ -235,7 +232,12 @@ export const Carousel = ({
             <StyledContainer role="region" aria-label="carousel" draggable="false" ref={containerRef} style={spring}>
                 {React.Children.map(children, (child, i) =>
                     React.cloneElement(
-                        <StyledItem key={i} align="center" justify="center">
+                        <StyledItem
+                            key={i}
+                            css={{
+                                aspectRatio,
+                            }}
+                        >
                             {child}
                         </StyledItem>,
                         {

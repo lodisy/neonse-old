@@ -1,0 +1,647 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AddressCountAggregate {
+  id: Int!
+  profileId: Int!
+  name: Int!
+  email: Int!
+  phone: Int!
+  street: Int!
+  district: Int!
+  city: Int!
+  state: Int!
+  zip: Int!
+  country: Int!
+  _all: Int!
+}
+
+type AddressMinAggregate {
+  id: String
+  profileId: String
+  name: String
+  email: String
+  phone: String
+  street: String
+  district: String
+  city: String
+  state: String
+  zip: String
+  country: String
+}
+
+type AddressMaxAggregate {
+  id: String
+  profileId: String
+  name: String
+  email: String
+  phone: String
+  street: String
+  district: String
+  city: String
+  state: String
+  zip: String
+  country: String
+}
+
+type User {
+  id: ID!
+  email: String!
+  username: String
+  password: String!
+  roles: [Role!]
+  jwtToken: String!
+  resetPasswordToken: String!
+  identifierToken: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  profile: Profile
+}
+
+enum Role {
+  READER
+  BUYER
+  AUTHOR
+  SELLER
+  EDITOR
+  MANAGER
+  ADMIN
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ProductCategory {
+  id: ID!
+  name: String!
+  slug: String!
+  parentId: String
+  parent: ProductCategory
+  children: [ProductCategory!]
+  products: [Product!]
+  types: [ProductType!]
+}
+
+type ProductType {
+  id: ID!
+  name: String!
+  slug: String!
+  products: [Product!]
+  categories: [ProductCategory!]
+}
+
+type ProductVariant {
+  id: ID!
+  product: Product!
+  productId: String!
+  name: String
+  sku: String!
+  images: [String!]
+  brands: String!
+  style: String!
+  size: Size!
+  price: Int!
+  sale: Int!
+  stock: Int!
+  sold: Int!
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  IT44
+  IT46
+  IT48
+  IT50
+  IT52
+  OS
+  JP0
+  JP1
+  JP2
+  JP3
+  JP4
+  EU41
+  EU42
+  EU43
+  EU44
+  EU45
+}
+
+type Product {
+  id: ID!
+  name: String!
+  sku: String!
+  images: [String!]
+  brands: [Brand!]
+  types: [ProductType!]
+  categories: [ProductCategory!]
+  variants: [ProductVariant!]
+  discription: String!
+  price: Int!
+  featured: Boolean!
+  stock: Int!
+  sold: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  draft: Boolean
+}
+
+type Brand {
+  id: ID!
+  name: String!
+  slug: String!
+  founders: [Profile!]
+  country: String
+  year: Int
+  description: String
+  products: [Product!]
+}
+
+type Card {
+  id: ID!
+  cardHolder: Profile!
+  profileId: String!
+  number: String!
+  name: String!
+  expiration: DateTime!
+  bank: String
+}
+
+type Profile {
+  id: ID!
+  user: User
+  userId: String
+  brands: [Brand!]
+  brandId: String
+  name: String!
+  phone: String
+  avatar: String
+  point: Int
+  level: Int
+  addresses: [Address!]
+  cards: [Card!]
+  followedBy: [Profile!]
+  following: [Profile!]
+}
+
+type Address {
+  id: ID!
+  profile: Profile!
+  profileId: String!
+  name: String!
+  email: String
+  phone: String
+  street: String!
+  district: String
+  city: String!
+  state: String
+  zip: String
+  country: String!
+}
+
+type BrandCountAggregate {
+  id: Int!
+  name: Int!
+  slug: Int!
+  country: Int!
+  year: Int!
+  description: Int!
+  _all: Int!
+}
+
+type BrandAvgAggregate {
+  year: Float
+}
+
+type BrandSumAggregate {
+  year: Int
+}
+
+type BrandMinAggregate {
+  id: String
+  name: String
+  slug: String
+  country: String
+  year: Int
+  description: String
+}
+
+type BrandMaxAggregate {
+  id: String
+  name: String
+  slug: String
+  country: String
+  year: Int
+  description: String
+}
+
+type CardCountAggregate {
+  id: Int!
+  profileId: Int!
+  number: Int!
+  name: Int!
+  expiration: Int!
+  bank: Int!
+  _all: Int!
+}
+
+type CardAvgAggregate {
+  number: Float
+}
+
+type CardSumAggregate {
+  number: String
+}
+
+type CardMinAggregate {
+  id: String
+  profileId: String
+  number: String
+  name: String
+  expiration: DateTime
+  bank: String
+}
+
+type CardMaxAggregate {
+  id: String
+  profileId: String
+  number: String
+  name: String
+  expiration: DateTime
+  bank: String
+}
+
+type FileCountAggregate {
+  id: Int!
+  name: Int!
+  alt: Int!
+  caption: Int!
+  type: Int!
+  size: Int!
+  dimensions: Int!
+  createdAt: Int!
+  _all: Int!
+}
+
+type FileMinAggregate {
+  id: String
+  name: String
+  alt: String
+  caption: String
+  type: FileType
+  size: String
+  dimensions: String
+  createdAt: DateTime
+}
+
+enum FileType {
+  IMAGE
+  VIDEO
+  SOUND
+  OTHER
+}
+
+type FileMaxAggregate {
+  id: String
+  name: String
+  alt: String
+  caption: String
+  type: FileType
+  size: String
+  dimensions: String
+  createdAt: DateTime
+}
+
+type GuestCountAggregate {
+  identifierToken: Int!
+  email: Int!
+  _all: Int!
+}
+
+type GuestMinAggregate {
+  identifierToken: String
+  email: String
+}
+
+type GuestMaxAggregate {
+  identifierToken: String
+  email: String
+}
+
+type ItemCountAggregate {
+  id: Int!
+  quantity: Int!
+  _all: Int!
+}
+
+type ItemAvgAggregate {
+  quantity: Float
+}
+
+type ItemSumAggregate {
+  quantity: Int
+}
+
+type ItemMinAggregate {
+  id: String
+  quantity: Int
+}
+
+type ItemMaxAggregate {
+  id: String
+  quantity: Int
+}
+
+type LocaleCountAggregate {
+  id: Int!
+  name: Int!
+  code: Int!
+  _all: Int!
+}
+
+type LocaleMinAggregate {
+  id: String
+  name: String
+  code: String
+}
+
+type LocaleMaxAggregate {
+  id: String
+  name: String
+  code: String
+}
+
+type OrderCountAggregate {
+  id: Int!
+  _all: Int!
+}
+
+type OrderMinAggregate {
+  id: String
+}
+
+type OrderMaxAggregate {
+  id: String
+}
+
+type OrderDetailCountAggregate {
+  id: Int!
+  _all: Int!
+}
+
+type OrderDetailMinAggregate {
+  id: String
+}
+
+type OrderDetailMaxAggregate {
+  id: String
+}
+
+type ProductCountAggregate {
+  id: Int!
+  name: Int!
+  sku: Int!
+  images: Int!
+  discription: Int!
+  price: Int!
+  featured: Int!
+  draft: Int!
+  stock: Int!
+  sold: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type ProductAvgAggregate {
+  price: Float
+  stock: Float
+  sold: Float
+}
+
+type ProductSumAggregate {
+  price: Int
+  stock: Int
+  sold: Int
+}
+
+type ProductMinAggregate {
+  id: String
+  name: String
+  sku: String
+  discription: String
+  price: Int
+  featured: Boolean
+  draft: Boolean
+  stock: Int
+  sold: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type ProductMaxAggregate {
+  id: String
+  name: String
+  sku: String
+  discription: String
+  price: Int
+  featured: Boolean
+  draft: Boolean
+  stock: Int
+  sold: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type ProductCategoryCountAggregate {
+  id: Int!
+  name: Int!
+  slug: Int!
+  parentId: Int!
+  _all: Int!
+}
+
+type ProductCategoryMinAggregate {
+  id: String
+  name: String
+  slug: String
+  parentId: String
+}
+
+type ProductCategoryMaxAggregate {
+  id: String
+  name: String
+  slug: String
+  parentId: String
+}
+
+type ProductTypeCountAggregate {
+  id: Int!
+  name: Int!
+  slug: Int!
+  _all: Int!
+}
+
+type ProductTypeMinAggregate {
+  id: String
+  name: String
+  slug: String
+}
+
+type ProductTypeMaxAggregate {
+  id: String
+  name: String
+  slug: String
+}
+
+type ProductVariantCountAggregate {
+  id: Int!
+  productId: Int!
+  name: Int!
+  sku: Int!
+  images: Int!
+  brands: Int!
+  style: Int!
+  size: Int!
+  price: Int!
+  sale: Int!
+  stock: Int!
+  sold: Int!
+  _all: Int!
+}
+
+type ProductVariantAvgAggregate {
+  price: Float
+  sale: Float
+  stock: Float
+  sold: Float
+}
+
+type ProductVariantSumAggregate {
+  price: Int
+  sale: Int
+  stock: Int
+  sold: Int
+}
+
+type ProductVariantMinAggregate {
+  id: String
+  productId: String
+  name: String
+  sku: String
+  brands: String
+  style: String
+  size: Size
+  price: Int
+  sale: Int
+  stock: Int
+  sold: Int
+}
+
+type ProductVariantMaxAggregate {
+  id: String
+  productId: String
+  name: String
+  sku: String
+  brands: String
+  style: String
+  size: Size
+  price: Int
+  sale: Int
+  stock: Int
+  sold: Int
+}
+
+type ProfileCountAggregate {
+  id: Int!
+  userId: Int!
+  brandId: Int!
+  name: Int!
+  phone: Int!
+  avatar: Int!
+  point: Int!
+  level: Int!
+  _all: Int!
+}
+
+type ProfileAvgAggregate {
+  phone: Float
+  point: Float
+  level: Float
+}
+
+type ProfileSumAggregate {
+  phone: String
+  point: Int
+  level: Int
+}
+
+type ProfileMinAggregate {
+  id: String
+  userId: String
+  brandId: String
+  name: String
+  phone: String
+  avatar: String
+  point: Int
+  level: Int
+}
+
+type ProfileMaxAggregate {
+  id: String
+  userId: String
+  brandId: String
+  name: String
+  phone: String
+  avatar: String
+  point: Int
+  level: Int
+}
+
+type UserCountAggregate {
+  id: Int!
+  email: Int!
+  username: Int!
+  password: Int!
+  roles: Int!
+  jwtToken: Int!
+  resetPasswordToken: Int!
+  identifierToken: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type UserMinAggregate {
+  id: String
+  email: String
+  username: String
+  password: String
+  jwtToken: String
+  resetPasswordToken: String
+  identifierToken: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type UserMaxAggregate {
+  id: String
+  email: String
+  username: String
+  password: String
+  jwtToken: String
+  resetPasswordToken: String
+  identifierToken: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Query {
+  product(sku: String!): Product!
+}

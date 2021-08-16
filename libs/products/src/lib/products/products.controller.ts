@@ -68,8 +68,6 @@ export class ProductsController {
      */
     @Delete(':sku')
     async deleteProduct(@Param('sku') sku: string) {
-        return await this.productsService.deleteProduct({
-            sku,
-        })
+        return await this.productsService.deleteProduct(sku)
     }
 }

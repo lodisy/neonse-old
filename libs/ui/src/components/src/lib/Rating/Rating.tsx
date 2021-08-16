@@ -1,4 +1,4 @@
-import { animated } from 'react-spring'
+import { animated } from '@react-spring/web'
 import { styled } from '@neonse/ui/theme'
 import { Flex } from '../Flex'
 import { useBoop } from '@neonse/ui/animations'

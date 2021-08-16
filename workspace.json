@@ -72,27 +72,6 @@
                 }
             }
         },
-        "chat": {
-            "root": "libs/chat",
-            "sourceRoot": "libs/chat/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/chat/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/chat"],
-                    "options": {
-                        "jestConfig": "libs/chat/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
         "configs": {
             "root": "libs/configs",
             "sourceRoot": "libs/configs/src",
@@ -109,6 +88,27 @@
                     "outputs": ["coverage/libs/configs"],
                     "options": {
                         "jestConfig": "libs/configs/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "graphql": {
+            "root": "libs/graphql",
+            "sourceRoot": "libs/graphql/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/graphql/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/graphql"],
+                    "options": {
+                        "jestConfig": "libs/graphql/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
@@ -255,6 +255,132 @@
                 }
             }
         },
+        "store-native": {
+            "root": "apps/store-native",
+            "sourceRoot": "apps/store-native/src",
+            "projectType": "application",
+            "targets": {
+                "analyze": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter analyze",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "clean": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter clean",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "format": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter format apps/store-native/*",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter test",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "assemble": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter assemble",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "attach": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter attach",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "drive": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter drive",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "genL10n": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter gen-l10n",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "install": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter install",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "run": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter run",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildAar": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build aar",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildApk": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build apk",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildAppbundle": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build appbundle",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildBundle": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build bundle",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildIos": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build ios",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildIosFramework": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build ios-framework",
+                        "cwd": "apps/store-native"
+                    }
+                },
+                "buildIpa": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "command": "flutter build ipa",
+                        "cwd": "apps/store-native"
+                    }
+                }
+            }
+        },
         "ui": {
             "root": "libs/ui",
             "sourceRoot": "libs/ui/src",
@@ -303,6 +429,27 @@
                         "ci": {
                             "quiet": true
                         }
+                    }
+                }
+            }
+        },
+        "ui-animations": {
+            "root": "libs/ui/src/animations",
+            "sourceRoot": "libs/ui/src/animations/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/ui/src/animations/**/*.{ts,tsx,js,jsx}"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/ui/src/animations"],
+                    "options": {
+                        "jestConfig": "libs/ui/src/animations/jest.config.js",
+                        "passWithNoTests": true
                     }
                 }
             }
@@ -370,27 +517,6 @@
                     "outputs": ["coverage/libs/ui/src/icons"],
                     "options": {
                         "jestConfig": "libs/ui/src/icons/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "ui-animations": {
-            "root": "libs/ui/src/animations",
-            "sourceRoot": "libs/ui/src/animations/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/ui/src/animations/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/ui/src/animations"],
-                    "options": {
-                        "jestConfig": "libs/ui/src/animations/jest.config.js",
                         "passWithNoTests": true
                     }
                 }

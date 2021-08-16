@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSpring, SpringConfig } from 'react-spring'
+import { useSpring, SpringConfig } from '@react-spring/web'
 
 export type BoopProps = {
     x?: number
@@ -23,13 +23,13 @@ export const useBoop = ({
 }: BoopProps) => {
     const [isBooped, setIsBooped] = React.useState(false)
 
-    const [styles, _] = useSpring(() => ({
+    const styles = useSpring({
         x: isBooped ? x : 0,
         y: isBooped ? y : 0,
         rotate: isBooped ? rotate : 0,
         scale: isBooped ? scale : 1,
         config: { ...springConfig },
-    }))
+    })
 
     React.useEffect(() => {
         if (!isBooped) {

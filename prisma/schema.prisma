@@ -1,6 +1,10 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// graphql schema 注释 https://github.com/unlight/prisma-nestjs-graphql
+
+// 多语言考虑用 JSON 等待更新：https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#json-faqs
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -11,7 +15,17 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator nestgraphql {
+  provider               = "node node_modules/prisma-nestjs-graphql"
+  output                 = "../libs/graphql/src/lib"
+  reExport               = All
+  fields_Validator_from  = "class-validator"
+  fields_Validator_input = true
+}
+
 // Models
+
+// shared
 
 enum Role {
   READER
@@ -47,55 +61,131 @@ enum Size {
   EU45
 }
 
+enum Currency {
+  USD
+  CNY
+  HKD
+  EUR
+  GBP
+}
+
+enum Locale {
+  ZHS
+  ZHT
+  ENG
+}
+
+enum ContentType {
+  PRODUCT
+  ARTICLE
+  LOOKBOOK
+  BRAND
+}
+
+model Source {
+  /// @HideField({input:true})
+  id   String  @id @default(cuid())
+  name String // name of person or website or magzine etc
+  link String?
+
+  file   File   @relation(fields: [fileId], references: [id])
+  fileId String @unique
+
+}
+
+// File
+
+enum FileType {
+  // image
+  JPEG
+  JPG
+  PNG
+  GIF
+  WEBP
+  // video
+  MP4
+  WEBM
+  // sound
+  MP3
+  OGG
+  // PDF
+  PDF
+  OTHER
+}
+
 model File {
-  id         String   @id @default(cuid())
-  name       String
-  alt        String?
-  caption    String?
-  type       String
-  size       Bytes
-  dimensions String?
-  createdAt  DateTime @default(now())
+  /// @HideField({input:true})
+  id              String   @id @default(cuid())
+  name            String
+  alt             String?
+  title           String?
+  caption         String?
+  type            FileType
+  size            Bytes
+  width           Int?
+  height          Int?
+  source          Source? // a file has its source
+  autoPlay        Boolean?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  profile         Profile? @relation("Uploads", fields: [profileId], references: [id]) // uploaded by 
+  profileId       String?
+  profileAvatar   Profile? @relation("Avatar", fields: [profileAvatarId], references: [id])
+  profileAvatarId String?
+  review          Review?  @relation(fields: [reviewId], references: [id])
+  reviewId        String?
 }
 
 // User Model
 
 model User {
+  /// @HideField({input:true})
   id                 String    @id @default(cuid())
+  /// @Validator.IsEmail()
   email              String    @unique
   username           String?   @unique
+  /// @Validator.MinLength(6)
+  /// @Validator.MaxLength(10)
+  /// @HideField({input:true})
   password           String
+  /// @HideField({input:true})
   roles              Role[]
+  /// @HideField({input:true})
   jwtToken           String    @unique
+  /// @HideField({input:true})
   resetPasswordToken String    @unique
-  identifierToken    String    @unique // for guest ?
+  /// @HideField({input:true})
+  identifierToken    String    @unique
+  /// @HideField({input:true})
   createdAt          DateTime  @default(now())
+  /// @HideField({input:true})
   updatedAt          DateTime? @updatedAt
-  profile            Profile? // a user has one profile
-}
-
-model Guest {
-  identifierToken String  @unique
-  email           String?
+  profile            Profile?
 }
 
 model Profile {
-  id     String  @id @default(cuid())
-  user   User?   @relation(fields: [userId], references: [id])
-  userId String?
-
+  /// @HideField({input:true})
+  id         String    @id @default(cuid())
+  user       User      @relation(fields: [userId], references: [id]) // a user has a profile
+  userId     String    @unique
+  /// @HideField({input:true})
   brands     Brand[] // many to many
-  brandId    String?   @unique
+  /// @Validator.MinLength(2)
   name       String
   phone      BigInt?
-  avatar     String?
-  point      Int?
+  avatar     File?     @relation("Avatar") // a user has an avatar
+  point      Int?      @default(0)
   level      Int?
   addresses  Address[] // a profile has multiple addresses
   cards      Card[] // a profile has multiple cards
+  reviews    Review[] // a profile may have multiple reviews
+  uploads    File[]    @relation("Uploads") // a profile has multiple uploads
+  likes      Like[] // a profile has multiple likes
   // self relation
   followedBy Profile[] @relation("UserFollows", references: [id])
   following  Profile[] @relation("UserFollows", references: [id])
+  comments   Comment[]
+
 }
 
 model Address {
@@ -114,9 +204,10 @@ model Address {
 }
 
 model Card {
+  /// @HideField({input:true})
   id         String   @id @default(cuid())
   cardHolder Profile  @relation(fields: [profileId], references: [id])
-  profileId  String
+  profileId  String   @unique
   number     BigInt   @unique
   name       String
   expiration DateTime
@@ -135,10 +226,13 @@ model Product {
   categories  ProductCategory[]
   variants    ProductVariant[]
   discription String
-  price       Decimal
-  featured    Boolean
+  price       Int
+  featured    Boolean?          @default(false)
+  draft       Boolean?          @default(true)
   stock       Int
-  sold        Int
+  sold        Int?              @default(0)
+  reviews     Review[]
+  likes       Like[]
   createdAt   DateTime          @default(now())
   updatedAt   DateTime?         @updatedAt
 }
@@ -148,15 +242,16 @@ model ProductVariant {
   product   Product  @relation(fields: [productId], references: [id])
   productId String
   name      String?
+  /// @HideField({input:true})
   sku       String   @unique
   images    String[]
-  brands    String // just for display
+  brands    String
   style     String
   size      Size
-  price     Decimal
-  sale      Decimal
-  stock     Int
-  sold      Int
+  price     Int
+  sale      Int?
+  stock     Int?     @default(1)
+  sold      Int      @default(0)
 }
 
 model ProductCategory {
@@ -190,8 +285,61 @@ model Brand {
 
 }
 
-model Locale {
-  id   String @id @default(cuid())
-  name String
-  code String @unique
+// Review
+
+model Review {
+  id          String  @id @default(cuid())
+  by          Profile @relation(fields: [profileId], references: [id]) // 一个买家有多个评价
+  profileId   String  @unique
+  for         Product @relation(fields: [productId], references: [id]) // 一个商品有多个评价
+  productId   String  @unique
+  /// @Validator.IsInt()
+  /// @Validator.Min(1)
+  /// @Validator.Max(5)
+  rate        Int // 评分从 1 到 5
+  description String?
+  /// @Validator.MaxLength(3)
+  media       File[] // 上传不超过三张图片
+}
+
+// Order
+
+model Item {
+  id       String @id @default(cuid())
+  quantity Int
+}
+
+model Order {
+  id String @id @default(cuid())
+
+
+}
+
+model OrderDetail {
+  id String @id @default(cuid())
+
+}
+
+// 喜欢收藏
+
+model Like {
+  id        String      @id @default(cuid())
+  by        Profile     @relation(fields: [profileId], references: [id])
+  profileId String      @unique
+  type      ContentType
+  product   Product?    @relation(fields: [productId], references: [id])
+  productId String?     @unique
+  // TODO other content types
+  createdAt DateTime    @default(now())
+}
+
+// 评论（匿名）
+
+model Comment {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  by        Profile? @relation(fields: [profileId], references: [id]) // 可选已注册用户
+  profileId String?  @unique
+  content   String
 }

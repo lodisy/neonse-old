@@ -3,6 +3,7 @@
  * - Styling responsive
  * - integrate with tooltip
  * - Indicator and Action / Status Button
+ *
  */
 
 import { styled, css } from '@neonse/ui/theme'
@@ -10,6 +11,7 @@ import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
 import { CheckIcon, FocusCircleIcon } from '@neonse/ui/icons'
 import { Carousel } from '../Carousel'
+
 
 const StyledRoot = styled('div', {
     display: 'flex',
@@ -32,7 +34,7 @@ const StyledIndicator = styled('span', {
     },
 })
 
-const StyledActionButton = styled('button', {
+const StyledActionButton = styled('div', {
     position: 'absolute',
     top: 16,
     right: 16,
@@ -88,7 +90,6 @@ export type ChoiceGroupProps = {
 
 export const ChoiceGroup = ({
     choices = [],
-
     label,
     onValueChange,
     orientation = 'horizontal',
@@ -112,9 +113,9 @@ export const ChoiceGroup = ({
         >
             {orientation !== 'vertical' ? (
                 <Carousel
-                    width={'60vw'}
-                    slidesPerView={2}
+                    slidesPerView={3}
                     padding={50}
+                    aspectRatio={1.5}
                     springConfig={{
                         tension: 150,
                         friction: 50,
@@ -127,15 +128,11 @@ export const ChoiceGroup = ({
                             value={choice.value}
                             as={StyledChoice}
                             css={{
-                                size: {
-                                    width: 300,
-                                    ratio: 1.5,
-                                },
+                                width: '100%',
+                                height: '100%',
                             }}
                         >
-                            {React.cloneElement(choice.label, {
-                                'data-checked': value === choice.value ? 'true' : 'false',
-                            })}
+                            {choice.label}
                             <RadioGroup.Indicator as={StyledIndicator}>
                                 <CheckIcon />
                                 <FocusCircleIcon />
@@ -155,9 +152,8 @@ export const ChoiceGroup = ({
                                 marginY: '$1',
                             }}
                         >
-                            {React.cloneElement(choice.label, {
-                                'data-checked': value === choice.value ? 'true' : 'false',
-                            })}
+                            {choice.label}
+
                             <RadioGroup.Indicator as={StyledIndicator}>
                                 <CheckIcon />
                                 <FocusCircleIcon />

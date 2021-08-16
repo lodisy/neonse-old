@@ -15,8 +15,8 @@ module.exports = {
         '<rootDir>/libs/ui/src/theme',
         '<rootDir>/libs/ui/src/icons',
         '<rootDir>/libs/ui/src/components',
-        '<rootDir>/libs/chat',
         '<rootDir>/libs/=ui/src/animations',
         '<rootDir>/libs/ui/src/animations',
+        '<rootDir>/libs/graphql',
     ],
 }

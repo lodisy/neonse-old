@@ -10,16 +10,16 @@ export class ProductsService {
     async getProducts(params: {
         skip?: number
         take?: number
-        cursor?: Prisma.UserWhereUniqueInput
-        where?: Prisma.UserWhereInput
-        orderBy?: Prisma.UserOrderByInput
+        cursor?: Prisma.ProductWhereUniqueInput
+        where?: Prisma.ProductWhereInput
+        orderBy?: Prisma.Enumerable<Prisma.ProductOrderByInput>
     }): Promise<Product[]> {
         return await this.prisma.product.findMany(params)
     }
 
     /** Get single product via sku */
 
-    async getProduct(sku: string): Promise<Product> {
+    async getProduct(sku: string): Promise<Product | null> {
         return await this.prisma.product.findUnique({
             where: { sku },
         })
@@ -55,9 +55,11 @@ export class ProductsService {
     }
 
     /** Delete a product */
-    async deleteProduct(where: Prisma.ProductWhereUniqueInput): Promise<Product> {
+    async deleteProduct(sku: string): Promise<Product> {
         return await this.prisma.product.delete({
-            where,
+            where: {
+                sku,
+            },
         })
     }
 

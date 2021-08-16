@@ -1,0 +1,51 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { HideField } from '@nestjs/graphql';
+import { FileType } from '../prisma/file-type.enum';
+import { Int } from '@nestjs/graphql';
+
+@InputType()
+export class FileCreateManyReviewInput {
+
+    @HideField()
+    id?: string;
+
+    @Field(() => String, {nullable:false})
+    name!: string;
+
+    @Field(() => String, {nullable:true})
+    alt?: string;
+
+    @Field(() => String, {nullable:true})
+    title?: string;
+
+    @Field(() => String, {nullable:true})
+    caption?: string;
+
+    @Field(() => FileType, {nullable:false})
+    type!: keyof typeof FileType;
+
+    @Field(() => String, {nullable:false})
+    size!: Buffer;
+
+    @Field(() => Int, {nullable:true})
+    width?: number;
+
+    @Field(() => Int, {nullable:true})
+    height?: number;
+
+    @Field(() => Boolean, {nullable:true})
+    autoPlay?: boolean;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+
+    @Field(() => String, {nullable:true})
+    profileId?: string;
+
+    @Field(() => String, {nullable:true})
+    profileAvatarId?: string;
+}

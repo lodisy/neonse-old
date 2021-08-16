@@ -1,5 +1,5 @@
 import { styled } from '@neonse/ui/theme'
-import { animated, useSpring, config } from 'react-spring'
+import { animated, useSpring, config } from '@react-spring/web'
 
 const StyledPath = styled(animated.path, {
     stroke: '$successText',
