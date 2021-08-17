@@ -1,4 +1,4 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 import * as ReactPopover from '@radix-ui/react-popover'
 import React from 'react'
 import { Portal } from '../Portal'

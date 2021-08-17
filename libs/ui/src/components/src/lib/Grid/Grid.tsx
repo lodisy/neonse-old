@@ -1,4 +1,4 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 
 export const Grid = styled('div', {
     boxSizing: 'border-box',

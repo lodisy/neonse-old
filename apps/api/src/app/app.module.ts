@@ -1,4 +1,4 @@
-import { PrismaModule } from '@neonse/prisma'
+import { PrismaModule } from '@neonse/nest-prisma'
 import {
     ProductsController,
     ProductsModule,
@@ -6,7 +6,7 @@ import {
     ProductTypesController,
     ProductTypesModule,
     ProductTypesService,
-} from '@neonse/products'
+} from '@neonse/nest-products'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 

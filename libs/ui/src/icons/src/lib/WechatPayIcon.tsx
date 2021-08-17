@@ -1,4 +1,4 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 
 type Props = {
     width?: number

@@ -1,4 +1,4 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 import * as ReactRadioGroup from '@radix-ui/react-radio-group'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import React from 'react'

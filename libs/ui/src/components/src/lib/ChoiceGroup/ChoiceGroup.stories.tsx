@@ -1,4 +1,4 @@
-import { AlipayIcon, StripeIcon, WechatPayIcon } from '@neonse/ui/icons'
+import { AlipayIcon, StripeIcon, WechatPayIcon } from '@neonse/ui-icons'
 import { Meta, Story } from '@storybook/react'
 import * as React from 'react'
 import type { ChoiceGroupProps, ChoiceType } from './ChoiceGroup'

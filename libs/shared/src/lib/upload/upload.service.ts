@@ -1,4 +1,4 @@
-import { File } from '@neonse/graphql'
+import { File } from '@neonse/nest-graphql'
 import { Injectable } from '@nestjs/common'
 import * as COS from 'cos-nodejs-sdk-v5'
 import * as path from 'path'

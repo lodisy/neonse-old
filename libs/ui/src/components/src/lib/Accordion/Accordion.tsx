@@ -2,10 +2,10 @@
  * TODO styling, can be used as expaned menu
  */
 
-import React from 'react'
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 import * as ReactAccordion from '@radix-ui/react-accordion'
 import * as Polymorphic from '@radix-ui/react-polymorphic'
+import React from 'react'
 
 const StyledAccordion = styled(ReactAccordion.Root, {})
 

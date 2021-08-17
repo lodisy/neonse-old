@@ -2,7 +2,7 @@
  * TODO adjust css
  */
 
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 import * as ReactScrollArea from '@radix-ui/react-scroll-area'
 import 'keen-slider/keen-slider.min.css'
 import React from 'react'

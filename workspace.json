@@ -51,169 +51,190 @@
                 }
             }
         },
-        "auth": {
-            "root": "libs/auth",
-            "sourceRoot": "libs/auth/src",
+        "nest-auth": {
+            "root": "libs/nest/auth",
+            "sourceRoot": "libs/nest/auth/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/auth/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/auth/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/auth"],
+                    "outputs": ["coverage/libs/nest/auth"],
                     "options": {
-                        "jestConfig": "libs/auth/jest.config.js",
+                        "jestConfig": "libs/nest/auth/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "configs": {
-            "root": "libs/configs",
-            "sourceRoot": "libs/configs/src",
+        "nest-configs": {
+            "root": "libs/nest/configs",
+            "sourceRoot": "libs/nest/configs/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/configs/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/configs/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/configs"],
+                    "outputs": ["coverage/libs/nest/configs"],
                     "options": {
-                        "jestConfig": "libs/configs/jest.config.js",
+                        "jestConfig": "libs/nest/configs/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "graphql": {
-            "root": "libs/graphql",
-            "sourceRoot": "libs/graphql/src",
+        "nest-graphql": {
+            "root": "libs/nest/graphql",
+            "sourceRoot": "libs/nest/graphql/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/graphql/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/graphql/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/graphql"],
+                    "outputs": ["coverage/libs/nest/graphql"],
                     "options": {
-                        "jestConfig": "libs/graphql/jest.config.js",
+                        "jestConfig": "libs/nest/graphql/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "password": {
-            "root": "libs/password",
-            "sourceRoot": "libs/password/src",
+        "nest-password": {
+            "root": "libs/nest/password",
+            "sourceRoot": "libs/nest/password/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/password/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/password/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/password"],
+                    "outputs": ["coverage/libs/nest/password"],
                     "options": {
-                        "jestConfig": "libs/password/jest.config.js",
+                        "jestConfig": "libs/nest/password/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "permission": {
-            "root": "libs/permission",
-            "sourceRoot": "libs/permission/src",
+        "nest-permission": {
+            "root": "libs/nest/permission",
+            "sourceRoot": "libs/nest/permission/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/permission/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/permission/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/permission"],
+                    "outputs": ["coverage/libs/nest/permission"],
                     "options": {
-                        "jestConfig": "libs/permission/jest.config.js",
+                        "jestConfig": "libs/nest/permission/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "prisma": {
-            "root": "libs/prisma",
-            "sourceRoot": "libs/prisma/src",
+        "nest-prisma": {
+            "root": "libs/nest/prisma",
+            "sourceRoot": "libs/nest/prisma/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/prisma/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/prisma/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/prisma"],
+                    "outputs": ["coverage/libs/nest/prisma"],
                     "options": {
-                        "jestConfig": "libs/prisma/jest.config.js",
+                        "jestConfig": "libs/nest/prisma/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "products": {
-            "root": "libs/products",
-            "sourceRoot": "libs/products/src",
+        "nest-products": {
+            "root": "libs/nest/products",
+            "sourceRoot": "libs/nest/products/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/products/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/products/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/products"],
+                    "outputs": ["coverage/libs/nest/products"],
                     "options": {
-                        "jestConfig": "libs/products/jest.config.js",
+                        "jestConfig": "libs/nest/products/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "role": {
-            "root": "libs/role",
-            "sourceRoot": "libs/role/src",
+        "nest-role": {
+            "root": "libs/nest/role",
+            "sourceRoot": "libs/nest/role/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/role/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/role/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/role"],
+                    "outputs": ["coverage/libs/nest/role"],
                     "options": {
-                        "jestConfig": "libs/role/jest.config.js",
+                        "jestConfig": "libs/nest/role/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-users": {
+            "root": "libs/nest/users",
+            "sourceRoot": "libs/nest/users/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/users/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/users"],
+                    "options": {
+                        "jestConfig": "libs/nest/users/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
@@ -601,27 +622,6 @@
                     "outputs": ["coverage/libs/ui/src/theme"],
                     "options": {
                         "jestConfig": "libs/ui/src/theme/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "users": {
-            "root": "libs/users",
-            "sourceRoot": "libs/users/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/users/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/users"],
-                    "options": {
-                        "jestConfig": "libs/users/jest.config.js",
                         "passWithNoTests": true
                     }
                 }

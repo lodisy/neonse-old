@@ -6,12 +6,11 @@
  *
  */
 
-import { styled, css } from '@neonse/ui/theme'
+import { CheckIcon, FocusCircleIcon } from '@neonse/ui-icons'
+import { styled } from '@neonse/ui-theme'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
-import { CheckIcon, FocusCircleIcon } from '@neonse/ui/icons'
 import { Carousel } from '../Carousel'
-
 
 const StyledRoot = styled('div', {
     display: 'flex',

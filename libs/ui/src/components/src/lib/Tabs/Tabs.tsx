@@ -2,7 +2,7 @@
  * TODO handle drag constraints
  */
 
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 import * as ReactTabs from '@radix-ui/react-tabs'
 import { AnimatePresence, AnimateSharedLayout, motion, PanInfo, Variants } from 'framer-motion'
 import React from 'react'

@@ -1,9 +1,9 @@
 // TODO add value indicator and animation?
 // mostly for font size changer
 
-import React from 'react'
+import { styled } from '@neonse/ui-theme'
 import * as ReactSlider from '@radix-ui/react-slider'
-import { styled } from '@neonse/ui/theme'
+import React from 'react'
 
 const StyledSlider = styled('span', {
     position: 'relative',

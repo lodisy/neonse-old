@@ -1,7 +1,4 @@
-import React from 'react'
-import { styled } from '@neonse/ui/theme'
-
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import { styled } from '@neonse/ui-theme'
 
 const StyledBadage = styled('span', {
     // Custom

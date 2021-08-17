@@ -1,4 +1,4 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 
 const StyledCircle = styled('circle', {
     fill: '$solidBackground',

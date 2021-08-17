@@ -1,7 +1,7 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 import * as Collapsible from '@radix-ui/react-collapsible'
-import React from 'react'
 import { animated, useTransition } from '@react-spring/web'
+import React from 'react'
 
 const StyledTrigger = styled('div', {})
 

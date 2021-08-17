@@ -1,4 +1,4 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
 
 export const Flex = styled('div', {
     boxSizing: 'border-box',

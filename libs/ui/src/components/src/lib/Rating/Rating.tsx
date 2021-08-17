@@ -1,7 +1,7 @@
+import { useBoop } from '@neonse/ui-animations'
+import { styled } from '@neonse/ui-theme'
 import { animated } from '@react-spring/web'
-import { styled } from '@neonse/ui/theme'
 import { Flex } from '../Flex'
-import { useBoop } from '@neonse/ui/animations'
 
 type StarProps = {
     active?: boolean

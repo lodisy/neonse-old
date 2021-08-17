@@ -1,8 +1,8 @@
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
+import { Slot } from '@radix-ui/react-slot'
 import * as ReactTooltip from '@radix-ui/react-tooltip'
 import React from 'react'
 import { Portal } from '../Portal'
-import { Slot } from '@radix-ui/react-slot'
 
 export const StyledContent = styled('div', {
     backgroundColor: '$background',

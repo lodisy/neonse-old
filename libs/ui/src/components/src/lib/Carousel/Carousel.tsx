@@ -2,10 +2,10 @@
  * TODO responsive
  */
 
-import React, { useRef, useEffect } from 'react'
-import { animated, useSpring, SpringConfig } from '@react-spring/web'
-import { useDrag, rubberbandIfOutOfBounds } from '@use-gesture/react'
-import { styled } from '@neonse/ui/theme'
+import { styled } from '@neonse/ui-theme'
+import { animated, SpringConfig, useSpring } from '@react-spring/web'
+import { rubberbandIfOutOfBounds, useDrag } from '@use-gesture/react'
+import React, { useEffect, useRef } from 'react'
 
 const StyledCarousel = styled('div', {
     overflow: 'hidden',

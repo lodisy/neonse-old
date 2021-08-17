@@ -22,28 +22,31 @@
         "api": {
             "tags": []
         },
-        "auth": {
+        "nest-auth": {
             "tags": []
         },
-        "configs": {
+        "nest-configs": {
             "tags": []
         },
-        "graphql": {
+        "nest-graphql": {
             "tags": []
         },
-        "password": {
+        "nest-password": {
             "tags": []
         },
-        "permission": {
+        "nest-permission": {
             "tags": []
         },
-        "prisma": {
+        "nest-prisma": {
             "tags": []
         },
-        "products": {
+        "nest-products": {
             "tags": []
         },
-        "role": {
+        "nest-role": {
+            "tags": []
+        },
+        "nest-users": {
             "tags": []
         },
         "shared": {
@@ -76,9 +79,6 @@
             "tags": []
         },
         "ui-theme": {
-            "tags": []
-        },
-        "users": {
             "tags": []
         }
     },

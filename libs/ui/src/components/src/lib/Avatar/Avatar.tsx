@@ -1,9 +1,8 @@
-import React from 'react'
+import { styled } from '@neonse/ui-theme'
 import * as ReactAvatar from '@radix-ui/react-avatar'
-import { styled } from '@neonse/ui/theme'
-import { Image } from '../Image'
 import { Slot } from '@radix-ui/react-slot'
 import NextImage, { ImageProps } from 'next/image'
+import React from 'react'
 
 const StyledAvatar = styled(ReactAvatar.Root, {
     alignItems: 'center',
