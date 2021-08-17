@@ -135,6 +135,27 @@
                 }
             }
         },
+        "permission": {
+            "root": "libs/permission",
+            "sourceRoot": "libs/permission/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/permission/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/permission"],
+                    "options": {
+                        "jestConfig": "libs/permission/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "prisma": {
             "root": "libs/prisma",
             "sourceRoot": "libs/prisma/src",

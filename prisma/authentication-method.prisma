@@ -1,0 +1,7 @@
+// 登入方式
+model AuthenticationMethod {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime
+    strategy  String
+}

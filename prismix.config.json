@@ -1,0 +1,26 @@
+{
+    "mixers": [
+        {
+            "input": [
+                "./prisma/base.prisma",
+                "./prisma/address.prisma",
+                "./prisma/authentication-method.prisma",
+                "./prisma/brand.prisma",
+                "./prisma/card.prisma",
+                "./prisma/channel.prisma",
+                "./prisma/comment.prisma",
+                "./prisma/country.prisma",
+                "./prisma/file.prisma",
+                "./prisma/like.prisma",
+                "./prisma/permission.prisma",
+                "./prisma/product.prisma",
+                "./prisma/promotion.prisma",
+                "./prisma/review.prisma",
+                "./prisma/role.prisma",
+                "./prisma/source.prisma",
+                "./prisma/user.prisma"
+            ],
+            "output": "./prisma/schema.prisma"
+        }
+    ]
+}

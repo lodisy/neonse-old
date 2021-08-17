@@ -1,0 +1,20 @@
+// 商品评价
+
+model Review {
+    id          String  @id @default(cuid())
+    /// @Validator.IsInt()
+    /// @Validator.Min(1)
+    /// @Validator.Max(5)
+    rate        Int // 评分从 1 到 5
+    description String?
+    /// @Validator.MaxLength(3)
+    uploads     File[] // 上传不超过三张图片
+}
+
+// -----------
+
+model File {
+    id       String  @id @default(cuid())
+    Review   Review? @relation(fields: [reviewId], references: [id])
+    reviewId String?
+}

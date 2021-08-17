@@ -1,79 +1,69 @@
 import { PasswordService } from '@neonse/password'
 import { PrismaService } from '@neonse/prisma'
 import { UsersService } from '@neonse/users'
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
-import { ConfigService } from '@nestjs/config'
-import { JwtService } from '@nestjs/jwt'
-import { Prisma, User } from '@prisma/client'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 
 @Injectable()
 export class AuthService {
     constructor(
         private prisma: PrismaService,
         private usersService: UsersService,
-        private jwtService: JwtService,
-        private configService: ConfigService,
         private passwordService: PasswordService,
     ) {}
 
-    private generateJwtToken(payload: { userId: string }): string {
-        return this.jwtService.sign(payload)
-    }
+    /** 验证用户密码是否一致，若符合返回 email */
 
-    // generateTokens(payload: { userId: string }) {
-    //     return {
-    //         generateJwtToken(payload),
-    //         generateJwtToken(payload)
-    //     }
-    // }
+    async validateUser(email: string, password: string) {
+        const isUserExisting = await this.usersService.isUserExisting({ email })
 
-    /** Login */
+        if (!isUserExisting) throw new HttpException('User not existing', HttpStatus.NOT_FOUND)
 
-    async login(email: string, password: string) {
-        const user = await this.prisma.user.findUnique({ where: { email } })
-        if (!user) {
-            throw new NotFoundException(`No user found for email: ${email}`)
-        }
-        const validPassword = await this.passwordService.validatePassword(password, user.password)
-
-        if (!validPassword) {
-            throw new BadRequestException('Invalid password')
-        }
-
-        // this.prisma.user.update?
-        // 每次登入都调用？jwt 应该不变
-
-        const jwtToken = this.generateJwtToken({
-            userId: user.id,
+        const user = await this.prisma.user.findUnique({
+            where: { email },
         })
 
-        await this.prisma.user.update({
-            where: {
-                id: user.id,
-            },
+        const isMatch = await this.passwordService.validatePassword(password, user.password)
+
+        if (!isMatch) return null
+
+        return {
+            email: user.email,
+        }
+    }
+
+    /** 登入 */
+
+    async signIn(email: string, password: string) {
+        const validateUser = await this.validateUser(email, password)
+
+        if (!validateUser) {
+            throw new HttpException('User credentials do not match', HttpStatus.UNAUTHORIZED)
+        }
+
+        // 是否每次登入都要生成 jwtToken
+
+        const tokens = this.usersService.generateTokens({ email })
+
+        const user = await this.prisma.user.update({
+            where: { email },
             data: {
-                jwtToken,
+                jwtToken: tokens.jwtToken,
             },
         })
 
-        console.log('jwtToken', jwtToken)
-
-        return jwtToken // 登入后返回 jwtToken
+        return {
+            status: 'success',
+            user: {
+                id: user.id,
+                email: user.email,
+                jwtToken: user.jwtToken,
+            },
+        }
     }
 
-    /** Check user if existing */
+    /** 注册 */
 
-    async validateUser(userId: string): Promise<User> {
-        try {
-            const result = await this.prisma.user.findUnique({ where: { id: userId } })
-            return result
-        } catch (err) {
-            if (err instanceof Prisma.PrismaClientKnownRequestError) {
-                if (err.code === 'P2001') {
-                    console.log('User not existing')
-                }
-            }
-            throw err
-        }
+    async signUp(email: string, password: string, username?: string) {
+        return await this.usersService.createUser({ email, password, username })
     }
 }

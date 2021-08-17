@@ -1,0 +1,88 @@
+// User 用户
+
+model User {
+    id                    String                 @id @default(cuid())
+    /// @Validator.IsEmail()
+    email                 String                 @unique
+    username              String?                @unique
+    /// @Validator.MinLength(6)
+    /// @Validator.MaxLength(10)
+    /// @HideField()
+    password              String
+    /// @HideField({ output: true, input: true })
+    roles                 Role[]
+    lastLogin             DateTime?
+    customFields          Json?
+    authenticationMethods AuthenticationMethod[]
+    /// @HideField({ output: true, input: true })
+    jwtToken              String                 @unique
+    /// @HideField({ output: true, input: true })
+    resetPasswordToken    String?                @unique
+    /// @HideField({ output: true, input: true })
+    identifierToken       String?                @unique
+    /// @HideField({input:true})
+    createdAt             DateTime               @default(now())
+    /// @HideField({input:true})
+    updatedAt             DateTime?              @updatedAt
+    profile               Profile?
+}
+
+model Profile {
+    /// @HideField({input:true})
+    id         String    @id @default(cuid())
+    user       User      @relation(fields: [userId], references: [id]) // a user has a profile
+    userId     String    @unique
+    /// @Validator.MinLength(2)
+    name       String
+    phone      BigInt?
+    avatar     File?     @relation("Avatar") // a user has an avatar
+    point      Int?      @default(0)
+    level      Int?
+    addresses  Address[] // a profile has multiple addresses
+    cards      Card[] // a profile has multiple cards
+    reviews    Review[] // a profile may have multiple reviews
+    uploads    File[]    @relation("Uploads") // a profile has multiple uploads
+    // self relation
+    followedBy Profile[] @relation("UserFollows", references: [id])
+    following  Profile[] @relation("UserFollows", references: [id])
+}
+
+// ---- 关系
+
+model AuthenticationMethod {
+    id     String  @id @default(cuid())
+    User   User?   @relation(fields: [userId], references: [id])
+    userId String?
+}
+
+model File {
+    id              String   @id @default(cuid())
+    profile         Profile? @relation("Uploads", fields: [profileId], references: [id]) // uploaded by 
+    profileId       String?
+    profileAvatar   Profile? @relation("Avatar", fields: [profileAvatarId], references: [id])
+    profileAvatarId String?
+}
+
+model Review {
+    id        String  @id @default(cuid())
+    by        Profile @relation(fields: [profileId], references: [id]) // 一个买家有多个评价
+    profileId String  @unique
+}
+
+model Address {
+    id        String   @id @default(cuid())
+    Profile   Profile? @relation(fields: [profileId], references: [id])
+    profileId String?
+}
+
+model Card {
+    id        String   @id @default(cuid())
+    profile   Profile? @relation(fields: [profileId], references: [id])
+    profileId String?
+}
+
+model Role {
+    id     String  @id @default(cuid())
+    user   User?   @relation(fields: [userId], references: [id])
+    userId String?
+}

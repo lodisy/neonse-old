@@ -1,0 +1,32 @@
+// 渠道端 比如微信端、英文网站、中文网站等
+
+model Channel {
+    id                  String       @id @default(cuid())
+    createdAt           DateTime     @default(now())
+    updatedAt           DateTime     @updatedAt
+    /// @Validator.Length(2,5)
+    code                String       @unique
+    token               String       @unique
+    // TODO shipping zone tax zone
+    defaultLanguageCode LanguageCode
+    currencyCode        CurrencyCode
+    priceIncludeTax     Boolean?     @default(true)
+    customFields        Json?
+}
+
+// --------------------------
+
+enum CurrencyCode {
+    USD
+    CNY
+    HKD
+    EUR
+    GBP
+}
+
+enum LanguageCode {
+    zh_Hans
+    zh_Hant
+    en
+    de
+}

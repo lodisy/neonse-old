@@ -20,5 +20,6 @@ module.exports = {
         '<rootDir>/libs/graphql',
         '<rootDir>/libs/shared',
         '<rootDir>/libs/role',
+        '<rootDir>/libs/permission',
     ],
 }

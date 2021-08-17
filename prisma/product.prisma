@@ -1,0 +1,128 @@
+// Product
+
+model Product {
+    id          String            @id @default(cuid())
+    name        String
+    sku         String            @unique
+    //images      String[]
+    types       ProductType[]
+    categories  ProductCategory[]
+    variants    ProductVariant[]
+    discription String
+    price       Int
+    featured    Boolean?          @default(false)
+    draft       Boolean?          @default(true)
+    stock       Int
+    sold        Int?              @default(0)
+    reviews     Review[]
+    createdAt   DateTime          @default(now())
+    updatedAt   DateTime?         @updatedAt
+}
+
+model ProductVariant {
+    id           String                      @id @default(cuid())
+    createdAt    DateTime                    @default(now())
+    updatedAt    DateTime?                   @updatedAt
+    name         String
+    /// @HideField({input:true})
+    sku          String                      @unique
+    // images       String[]
+    brands       String
+    style        String
+    size         Size
+    price        Int
+    sale         Int?
+    stock        Int?                        @default(1)
+    sold         Int                         @default(0)
+    channels     Channel[]
+    currencyCode CurrencyCode
+    languageCode LanguageCode
+    draft        Boolean?                    @default(false)
+    product      Product                     @relation(fields: [productId], references: [id])
+    productId    String
+    translations ProductVariantTranslation[]
+    customFields Json?
+
+}
+
+model ProductVariantTranslation {
+    id               String          @id @default(cuid())
+    createdAt        DateTime        @default(now())
+    updatedAt        DateTime        @updatedAt
+    name             String
+    languageCode     LanguageCode
+    ProductVariant   ProductVariant? @relation(fields: [productVariantId], references: [id])
+    productVariantId String?
+}
+
+model ProductCategory {
+    id       String            @id @default(cuid())
+    name     String
+    slug     String            @unique
+    parentId String?
+    parent   ProductCategory?  @relation("ParentChildren", fields: [parentId], references: [id]) // a product category could have a parent
+    children ProductCategory[] @relation("ParentChildren") // a product category could have many children
+    products Product[]
+    types    ProductType[]
+}
+
+model ProductType {
+    id         String            @id @default(cuid())
+    name       String            @unique
+    slug       String            @unique
+    products   Product[]
+    categories ProductCategory[]
+}
+
+// -----------------------------
+
+model Channel {
+    id               String          @id @default(cuid())
+    productVariant   ProductVariant? @relation(fields: [productVariantId], references: [id])
+    productVariantId String?
+}
+
+model Review {
+    id        String   @id @default(cuid())
+    product   Product? @relation(fields: [productId], references: [id])
+    productId String?
+}
+
+enum CurrencyCode {
+    USD
+    CNY
+    HKD
+    EUR
+    GBP
+}
+
+enum LanguageCode {
+    zh_Hans
+    zh_Hant
+    en
+    de
+}
+
+enum Size {
+    XS
+    S
+    M
+    L
+    XL
+    IT44
+    IT46
+    IT48
+    IT50
+    IT52
+    OS
+    JP0
+    JP1
+    JP2
+    JP3
+    JP4
+    EU41
+    EU42
+    EU43
+    EU44
+    EU45
+}

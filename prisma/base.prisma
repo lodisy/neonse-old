@@ -1,0 +1,83 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+generator nestgraphql {
+    provider               = "node node_modules/prisma-nestjs-graphql"
+    output                 = "../libs/graphql/src/lib"
+    reExport               = All
+    fields_Validator_from  = "class-validator"
+    fields_Validator_input = true
+}
+
+// enums
+
+enum ContentType {
+    PRODUCT
+    ARTICLE
+    LOOKBOOK
+    BRAND
+}
+
+enum CurrencyCode {
+    USD
+    CNY
+    HKD
+    EUR
+    GBP
+}
+
+enum FileType {
+    // image
+    IMAGE
+    // video
+    VIDEO
+    // sound
+    SOUND
+    // other
+    BINARY
+}
+
+enum LanguageCode {
+    zh_Hans
+    zh_Hant
+    en
+    de
+}
+
+enum RoleStatus {
+    // 正常
+    normal
+    // 暂时冻结
+    terminated
+}
+
+enum Size {
+    XS
+    S
+    M
+    L
+    XL
+    IT44
+    IT46
+    IT48
+    IT50
+    IT52
+    OS
+    JP0
+    JP1
+    JP2
+    JP3
+    JP4
+    EU41
+    EU42
+    EU43
+    EU44
+    EU45
+}

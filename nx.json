@@ -34,6 +34,9 @@
         "password": {
             "tags": []
         },
+        "permission": {
+            "tags": []
+        },
         "prisma": {
             "tags": []
         },

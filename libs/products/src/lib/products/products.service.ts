@@ -45,7 +45,7 @@ export class ProductsService {
         })
     }
 
-    /** Update product */
+    /** 修改单个商品 */
 
     async updateProduct(params: {
         where: Prisma.ProductWhereUniqueInput
@@ -54,7 +54,8 @@ export class ProductsService {
         return await this.prisma.product.update(params)
     }
 
-    /** Delete a product */
+    /** 根据 SKU 删除单个商品 */
+
     async deleteProduct(sku: string): Promise<Product> {
         return await this.prisma.product.delete({
             where: {
@@ -63,7 +64,7 @@ export class ProductsService {
         })
     }
 
-    /** Bulk delete products */
+    /** 批量删除商品 */
 
     async deleteProducts(where?: Prisma.ProductWhereInput): Promise<Prisma.BatchPayload> {
         return await this.prisma.product.deleteMany({

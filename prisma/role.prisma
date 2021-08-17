@@ -1,0 +1,31 @@
+// 角色
+
+model Role {
+    id          String      @id @default(cuid())
+    /// @Validator.MaxLength(10)
+    name        String
+    slug        String      @unique
+    /// @Validator.MaxLength(50)
+    description String?
+    /// @HideField({input:true, output:false})
+    status      RoleStatus? @default(normal)
+    isDefault   Boolean?    @default(false)
+    channels    Channel[]
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime?   @updatedAt
+}
+
+// ----------------------------------------------------------------
+
+enum RoleStatus {
+    // 正常
+    normal
+    // 暂时冻结
+    terminated
+}
+
+model Channel {
+    id     String  @id @default(cuid())
+    Role   Role?   @relation(fields: [roleId], references: [id])
+    roleId String?
+}

@@ -1,0 +1,21 @@
+// Promotion 折扣优惠
+
+model Promotion {
+    id              String        @id @default(cuid())
+    createdAt       DateTime      @default(now())
+    updatedAt       DateTime      @updatedAt
+    startAt         DateTime?
+    endAt           DateTime?
+    couponCode      String        @unique
+    name            String
+    enabled         Boolean       @default(true)
+    // todo conditions
+    promotionList   PromotionList @relation(fields: [promotionListId], references: [id])
+    promotionListId String
+}
+
+model PromotionList {
+    id    String      @id @default(cuid())
+    items Promotion[]
+    total Int
+}

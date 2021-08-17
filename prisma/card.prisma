@@ -1,0 +1,10 @@
+// 信用卡
+
+model Card {
+    /// @HideField({input:true})
+    id         String   @id @default(cuid())
+    number     BigInt   @unique
+    name       String
+    expiration DateTime
+    bank       String?
+}

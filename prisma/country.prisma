@@ -1,0 +1,31 @@
+// Country 国家
+
+model Country {
+    id           String               @id @default(cuid())
+    createdAt    DateTime             @default(now())
+    updatedAt    DateTime             @updatedAt
+    languageCode LanguageCode
+    code         String               @unique
+    name         String
+    enabled      Boolean
+    translations CountryTranslation[]
+}
+
+model CountryTranslation {
+    id           String       @id @default(cuid())
+    createdAt    DateTime     @default(now())
+    updatedAt    DateTime     @updatedAt
+    languageCode LanguageCode
+    name         String
+    country      Country?     @relation(fields: [countryId], references: [id])
+    countryId    String?
+}
+
+// ------
+
+enum LanguageCode {
+    zh_Hans
+    zh_Hant
+    en
+    de
+}

@@ -14,9 +14,13 @@ export class PasswordService {
         return Number.isInteger(Number(saltOrRounds)) ? Number(saltOrRounds) : saltOrRounds
     }
 
+    /** 比对密码是否一致 */
+
     validatePassword(password: string, hashedPassword: string): Promise<boolean> {
         return compare(password, hashedPassword)
     }
+
+    /** 给密码加密 */
 
     hashPassword(password: string): Promise<string> {
         return hash(password, this.bcryptSaltRounds)

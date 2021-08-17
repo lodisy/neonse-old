@@ -1,0 +1,73 @@
+// 权限
+
+enum Permission {
+    // 已登入的
+    Authenticated
+    // 超级 Admin
+    SuperAdmin
+    // 持有者 例如 Customer 持有 Order
+    Owner
+    // 公开未登入的
+    Public
+    // 允许创建所有 content type
+    CreateContents
+    // 允许读取所有 content type
+    ReadContents
+    // 允许修改所有 content type
+    UpdateContents
+    // 允许删除所有 content type
+    DeleteContents
+    // 允许创建全局设置、支付方式等
+    CreateSettings
+    // 允许读取全局设置、支付方式等
+    ReadSettings
+    // 允许修改全局设置、支付方式等
+    UpdateSettings
+    // 允许删除全局设置、支付方式等
+    DeleteSettings
+    // 创建管理员（分配权限）
+    CreateAdministrator
+    // 读取管理员
+    ReadAdministrator
+    // 修改管理员（分配权限）
+    UpdateAdministrator
+    // 删除管理员
+    DeleteAdministrator
+    // 上传文件
+    CreateAsset
+    // 读取文件
+    ReadAsset
+    // 修改文件
+    UpdateAsset
+    // 删除文件
+    DeleteAsset
+    // 创建订单
+    CreateOrder
+    // 读取订单
+    ReadOrder
+    // 修改订单
+    UpdateOrder
+    // 删除订单
+    DeleteOrder
+    // 创建支付方式
+    CreatePaymentMethod
+    // 读取支付方式
+    ReadPaymentMethod
+    // 修改支付方式
+    UpdatePaymentMethod
+    // 删除支付方式
+    DeletePaymentMethod
+    // 创建商品
+    CreateProduct
+    // 读取商品
+    ReadProduct
+    // 修改商品
+    UpdateProduct
+    // 删除商品
+    DeleteProduct
+}
+
+model Role {
+    id          String     @id @default(cuid())
+    permissions Permission
+}
