@@ -19,34 +19,43 @@
         }
     },
     "projects": {
-        "api": {
+        "api-admin": {
             "tags": []
         },
-        "nest-auth": {
+        "api-server": {
             "tags": []
         },
-        "nest-configs": {
+        "nest-admin-permissions": {
+            "tags": []
+        },
+        "nest-admin-products": {
+            "tags": []
+        },
+        "nest-admin-roles": {
+            "tags": []
+        },
+        "nest-admin-users": {
+            "tags": []
+        },
+        "nest-common-configs": {
+            "tags": []
+        },
+        "nest-common-i18n": {
+            "tags": []
+        },
+        "nest-common-password": {
+            "tags": []
+        },
+        "nest-common-prisma": {
             "tags": []
         },
         "nest-graphql": {
             "tags": []
         },
-        "nest-password": {
+        "nest-server-auth": {
             "tags": []
         },
-        "nest-permission": {
-            "tags": []
-        },
-        "nest-prisma": {
-            "tags": []
-        },
-        "nest-products": {
-            "tags": []
-        },
-        "nest-role": {
-            "tags": []
-        },
-        "nest-users": {
+        "nest-server-users": {
             "tags": []
         },
         "shared": {

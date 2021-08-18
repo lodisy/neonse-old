@@ -125,6 +125,7 @@
         "@svgr/webpack": "^5.5.0",
         "@testing-library/jest-dom": "5.14.1",
         "@testing-library/react": "12.0.0",
+        "@types/bcrypt": "^5.0.0",
         "@types/detox": "17.14.0",
         "@types/jest": "26.0.24",
         "@types/node": "16.4.13",
