@@ -2845,13 +2845,19 @@ input LikeWhereUniqueInput {
 }
 
 type Mutation {
+  """后台批量发布或批量取消发布商品"""
+  bulkToggleDraft(draft: Boolean!, where: ProductWhereInput!): Product
+
   """创建商品"""
   createProduct(data: ProductCreateInput!): Product!
 
   """根据 SKU 删除指定商品"""
-  deleteProduct(sku: String!): Product!
+  deleteProduct(sku: String!): Product
 
-  """根据 SKU 修改指定商品"""
+  """根据 SKU 发布或取消单个商品"""
+  toggleDraft(sku: String!): Product!
+
+  """根据 SKU 修改指定商品信息"""
   updateProduct(data: ProductUpdateInput!, sku: String!): Product!
 }
 
