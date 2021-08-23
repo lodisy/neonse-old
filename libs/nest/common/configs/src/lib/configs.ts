@@ -6,14 +6,6 @@ export type CorsConfig = {
     enabled: boolean
 }
 
-export type SwaggerConfig = {
-    enabled: boolean
-    title: string
-    description: string
-    version: string
-    path: string
-}
-
 export type GraphqlConfig = {
     playgroundEnabled: boolean
     debug: boolean
@@ -27,27 +19,22 @@ export type SecurityConfig = {
     bcryptSaltOrRound: string | number
 }
 
-export type Config = {
+export type SMSConfig = {}
+
+export type Configs = {
     nest: NestConfig
     cors: CorsConfig
-    swagger: SwaggerConfig
     graphql: GraphqlConfig
     security: SecurityConfig
+    sms: SMSConfig
 }
 
-export const config: Config = {
+const configs: Configs = {
     nest: {
         port: 3333,
     },
     cors: {
         enabled: true,
-    },
-    swagger: {
-        enabled: true,
-        title: 'neonse REST API',
-        description: '',
-        version: '1',
-        path: 'docs',
     },
     graphql: {
         playgroundEnabled: true,
@@ -60,4 +47,7 @@ export const config: Config = {
         refreshIn: '7d',
         bcryptSaltOrRound: 10,
     },
+    sms: {},
 }
+
+export default (): Configs => configs

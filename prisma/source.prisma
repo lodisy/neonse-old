@@ -1,8 +1,0 @@
-// 文章、图片、视频等来源
-
-model Source {
-    /// @HideField({input:true})
-    id   String  @id @default(cuid())
-    name String // name of person or website or magzine etc
-    link String?
-}

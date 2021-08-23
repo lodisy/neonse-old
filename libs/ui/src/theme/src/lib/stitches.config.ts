@@ -8,6 +8,7 @@ import { space } from './space'
 import { utils } from './utils'
 import { zIndices } from './zIndices'
 export type { StitchesVariants } from '@stitches/react'
+export { styled, css, keyframes, getCssString }
 
 const stitches = createCss({
     theme: {
@@ -86,5 +87,3 @@ export const globalStyles = global({
     '&.dark': darkTheme,
     '&.night': nightTheme,
 })()
-
-export { styled, css, keyframes, getCssString }

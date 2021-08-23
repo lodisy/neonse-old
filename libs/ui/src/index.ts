@@ -1,3 +1,4 @@
+export * from './components/ui-components/UiComponents'
 export * from '@neonse/ui-animations'
 export * from '@neonse/ui-components'
 export * from '@neonse/ui-icons'

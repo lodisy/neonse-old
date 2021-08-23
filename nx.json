@@ -19,25 +19,23 @@
         }
     },
     "projects": {
-        "api-admin": {
+        "admin": {
             "tags": []
         },
-        "api-server": {
+        "admin-e2e": {
+            "tags": [],
+            "implicitDependencies": ["admin"]
+        },
+        "api": {
             "tags": []
         },
-        "nest-admin-permissions": {
-            "tags": []
-        },
-        "nest-admin-products": {
-            "tags": []
-        },
-        "nest-admin-roles": {
-            "tags": []
-        },
-        "nest-admin-users": {
+        "nest-common-auth": {
             "tags": []
         },
         "nest-common-configs": {
+            "tags": []
+        },
+        "nest-common-graphql": {
             "tags": []
         },
         "nest-common-i18n": {
@@ -49,16 +47,19 @@
         "nest-common-prisma": {
             "tags": []
         },
-        "nest-graphql": {
+        "nest-common-roles": {
             "tags": []
         },
-        "nest-server-auth": {
+        "nest-common-sms": {
             "tags": []
         },
-        "nest-server-users": {
+        "nest-common-upload": {
             "tags": []
         },
-        "shared": {
+        "nest-common-users": {
+            "tags": []
+        },
+        "nest-products": {
             "tags": []
         },
         "store": {
@@ -68,7 +69,7 @@
             "tags": [],
             "implicitDependencies": ["store"]
         },
-        "store-native": {
+        "store-mini": {
             "tags": []
         },
         "ui": {
@@ -91,5 +92,5 @@
             "tags": []
         }
     },
-    "plugins": ["@nxrocks/nx-flutter"]
+    "plugins": []
 }

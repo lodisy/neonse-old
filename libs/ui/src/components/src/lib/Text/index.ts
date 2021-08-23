@@ -1,1 +1,1 @@
-export * from './Text'
+export * as Text from './Text'

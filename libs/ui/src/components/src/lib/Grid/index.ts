@@ -1,1 +1,1 @@
-export * from './Grid'
+export * as Grid from './Grid'

@@ -1,19 +1,118 @@
 {
     "version": 2,
     "projects": {
-        "api-admin": {
-            "root": "apps/api/admin",
-            "sourceRoot": "apps/api/admin/src",
+        "admin": {
+            "root": "apps/admin",
+            "sourceRoot": "apps/admin/src",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/web:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/admin",
+                        "index": "apps/admin/src/index.html",
+                        "main": "apps/admin/src/main.tsx",
+                        "polyfills": "apps/admin/src/polyfills.ts",
+                        "tsConfig": "apps/admin/tsconfig.app.json",
+                        "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
+                        "styles": [],
+                        "scripts": [],
+                        "webpackConfig": "@nrwl/react/plugins/webpack"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/admin/src/environments/environment.ts",
+                                    "with": "apps/admin/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/web:dev-server",
+                    "options": {
+                        "buildTarget": "admin:build",
+                        "hmr": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "buildTarget": "admin:build:production",
+                            "hmr": false
+                        }
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["apps/admin/**/*.{ts,tsx,js,jsx}"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/admin"],
+                    "options": {
+                        "jestConfig": "apps/admin/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "admin-e2e": {
+            "root": "apps/admin-e2e",
+            "sourceRoot": "apps/admin-e2e/src",
+            "projectType": "application",
+            "targets": {
+                "e2e": {
+                    "executor": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/admin-e2e/cypress.json",
+                        "tsConfig": "apps/admin-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "admin:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "admin:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
+                    }
+                }
+            }
+        },
+        "api": {
+            "root": "apps/api",
+            "sourceRoot": "apps/api/src",
             "projectType": "application",
             "targets": {
                 "build": {
                     "executor": "@nrwl/node:build",
                     "outputs": ["{options.outputPath}"],
                     "options": {
-                        "outputPath": "dist/apps/api/admin",
-                        "main": "apps/api/admin/src/main.ts",
-                        "tsConfig": "apps/api/admin/tsconfig.app.json",
-                        "assets": ["apps/api/admin/src/assets"]
+                        "outputPath": "dist/apps/api",
+                        "main": "apps/api/src/main.ts",
+                        "tsConfig": "apps/api/tsconfig.app.json",
+                        "assets": ["apps/api/src/assets"]
                     },
                     "configurations": {
                         "production": {
@@ -22,8 +121,8 @@
                             "inspect": false,
                             "fileReplacements": [
                                 {
-                                    "replace": "apps/api/admin/src/environments/environment.ts",
-                                    "with": "apps/api/admin/src/environments/environment.prod.ts"
+                                    "replace": "apps/api/src/environments/environment.ts",
+                                    "with": "apps/api/src/environments/environment.prod.ts"
                                 }
                             ]
                         }
@@ -32,154 +131,41 @@
                 "serve": {
                     "executor": "@nrwl/node:execute",
                     "options": {
-                        "buildTarget": "api-admin:build"
+                        "buildTarget": "api:build"
                     }
                 },
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["apps/api/admin/**/*.ts"]
+                        "lintFilePatterns": ["apps/api/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/api/admin"],
+                    "outputs": ["coverage/apps/api"],
                     "options": {
-                        "jestConfig": "apps/api/admin/jest.config.js",
+                        "jestConfig": "apps/api/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "api-server": {
-            "root": "apps/api/server",
-            "sourceRoot": "apps/api/server/src",
-            "projectType": "application",
-            "targets": {
-                "build": {
-                    "executor": "@nrwl/node:build",
-                    "outputs": ["{options.outputPath}"],
-                    "options": {
-                        "outputPath": "dist/apps/api/server",
-                        "main": "apps/api/server/src/main.ts",
-                        "tsConfig": "apps/api/server/tsconfig.app.json",
-                        "assets": ["apps/api/server/src/assets"]
-                    },
-                    "configurations": {
-                        "production": {
-                            "optimization": true,
-                            "extractLicenses": true,
-                            "inspect": false,
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/api/server/src/environments/environment.ts",
-                                    "with": "apps/api/server/src/environments/environment.prod.ts"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "executor": "@nrwl/node:execute",
-                    "options": {
-                        "buildTarget": "api-server:build"
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/api/server/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/api/server"],
-                    "options": {
-                        "jestConfig": "apps/api/server/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "nest-admin-permissions": {
-            "root": "libs/nest/admin/permissions",
-            "sourceRoot": "libs/nest/admin/permissions/src",
+        "nest-common-auth": {
+            "root": "libs/nest/common/auth",
+            "sourceRoot": "libs/nest/common/auth/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/nest/admin/permissions/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/common/auth/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/admin/permissions"],
+                    "outputs": ["coverage/libs/nest/common/auth"],
                     "options": {
-                        "jestConfig": "libs/nest/admin/permissions/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "nest-admin-products": {
-            "root": "libs/nest/admin/products",
-            "sourceRoot": "libs/nest/admin/products/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/nest/admin/products/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/admin/products"],
-                    "options": {
-                        "jestConfig": "libs/nest/admin/products/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "nest-admin-roles": {
-            "root": "libs/nest/admin/roles",
-            "sourceRoot": "libs/nest/admin/roles/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/nest/admin/roles/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/admin/roles"],
-                    "options": {
-                        "jestConfig": "libs/nest/admin/roles/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "nest-admin-users": {
-            "root": "libs/nest/admin/users",
-            "sourceRoot": "libs/nest/admin/users/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/nest/admin/users/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/admin/users"],
-                    "options": {
-                        "jestConfig": "libs/nest/admin/users/jest.config.js",
+                        "jestConfig": "libs/nest/common/auth/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
@@ -201,6 +187,27 @@
                     "outputs": ["coverage/libs/nest/common/configs"],
                     "options": {
                         "jestConfig": "libs/nest/common/configs/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-common-graphql": {
+            "root": "libs/nest/common/graphql",
+            "sourceRoot": "libs/nest/common/graphql/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/graphql/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/graphql"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/graphql/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
@@ -269,85 +276,106 @@
                 }
             }
         },
-        "nest-graphql": {
-            "root": "libs/nest/graphql",
-            "sourceRoot": "libs/nest/graphql/src",
+        "nest-common-roles": {
+            "root": "libs/nest/common/roles",
+            "sourceRoot": "libs/nest/common/roles/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/nest/graphql/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/common/roles/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/graphql"],
+                    "outputs": ["coverage/libs/nest/common/roles"],
                     "options": {
-                        "jestConfig": "libs/nest/graphql/jest.config.js",
+                        "jestConfig": "libs/nest/common/roles/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "nest-server-auth": {
-            "root": "libs/nest/server/auth",
-            "sourceRoot": "libs/nest/server/auth/src",
+        "nest-common-sms": {
+            "root": "libs/nest/common/sms",
+            "sourceRoot": "libs/nest/common/sms/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/nest/server/auth/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/common/sms/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/server/auth"],
+                    "outputs": ["coverage/libs/nest/common/sms"],
                     "options": {
-                        "jestConfig": "libs/nest/server/auth/jest.config.js",
+                        "jestConfig": "libs/nest/common/sms/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "nest-server-users": {
-            "root": "libs/nest/server/users",
-            "sourceRoot": "libs/nest/server/users/src",
+        "nest-common-upload": {
+            "root": "libs/nest/common/upload",
+            "sourceRoot": "libs/nest/common/upload/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/nest/server/users/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/common/upload/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/server/users"],
+                    "outputs": ["coverage/libs/nest/common/upload"],
                     "options": {
-                        "jestConfig": "libs/nest/server/users/jest.config.js",
+                        "jestConfig": "libs/nest/common/upload/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
             }
         },
-        "shared": {
-            "root": "libs/shared",
-            "sourceRoot": "libs/shared/src",
+        "nest-common-users": {
+            "root": "libs/nest/common/users",
+            "sourceRoot": "libs/nest/common/users/src",
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/shared/**/*.ts"]
+                        "lintFilePatterns": ["libs/nest/common/users/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/shared"],
+                    "outputs": ["coverage/libs/nest/common/users"],
                     "options": {
-                        "jestConfig": "libs/shared/jest.config.js",
+                        "jestConfig": "libs/nest/common/users/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-products": {
+            "root": "libs/nest/products",
+            "sourceRoot": "libs/nest/products/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/products/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/products"],
+                    "options": {
+                        "jestConfig": "libs/nest/products/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
@@ -431,128 +459,45 @@
                 }
             }
         },
-        "store-native": {
-            "root": "apps/store-native",
-            "sourceRoot": "apps/store-native/src",
+        "store-mini": {
+            "root": "apps/store-mini",
+            "sourceRoot": "apps/store-mini/src",
             "projectType": "application",
             "targets": {
-                "analyze": {
-                    "executor": "@nrwl/workspace:run-commands",
+                "build": {
+                    "executor": "remax build -t wechat -w",
+                    "outputs": ["{options.outputPath}"],
                     "options": {
-                        "command": "flutter analyze",
-                        "cwd": "apps/store-native"
+                        "outputPath": "dist/apps/store-mini",
+                        "index": "apps/store-mini/src/pages/index/index.tsx",
+                        "main": "apps/store-mini/src/app.ts",
+                        "tsConfig": "apps/store-mini/tsconfig.app.json",
+                        "assets": ["apps/store-mini/public"],
+                        "styles": [],
+                        "scripts": [],
+                        "webpackConfig": "@nrwl/react/plugins/webpack"
+                    },
+                    "configurations": {
+                        "production": {}
                     }
                 },
-                "clean": {
-                    "executor": "@nrwl/workspace:run-commands",
+                "serve": {
+                    "executor": "cross-env NODE_ENV=production remax build -t wechat",
                     "options": {
-                        "command": "flutter clean",
-                        "cwd": "apps/store-native"
+                        "buildTarget": "store-mini:build",
+                        "hmr": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "buildTarget": "store-mini:build:production",
+                            "hmr": false
+                        }
                     }
                 },
-                "format": {
-                    "executor": "@nrwl/workspace:run-commands",
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
                     "options": {
-                        "command": "flutter format apps/store-native/*",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter test",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "assemble": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter assemble",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "attach": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter attach",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "drive": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter drive",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "genL10n": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter gen-l10n",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "install": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter install",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "run": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter run",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildAar": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build aar",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildApk": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build apk",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildAppbundle": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build appbundle",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildBundle": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build bundle",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildIos": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build ios",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildIosFramework": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build ios-framework",
-                        "cwd": "apps/store-native"
-                    }
-                },
-                "buildIpa": {
-                    "executor": "@nrwl/workspace:run-commands",
-                    "options": {
-                        "command": "flutter build ipa",
-                        "cwd": "apps/store-native"
+                        "lintFilePatterns": ["apps/store-mini/**/*.{ts,tsx,js,jsx}"]
                     }
                 }
             }
@@ -726,14 +671,20 @@
     "generators": {
         "@nrwl/react": {
             "application": {
+                "style": "none",
+                "linter": "eslint",
                 "babel": true
             },
             "component": {
+                "style": "none",
                 "export": true,
                 "project": "ui",
-                "style": "none",
                 "pascalCaseFiles": true,
                 "directory": "./components/"
+            },
+            "library": {
+                "style": "none",
+                "linter": "eslint"
             }
         },
         "@nrwl/next": {
@@ -743,5 +694,5 @@
             }
         }
     },
-    "defaultProject": "api-server"
+    "defaultProject": "api"
 }

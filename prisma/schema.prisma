@@ -17,8 +17,795 @@ generator client {
 
 generator nestgraphql {
   provider               = "node node_modules/prisma-nestjs-graphql"
-  output                 = "../libs/nest/graphql/src/lib"
+  output                 = "../libs/nest/common/graphql/src/lib"
   reExport               = All
   fields_Validator_from  = "class-validator"
   fields_Validator_input = true
+}
+
+// ******
+// ******
+// ******
+// 按字母排序
+
+// 枚举
+
+// 登入方式
+
+enum AuthenticationStrategy {
+  Local
+  JWT
+  SMS
+  Wechat
+}
+
+/// 内容类型
+enum ContentType {
+  PRODUCT
+  ARTICLE
+  LOOKBOOK
+  BRAND
+}
+
+/// 货币
+enum CurrencyCode {
+  USD
+  CNY
+  HKD
+  EUR
+  GBP
+}
+
+/// 文件类型
+enum FileType {
+  IMAGE
+  VIDEO
+  SOUND
+  BINARY
+}
+
+/// 语言
+enum LanguageCode {
+  zh_Hans
+  zh_Hant
+  en
+  de
+}
+
+/// 订单状态
+
+enum OrderStatus {
+  /// 待支付
+  pending
+  /// 已付款未发货
+  processing
+  /// 已发货
+  shipped
+  /// 已签收
+  delivered
+  /// 签收后 3 天已完成
+  completed
+  /// 签收后 7 天无法申请退换货
+  archived
+  /// 请求更换
+  exchangeRequest
+  /// 请求退回
+  returnRequest
+  /// 请求待处理
+  requestPending
+  /// 请求已接受
+  requestAccepted
+  /// 请求被拒绝
+  requestDenied
+  /// 退回途中
+  returning
+  /// 已收货
+  received
+  /// 已退款
+  refunded
+  /// 已取消订单
+  cancelled
+}
+
+/// 支付
+
+enum PaymentMethod {
+  Alipay
+  WechatPay
+  Stripe
+  PayPal
+}
+
+/// 权限
+enum Permission {
+  /// 已登入的
+  Authenticated
+  /// 超级 Admin
+  SuperAdmin
+  /// 持有者 例如 Customer 持有 Order
+  Owner
+  /// 公开未登入的
+  Public
+  /// 允许创建所有 content type
+  CreateContents
+  /// 允许读取所有 content type
+  ReadContents
+  /// 允许修改所有 content type
+  UpdateContents
+  /// 允许删除所有 content type
+  DeleteContents
+  /// 允许创建全局设置、支付方式等
+  CreateSettings
+  /// 允许读取全局设置、支付方式等
+  ReadSettings
+  /// 允许修改全局设置、支付方式等
+  UpdateSettings
+  /// 允许删除全局设置、支付方式等
+  DeleteSettings
+  /// 创建管理员（分配权限）
+  CreateAdministrator
+  /// 读取管理员
+  ReadAdministrator
+  /// 修改管理员（分配权限）
+  UpdateAdministrator
+  /// 删除管理员
+  DeleteAdministrator
+  /// 上传文件
+  CreateAsset
+  /// 读取文件
+  ReadAsset
+  /// 修改文件
+  UpdateAsset
+  /// 删除文件
+  DeleteAsset
+  /// 创建订单
+  CreateOrder
+  /// 读取订单
+  ReadOrder
+  /// 修改订单
+  UpdateOrder
+  /// 删除订单
+  DeleteOrder
+  /// 创建支付方式
+  CreatePaymentMethod
+  /// 读取支付方式
+  ReadPaymentMethod
+  /// 修改支付方式
+  UpdatePaymentMethod
+  /// 删除支付方式
+  DeletePaymentMethod
+  /// 创建商品
+  CreateProduct
+  /// 读取商品
+  ReadProduct
+  /// 修改商品
+  UpdateProduct
+  /// 删除商品
+  DeleteProduct
+}
+
+/// 角色状态
+enum RoleStatus {
+  /// 正常
+  normal
+  /// 暂时冻结
+  terminated
+}
+
+/// 商品尺码
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  IT44
+  IT46
+  IT48
+  IT50
+  IT52
+  OS
+  JP0
+  JP1
+  JP2
+  JP3
+  JP4
+  EU41
+  EU42
+  EU43
+  EU44
+  EU45
+}
+
+/// 地址
+model Address {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  Profile      Profile? @relation(fields: [profileId], references: [id])
+  profileId    String?
+  fullname     String
+  /// @Validator.IsEmail()
+  email        String?
+  /// @Validator.IsMobilePhone()
+  phone        String?
+  company      String?
+  streetLine1  String
+  streetLine2  String?
+  district     String?
+  city         String
+  state        String?
+  /// @Validator.IsPostalCode()
+  postalCode   String?
+  country      String
+  /// 是否作为默认地址
+  default      Boolean? @default(true)
+  /// @Validator.IsJSON()
+  customFields Json?
+}
+
+/// 登入方式
+model AuthenticationMethod {
+  id        String                 @id @default(cuid())
+  createdAt DateTime               @default(now())
+  updatedAt DateTime               @updatedAt
+  strategy  AuthenticationStrategy @default(Local)
+  User      User                   @relation(fields: [userId], references: [id])
+  userId    String
+}
+
+/// 品牌
+model Brand {
+  id           String             @id @default(cuid())
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  name         String
+  slug         String             @unique
+  founders     Profile[]
+  country      String?
+  year         Int?
+  description  String?
+  products     Product[]
+  languageCode LanguageCode       @default(en)
+  translations BrandTranslation[]
+}
+
+model BrandTranslation {
+  id           String       @id @default(cuid())
+  languageCode LanguageCode @default(zh_Hans)
+  name         String
+  country      String?
+  description  String?
+  brand        Brand        @relation(fields: [brandId], references: [id])
+  brandId      String
+}
+
+/// 信用卡
+model Card {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  profile    Profile? @relation(fields: [profileId], references: [id])
+  profileId  String?
+  number     BigInt   @unique
+  name       String
+  expiration DateTime
+  bank       String?
+}
+
+/// 渠道端 比如微信端、英文网站、中文网站等
+model Channel {
+  id                  String          @id @default(cuid())
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  /// @Validator.Length(2,5)
+  code                String          @unique
+  token               String          @unique
+  // TODO shipping zone tax zone
+  defaultLanguageCode LanguageCode    @default(en)
+  currencyCode        CurrencyCode    @default(USD)
+  priceIncludeTax     Boolean?        @default(true)
+  /// @Validator.IsJSON()
+  customFields        Json?
+  productVariant      ProductVariant? @relation(fields: [productVariantId], references: [id])
+  productVariantId    String?
+  Role                Role?           @relation(fields: [roleId], references: [id])
+  roleId              String?
+}
+
+/// 评论（匿名）
+model Comment {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  /// @Validator.IsEmail()
+  email     String
+  by        Profile? @relation(fields: [profileId], references: [id]) // 已注册用户
+  profileId String?  @unique
+  content   String
+}
+
+/// 支持运送的国家
+model Country {
+  id           String               @id @default(cuid())
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  code         String               @unique
+  name         String
+  /// 开启支持运送
+  enabled      Boolean
+  languageCode LanguageCode         @default(en)
+  translations CountryTranslation[]
+}
+
+model CountryTranslation {
+  id           String       @id @default(cuid())
+  languageCode LanguageCode @default(zh_Hans)
+  name         String
+  country      Country?     @relation(fields: [countryId], references: [id])
+  countryId    String?
+}
+
+// 买家
+
+/// 文件
+model File {
+  id                  String                @id @default(cuid())
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  name                String
+  /// @Validator.IsUrl()
+  url                 String                @unique
+  alt                 String?
+  title               String?
+  caption             String?
+  format              FileType
+  /// @Validator.IsMimeType()
+  mimeType            String
+  size                Int?
+  width               Int?
+  height              Int?
+  source              Source?               @relation(fields: [sourceId], references: [id]) // a file has its source
+  sourceId            String?               @unique
+  autoPlay            Boolean?
+  /// @Validator.IsJSON()
+  customFields        Json?
+  profile             Profile?              @relation("Uploads", fields: [profileId], references: [id]) // uploaded by 
+  profileId           String?
+  profileAvatar       Profile?              @relation("Avatar", fields: [profileAvatarId], references: [id])
+  profileAvatarId     String?
+  OrderItem           OrderItem[]
+  Product             Product?              @relation(fields: [productId], references: [id])
+  productId           String?
+  ProductVariant      ProductVariant?       @relation(fields: [productVariantId], references: [id])
+  productVariantId    String?
+  ProductVariantStyle ProductVariantStyle[]
+  Review              Review?               @relation(fields: [reviewId], references: [id])
+  reviewId            String?
+}
+
+/// 喜欢收藏
+model Like {
+  id        String      @id @default(cuid())
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  by        Profile     @relation(fields: [profileId], references: [id])
+  profileId String      @unique
+  type      ContentType
+  product   Product?    @relation(fields: [productId], references: [id])
+  productId String?     @unique
+  // TODO other content types
+}
+
+/// 订单
+model Order {
+  id              String        @id @default(cuid())
+  createdAt       DateTime      @default(now()) // 
+  updatedAt       DateTime      @updatedAt
+  /// 付款时间
+  placedAt        DateTime
+  code            String        @unique
+  /// 未付款
+  pending         Boolean       @default(true)
+  status          OrderStatus   @default(pending)
+  address         OrderAddress?
+  items           OrderItem[]
+  totalQuantity   Int
+  subTotal        Int
+  subTotalWithTax Int
+  // shipping        Shipping
+  total           Int
+  totalWithTax    Int
+  payment         Payment?
+  tracking        String?
+  // history past order
+}
+
+model OrderAddress {
+  /// @Validator.IsEmail()
+  email        String  @id
+  phone        String?
+  fullname     String
+  company      String?
+  streetLine1  String
+  streetLine2  String?
+  district     String?
+  city         String
+  state        String?
+  /// @Validator.IsPostalCode()
+  postalCode   String?
+  country      String
+  /// @Validator.IsJSON()
+  customFields Json?
+  order        Order   @relation(fields: [orderId], references: [id])
+  orderId      String
+}
+
+model OrderItem {
+  id                         String   @id @default(cuid())
+  createdAt                  DateTime @default(now())
+  updatedAt                  DateTime @updatedAt
+  name                       String
+  sku                        String   @unique
+  image                      File     @relation(fields: [fileId], references: [id])
+  brands                     String
+  size                       String?
+  color                      String?
+  style                      String?
+  unitPrice                  Int
+  unitPriceWithTax           Int
+  discountedUnitPrice        Int
+  discountedUnitPriceWithTax Int
+  quantity                   Int
+  order                      Order?   @relation(fields: [orderId], references: [id])
+  orderId                    String?
+  fileId                     String
+}
+
+/// 支付
+model Payment {
+  id            String        @id @default(cuid())
+  createdAt     DateTime      @default(now()) //
+  updatedAt     DateTime      @updatedAt
+  method        PaymentMethod
+  status        String
+  transactionId String        @unique
+  errorMessage  String
+  /// @Validator.IsJSON()
+  metadata      Json?
+  order         Order         @relation(fields: [orderId], references: [id])
+  orderId       String
+}
+
+/// 商品
+model Product {
+  id           String               @id @default(cuid())
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  name         String
+  sku          String               @unique
+  assets       File[]
+  brands       Brand[]
+  types        ProductType[]
+  categories   ProductCategory[]
+  variants     ProductVariant[]
+  discription  String?
+  price        Int
+  featured     Boolean?             @default(false)
+  draft        Boolean?             @default(true)
+  stock        Int
+  sold         Int?                 @default(0)
+  likes        Like[]
+  reviews      Review[]
+  languageCode LanguageCode         @default(en)
+  translations ProductTranslation[]
+}
+
+model ProductTranslation {
+  id           String       @id @default(cuid())
+  languageCode LanguageCode @default(zh_Hans)
+  name         String
+  discription  String?
+  product      Product?     @relation(fields: [productId], references: [id])
+  productId    String?
+}
+
+/// 商品种类
+model ProductCategory {
+  id           String                       @id @default(cuid())
+  createdAt    DateTime                     @default(now())
+  updatedAt    DateTime                     @updatedAt
+  name         String
+  slug         String                       @unique
+  parentId     String?
+  parent       ProductCategory?             @relation("ParentChildren", fields: [parentId], references: [id]) // a product category could have a parent
+  children     ProductCategory[]            @relation("ParentChildren") // a product category could have many children
+  products     Product[]
+  types        ProductType[]
+  languageCode LanguageCode                 @default(en)
+  translations ProductCategoryTranslation[]
+}
+
+model ProductCategoryTranslation {
+  id                String           @id @default(cuid())
+  languageCode      LanguageCode     @default(zh_Hans)
+  name              String
+  productCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
+  productCategoryId String?
+}
+
+/// 商品分类（男装、女装等）
+model ProductType {
+  id           String                   @id @default(cuid())
+  createdAt    DateTime                 @default(now())
+  updatedAt    DateTime?                @updatedAt
+  name         String                   @unique
+  slug         String                   @unique
+  products     Product[]
+  categories   ProductCategory[]
+  languageCode LanguageCode             @default(en)
+  translations ProductTypeTranslation[]
+}
+
+model ProductTypeTranslation {
+  id            String       @id @default(cuid())
+  languageCode  LanguageCode @default(zh_Hans)
+  name          String
+  productType   ProductType? @relation(fields: [productTypeId], references: [id])
+  productTypeId String?
+}
+
+/// 子商品
+model ProductVariant {
+  id           String                      @id @default(cuid())
+  createdAt    DateTime                    @default(now())
+  updatedAt    DateTime?                   @updatedAt
+  name         String
+  sku          String                      @unique
+  assets       File[]
+  brands       String
+  size         ProductVariantSize?
+  color        ProductVariantColor?
+  style        ProductVariantStyle?
+  currencyCode CurrencyCode                @default(USD)
+  price        Int
+  sale         Int?
+  stock        Int?                        @default(1)
+  sold         Int                         @default(0)
+  channels     Channel[]
+  draft        Boolean?                    @default(false)
+  product      Product                     @relation(fields: [productId], references: [id])
+  productId    String
+  /// @Validator.IsJSON()
+  customFields Json?
+  languageCode LanguageCode                @default(en)
+  translations ProductVariantTranslation[]
+}
+
+model ProductVariantTranslation {
+  id               String          @id @default(cuid())
+  languageCode     LanguageCode    @default(zh_Hans)
+  name             String
+  ProductVariant   ProductVariant? @relation(fields: [productVariantId], references: [id])
+  productVariantId String?
+}
+
+/// 商品颜色
+model ProductVariantColor {
+  id               String                           @id @default(cuid())
+  createdAt        DateTime                         @default(now())
+  updatedAt        DateTime?                        @updatedAt
+  name             String
+  /// 颜色代码 HEX
+  value            String                           @unique
+  languageCode     LanguageCode                     @default(en)
+  translations     ProductVariantColorTranslation[]
+  productVariant   ProductVariant?                  @relation(fields: [productVariantId], references: [id])
+  productVariantId String?
+}
+
+model ProductVariantColorTranslation {
+  id                    String               @id @default(cuid())
+  languageCode          LanguageCode         @default(zh_Hans)
+  name                  String
+  ProductVariantColor   ProductVariantColor? @relation(fields: [productVariantColorId], references: [id])
+  productVariantColorId String?
+}
+
+model ProductVariantSize {
+  id               String          @id @default(cuid())
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime?       @updatedAt
+  name             String
+  productVariant   ProductVariant? @relation(fields: [productVariantId], references: [id])
+  productVariantId String?
+}
+
+model ProductVariantStyle {
+  id               String                           @id @default(cuid())
+  createdAt        DateTime                         @default(now())
+  updatedAt        DateTime?                        @updatedAt
+  name             String
+  asset            File                             @relation(fields: [fileId], references: [id])
+  languageCode     LanguageCode                     @default(en)
+  translations     ProductVariantStyleTranslation[]
+  productVariant   ProductVariant?                  @relation(fields: [productVariantId], references: [id])
+  productVariantId String?
+  fileId           String
+}
+
+model ProductVariantStyleTranslation {
+  id                    String               @id @default(cuid())
+  languageCode          LanguageCode         @default(zh_Hans)
+  name                  String
+  productVariantStyle   ProductVariantStyle? @relation(fields: [productVariantStyleId], references: [id])
+  productVariantStyleId String?
+}
+
+/// Profile
+model Profile {
+  id         String    @id @default(cuid())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime? @updatedAt
+  user       User      @relation(fields: [userId], references: [id])
+  userId     String    @unique
+  /// @Validator.MinLength(2)
+  name       String
+  phone      BigInt?
+  avatar     File?     @relation("Avatar")
+  point      Int?      @default(0)
+  level      Int?
+  brands     Brand[]
+  addresses  Address[]
+  cards      Card[]
+  comments   Comment[]
+  likes      Like[]
+  reviews    Review[]
+  uploads    File[]    @relation("Uploads")
+  /// self relation
+  followedBy Profile[] @relation("UserFollows", references: [id])
+  following  Profile[] @relation("UserFollows", references: [id])
+}
+
+/// Promotion
+model Promotion {
+  id                    String        @id @default(cuid())
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+  startAt               DateTime?
+  endAt                 DateTime?
+  couponCode            String        @unique
+  name                  String
+  enabled               Boolean       @default(true)
+  // todo conditions
+  perCustomerUsageLimit Int?
+  promotionList         PromotionList @relation(fields: [promotionListId], references: [id])
+  promotionListId       String
+}
+
+model PromotionList {
+  id    String      @id @default(cuid())
+  items Promotion[]
+  total Int
+}
+
+/// 退款
+model Refund {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reason    String
+}
+
+/// 商品评价
+model Review {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  by          Profile  @relation(fields: [profileId], references: [id])
+  profileId   String   @unique
+  product     Product? @relation(fields: [productId], references: [id])
+  productId   String?
+  /// 评分 1-5
+  /// @Validator.IsInt()
+  /// @Validator.Min(1)
+  /// @Validator.Max(5)
+  rate        Int
+  description String?
+  /// 买家秀
+  /// @Validator.MaxLength(3)
+  uploads     File[]
+}
+
+/// 角色
+model Role {
+  id           String            @id @default(cuid())
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime?         @updatedAt
+  user         User?             @relation(fields: [userId], references: [id])
+  userId       String?
+  /// @Validator.MaxLength(10)
+  name         String
+  slug         String            @unique
+  /// @Validator.MaxLength(50)
+  description  String?
+  status       RoleStatus?       @default(normal)
+  isDefault    Boolean?          @default(false)
+  channels     Channel[]
+  permissions  Permission[]
+  languageCode LanguageCode      @default(en)
+  translations RoleTranslation[]
+}
+
+model RoleTranslation {
+  id           String       @id @default(cuid())
+  languageCode LanguageCode @default(zh_Hans)
+  name         String
+  description  String?
+  Role         Role?        @relation(fields: [roleId], references: [id])
+  roleId       String?
+}
+
+// 运送
+
+// model Shipping {
+//   method ShippingMethod
+//   cost   Int
+//   // discount
+// }
+
+model ShippingMethod {
+  id           String                      @id @default(cuid())
+  createdAt    DateTime                    @default(now())
+  updatedAt    DateTime                    @updatedAt
+  code         String                      @unique
+  name         String
+  description  String?
+  languageCode LanguageCode                @default(en)
+  translations ShippingMethodTranslation[]
+}
+
+model ShippingMethodTranslation {
+  id               String         @id @default(cuid())
+  languageCode     LanguageCode   @default(zh_Hans)
+  name             String
+  description      String?
+  shippingMethod   ShippingMethod @relation(fields: [shippingMethodId], references: [id])
+  shippingMethodId String
+}
+
+/// 文章、图片、视频等来源
+model Source {
+  id   String  @id @default(cuid())
+  /// 作者、网站或杂志名称
+  name String
+  /// @Validator.IsUrl()
+  link String?
+  File File[]
+}
+
+/// User 用户
+model User {
+  id                    String                 @id @default(cuid())
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime?              @updatedAt
+  /// @Validator.IsEmail()
+  email                 String                 @unique
+  username              String?                @unique
+  /// @Validator.MinLength(6)
+  /// @Validator.MaxLength(10)
+  /// @HideField()
+  password              String
+  roles                 Role[]
+  lastLoginAt           DateTime?
+  /// @Validator.IsJSON()
+  customFields          Json?
+  authenticationMethods AuthenticationMethod[]
+  /// @Validator.IsJWT()
+  jwtToken              String                 @unique
+  refreshToken          String?                @unique
+  resetPasswordToken    String?                @unique
+  identifierToken       String?                @unique
+  profile               Profile?
 }
