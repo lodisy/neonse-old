@@ -5,6 +5,8 @@ import { Int } from '@nestjs/graphql';
 import { PromotionList } from '../promotion-list/promotion-list.model';
 
 /** Promotion */
+/** Promotion */
+/** Promotion */
 @ObjectType({description:'Promotion'})
 export class Promotion {
     @Field(() => ID, {nullable:false})

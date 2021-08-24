@@ -2851,6 +2851,9 @@ type Mutation {
   """创建商品"""
   createProduct(data: ProductCreateInput!): Product!
 
+  """创建商品分类"""
+  createProductType(data: ProductTypeCreateInput!): ProductType!
+
   """根据 SKU 删除指定商品"""
   deleteProduct(sku: String!): Product
 
@@ -4882,6 +4885,18 @@ type ProductTypeCountAggregate {
   name: Int!
   slug: Int!
   updatedAt: Int!
+}
+
+input ProductTypeCreateInput {
+  categories: ProductCategoryCreateNestedManyWithoutTypesInput
+  createdAt: DateTime
+  id: String
+  languageCode: LanguageCode
+  name: String!
+  products: ProductCreateNestedManyWithoutTypesInput
+  slug: String!
+  translations: ProductTypeTranslationCreateNestedManyWithoutProductTypeInput
+  updatedAt: DateTime
 }
 
 input ProductTypeCreateNestedManyWithoutCategoriesInput {
@@ -7705,6 +7720,12 @@ type PromotionSumAggregate {
 type Query {
   """根据 SKU 获取单个商品"""
   product(sku: String!): Product!
+
+  """根据 slug 查询单个商品分类"""
+  productType(slug: String!): ProductType!
+
+  """查询所有商品分类"""
+  productTypes: [ProductType!]!
 
   """获取多个商品，可指定条件"""
   products(cursor: ProductWhereUniqueInput, orderBy: ProductOrderByInput = {createdAt: desc}, skip: Int, take: Int, where: ProductWhereInput): [Product!]!

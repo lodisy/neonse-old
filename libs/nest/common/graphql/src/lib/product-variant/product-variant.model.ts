@@ -14,6 +14,8 @@ import { GraphQLJSON } from 'graphql-type-json';
 import { ProductVariantTranslation } from '../product-variant-translation/product-variant-translation.model';
 
 /** 子商品 */
+/** 子商品 */
+/** 子商品 */
 @ObjectType({description:'子商品'})
 export class ProductVariant {
     @Field(() => ID, {nullable:false})

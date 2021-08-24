@@ -8,6 +8,8 @@ import { AuthenticationMethod } from '../authentication-method/authentication-me
 import { Profile } from '../profile/profile.model';
 
 /** User 用户 */
+/** User 用户 */
+/** User 用户 */
 @ObjectType({description:'User 用户'})
 export class User {
     @Field(() => ID, {nullable:false})
@@ -38,7 +40,6 @@ export class User {
     updatedAt!: Date | null;
     @Field(() => Profile, {nullable:true})
     profile?: Profile;
-
     @Field(() => String, {nullable:true})
     refreshToken!: string | null;
 }

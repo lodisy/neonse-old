@@ -13,6 +13,8 @@ import { ProductVariantStyle } from '../product-variant-style/product-variant-st
 import { Review } from '../review/review.model';
 
 /** 文件 */
+/** 文件 */
+/** 文件 */
 @ObjectType({description:'文件'})
 export class File {
     @Field(() => ID, {nullable:false})

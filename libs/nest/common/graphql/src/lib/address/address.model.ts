@@ -5,6 +5,8 @@ import { Profile } from '../profile/profile.model';
 import { GraphQLJSON } from 'graphql-type-json';
 
 /** 地址 */
+/** 地址 */
+/** 地址 */
 @ObjectType({description:'地址'})
 export class Address {
     @Field(() => ID, {nullable:false})
