@@ -74,14 +74,14 @@ export class ProductsResolver {
         @Info() info: GraphQLResolveInfo,
         @Args('sku', { type: () => String }) sku: string,
     ): Promise<Product> {
+        await this.productsService.isNotExisting({ sku })
+
         const select = new PrismaSelect(info).value
 
         const result = await this.prisma.product.findUnique({
             where: { sku },
             ...select,
         })
-
-        if (!result) throw new HttpException('商品不存在', HttpStatus.NOT_FOUND)
 
         if (!result.draft) return result
     }
@@ -95,6 +95,12 @@ export class ProductsResolver {
         description: '创建商品',
     })
     async createProduct(@Args('data') data: ProductCreateInput): Promise<Product> {
+        const { sku } = data
+
+        await this.productsService.isExisting({
+            sku,
+        })
+
         return await this.prisma.product.create({
             data,
         })
@@ -114,13 +120,10 @@ export class ProductsResolver {
         description: '根据 SKU 发布或取消单个商品',
     })
     async toggleDraft(@Args('sku', { type: () => String }) sku: string): Promise<Product> {
-        const { draft: isPublished } = await this.prisma.product.findUnique({
-            where: {
-                sku,
-            },
-            select: {
-                draft: true,
-            },
+        await this.productsService.isExisting({ sku })
+
+        const isPublished = await this.productsService.isPublished({
+            sku,
         })
 
         return await this.prisma.product.update({
@@ -180,7 +183,11 @@ export class ProductsResolver {
         @Args('sku', { type: () => String }) sku: string,
         @Args('data') data: ProductUpdateInput,
     ): Promise<Product> {
-        return await this.productsService.updateProduct({
+        await this.productsService.isExisting({
+            sku,
+        })
+
+        return await this.prisma.product.update({
             where: { sku },
             data,
         })

@@ -2857,11 +2857,17 @@ type Mutation {
   """根据 SKU 删除指定商品"""
   deleteProduct(sku: String!): Product
 
+  """后台删除商品分类"""
+  deleteProductType(slug: String!): ProductType
+
   """根据 SKU 发布或取消单个商品"""
   toggleDraft(sku: String!): Product!
 
   """根据 SKU 修改指定商品信息"""
   updateProduct(data: ProductUpdateInput!, sku: String!): Product!
+
+  """修改商品分类"""
+  updateProductType(data: ProductTypeUpdateInput!, slug: String!): ProductType!
 }
 
 input NestedBigIntFilter {
@@ -5116,6 +5122,18 @@ input ProductTypeTranslationWhereInput {
 
 input ProductTypeTranslationWhereUniqueInput {
   id: String
+}
+
+input ProductTypeUpdateInput {
+  categories: ProductCategoryUpdateManyWithoutTypesInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  languageCode: EnumLanguageCodeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  products: ProductUpdateManyWithoutTypesInput
+  slug: StringFieldUpdateOperationsInput
+  translations: ProductTypeTranslationUpdateManyWithoutProductTypeInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
 
 input ProductTypeUpdateManyMutationInput {
