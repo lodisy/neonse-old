@@ -1,5 +1,5 @@
 import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
-import { ProductsModule, ProductTypesModule } from '@neonse/nest-products'
+import { ProductCategoriesModule, ProductsModule, ProductTypesModule } from '@neonse/nest-products'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
@@ -28,6 +28,7 @@ import { AppService } from './app.service'
         }),
         ProductsModule,
         ProductTypesModule,
+        ProductCategoriesModule,
     ],
     controllers: [AppController],
     providers: [AppService],

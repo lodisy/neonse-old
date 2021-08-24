@@ -2852,10 +2852,16 @@ type Mutation {
   createProduct(data: ProductCreateInput!): Product!
 
   """创建商品分类"""
+  createProductCategory(data: ProductCategoryCreateInput!): ProductCategory!
+
+  """创建商品分类"""
   createProductType(data: ProductTypeCreateInput!): ProductType!
 
   """根据 SKU 删除指定商品"""
   deleteProduct(sku: String!): Product
+
+  """后台删除商品分类"""
+  deleteProductCategory(slug: String!): ProductCategory
 
   """后台删除商品分类"""
   deleteProductType(slug: String!): ProductType
@@ -2865,6 +2871,9 @@ type Mutation {
 
   """根据 SKU 修改指定商品信息"""
   updateProduct(data: ProductUpdateInput!, sku: String!): Product!
+
+  """修改商品分类"""
+  updateProductCategory(data: ProductCategoryUpdateInput!, slug: String!): ProductCategory!
 
   """修改商品分类"""
   updateProductType(data: ProductTypeUpdateInput!, slug: String!): ProductType!
@@ -3901,6 +3910,20 @@ type ProductCategoryCountAggregate {
   updatedAt: Int!
 }
 
+input ProductCategoryCreateInput {
+  children: ProductCategoryCreateNestedManyWithoutParentInput
+  createdAt: DateTime
+  id: String
+  languageCode: LanguageCode
+  name: String!
+  parent: ProductCategoryCreateNestedOneWithoutChildrenInput
+  products: ProductCreateNestedManyWithoutCategoriesInput
+  slug: String!
+  translations: ProductCategoryTranslationCreateNestedManyWithoutProductCategoryInput
+  types: ProductTypeCreateNestedManyWithoutCategoriesInput
+  updatedAt: DateTime
+}
+
 input ProductCategoryCreateManyParentInput {
   createdAt: DateTime
   id: String
@@ -4187,6 +4210,20 @@ input ProductCategoryTranslationWhereInput {
 
 input ProductCategoryTranslationWhereUniqueInput {
   id: String
+}
+
+input ProductCategoryUpdateInput {
+  children: ProductCategoryUpdateManyWithoutParentInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  languageCode: EnumLanguageCodeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  parent: ProductCategoryUpdateOneWithoutChildrenInput
+  products: ProductUpdateManyWithoutCategoriesInput
+  slug: StringFieldUpdateOperationsInput
+  translations: ProductCategoryTranslationUpdateManyWithoutProductCategoryInput
+  types: ProductTypeUpdateManyWithoutCategoriesInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductCategoryUpdateManyMutationInput {
@@ -7738,6 +7775,12 @@ type PromotionSumAggregate {
 type Query {
   """根据 SKU 获取单个商品"""
   product(sku: String!): Product!
+
+  """查询所有商品分类"""
+  productCategories: [ProductCategory!]!
+
+  """根据 slug 查询单个商品种类"""
+  productCategory(slug: String!): ProductCategory!
 
   """根据 slug 查询单个商品分类"""
   productType(slug: String!): ProductType!
