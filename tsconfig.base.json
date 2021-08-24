@@ -18,6 +18,7 @@
             "@neonse/nest-admin-permissions": ["libs/nest/admin/permissions/src/index.ts"],
             "@neonse/nest-common-auth": ["libs/nest/common/auth/src/index.ts"],
             "@neonse/nest-common-configs": ["libs/nest/common/configs/src/index.ts"],
+            "@neonse/nest-common-files": ["libs/nest/common/files/src/index.ts"],
             "@neonse/nest-common-graphql": ["libs/nest/common/graphql/src/index.ts"],
             "@neonse/nest-common-i18n": ["libs/nest/common/i18n/src/index.ts"],
             "@neonse/nest-common-password": ["libs/nest/common/password/src/index.ts"],

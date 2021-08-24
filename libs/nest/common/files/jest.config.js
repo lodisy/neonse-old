@@ -1,5 +1,5 @@
 module.exports = {
-    displayName: 'nest-common-upload',
+    displayName: 'nest-common-files',
     preset: '../../../../jest.preset.js',
     globals: {
         'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
         '^.+\\.[tj]sx?$': 'ts-jest',
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-    coverageDirectory: '../../../../coverage/libs/nest/common/upload',
+    coverageDirectory: '../../../../coverage/libs/nest/common/files',
 }

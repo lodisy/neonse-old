@@ -21,12 +21,18 @@ export type SecurityConfig = {
 
 export type SMSConfig = {}
 
+export type UploadConfig = {
+    cosSecretId: string
+    coseSecretKey: string
+}
+
 export type Configs = {
     nest: NestConfig
     cors: CorsConfig
     graphql: GraphqlConfig
     security: SecurityConfig
     sms: SMSConfig
+    upload: UploadConfig
 }
 
 const configs: Configs = {
@@ -48,6 +54,10 @@ const configs: Configs = {
         bcryptSaltOrRound: 10,
     },
     sms: {},
+    upload: {
+        cosSecretId: '',
+        coseSecretKey: '',
+    },
 }
 
 export default (): Configs => configs

@@ -35,6 +35,9 @@
         "nest-common-configs": {
             "tags": []
         },
+        "nest-common-files": {
+            "tags": []
+        },
         "nest-common-graphql": {
             "tags": []
         },
@@ -51,9 +54,6 @@
             "tags": []
         },
         "nest-common-sms": {
-            "tags": []
-        },
-        "nest-common-upload": {
             "tags": []
         },
         "nest-common-users": {

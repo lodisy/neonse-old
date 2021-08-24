@@ -20,9 +20,9 @@ module.exports = {
         '<rootDir>/libs/nest/common/roles',
         '<rootDir>/libs/nest/common/i18n',
         '<rootDir>/apps/api',
-        '<rootDir>/libs/nest/common/upload',
         '<rootDir>/libs/nest/common/sms',
         '<rootDir>/apps/admin',
         '<rootDir>/apps/store-mini',
+        '<rootDir>/libs/nest/common/files',
     ],
 }

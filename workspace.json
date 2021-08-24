@@ -192,6 +192,27 @@
                 }
             }
         },
+        "nest-common-files": {
+            "root": "libs/nest/common/files",
+            "sourceRoot": "libs/nest/common/files/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/files/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/files"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/files/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-common-graphql": {
             "root": "libs/nest/common/graphql",
             "sourceRoot": "libs/nest/common/graphql/src",
@@ -313,27 +334,6 @@
                     "outputs": ["coverage/libs/nest/common/sms"],
                     "options": {
                         "jestConfig": "libs/nest/common/sms/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "nest-common-upload": {
-            "root": "libs/nest/common/upload",
-            "sourceRoot": "libs/nest/common/upload/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/nest/common/upload/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/common/upload"],
-                    "options": {
-                        "jestConfig": "libs/nest/common/upload/jest.config.js",
                         "passWithNoTests": true
                     }
                 }
