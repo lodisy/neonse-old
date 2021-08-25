@@ -16,6 +16,11 @@ import { ProductVariantTranslation } from '../product-variant-translation/produc
 /** 子商品 */
 /** 子商品 */
 /** 子商品 */
+/** 子商品 */
+/** 子商品 */
+/** 子商品 */
+/** 子商品 */
+/** 子商品 */
 @ObjectType({description:'子商品'})
 export class ProductVariant {
     @Field(() => ID, {nullable:false})

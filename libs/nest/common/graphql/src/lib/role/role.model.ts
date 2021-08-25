@@ -11,6 +11,11 @@ import { RoleTranslation } from '../role-translation/role-translation.model';
 /** 角色 */
 /** 角色 */
 /** 角色 */
+/** 角色 */
+/** 角色 */
+/** 角色 */
+/** 角色 */
+/** 角色 */
 @ObjectType({description:'角色'})
 export class Role {
     @Field(() => ID, {nullable:false})

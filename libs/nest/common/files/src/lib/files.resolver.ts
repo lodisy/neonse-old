@@ -1,83 +1,98 @@
-import { File, FileCreateManyInput } from '@neonse/nest-common-graphql'
+import { File, FileCreateManyInput, FileUpdateInput } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
-import { HttpException, HttpStatus } from '@nestjs/common'
-import { Args, Info, Mutation, Resolver } from '@nestjs/graphql'
-import { PrismaSelect } from '@paljs/plugins'
-import * as COS from 'cos-nodejs-sdk-v5'
-import { GraphQLResolveInfo } from 'graphql'
+import { ConfigService } from '@nestjs/config'
+import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import * as path from 'path'
+import { COSService } from './cos.service'
+import { FilesService } from './files.service'
 
 @Resolver(() => File)
 export class FilesResolver {
-    constructor(private prisma: PrismaService) {}
+    constructor(
+        private prisma: PrismaService,
+        private filesService: FilesService,
+        private cos: COSService,
+        private configService: ConfigService,
+    ) {}
 
     /**
-     * 上传文件
+     * 上传文件 需要判断是否图片
      */
     @Mutation(() => [File], { description: '上传文件', nullable: true })
-    async uploadFiles(
-        @Args('files', { type: () => FileCreateManyInput }) files: FileCreateManyInput,
-        @Info() info: GraphQLResolveInfo,
-    ) {
-        const select = new PrismaSelect(info).value
-
-        await this.prisma.file.createMany({
-            data: files,
-            skipDuplicates: true,
-        })
-
-        // upload to cos based on service
-
-        const cos = new COS({
-            // 必选参数
-            SecretId: '',
-            SecretKey: '',
-            // 可选参数
-            FileParallelLimit: 3, // 控制文件上传并发数
-            ChunkParallelLimit: 8, // 控制单个文件下分片上传并发数，在同园区上传可以设置较大的并发数
-            ChunkSize: 1024 * 1024 * 8, // 控制分片大小，单位 B，在同园区上传可以设置较大的分片大小
-            Proxy: '',
-            Protocol: 'https:',
-            FollowRedirect: false,
-        })
-
-        // todo
+    async uploadFiles(@Args('files') files: FileCreateManyInput[]) {
         const filesToUpload = files.map((file) => {
-            const filename = path.relative('../uploads', file.name)
-            const key = filename
+            const filepath = path.resolve(__dirname, file.name)
+
             return {
-                Bucket: '',
-                Region: '',
-                Key: key,
-                FilePath: filename,
+                Bucket: this.configService.get<string>('Bucket'),
+                Region: this.configService.get<string>('Region'),
+                Key: file.id,
+                FilePath: filepath,
             }
         })
 
-        cos.uploadFiles(
-            {
-                files: filesToUpload,
-                SliceSize: 1024 * 1024 * 10 /* 设置大于10MB采用分块上传 */,
-                onProgress: function (info: COS.ProgressInfo) {
-                    const percent = Math.floor(info.percent * 10000) / 100
-                    const speed = Math.floor((info.speed / 1024 / 1024) * 100) / 100
-                    console.log('进度：' + percent + '%; 速度：' + speed + 'Mb/s;')
-                },
-                onFileFinish: async (err: COS.CosSdkError) => {
-                    console.log(' 上传' + (err ? '失败' : '完成'))
-                },
-            },
-            async (err: COS.CosSdkError, data: COS.UploadFilesResult) => {
-                if (err) {
-                    throw new HttpException(`上传失败: ${err.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
-                } else {
-                    await this.prisma.file.updateMany({
-                        data: data.files.map((file) => ({
-                            url: `https://${file.data.Location}`,
-                        })),
-                        ...select,
-                    })
+        const urls = await this.cos.uploadFiles(filesToUpload)
+
+        return await this.prisma.file.createMany({
+            data: files.map((file, i) => {
+                const mimetype = this.filesService.getMimeType(file.name) as string
+                const format = this.filesService.getFileType(mimetype)
+                const size = this.filesService.getFileSize(file.name)
+
+                const url =
+                    format === 'IMAGE' && mimetype !== 'image/gif' ? `${urls[i]}?imageMogr2/format/webp` : urls[i] // 当文件为非 gif 图片时，返回 webp 格式
+                return {
+                    mimetype,
+                    format,
+                    size,
+                    url,
+                    ...file,
                 }
+            }),
+            skipDuplicates: true,
+        })
+    }
+
+    /**
+     * 后台修改单个文件信息
+     *
+     */
+    @Mutation(() => File, {
+        description: '后台修改单个文件信息',
+        nullable: true,
+    })
+    async updateFile(
+        @Args('id') id: string,
+        @Args('data') data: Pick<FileUpdateInput, 'name' | 'title' | 'alt' | 'caption' | 'customFields' | 'source'>,
+    ) {
+        return await this.prisma.file.update({
+            where: {
+                id,
             },
-        )
+            data,
+        })
+    }
+
+    /**
+     * 后台删除文件
+     */
+    @Mutation(() => [File], {
+        description: '后台删除文件',
+        nullable: true,
+    })
+    async deleteFiles(@Args('files') files: File[]) {
+        const Keys = files.map((file) => ({
+            Key: file.id,
+        }))
+
+        Keys.map(async (file) => {
+            await this.prisma.file.delete({
+                where: {
+                    id: file.Key,
+                },
+            })
+        })
+
+        await this.cos.deleteFiles(Keys)
     }
 }

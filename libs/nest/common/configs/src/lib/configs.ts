@@ -21,9 +21,24 @@ export type SecurityConfig = {
 
 export type SMSConfig = {}
 
-export type UploadConfig = {
-    cosSecretId: string
-    coseSecretKey: string
+export type COSConfig = {
+    SecretId: string
+    SecretKey: string
+    Bucket: string
+    Region: string
+    /** 同一个实例下上传的文件并发数，默认值3 */
+    FileParallelLimit?: number
+    /** 同一个上传文件的分块并发数，默认值3 */
+    ChunkParallelLimit?: number
+    /** 分块上传时，每片的字节数大小，默认值1048576（1MB） */
+    ChunkSize?: number
+    /** 使用 uploadFiles 批量上传时，文件大小大于该数值将使用按分块上传，否则将调用简单上传，单位 Byte，默认值1048576（1MB） */
+    SliceSize?: number
+    Protocol?: string
+    /** 301/302 回源跟随配置。 */
+    FollowRedirect?: boolean
+    /** 是否使用全球加速域名。开启该配置后仅以下接口支持操作：putObject、getObject、headObject、optionsObject、multipartInit、multipartListPart、multipartUpload、multipartAbort、multipartComplete、multipartList、sliceUploadFile、uploadFiles */
+    UseAccelerate?: boolean
 }
 
 export type Configs = {
@@ -32,7 +47,7 @@ export type Configs = {
     graphql: GraphqlConfig
     security: SecurityConfig
     sms: SMSConfig
-    upload: UploadConfig
+    cos: COSConfig
 }
 
 const configs: Configs = {
@@ -54,9 +69,17 @@ const configs: Configs = {
         bcryptSaltOrRound: 10,
     },
     sms: {},
-    upload: {
-        cosSecretId: '',
-        coseSecretKey: '',
+    cos: {
+        SecretId: '',
+        SecretKey: '',
+        Bucket: 'BucketName-APPID',
+        Region: 'ap-shanghai',
+        FileParallelLimit: 4,
+        ChunkParallelLimit: 3,
+        ChunkSize: 1024 * 1024 * 5,
+        SliceSize: 1024 * 1024 * 10,
+        Protocol: 'https:',
+        UseAccelerate: true,
     },
 }
 

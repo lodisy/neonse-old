@@ -1,4 +1,5 @@
 import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
+import { FilesModule } from '@neonse/nest-common-files'
 import { ProductCategoriesModule, ProductsModule, ProductTypesModule } from '@neonse/nest-products'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
@@ -26,6 +27,7 @@ import { AppService } from './app.service'
             },
             inject: [ConfigService],
         }),
+        FilesModule,
         ProductsModule,
         ProductTypesModule,
         ProductCategoriesModule,

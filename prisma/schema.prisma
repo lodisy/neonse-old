@@ -60,7 +60,8 @@ enum CurrencyCode {
 enum FileType {
   IMAGE
   VIDEO
-  SOUND
+  AUDIO
+  PDF
   BINARY
 }
 
