@@ -21,7 +21,7 @@ import { AppService } from './app.service'
                     autoSchemaFile: graphqlConfig.schemaDestination || './schema.graphql',
                     debug: graphqlConfig.debug,
                     playground: graphqlConfig.playgroundEnabled,
-                    // uploads: false, // disable built-in upload handling
+                    //  plugins: [],
                     context: ({ req }) => ({ req }),
                 }
             },

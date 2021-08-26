@@ -14,6 +14,8 @@ import { File } from '../file/file.model';
 /** 文章、图片、视频等来源 */
 /** 文章、图片、视频等来源 */
 /** 文章、图片、视频等来源 */
+/** 文章、图片、视频等来源 */
+/** 文章、图片、视频等来源 */
 @ObjectType({description:'文章、图片、视频等来源'})
 export class Source {
     @Field(() => ID, {nullable:false})

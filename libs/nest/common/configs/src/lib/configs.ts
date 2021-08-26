@@ -70,8 +70,8 @@ const configs: Configs = {
     },
     sms: {},
     cos: {
-        SecretId: 'AKIDue9OM3TcU6SZPzJM8etrZ0A2dx2qOghR',
-        SecretKey: 'VjgMmvnPjmY3HDsGNEo68tNaWCbjaBVY',
+        SecretId: 'AKIDzoNfgRxCArKYWDgwxjHZaKwINCm57sMZ',
+        SecretKey: 'xd2B3ey1oKaaKo1wc2C5i5B0YruQggPr',
         Bucket: 'neonse-1305534499',
         Region: 'ap-shanghai',
         FileParallelLimit: 4,

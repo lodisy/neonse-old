@@ -8,4 +8,4 @@ export enum FileType {
     BINARY = 'BINARY',
 }
 
-registerEnumType(FileType, { name: 'FileType', description: '文件类型' })
+registerEnumType(FileType, { name: 'FileType', description: "文件类型" })

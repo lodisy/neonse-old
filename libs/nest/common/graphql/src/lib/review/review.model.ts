@@ -17,6 +17,8 @@ import { File } from '../file/file.model';
 /** 商品评价 */
 /** 商品评价 */
 /** 商品评价 */
+/** 商品评价 */
+/** 商品评价 */
 @ObjectType({description:'商品评价'})
 export class Review {
     @Field(() => ID, {nullable:false})

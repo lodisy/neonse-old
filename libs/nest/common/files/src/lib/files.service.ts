@@ -2,6 +2,7 @@ import { PrismaService } from '@neonse/nest-common-prisma'
 import { Injectable } from '@nestjs/common'
 import * as fs from 'fs'
 import * as mime from 'mime-types'
+import * as sharp from 'sharp'
 
 @Injectable()
 export class FilesService {
@@ -21,13 +22,17 @@ export class FilesService {
     }
 
     // 计算文件 size 单位 bytes
-    getFileSize(filename: string): number {
-        return fs.statSync(filename).size
+    getFileSize(filepath: string): number {
+        return fs.statSync(filepath).size
     }
 
     // 获得 minetype
     getMimeType(filepath: string) {
         return mime.lookup(filepath)
+    }
+    // 获得文件后缀
+    getExtension(mimetype: string) {
+        return mime.extension(mimetype)
     }
 
     // 获得图片长宽
@@ -39,5 +44,16 @@ export class FilesService {
             width: dimensions.width,
             height: dimensions.height,
         }
+    }
+
+    // 图片处理
+
+    async imagify(input: Buffer, filename: string): Promise<sharp.OutputInfo> {
+        const result = sharp(input)
+            .toFormat('webp')
+            .webp()
+            .toFile(`uploads/${filename.substr(0, filename.lastIndexOf('.'))}.webp`)
+
+        return result
     }
 }

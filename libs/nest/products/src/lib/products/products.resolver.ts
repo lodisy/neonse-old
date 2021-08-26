@@ -22,7 +22,7 @@ import { ProductsService } from './products.service'
 export class ProductsResolver {
     constructor(private productsService: ProductsService, private prisma: PrismaService) {}
 
-    /** 查询多个商品
+    /** 查询多个商品，前端调用时需要加 draft: false 等调整
      * @example
      * query{
      *  products(orderBy:{ createdAt:desc }){
@@ -53,7 +53,14 @@ export class ProductsResolver {
     ): Promise<Product[]> {
         const select = new PrismaSelect(info).value
 
-        return await this.prisma.product.findMany({ where, skip, take, cursor, orderBy, ...select })
+        return await this.prisma.product.findMany({
+            where,
+            skip,
+            take,
+            cursor,
+            orderBy,
+            ...select,
+        })
     }
 
     /** 查询单个商品
@@ -120,7 +127,7 @@ export class ProductsResolver {
         description: '根据 SKU 发布或取消单个商品',
     })
     async toggleDraft(@Args('sku', { type: () => String }) sku: string): Promise<Product> {
-        await this.productsService.isExisting({ sku })
+        await this.productsService.isNotExisting({ sku })
 
         const isPublished = await this.productsService.isPublished({
             sku,

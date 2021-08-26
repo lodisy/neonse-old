@@ -1,43 +1,55 @@
+import { COSConfig } from '@neonse/nest-common-configs'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import * as COS from 'cos-nodejs-sdk-v5'
-import * as fs from 'fs'
 
 @Injectable()
 export class COSService {
     private cos: COS
     constructor(private configService: ConfigService) {
+        const cosConfig = this.configService.get<COSConfig>('cos')
         this.cos = new COS({
-            SecretId: this.configService.get<string>('SecretId'),
-            SecretKey: this.configService.get<string>('SecretKey'),
-            FileParallelLimit: this.configService.get<number>('FileParallelLimit'),
-            ChunkSize: this.configService.get<number>('ChunkSize'),
-            SliceSize: this.configService.get<number>('SliceSize'),
-            Protocol: this.configService.get<string>('Protocol'),
-            UseAccelerate: this.configService.get<boolean>('UseAccelerate'),
+            SecretId: cosConfig.SecretId,
+            SecretKey: cosConfig.SecretKey,
+            FileParallelLimit: cosConfig.FileParallelLimit,
+            ChunkSize: cosConfig.ChunkSize,
+            SliceSize: cosConfig.SliceSize,
+            Protocol: cosConfig.Protocol,
+            UseAccelerate: cosConfig.UseAccelerate,
         })
     }
 
     /**上传单个文件 */
 
-    async uploadFile(file: COS.Key) {
-        try {
-            this.cos.putObject(
-                {
-                    Bucket: this.configService.get<string>('Bucket'),
-                    Region: this.configService.get<string>('Region'),
-                    Key: file,
-                    Body: fs.createReadStream(`./${file}`),
-                },
-                function (err, data) {
-                    if (err) {
-                        console.log(err)
-                    } else return data.Location
-                },
-            )
-        } catch (err) {
-            console.log(err)
-        }
+    async uploadFile(file: COS.Key): Promise<string> {
+        const cosConfig = this.configService.get<COSConfig>('cos')
+
+        const Authorization = this.cos.getAuth({
+            Bucket: cosConfig.Bucket,
+            Region: cosConfig.Region,
+            Key: file,
+        })
+
+        console.log(Authorization)
+
+        const result = await this.cos.uploadFile({
+            Bucket: cosConfig.Bucket,
+            Region: cosConfig.Region,
+            Key: file,
+            FilePath: `uploads/${file}`,
+            SliceSize: cosConfig.SliceSize,
+            // Headers:{
+
+            // },
+            onTaskReady: function (taskId) {
+                console.log(taskId)
+            },
+            onProgress: function (progressData) {
+                console.log(JSON.stringify(progressData))
+            },
+        })
+
+        return `https://${result.Location}`
     }
 
     /**上传多个文件*/

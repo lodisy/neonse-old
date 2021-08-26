@@ -15,6 +15,8 @@ import { CountryTranslation } from '../country-translation/country-translation.m
 /** 支持运送的国家 */
 /** 支持运送的国家 */
 /** 支持运送的国家 */
+/** 支持运送的国家 */
+/** 支持运送的国家 */
 @ObjectType({description:'支持运送的国家'})
 export class Country {
     @Field(() => ID, {nullable:false})

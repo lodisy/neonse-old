@@ -15,6 +15,8 @@ import { PromotionList } from '../promotion-list/promotion-list.model';
 /** Promotion */
 /** Promotion */
 /** Promotion */
+/** Promotion */
+/** Promotion */
 @ObjectType({description:'Promotion'})
 export class Promotion {
     @Field(() => ID, {nullable:false})
