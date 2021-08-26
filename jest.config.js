@@ -24,5 +24,6 @@ module.exports = {
         '<rootDir>/apps/admin',
         '<rootDir>/apps/store-mini',
         '<rootDir>/libs/nest/common/files',
+        '<rootDir>/libs/nest/common/cos',
     ],
 }

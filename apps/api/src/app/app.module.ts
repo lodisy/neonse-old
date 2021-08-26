@@ -6,7 +6,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-
 @Module({
     imports: [
         ConfigModule.forRoot({ isGlobal: true, load: [configs] }),
@@ -22,6 +21,7 @@ import { AppService } from './app.service'
                     autoSchemaFile: graphqlConfig.schemaDestination || './schema.graphql',
                     debug: graphqlConfig.debug,
                     playground: graphqlConfig.playgroundEnabled,
+                    // uploads: false, // disable built-in upload handling
                     context: ({ req }) => ({ req }),
                 }
             },

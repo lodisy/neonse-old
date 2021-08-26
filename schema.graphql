@@ -2206,10 +2206,37 @@ type FileSumAggregate {
 
 """文件类型"""
 enum FileType {
+  AUDIO
   BINARY
+  DOCUMENT
   IMAGE
-  SOUND
   VIDEO
+}
+
+input FileUpdateInput {
+  OrderItem: OrderItemUpdateManyWithoutImageInput
+  Product: ProductUpdateOneWithoutAssetsInput
+  ProductVariant: ProductVariantUpdateOneWithoutAssetsInput
+  ProductVariantStyle: ProductVariantStyleUpdateManyWithoutAssetInput
+  Review: ReviewUpdateOneWithoutUploadsInput
+  alt: NullableStringFieldUpdateOperationsInput
+  autoPlay: NullableBoolFieldUpdateOperationsInput
+  caption: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  customFields: JSON
+  format: EnumFileTypeFieldUpdateOperationsInput
+  height: NullableIntFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  mimeType: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  profile: ProfileUpdateOneWithoutUploadsInput
+  profileAvatar: ProfileUpdateOneWithoutAvatarInput
+  size: NullableIntFieldUpdateOperationsInput
+  source: SourceUpdateOneWithoutFileInput
+  title: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+  width: NullableIntFieldUpdateOperationsInput
 }
 
 input FileUpdateManyMutationInput {
@@ -2869,6 +2896,9 @@ type Mutation {
   """根据 SKU 发布或取消单个商品"""
   toggleDraft(sku: String!): Product!
 
+  """后台修改单个文件信息"""
+  updateFile(data: FileUpdateInput!, id: String!): File
+
   """根据 SKU 修改指定商品信息"""
   updateProduct(data: ProductUpdateInput!, sku: String!): Product!
 
@@ -2877,6 +2907,12 @@ type Mutation {
 
   """修改商品分类"""
   updateProductType(data: ProductTypeUpdateInput!, slug: String!): ProductType!
+
+  """上传单个文件"""
+  uploadFile(file: Upload!): File
+
+  """上传多个文件"""
+  uploadFiles(files: Upload!): Int
 }
 
 input NestedBigIntFilter {
@@ -8754,6 +8790,9 @@ input StringNullableFilter {
   notIn: [String!]
   startsWith: String
 }
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
 
 """User 用户"""
 type User {

@@ -31,4 +31,13 @@ export class FilesService {
     }
 
     // 获得图片长宽
+
+    getImageDimensions(filepath: string) {
+        const sizeOf = require('image-size')
+        const dimensions = sizeOf(filepath)
+        return {
+            width: dimensions.width,
+            height: dimensions.height,
+        }
+    }
 }

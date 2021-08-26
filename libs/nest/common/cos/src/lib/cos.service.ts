@@ -1,10 +1,12 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import * as COS from 'cos-nodejs-sdk-v5'
+import * as fs from 'fs'
 
 @Injectable()
 export class COSService {
-    constructor(private cos: COS, private configService: ConfigService) {
+    private cos: COS
+    constructor(private configService: ConfigService) {
         this.cos = new COS({
             SecretId: this.configService.get<string>('SecretId'),
             SecretKey: this.configService.get<string>('SecretKey'),
@@ -16,7 +18,29 @@ export class COSService {
         })
     }
 
-    /**上传文件*/
+    /**上传单个文件 */
+
+    async uploadFile(file: COS.Key) {
+        try {
+            this.cos.putObject(
+                {
+                    Bucket: this.configService.get<string>('Bucket'),
+                    Region: this.configService.get<string>('Region'),
+                    Key: file,
+                    Body: fs.createReadStream(`./${file}`),
+                },
+                function (err, data) {
+                    if (err) {
+                        console.log(err)
+                    } else return data.Location
+                },
+            )
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    /**上传多个文件*/
 
     async uploadFiles(files: COS.UploadFileItemParams[]) {
         try {

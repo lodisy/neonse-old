@@ -192,6 +192,27 @@
                 }
             }
         },
+        "nest-common-cos": {
+            "root": "libs/nest/common/cos",
+            "sourceRoot": "libs/nest/common/cos/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/cos/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/cos"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/cos/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-common-files": {
             "root": "libs/nest/common/files",
             "sourceRoot": "libs/nest/common/files/src",

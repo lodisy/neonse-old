@@ -11,6 +11,9 @@ import { Profile } from '../profile/profile.model';
 /** 评论（匿名） */
 /** 评论（匿名） */
 /** 评论（匿名） */
+/** 评论（匿名） */
+/** 评论（匿名） */
+/** 评论（匿名） */
 @ObjectType({description:'评论（匿名）'})
 export class Comment {
     @Field(() => ID, {nullable:false})

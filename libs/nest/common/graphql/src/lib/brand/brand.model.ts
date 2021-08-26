@@ -15,6 +15,9 @@ import { BrandTranslation } from '../brand-translation/brand-translation.model';
 /** 品牌 */
 /** 品牌 */
 /** 品牌 */
+/** 品牌 */
+/** 品牌 */
+/** 品牌 */
 @ObjectType({description:'品牌'})
 export class Brand {
     @Field(() => ID, {nullable:false})

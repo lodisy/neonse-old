@@ -14,6 +14,9 @@ import { LanguageCode } from '../prisma/language-code.enum';
 /** 商品分类（男装、女装等） */
 /** 商品分类（男装、女装等） */
 /** 商品分类（男装、女装等） */
+/** 商品分类（男装、女装等） */
+/** 商品分类（男装、女装等） */
+/** 商品分类（男装、女装等） */
 @ObjectType({description:'商品分类（男装、女装等）'})
 export class ProductType {
     @Field(() => ID, {nullable:false})

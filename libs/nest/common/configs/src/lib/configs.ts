@@ -70,9 +70,9 @@ const configs: Configs = {
     },
     sms: {},
     cos: {
-        SecretId: '',
-        SecretKey: '',
-        Bucket: 'BucketName-APPID',
+        SecretId: 'AKIDue9OM3TcU6SZPzJM8etrZ0A2dx2qOghR',
+        SecretKey: 'VjgMmvnPjmY3HDsGNEo68tNaWCbjaBVY',
+        Bucket: 'neonse-1305534499',
         Region: 'ap-shanghai',
         FileParallelLimit: 4,
         ChunkParallelLimit: 3,

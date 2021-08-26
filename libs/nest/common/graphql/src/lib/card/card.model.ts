@@ -11,6 +11,9 @@ import { Profile } from '../profile/profile.model';
 /** 信用卡 */
 /** 信用卡 */
 /** 信用卡 */
+/** 信用卡 */
+/** 信用卡 */
+/** 信用卡 */
 @ObjectType({description:'信用卡'})
 export class Card {
     @Field(() => ID, {nullable:false})

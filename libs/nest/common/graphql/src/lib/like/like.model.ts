@@ -13,6 +13,9 @@ import { Product } from '../product/product.model';
 /** 喜欢收藏 */
 /** 喜欢收藏 */
 /** 喜欢收藏 */
+/** 喜欢收藏 */
+/** 喜欢收藏 */
+/** 喜欢收藏 */
 @ObjectType({description:'喜欢收藏'})
 export class Like {
     @Field(() => ID, {nullable:false})

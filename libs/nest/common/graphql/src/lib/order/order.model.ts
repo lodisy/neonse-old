@@ -15,6 +15,9 @@ import { Payment } from '../payment/payment.model';
 /** 订单 */
 /** 订单 */
 /** 订单 */
+/** 订单 */
+/** 订单 */
+/** 订单 */
 @ObjectType({description:'订单'})
 export class Order {
     @Field(() => ID, {nullable:false})

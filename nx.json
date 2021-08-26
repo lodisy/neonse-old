@@ -35,6 +35,9 @@
         "nest-common-configs": {
             "tags": []
         },
+        "nest-common-cos": {
+            "tags": []
+        },
         "nest-common-files": {
             "tags": []
         },

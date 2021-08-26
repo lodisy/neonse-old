@@ -61,7 +61,7 @@ enum FileType {
   IMAGE
   VIDEO
   AUDIO
-  PDF
+  DOCUMENT
   BINARY
 }
 

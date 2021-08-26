@@ -13,6 +13,9 @@ import { LanguageCode } from '../prisma/language-code.enum';
 /** 商品颜色 */
 /** 商品颜色 */
 /** 商品颜色 */
+/** 商品颜色 */
+/** 商品颜色 */
+/** 商品颜色 */
 @ObjectType({description:'商品颜色'})
 export class ProductVariantColor {
     @Field(() => ID, {nullable:false})
