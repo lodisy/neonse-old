@@ -18,6 +18,7 @@ import { Order } from '../order/order.model';
 /** 支付 */
 /** 支付 */
 /** 支付 */
+/** 支付 */
 @ObjectType({description:'支付'})
 export class Payment {
     @Field(() => ID, {nullable:false})

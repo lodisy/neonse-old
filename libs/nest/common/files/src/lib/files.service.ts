@@ -1,7 +1,5 @@
 import { PrismaService } from '@neonse/nest-common-prisma'
-import { Injectable } from '@nestjs/common'
-import * as fs from 'fs'
-import * as mime from 'mime-types'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import * as sharp from 'sharp'
 
 @Injectable()
@@ -21,39 +19,28 @@ export class FilesService {
         } else return 'BINARY'
     }
 
-    // 计算文件 size 单位 bytes
-    getFileSize(filepath: string): number {
-        return fs.statSync(filepath).size
-    }
-
-    // 获得 minetype
-    getMimeType(filepath: string) {
-        return mime.lookup(filepath)
-    }
-    // 获得文件后缀
-    getExtension(mimetype: string) {
-        return mime.extension(mimetype)
-    }
-
-    // 获得图片长宽
-
-    getImageDimensions(filepath: string) {
-        const sizeOf = require('image-size')
-        const dimensions = sizeOf(filepath)
-        return {
-            width: dimensions.width,
-            height: dimensions.height,
-        }
-    }
-
     // 图片处理
 
     async imagify(input: Buffer, filename: string): Promise<sharp.OutputInfo> {
+        var slugify = require('slugify')
         const result = sharp(input)
             .toFormat('webp')
             .webp()
-            .toFile(`uploads/${filename.substr(0, filename.lastIndexOf('.'))}.webp`)
+            .toFile(`uploads/image/${slugify(filename, { lower: true }).split('.')[0]}.webp`)
 
         return result
+    }
+
+    // 验证文件是否存在 不存在抛出异常，存在返回 true
+
+    async isExisting(id: string): Promise<boolean> {
+        const isExisting = await this.prisma.file.findFirst({
+            where: {
+                id,
+            },
+        })
+        if (!isExisting) throw new HttpException('文件不存在', HttpStatus.NOT_FOUND)
+
+        return true
     }
 }

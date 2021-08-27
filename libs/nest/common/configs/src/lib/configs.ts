@@ -74,7 +74,7 @@ const configs: Configs = {
         SecretKey: 'xd2B3ey1oKaaKo1wc2C5i5B0YruQggPr',
         Bucket: 'neonse-1305534499',
         Region: 'ap-shanghai',
-        FileParallelLimit: 4,
+        FileParallelLimit: 3, // 并发三张
         ChunkParallelLimit: 3,
         ChunkSize: 1024 * 1024 * 5,
         SliceSize: 1024 * 1024 * 10,

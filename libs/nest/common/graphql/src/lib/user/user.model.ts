@@ -20,6 +20,7 @@ import { Profile } from '../profile/profile.model';
 /** User 用户 */
 /** User 用户 */
 /** User 用户 */
+/** User 用户 */
 @ObjectType({description:'User 用户'})
 export class User {
     @Field(() => ID, {nullable:false})

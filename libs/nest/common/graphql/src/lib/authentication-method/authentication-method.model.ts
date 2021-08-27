@@ -17,6 +17,7 @@ import { User } from '../user/user.model';
 /** 登入方式 */
 /** 登入方式 */
 /** 登入方式 */
+/** 登入方式 */
 @ObjectType({description:'登入方式'})
 export class AuthenticationMethod {
     @Field(() => ID, {nullable:false})

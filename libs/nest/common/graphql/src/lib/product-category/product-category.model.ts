@@ -19,6 +19,7 @@ import { LanguageCode } from '../prisma/language-code.enum';
 /** 商品种类 */
 /** 商品种类 */
 /** 商品种类 */
+/** 商品种类 */
 @ObjectType({description:'商品种类'})
 export class ProductCategory {
     @Field(() => ID, {nullable:false})
