@@ -134,18 +134,13 @@ export class UsersService {
 
     /** 修改用户资料（非密码、非邮箱），包括 profile */
 
-    async updateUser(
-        id: string,
-        data: Pick<Prisma.UserCreateInput, 'username'> & Pick<Prisma.ProfileCreateInput, 'name'>,
-    ) {
-        const isExisting = await this.isUserExisting({ id })
+    async updateUser(where: Prisma.UserWhereUniqueInput, data: Prisma.UserUpdateInput) {
+        const isExisting = await this.isUserExisting(where)
 
         if (!isExisting) throw new HttpException(`User does not exist`, HttpStatus.NOT_FOUND)
 
         const user = await this.prisma.user.update({
-            where: {
-                id,
-            },
+            where,
             data: {
                 username: data.username,
             },
