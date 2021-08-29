@@ -6,16 +6,19 @@ import { ProductVariantStyle } from '../product-variant-style/product-variant-st
 
 @ObjectType()
 export class ProductVariantStyleTranslation {
+
     @Field(() => ID, {nullable:false})
     id!: string;
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date;
-    @Field(() => LanguageCode, {nullable:false})
+
+    @Field(() => LanguageCode, {nullable:false,defaultValue:'zh_Hans'})
     languageCode!: keyof typeof LanguageCode;
+
     @Field(() => String, {nullable:false})
     name!: string;
+
     @Field(() => ProductVariantStyle, {nullable:true})
     productVariantStyle?: ProductVariantStyle;
+
     @Field(() => String, {nullable:true})
     productVariantStyleId!: string | null;
 }

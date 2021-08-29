@@ -16,4 +16,5 @@ export enum OrderScalarFieldEnum {
     tracking = "tracking"
 }
 
-registerEnumType(OrderScalarFieldEnum, { name: 'OrderScalarFieldEnum' })
+
+registerEnumType(OrderScalarFieldEnum, { name: 'OrderScalarFieldEnum', description: undefined })

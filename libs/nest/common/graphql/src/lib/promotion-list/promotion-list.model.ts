@@ -6,10 +6,13 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class PromotionList {
+
     @Field(() => ID, {nullable:false})
     id!: string;
+
     @Field(() => [Promotion], {nullable:true})
     items?: Array<Promotion>;
+
     @Field(() => Int, {nullable:false})
     total!: number;
 }

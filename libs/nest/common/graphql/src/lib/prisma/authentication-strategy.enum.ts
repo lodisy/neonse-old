@@ -7,4 +7,5 @@ export enum AuthenticationStrategy {
     Wechat = "Wechat"
 }
 
-registerEnumType(AuthenticationStrategy, { name: 'AuthenticationStrategy' })
+
+registerEnumType(AuthenticationStrategy, { name: 'AuthenticationStrategy', description: undefined })

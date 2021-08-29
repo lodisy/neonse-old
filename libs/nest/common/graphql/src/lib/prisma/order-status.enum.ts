@@ -18,4 +18,5 @@ export enum OrderStatus {
     cancelled = "cancelled"
 }
 
-registerEnumType(OrderStatus, { name: 'OrderStatus' })
+
+registerEnumType(OrderStatus, { name: 'OrderStatus', description: undefined })

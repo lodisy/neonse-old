@@ -14,4 +14,5 @@ export enum ChannelScalarFieldEnum {
     roleId = "roleId"
 }
 
-registerEnumType(ChannelScalarFieldEnum, { name: 'ChannelScalarFieldEnum' })
+
+registerEnumType(ChannelScalarFieldEnum, { name: 'ChannelScalarFieldEnum', description: undefined })

@@ -5,6 +5,5 @@ export enum RoleStatus {
     terminated = "terminated"
 }
 
-registerEnumType(RoleStatus, { name: 'RoleStatus',
-        description: "角色状态"
-    })
+
+registerEnumType(RoleStatus, { name: 'RoleStatus', description: "角色状态" })

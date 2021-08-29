@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { RoleStatus } from '../prisma/role-status.enum';
-import { Permission } from '../prisma/permission.enum';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { RoleCountAggregate } from './role-count-aggregate.output';
 import { RoleMinAggregate } from './role-min-aggregate.output';
@@ -36,9 +35,6 @@ export class RoleGroupBy {
 
     @Field(() => Boolean, {nullable:true})
     isDefault?: boolean;
-
-    @Field(() => [Permission], {nullable:true})
-    permissions?: Array<keyof typeof Permission>;
 
     @Field(() => LanguageCode, {nullable:false})
     languageCode!: keyof typeof LanguageCode;

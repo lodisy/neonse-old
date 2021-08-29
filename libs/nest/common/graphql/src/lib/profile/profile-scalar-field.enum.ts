@@ -2,6 +2,8 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum ProfileScalarFieldEnum {
     id = "id",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt",
     userId = "userId",
     name = "name",
     phone = "phone",
@@ -9,4 +11,5 @@ export enum ProfileScalarFieldEnum {
     level = "level"
 }
 
-registerEnumType(ProfileScalarFieldEnum, { name: 'ProfileScalarFieldEnum' })
+
+registerEnumType(ProfileScalarFieldEnum, { name: 'ProfileScalarFieldEnum', description: undefined })

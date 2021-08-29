@@ -6,16 +6,19 @@ import { ProductVariantColor } from '../product-variant-color/product-variant-co
 
 @ObjectType()
 export class ProductVariantColorTranslation {
+
     @Field(() => ID, {nullable:false})
     id!: string;
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date;
-    @Field(() => LanguageCode, {nullable:false})
+
+    @Field(() => LanguageCode, {nullable:false,defaultValue:'zh_Hans'})
     languageCode!: keyof typeof LanguageCode;
+
     @Field(() => String, {nullable:false})
     name!: string;
+
     @Field(() => ProductVariantColor, {nullable:true})
     ProductVariantColor?: ProductVariantColor;
+
     @Field(() => String, {nullable:true})
     productVariantColorId!: string | null;
 }

@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { RoleStatus } from '../prisma/role-status.enum';
 import { LanguageCode } from '../prisma/language-code.enum';
-import { RoleCreateManypermissionsInput } from './role-create-manypermissions.input';
 
 @InputType()
 export class RoleCreateManyUserInput {
@@ -36,7 +35,4 @@ export class RoleCreateManyUserInput {
 
     @Field(() => LanguageCode, {nullable:true})
     languageCode?: keyof typeof LanguageCode;
-
-    @Field(() => RoleCreateManypermissionsInput, {nullable:true})
-    permissions?: RoleCreateManypermissionsInput;
 }

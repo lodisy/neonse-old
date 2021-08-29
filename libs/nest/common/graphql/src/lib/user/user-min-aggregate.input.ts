@@ -17,10 +17,19 @@ export class UserMinAggregateInput {
     email?: true;
 
     @Field(() => Boolean, {nullable:true})
+    mobile?: true;
+
+    @Field(() => Boolean, {nullable:true})
     username?: true;
 
     @Field(() => Boolean, {nullable:true})
     password?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    isEmailConfirmed?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    isMobileConfirmed?: true;
 
     @Field(() => Boolean, {nullable:true})
     lastLoginAt?: true;

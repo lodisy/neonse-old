@@ -18,10 +18,19 @@ export class UserMinAggregate {
     email?: string;
 
     @Field(() => String, {nullable:true})
+    mobile?: string;
+
+    @Field(() => String, {nullable:true})
     username?: string;
 
     @HideField()
     password?: string;
+
+    @Field(() => Boolean, {nullable:true})
+    isEmailConfirmed?: boolean;
+
+    @Field(() => Boolean, {nullable:true})
+    isMobileConfirmed?: boolean;
 
     @Field(() => Date, {nullable:true})
     lastLoginAt?: Date | string;

@@ -5,7 +5,9 @@ export enum ProductTypeScalarFieldEnum {
     createdAt = "createdAt",
     updatedAt = "updatedAt",
     name = "name",
-    slug = "slug"
+    slug = "slug",
+    languageCode = "languageCode"
 }
 
-registerEnumType(ProductTypeScalarFieldEnum, { name: 'ProductTypeScalarFieldEnum' })
+
+registerEnumType(ProductTypeScalarFieldEnum, { name: 'ProductTypeScalarFieldEnum', description: undefined })

@@ -7,15 +7,16 @@ export enum ProductVariantScalarFieldEnum {
     name = "name",
     sku = "sku",
     brands = "brands",
+    currencyCode = "currencyCode",
     price = "price",
     sale = "sale",
     stock = "stock",
     sold = "sold",
-    currencyCode = "currencyCode",
-    languageCode = "languageCode",
     draft = "draft",
     productId = "productId",
-    customFields = "customFields"
+    customFields = "customFields",
+    languageCode = "languageCode"
 }
 
-registerEnumType(ProductVariantScalarFieldEnum, { name: 'ProductVariantScalarFieldEnum' })
+
+registerEnumType(ProductVariantScalarFieldEnum, { name: 'ProductVariantScalarFieldEnum', description: undefined })

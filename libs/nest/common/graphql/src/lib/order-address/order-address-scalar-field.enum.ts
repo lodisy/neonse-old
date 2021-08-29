@@ -16,4 +16,5 @@ export enum OrderAddressScalarFieldEnum {
     orderId = "orderId"
 }
 
-registerEnumType(OrderAddressScalarFieldEnum, { name: 'OrderAddressScalarFieldEnum' })
+
+registerEnumType(OrderAddressScalarFieldEnum, { name: 'OrderAddressScalarFieldEnum', description: undefined })

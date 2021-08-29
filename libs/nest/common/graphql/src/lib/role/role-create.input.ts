@@ -3,9 +3,9 @@ import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { RoleStatus } from '../prisma/role-status.enum';
 import { LanguageCode } from '../prisma/language-code.enum';
-import { RoleCreatepermissionsInput } from '../prisma/role-createpermissions.input';
 import { UserCreateNestedOneWithoutRolesInput } from '../user/user-create-nested-one-without-roles.input';
 import { ChannelCreateNestedManyWithoutRoleInput } from '../channel/channel-create-nested-many-without-role.input';
+import { PermissionCreateNestedManyWithoutRoleInput } from '../permission/permission-create-nested-many-without-role.input';
 import { RoleTranslationCreateNestedManyWithoutRoleInput } from '../role-translation/role-translation-create-nested-many-without-role.input';
 
 @InputType()
@@ -40,14 +40,14 @@ export class RoleCreateInput {
     @Field(() => LanguageCode, {nullable:true})
     languageCode?: keyof typeof LanguageCode;
 
-    @Field(() => RoleCreatepermissionsInput, {nullable:true})
-    permissions?: RoleCreatepermissionsInput;
-
     @Field(() => UserCreateNestedOneWithoutRolesInput, {nullable:true})
     user?: UserCreateNestedOneWithoutRolesInput;
 
     @Field(() => ChannelCreateNestedManyWithoutRoleInput, {nullable:true})
     channels?: ChannelCreateNestedManyWithoutRoleInput;
+
+    @Field(() => PermissionCreateNestedManyWithoutRoleInput, {nullable:true})
+    permissions?: PermissionCreateNestedManyWithoutRoleInput;
 
     @Field(() => RoleTranslationCreateNestedManyWithoutRoleInput, {nullable:true})
     translations?: RoleTranslationCreateNestedManyWithoutRoleInput;

@@ -19,10 +19,19 @@ export class UserCountAggregate {
     email!: number;
 
     @Field(() => Int, {nullable:false})
+    mobile!: number;
+
+    @Field(() => Int, {nullable:false})
     username!: number;
 
     @HideField()
     password!: number;
+
+    @Field(() => Int, {nullable:false})
+    isEmailConfirmed!: number;
+
+    @Field(() => Int, {nullable:false})
+    isMobileConfirmed!: number;
 
     @Field(() => Int, {nullable:false})
     lastLoginAt!: number;

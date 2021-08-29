@@ -12,4 +12,5 @@ export enum PaymentScalarFieldEnum {
     orderId = "orderId"
 }
 
-registerEnumType(PaymentScalarFieldEnum, { name: 'PaymentScalarFieldEnum' })
+
+registerEnumType(PaymentScalarFieldEnum, { name: 'PaymentScalarFieldEnum', description: undefined })

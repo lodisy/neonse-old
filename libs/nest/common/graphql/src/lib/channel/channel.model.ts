@@ -8,45 +8,45 @@ import { ProductVariant } from '../product-variant/product-variant.model';
 import { Role } from '../role/role.model';
 
 /** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
-/** 渠道端 比如微信端、英文网站、中文网站等 */
 @ObjectType({description:'渠道端 比如微信端、英文网站、中文网站等'})
 export class Channel {
+
     @Field(() => ID, {nullable:false})
     id!: string;
+
     @Field(() => Date, {nullable:false})
     createdAt!: Date;
+
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
+
     @Field(() => String, {nullable:false})
     code!: string;
+
     @Field(() => String, {nullable:false})
     token!: string;
-    @Field(() => LanguageCode, {nullable:false})
+
+    @Field(() => LanguageCode, {nullable:false,defaultValue:'en'})
     defaultLanguageCode!: keyof typeof LanguageCode;
-    @Field(() => CurrencyCode, {nullable:false})
+
+    @Field(() => CurrencyCode, {nullable:false,defaultValue:'USD'})
     currencyCode!: keyof typeof CurrencyCode;
+
     @Field(() => Boolean, {nullable:true,defaultValue:true})
     priceIncludeTax!: boolean | null;
+
     @Field(() => GraphQLJSON, {nullable:true})
     customFields!: any | null;
+
     @Field(() => ProductVariant, {nullable:true})
     productVariant?: ProductVariant;
+
     @Field(() => String, {nullable:true})
     productVariantId!: string | null;
+
     @Field(() => Role, {nullable:true})
     Role?: Role;
+
     @Field(() => String, {nullable:true})
     roleId!: string | null;
 }

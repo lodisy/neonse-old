@@ -22,6 +22,10 @@ export class UserCreateInput {
     @Validator.IsEmail()
     email!: string;
 
+    @Field(() => String, {nullable:false})
+    @Validator.IsMobilePhone()
+    mobile!: string;
+
     @Field(() => String, {nullable:true})
     username?: string;
 
@@ -29,6 +33,12 @@ export class UserCreateInput {
     @Validator.MinLength(6)
     @Validator.MaxLength(10)
     password!: string;
+
+    @Field(() => Boolean, {nullable:true})
+    isEmailConfirmed?: boolean;
+
+    @Field(() => Boolean, {nullable:true})
+    isMobileConfirmed?: boolean;
 
     @Field(() => Date, {nullable:true})
     lastLoginAt?: Date | string;

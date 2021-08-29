@@ -4,10 +4,11 @@ export enum CountryScalarFieldEnum {
     id = "id",
     createdAt = "createdAt",
     updatedAt = "updatedAt",
-    languageCode = "languageCode",
     code = "code",
     name = "name",
-    enabled = "enabled"
+    enabled = "enabled",
+    languageCode = "languageCode"
 }
 
-registerEnumType(CountryScalarFieldEnum, { name: 'CountryScalarFieldEnum' })
+
+registerEnumType(CountryScalarFieldEnum, { name: 'CountryScalarFieldEnum', description: undefined })

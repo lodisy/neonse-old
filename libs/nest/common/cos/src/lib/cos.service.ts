@@ -24,13 +24,13 @@ export class COSService {
     async uploadFile(file: COS.Key): Promise<string> {
         const cosConfig = this.configService.get<COSConfig>('cos')
 
-        const Authorization = this.cos.getAuth({
-            Bucket: cosConfig.Bucket,
-            Region: cosConfig.Region,
-            Key: file,
-        })
+        // const Authorization = this.cos.getAuth({
+        //     Bucket: cosConfig.Bucket,
+        //     Region: cosConfig.Region,
+        //     Key: file,
+        // })
 
-        console.log(Authorization)
+        // console.log(Authorization)
 
         const folder = file.split('.')[1] === 'webp' ? 'image' : file.split('.')[1]
 
@@ -71,7 +71,7 @@ export class COSService {
                 },
             })
 
-            return result.files.map((file) => file.data.Location)
+            return result.files.map((file) => `https://${file.data.Location}`)
         } catch (err) {
             console.log(err)
 

@@ -7,4 +7,5 @@ export enum RefundScalarFieldEnum {
     reason = "reason"
 }
 
-registerEnumType(RefundScalarFieldEnum, { name: 'RefundScalarFieldEnum' })
+
+registerEnumType(RefundScalarFieldEnum, { name: 'RefundScalarFieldEnum', description: undefined })

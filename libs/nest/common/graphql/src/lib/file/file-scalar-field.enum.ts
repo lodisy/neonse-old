@@ -2,7 +2,10 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum FileScalarFieldEnum {
     id = "id",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt",
     name = "name",
+    url = "url",
     alt = "alt",
     title = "title",
     caption = "caption",
@@ -13,8 +16,6 @@ export enum FileScalarFieldEnum {
     height = "height",
     sourceId = "sourceId",
     autoPlay = "autoPlay",
-    createdAt = "createdAt",
-    updatedAt = "updatedAt",
     customFields = "customFields",
     profileId = "profileId",
     profileAvatarId = "profileAvatarId",
@@ -23,4 +24,5 @@ export enum FileScalarFieldEnum {
     reviewId = "reviewId"
 }
 
-registerEnumType(FileScalarFieldEnum, { name: 'FileScalarFieldEnum' })
+
+registerEnumType(FileScalarFieldEnum, { name: 'FileScalarFieldEnum', description: undefined })

@@ -7,9 +7,9 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { NullableEnumRoleStatusFieldUpdateOperationsInput } from '../prisma/nullable-enum-role-status-field-update-operations.input';
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { EnumLanguageCodeFieldUpdateOperationsInput } from '../prisma/enum-language-code-field-update-operations.input';
-import { RoleUpdatepermissionsInput } from '../prisma/role-updatepermissions.input';
 import { UserUpdateOneWithoutRolesInput } from '../user/user-update-one-without-roles.input';
 import { ChannelUpdateManyWithoutRoleInput } from '../channel/channel-update-many-without-role.input';
+import { PermissionUpdateManyWithoutRoleInput } from '../permission/permission-update-many-without-role.input';
 import { RoleTranslationUpdateManyWithoutRoleInput } from '../role-translation/role-translation-update-many-without-role.input';
 
 @InputType()
@@ -42,14 +42,14 @@ export class RoleUpdateInput {
     @Field(() => EnumLanguageCodeFieldUpdateOperationsInput, {nullable:true})
     languageCode?: EnumLanguageCodeFieldUpdateOperationsInput;
 
-    @Field(() => RoleUpdatepermissionsInput, {nullable:true})
-    permissions?: RoleUpdatepermissionsInput;
-
     @Field(() => UserUpdateOneWithoutRolesInput, {nullable:true})
     user?: UserUpdateOneWithoutRolesInput;
 
     @Field(() => ChannelUpdateManyWithoutRoleInput, {nullable:true})
     channels?: ChannelUpdateManyWithoutRoleInput;
+
+    @Field(() => PermissionUpdateManyWithoutRoleInput, {nullable:true})
+    permissions?: PermissionUpdateManyWithoutRoleInput;
 
     @Field(() => RoleTranslationUpdateManyWithoutRoleInput, {nullable:true})
     translations?: RoleTranslationUpdateManyWithoutRoleInput;

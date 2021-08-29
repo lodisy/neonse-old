@@ -7,6 +7,5 @@ export enum LanguageCode {
     de = "de"
 }
 
-registerEnumType(LanguageCode, { name: 'LanguageCode',
-        description: "语言"
-    })
+
+registerEnumType(LanguageCode, { name: 'LanguageCode', description: "语言" })

@@ -1,1 +1,1 @@
-export * from './lib/nest-common-sms.module'
+export * from './lib/sms.module'

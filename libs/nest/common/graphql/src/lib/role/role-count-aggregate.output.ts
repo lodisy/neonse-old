@@ -33,9 +33,6 @@ export class RoleCountAggregate {
     isDefault!: number;
 
     @Field(() => Int, {nullable:false})
-    permissions!: number;
-
-    @Field(() => Int, {nullable:false})
     languageCode!: number;
 
     @Field(() => Int, {nullable:false})

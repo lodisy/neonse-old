@@ -2,6 +2,15 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""权限的 Action"""
+enum Action {
+  Create
+  Delete
+  Manage
+  Read
+  Update
+}
+
 """地址"""
 type Address {
   Profile: Profile
@@ -10,6 +19,8 @@ type Address {
   country: String!
   createdAt: DateTime!
   customFields: JSON
+
+  """是否作为默认地址"""
   default: Boolean
   district: String
   email: String
@@ -1515,6 +1526,8 @@ enum ContentType {
 type Country {
   code: String!
   createdAt: DateTime!
+
+  """开启支持运送"""
   enabled: Boolean!
   id: ID!
   languageCode: LanguageCode!
@@ -1557,11 +1570,9 @@ type CountryMinAggregate {
 type CountryTranslation {
   country: Country
   countryId: String
-  createdAt: DateTime!
   id: ID!
   languageCode: LanguageCode!
   name: String!
-  updatedAt: DateTime!
 }
 
 type CountryTranslationCountAggregate {
@@ -1624,6 +1635,17 @@ input DateTimeNullableFilter {
   lte: DateTime
   not: NestedDateTimeNullableFilter
   notIn: [DateTime!]
+}
+
+input EnumActionFieldUpdateOperationsInput {
+  set: Action
+}
+
+input EnumActionFilter {
+  equals: Action
+  in: [Action!]
+  not: NestedEnumActionFilter
+  notIn: [Action!]
 }
 
 input EnumAuthenticationStrategyFieldUpdateOperationsInput {
@@ -1703,14 +1725,6 @@ input EnumPaymentMethodFilter {
   notIn: [PaymentMethod!]
 }
 
-input EnumPermissionNullableListFilter {
-  equals: [Permission!]
-  has: Permission
-  hasEvery: [Permission!]
-  hasSome: [Permission!]
-  isEmpty: Boolean
-}
-
 input EnumRoleStatusNullableFilter {
   equals: RoleStatus
   in: [RoleStatus!]
@@ -1742,7 +1756,7 @@ type File {
   profileAvatarId: String
   profileId: String
   reviewId: String
-  size: String!
+  size: Int
   source: Source
   sourceId: String
   title: String
@@ -2211,32 +2225,6 @@ enum FileType {
   DOCUMENT
   IMAGE
   VIDEO
-}
-
-input FileUpdateInput {
-  OrderItem: OrderItemUpdateManyWithoutImageInput
-  Product: ProductUpdateOneWithoutAssetsInput
-  ProductVariant: ProductVariantUpdateOneWithoutAssetsInput
-  ProductVariantStyle: ProductVariantStyleUpdateManyWithoutAssetInput
-  Review: ReviewUpdateOneWithoutUploadsInput
-  alt: NullableStringFieldUpdateOperationsInput
-  autoPlay: NullableBoolFieldUpdateOperationsInput
-  caption: NullableStringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  customFields: JSON
-  format: EnumFileTypeFieldUpdateOperationsInput
-  height: NullableIntFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  mimeType: StringFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
-  profile: ProfileUpdateOneWithoutUploadsInput
-  profileAvatar: ProfileUpdateOneWithoutAvatarInput
-  size: NullableIntFieldUpdateOperationsInput
-  source: SourceUpdateOneWithoutFileInput
-  title: NullableStringFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-  url: StringFieldUpdateOperationsInput
-  width: NullableIntFieldUpdateOperationsInput
 }
 
 input FileUpdateManyMutationInput {
@@ -2875,6 +2863,9 @@ type Mutation {
   """后台批量发布或批量取消发布商品"""
   bulkToggleDraft(draft: Boolean!, where: ProductWhereInput!): Product
 
+  """创建权限"""
+  createPermission(data: PermissionCreateInput!): Permission!
+
   """创建商品"""
   createProduct(data: ProductCreateInput!): Product!
 
@@ -2896,9 +2887,6 @@ type Mutation {
   """根据 SKU 发布或取消单个商品"""
   toggleDraft(sku: String!): Product!
 
-  """后台修改单个文件信息"""
-  updateFile(data: FileUpdateInput!, id: String!): File
-
   """根据 SKU 修改指定商品信息"""
   updateProduct(data: ProductUpdateInput!, sku: String!): Product!
 
@@ -2907,12 +2895,6 @@ type Mutation {
 
   """修改商品分类"""
   updateProductType(data: ProductTypeUpdateInput!, slug: String!): ProductType!
-
-  """上传单个文件"""
-  uploadFile(file: Upload!): File
-
-  """上传多个文件"""
-  uploadFiles(files: Upload!): Int
 }
 
 input NestedBigIntFilter {
@@ -2967,6 +2949,13 @@ input NestedDateTimeNullableFilter {
   lte: DateTime
   not: NestedDateTimeNullableFilter
   notIn: [DateTime!]
+}
+
+input NestedEnumActionFilter {
+  equals: Action
+  in: [Action!]
+  not: NestedEnumActionFilter
+  notIn: [Action!]
 }
 
 input NestedEnumAuthenticationStrategyFilter {
@@ -3115,7 +3104,11 @@ type Order {
   id: ID!
   items: [OrderItem!]
   payment: Payment
+
+  """未付款"""
   pending: Boolean!
+
+  """付款时间"""
   placedAt: DateTime!
   status: OrderStatus!
   subTotal: Int!
@@ -3853,40 +3846,218 @@ input PaymentWhereUniqueInput {
   transactionId: String
 }
 
-"""权限"""
-enum Permission {
-  Authenticated
-  CreateAdministrator
-  CreateAsset
-  CreateContents
-  CreateOrder
-  CreatePaymentMethod
-  CreateProduct
-  CreateSettings
-  DeleteAdministrator
-  DeleteAsset
-  DeleteContents
-  DeleteOrder
-  DeletePaymentMethod
-  DeleteProduct
-  DeleteSettings
-  Owner
-  Public
-  ReadAdministrator
-  ReadAsset
-  ReadContents
-  ReadOrder
-  ReadPaymentMethod
-  ReadProduct
-  ReadSettings
-  SuperAdmin
-  UpdateAdministrator
-  UpdateAsset
-  UpdateContents
-  UpdateOrder
-  UpdatePaymentMethod
-  UpdateProduct
-  UpdateSettings
+type Permission {
+  action: Action!
+  conditions: JSON
+  fields: [String!]
+  id: ID!
+  inverted: Boolean
+  reason: String
+  role: Role!
+  roleId: String!
+  subject: String
+}
+
+type PermissionCountAggregate {
+  _all: Int!
+  action: Int!
+  conditions: Int!
+  fields: Int!
+  id: Int!
+  inverted: Int!
+  reason: Int!
+  roleId: Int!
+  subject: Int!
+}
+
+input PermissionCreateInput {
+  action: Action!
+  conditions: JSON
+  fields: PermissionCreatefieldsInput
+  id: String
+  inverted: Boolean
+  reason: String
+  role: RoleCreateNestedOneWithoutPermissionsInput!
+  subject: String
+}
+
+input PermissionCreateManyRoleInput {
+  action: Action!
+  conditions: JSON
+  fields: PermissionCreateManyfieldsInput
+  id: String
+  inverted: Boolean
+  reason: String
+  subject: String
+}
+
+input PermissionCreateManyRoleInputEnvelope {
+  data: [PermissionCreateManyRoleInput!]!
+  skipDuplicates: Boolean
+}
+
+input PermissionCreateManyfieldsInput {
+  set: [String!]!
+}
+
+input PermissionCreateNestedManyWithoutRoleInput {
+  connect: [PermissionWhereUniqueInput!]
+  connectOrCreate: [PermissionCreateOrConnectWithoutRoleInput!]
+  create: [PermissionCreateWithoutRoleInput!]
+  createMany: PermissionCreateManyRoleInputEnvelope
+}
+
+input PermissionCreateOrConnectWithoutRoleInput {
+  create: PermissionCreateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionCreateWithoutRoleInput {
+  action: Action!
+  conditions: JSON
+  fields: PermissionCreatefieldsInput
+  id: String
+  inverted: Boolean
+  reason: String
+  subject: String
+}
+
+input PermissionCreatefieldsInput {
+  set: [String!]!
+}
+
+input PermissionListRelationFilter {
+  every: PermissionWhereInput
+  none: PermissionWhereInput
+  some: PermissionWhereInput
+}
+
+type PermissionMaxAggregate {
+  action: Action
+  id: String
+  inverted: Boolean
+  reason: String
+  roleId: String
+  subject: String
+}
+
+type PermissionMinAggregate {
+  action: Action
+  id: String
+  inverted: Boolean
+  reason: String
+  roleId: String
+  subject: String
+}
+
+input PermissionOrderByInput {
+  action: SortOrder
+  conditions: SortOrder
+  fields: SortOrder
+  id: SortOrder
+  inverted: SortOrder
+  reason: SortOrder
+  roleId: SortOrder
+  subject: SortOrder
+}
+
+enum PermissionScalarFieldEnum {
+  action
+  conditions
+  fields
+  id
+  inverted
+  reason
+  roleId
+  subject
+}
+
+input PermissionScalarWhereInput {
+  AND: [PermissionScalarWhereInput!]
+  NOT: [PermissionScalarWhereInput!]
+  OR: [PermissionScalarWhereInput!]
+  action: EnumActionFilter
+  conditions: JsonNullableFilter
+  fields: StringNullableListFilter
+  id: StringFilter
+  inverted: BoolNullableFilter
+  reason: StringNullableFilter
+  roleId: StringFilter
+  subject: StringNullableFilter
+}
+
+input PermissionUpdateManyMutationInput {
+  action: EnumActionFieldUpdateOperationsInput
+  conditions: JSON
+  fields: PermissionUpdatefieldsInput
+  id: StringFieldUpdateOperationsInput
+  inverted: NullableBoolFieldUpdateOperationsInput
+  reason: NullableStringFieldUpdateOperationsInput
+  subject: NullableStringFieldUpdateOperationsInput
+}
+
+input PermissionUpdateManyWithWhereWithoutRoleInput {
+  data: PermissionUpdateManyMutationInput!
+  where: PermissionScalarWhereInput!
+}
+
+input PermissionUpdateManyWithoutRoleInput {
+  connect: [PermissionWhereUniqueInput!]
+  connectOrCreate: [PermissionCreateOrConnectWithoutRoleInput!]
+  create: [PermissionCreateWithoutRoleInput!]
+  createMany: PermissionCreateManyRoleInputEnvelope
+  delete: [PermissionWhereUniqueInput!]
+  deleteMany: [PermissionScalarWhereInput!]
+  disconnect: [PermissionWhereUniqueInput!]
+  set: [PermissionWhereUniqueInput!]
+  update: [PermissionUpdateWithWhereUniqueWithoutRoleInput!]
+  updateMany: [PermissionUpdateManyWithWhereWithoutRoleInput!]
+  upsert: [PermissionUpsertWithWhereUniqueWithoutRoleInput!]
+}
+
+input PermissionUpdateWithWhereUniqueWithoutRoleInput {
+  data: PermissionUpdateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionUpdateWithoutRoleInput {
+  action: EnumActionFieldUpdateOperationsInput
+  conditions: JSON
+  fields: PermissionUpdatefieldsInput
+  id: StringFieldUpdateOperationsInput
+  inverted: NullableBoolFieldUpdateOperationsInput
+  reason: NullableStringFieldUpdateOperationsInput
+  subject: NullableStringFieldUpdateOperationsInput
+}
+
+input PermissionUpdatefieldsInput {
+  push: [String!]
+  set: [String!]
+}
+
+input PermissionUpsertWithWhereUniqueWithoutRoleInput {
+  create: PermissionCreateWithoutRoleInput!
+  update: PermissionUpdateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionWhereInput {
+  AND: [PermissionWhereInput!]
+  NOT: [PermissionWhereInput!]
+  OR: [PermissionWhereInput!]
+  action: EnumActionFilter
+  conditions: JsonNullableFilter
+  fields: StringNullableListFilter
+  id: StringFilter
+  inverted: BoolNullableFilter
+  reason: StringNullableFilter
+  role: RoleRelationFilter
+  roleId: StringFilter
+  subject: StringNullableFilter
+}
+
+input PermissionWhereUniqueInput {
+  id: String
 }
 
 """商品"""
@@ -3909,7 +4080,7 @@ type Product {
   stock: Int!
   translations: [ProductTranslation!]
   types: [ProductType!]
-  updatedAt: DateTime
+  updatedAt: DateTime!
   variants: [ProductVariant!]
 }
 
@@ -4116,7 +4287,6 @@ input ProductCategoryScalarWhereInput {
 }
 
 type ProductCategoryTranslation {
-  createdAt: DateTime!
   id: ID!
   languageCode: LanguageCode!
   name: String!
@@ -4800,14 +4970,12 @@ type ProductSumAggregate {
 }
 
 type ProductTranslation {
-  createdAt: DateTime!
   discription: String
   id: ID!
   languageCode: LanguageCode!
   name: String!
   product: Product
   productId: String
-  updatedAt: DateTime!
 }
 
 type ProductTranslationCountAggregate {
@@ -5064,13 +5232,11 @@ input ProductTypeScalarWhereInput {
 }
 
 type ProductTypeTranslation {
-  createdAt: DateTime!
   id: ID!
   languageCode: LanguageCode!
   name: String!
   productType: ProductType
   productTypeId: String
-  updatedAt: DateTime
 }
 
 type ProductTypeTranslationCountAggregate {
@@ -5699,6 +5865,8 @@ type ProductVariantColor {
   productVariantId: String
   translations: [ProductVariantColorTranslation!]
   updatedAt: DateTime
+
+  """颜色代码 HEX"""
   value: String!
 }
 
@@ -5761,7 +5929,6 @@ input ProductVariantColorRelationFilter {
 
 type ProductVariantColorTranslation {
   ProductVariantColor: ProductVariantColor
-  createdAt: DateTime!
   id: ID!
   languageCode: LanguageCode!
   name: String!
@@ -6402,7 +6569,6 @@ input ProductVariantStyleScalarWhereInput {
 }
 
 type ProductVariantStyleTranslation {
-  createdAt: DateTime!
   id: ID!
   languageCode: LanguageCode!
   name: String!
@@ -6636,7 +6802,6 @@ type ProductVariantSumAggregate {
 
 type ProductVariantTranslation {
   ProductVariant: ProductVariant
-  createdAt: DateTime!
   id: ID!
   languageCode: LanguageCode!
   name: String!
@@ -7023,6 +7188,8 @@ type Profile {
   cards: [Card!]
   comments: [Comment!]
   createdAt: DateTime!
+
+  """self relation"""
   followedBy: [Profile!]
   following: [Profile!]
   id: ID!
@@ -7809,6 +7976,9 @@ type PromotionSumAggregate {
 }
 
 type Query {
+  """查询多个权限"""
+  permissions(cursor: PermissionWhereUniqueInput, distinct: [PermissionScalarFieldEnum!], orderBy: [PermissionOrderByInput!], skip: Int, take: Int, where: PermissionWhereInput): [Permission!]!
+
   """根据 SKU 获取单个商品"""
   product(sku: String!): Product!
 
@@ -7864,8 +8034,12 @@ type Review {
   product: Product
   productId: String
   profileId: String!
+
+  """评分 1-5"""
   rate: Int!
   updatedAt: DateTime!
+
+  """买家秀"""
   uploads: [File!]
 }
 
@@ -8185,7 +8359,6 @@ type RoleCountAggregate {
   isDefault: Int!
   languageCode: Int!
   name: Int!
-  permissions: Int!
   slug: Int!
   status: Int!
   updatedAt: Int!
@@ -8199,7 +8372,6 @@ input RoleCreateManyUserInput {
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
-  permissions: RoleCreateManypermissionsInput
   slug: String!
   status: RoleStatus
   updatedAt: DateTime
@@ -8208,10 +8380,6 @@ input RoleCreateManyUserInput {
 input RoleCreateManyUserInputEnvelope {
   data: [RoleCreateManyUserInput!]!
   skipDuplicates: Boolean
-}
-
-input RoleCreateManypermissionsInput {
-  set: [Permission!]!
 }
 
 input RoleCreateNestedManyWithoutUserInput {
@@ -8227,8 +8395,19 @@ input RoleCreateNestedOneWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput
 }
 
+input RoleCreateNestedOneWithoutPermissionsInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutPermissionsInput
+  create: RoleCreateWithoutPermissionsInput
+}
+
 input RoleCreateOrConnectWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput!
+  where: RoleWhereUniqueInput!
+}
+
+input RoleCreateOrConnectWithoutPermissionsInput {
+  create: RoleCreateWithoutPermissionsInput!
   where: RoleWhereUniqueInput!
 }
 
@@ -8244,7 +8423,22 @@ input RoleCreateWithoutChannelsInput {
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
-  permissions: RoleCreatepermissionsInput
+  permissions: PermissionCreateNestedManyWithoutRoleInput
+  slug: String!
+  status: RoleStatus
+  translations: RoleTranslationCreateNestedManyWithoutRoleInput
+  updatedAt: DateTime
+  user: UserCreateNestedOneWithoutRolesInput
+}
+
+input RoleCreateWithoutPermissionsInput {
+  channels: ChannelCreateNestedManyWithoutRoleInput
+  createdAt: DateTime
+  description: String
+  id: String
+  isDefault: Boolean
+  languageCode: LanguageCode
+  name: String!
   slug: String!
   status: RoleStatus
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
@@ -8260,15 +8454,11 @@ input RoleCreateWithoutUserInput {
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
-  permissions: RoleCreatepermissionsInput
+  permissions: PermissionCreateNestedManyWithoutRoleInput
   slug: String!
   status: RoleStatus
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
   updatedAt: DateTime
-}
-
-input RoleCreatepermissionsInput {
-  set: [Permission!]!
 }
 
 input RoleListRelationFilter {
@@ -8318,7 +8508,6 @@ input RoleScalarWhereInput {
   isDefault: BoolNullableFilter
   languageCode: EnumLanguageCodeFilter
   name: StringFilter
-  permissions: EnumPermissionNullableListFilter
   slug: StringFilter
   status: EnumRoleStatusNullableFilter
   updatedAt: DateTimeNullableFilter
@@ -8480,7 +8669,6 @@ input RoleUpdateManyMutationInput {
   isDefault: NullableBoolFieldUpdateOperationsInput
   languageCode: EnumLanguageCodeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  permissions: RoleUpdatepermissionsInput
   slug: StringFieldUpdateOperationsInput
   status: NullableEnumRoleStatusFieldUpdateOperationsInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -8527,7 +8715,7 @@ input RoleUpdateWithoutChannelsInput {
   isDefault: NullableBoolFieldUpdateOperationsInput
   languageCode: EnumLanguageCodeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  permissions: RoleUpdatepermissionsInput
+  permissions: PermissionUpdateManyWithoutRoleInput
   slug: StringFieldUpdateOperationsInput
   status: NullableEnumRoleStatusFieldUpdateOperationsInput
   translations: RoleTranslationUpdateManyWithoutRoleInput
@@ -8543,16 +8731,11 @@ input RoleUpdateWithoutUserInput {
   isDefault: NullableBoolFieldUpdateOperationsInput
   languageCode: EnumLanguageCodeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  permissions: RoleUpdatepermissionsInput
+  permissions: PermissionUpdateManyWithoutRoleInput
   slug: StringFieldUpdateOperationsInput
   status: NullableEnumRoleStatusFieldUpdateOperationsInput
   translations: RoleTranslationUpdateManyWithoutRoleInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
-}
-
-input RoleUpdatepermissionsInput {
-  push: [Permission!]
-  set: [Permission!]
 }
 
 input RoleUpsertWithWhereUniqueWithoutUserInput {
@@ -8577,7 +8760,7 @@ input RoleWhereInput {
   isDefault: BoolNullableFilter
   languageCode: EnumLanguageCodeFilter
   name: StringFilter
-  permissions: EnumPermissionNullableListFilter
+  permissions: PermissionListRelationFilter
   slug: StringFilter
   status: EnumRoleStatusNullableFilter
   translations: RoleTranslationListRelationFilter
@@ -8634,7 +8817,6 @@ type ShippingMethodMinAggregate {
 }
 
 type ShippingMethodTranslation {
-  createdAt: DateTime!
   description: String
   id: ID!
   languageCode: LanguageCode!
@@ -8678,6 +8860,8 @@ type Source {
   File: [File!]
   id: ID!
   link: String
+
+  """作者、网站或杂志名称"""
   name: String!
 }
 
@@ -8791,8 +8975,13 @@ input StringNullableFilter {
   startsWith: String
 }
 
-"""The `Upload` scalar type represents a file upload."""
-scalar Upload
+input StringNullableListFilter {
+  equals: [String!]
+  has: String
+  hasEvery: [String!]
+  hasSome: [String!]
+  isEmpty: Boolean
+}
 
 """User 用户"""
 type User {
@@ -8801,9 +8990,13 @@ type User {
   customFields: JSON
   email: String!
   id: ID!
+  identifierToken: String
+  jwtToken: String!
   lastLoginAt: DateTime
   profile: Profile
   refreshToken: String
+  resetPasswordToken: String
+  roles: [Role!]
   updatedAt: DateTime
   username: String
 }

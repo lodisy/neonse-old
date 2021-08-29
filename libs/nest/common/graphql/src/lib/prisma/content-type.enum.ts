@@ -7,6 +7,5 @@ export enum ContentType {
     BRAND = "BRAND"
 }
 
-registerEnumType(ContentType, { name: 'ContentType',
-        description: "内容类型"
-    })
+
+registerEnumType(ContentType, { name: 'ContentType', description: "内容类型" })

@@ -6,4 +6,5 @@ export enum SourceScalarFieldEnum {
     link = "link"
 }
 
-registerEnumType(SourceScalarFieldEnum, { name: 'SourceScalarFieldEnum' })
+
+registerEnumType(SourceScalarFieldEnum, { name: 'SourceScalarFieldEnum', description: undefined })

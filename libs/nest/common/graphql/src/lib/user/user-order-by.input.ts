@@ -18,10 +18,19 @@ export class UserOrderByInput {
     email?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    mobile?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     username?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     password?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    isEmailConfirmed?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    isMobileConfirmed?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     lastLoginAt?: keyof typeof SortOrder;

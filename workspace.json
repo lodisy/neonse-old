@@ -297,6 +297,27 @@
                 }
             }
         },
+        "nest-common-permissions": {
+            "root": "libs/nest/common/permissions",
+            "sourceRoot": "libs/nest/common/permissions/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/permissions/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/permissions"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/permissions/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-common-prisma": {
             "root": "libs/nest/common/prisma",
             "sourceRoot": "libs/nest/common/prisma/src",
@@ -334,6 +355,27 @@
                     "outputs": ["coverage/libs/nest/common/roles"],
                     "options": {
                         "jestConfig": "libs/nest/common/roles/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-common-shared": {
+            "root": "libs/nest/common/shared",
+            "sourceRoot": "libs/nest/common/shared/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/shared/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/shared"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/shared/jest.config.js",
                         "passWithNoTests": true
                     }
                 }

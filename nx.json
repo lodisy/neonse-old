@@ -50,10 +50,16 @@
         "nest-common-password": {
             "tags": []
         },
+        "nest-common-permissions": {
+            "tags": []
+        },
         "nest-common-prisma": {
             "tags": []
         },
         "nest-common-roles": {
+            "tags": []
+        },
+        "nest-common-shared": {
             "tags": []
         },
         "nest-common-sms": {

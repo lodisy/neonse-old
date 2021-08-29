@@ -4,6 +4,7 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
+import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { RoleListRelationFilter } from '../role/role-list-relation-filter.input';
 import { JsonNullableFilter } from '../prisma/json-nullable-filter.input';
 import { AuthenticationMethodListRelationFilter } from '../authentication-method/authentication-method-list-relation-filter.input';
@@ -33,11 +34,20 @@ export class UserWhereInput {
     @Field(() => StringFilter, {nullable:true})
     email?: StringFilter;
 
+    @Field(() => StringFilter, {nullable:true})
+    mobile?: StringFilter;
+
     @Field(() => StringNullableFilter, {nullable:true})
     username?: StringNullableFilter;
 
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
+
+    @Field(() => BoolNullableFilter, {nullable:true})
+    isEmailConfirmed?: BoolNullableFilter;
+
+    @Field(() => BoolNullableFilter, {nullable:true})
+    isMobileConfirmed?: BoolNullableFilter;
 
     @Field(() => RoleListRelationFilter, {nullable:true})
     roles?: RoleListRelationFilter;

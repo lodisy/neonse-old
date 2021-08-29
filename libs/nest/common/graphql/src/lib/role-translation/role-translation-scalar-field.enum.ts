@@ -8,4 +8,5 @@ export enum RoleTranslationScalarFieldEnum {
     roleId = "roleId"
 }
 
-registerEnumType(RoleTranslationScalarFieldEnum, { name: 'RoleTranslationScalarFieldEnum' })
+
+registerEnumType(RoleTranslationScalarFieldEnum, { name: 'RoleTranslationScalarFieldEnum', description: undefined })

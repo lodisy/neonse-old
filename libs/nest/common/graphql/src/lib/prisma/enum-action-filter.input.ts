@@ -1,0 +1,20 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { Action } from './action.enum';
+import { NestedEnumActionFilter } from './nested-enum-action-filter.input';
+
+@InputType()
+export class EnumActionFilter {
+
+    @Field(() => Action, {nullable:true})
+    equals?: keyof typeof Action;
+
+    @Field(() => [Action], {nullable:true})
+    in?: Array<keyof typeof Action>;
+
+    @Field(() => [Action], {nullable:true})
+    notIn?: Array<keyof typeof Action>;
+
+    @Field(() => NestedEnumActionFilter, {nullable:true})
+    not?: NestedEnumActionFilter;
+}

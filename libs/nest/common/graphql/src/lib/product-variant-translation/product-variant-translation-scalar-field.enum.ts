@@ -2,10 +2,10 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum ProductVariantTranslationScalarFieldEnum {
     id = "id",
-    createdAt = "createdAt",
-    name = "name",
     languageCode = "languageCode",
+    name = "name",
     productVariantId = "productVariantId"
 }
 
-registerEnumType(ProductVariantTranslationScalarFieldEnum, { name: 'ProductVariantTranslationScalarFieldEnum' })
+
+registerEnumType(ProductVariantTranslationScalarFieldEnum, { name: 'ProductVariantTranslationScalarFieldEnum', description: undefined })

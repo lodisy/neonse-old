@@ -5,4 +5,5 @@ export enum PromotionListScalarFieldEnum {
     total = "total"
 }
 
-registerEnumType(PromotionListScalarFieldEnum, { name: 'PromotionListScalarFieldEnum' })
+
+registerEnumType(PromotionListScalarFieldEnum, { name: 'PromotionListScalarFieldEnum', description: undefined })

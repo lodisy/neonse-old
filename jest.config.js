@@ -25,5 +25,7 @@ module.exports = {
         '<rootDir>/apps/store-mini',
         '<rootDir>/libs/nest/common/files',
         '<rootDir>/libs/nest/common/cos',
+        '<rootDir>/libs/nest/common/permissions',
+        '<rootDir>/libs/nest/common/shared',
     ],
 }

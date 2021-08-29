@@ -8,4 +8,5 @@ export enum AuthenticationMethodScalarFieldEnum {
     userId = "userId"
 }
 
-registerEnumType(AuthenticationMethodScalarFieldEnum, { name: 'AuthenticationMethodScalarFieldEnum' })
+
+registerEnumType(AuthenticationMethodScalarFieldEnum, { name: 'AuthenticationMethodScalarFieldEnum', description: undefined })

@@ -13,4 +13,5 @@ export enum PromotionScalarFieldEnum {
     promotionListId = "promotionListId"
 }
 
-registerEnumType(PromotionScalarFieldEnum, { name: 'PromotionScalarFieldEnum' })
+
+registerEnumType(PromotionScalarFieldEnum, { name: 'PromotionScalarFieldEnum', description: undefined })

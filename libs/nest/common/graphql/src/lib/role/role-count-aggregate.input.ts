@@ -32,9 +32,6 @@ export class RoleCountAggregateInput {
     isDefault?: true;
 
     @Field(() => Boolean, {nullable:true})
-    permissions?: true;
-
-    @Field(() => Boolean, {nullable:true})
     languageCode?: true;
 
     @Field(() => Boolean, {nullable:true})

@@ -9,4 +9,5 @@ export enum BrandTranslationScalarFieldEnum {
     brandId = "brandId"
 }
 
-registerEnumType(BrandTranslationScalarFieldEnum, { name: 'BrandTranslationScalarFieldEnum' })
+
+registerEnumType(BrandTranslationScalarFieldEnum, { name: 'BrandTranslationScalarFieldEnum', description: undefined })

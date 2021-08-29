@@ -2,11 +2,11 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum ShippingMethodTranslationScalarFieldEnum {
     id = "id",
-    createdAt = "createdAt",
+    languageCode = "languageCode",
     name = "name",
     description = "description",
-    languageCode = "languageCode",
     shippingMethodId = "shippingMethodId"
 }
 
-registerEnumType(ShippingMethodTranslationScalarFieldEnum, { name: 'ShippingMethodTranslationScalarFieldEnum' })
+
+registerEnumType(ShippingMethodTranslationScalarFieldEnum, { name: 'ShippingMethodTranslationScalarFieldEnum', description: undefined })

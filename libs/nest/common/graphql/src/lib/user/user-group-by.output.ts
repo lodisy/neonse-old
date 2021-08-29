@@ -21,11 +21,20 @@ export class UserGroupBy {
     @Field(() => String, {nullable:false})
     email!: string;
 
+    @Field(() => String, {nullable:false})
+    mobile!: string;
+
     @Field(() => String, {nullable:true})
     username?: string;
 
     @HideField()
     password!: string;
+
+    @Field(() => Boolean, {nullable:true})
+    isEmailConfirmed?: boolean;
+
+    @Field(() => Boolean, {nullable:true})
+    isMobileConfirmed?: boolean;
 
     @Field(() => Date, {nullable:true})
     lastLoginAt?: Date | string;

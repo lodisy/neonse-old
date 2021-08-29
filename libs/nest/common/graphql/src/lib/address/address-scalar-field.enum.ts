@@ -2,6 +2,8 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum AddressScalarFieldEnum {
     id = "id",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt",
     profileId = "profileId",
     fullname = "fullname",
     email = "email",
@@ -15,9 +17,8 @@ export enum AddressScalarFieldEnum {
     postalCode = "postalCode",
     country = "country",
     'default' = "default",
-    customFields = "customFields",
-    createdAt = "createdAt",
-    updatedAt = "updatedAt"
+    customFields = "customFields"
 }
 
-registerEnumType(AddressScalarFieldEnum, { name: 'AddressScalarFieldEnum' })
+
+registerEnumType(AddressScalarFieldEnum, { name: 'AddressScalarFieldEnum', description: undefined })

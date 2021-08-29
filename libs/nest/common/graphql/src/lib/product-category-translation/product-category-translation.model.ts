@@ -6,16 +6,19 @@ import { ProductCategory } from '../product-category/product-category.model';
 
 @ObjectType()
 export class ProductCategoryTranslation {
+
     @Field(() => ID, {nullable:false})
     id!: string;
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date;
-    @Field(() => LanguageCode, {nullable:false})
+
+    @Field(() => LanguageCode, {nullable:false,defaultValue:'zh_Hans'})
     languageCode!: keyof typeof LanguageCode;
+
     @Field(() => String, {nullable:false})
     name!: string;
+
     @Field(() => ProductCategory, {nullable:true})
     productCategory?: ProductCategory;
+
     @Field(() => String, {nullable:true})
     productCategoryId!: string | null;
 }

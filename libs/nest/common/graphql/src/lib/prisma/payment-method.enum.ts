@@ -7,4 +7,5 @@ export enum PaymentMethod {
     PayPal = "PayPal"
 }
 
-registerEnumType(PaymentMethod, { name: 'PaymentMethod' })
+
+registerEnumType(PaymentMethod, { name: 'PaymentMethod', description: undefined })

@@ -13,6 +13,10 @@ export class UserWhereUniqueInput {
     email?: string;
 
     @Field(() => String, {nullable:true})
+    @Validator.IsMobilePhone()
+    mobile?: string;
+
+    @Field(() => String, {nullable:true})
     username?: string;
 
     @Field(() => String, {nullable:true})

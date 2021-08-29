@@ -19,7 +19,21 @@ export type SecurityConfig = {
     bcryptSaltOrRound: string | number
 }
 
-export type SMSConfig = {}
+export type SMSConfig = {
+    TemplateSign: string
+    TemplateID: string
+    SmsSdkAppid: string
+    credential: {
+        secretId: string
+        secretKey: string
+    }
+    region: string
+    profile: {
+        httpProfile: {
+            endpoint: string
+        }
+    }
+}
 
 export type COSConfig = {
     SecretId: string
@@ -68,7 +82,21 @@ const configs: Configs = {
         refreshIn: '7d',
         bcryptSaltOrRound: 10,
     },
-    sms: {},
+    sms: {
+        TemplateSign: 'admin...',
+        TemplateID: '47...',
+        SmsSdkAppid: '140....',
+        credential: {
+            secretId: 'AKI...',
+            secretKey: 'R5S....',
+        },
+        region: '',
+        profile: {
+            httpProfile: {
+                endpoint: 'sms.tencentcloudapi.com',
+            },
+        },
+    },
     cos: {
         SecretId: 'AKIDzoNfgRxCArKYWDgwxjHZaKwINCm57sMZ',
         SecretKey: 'xd2B3ey1oKaaKo1wc2C5i5B0YruQggPr',

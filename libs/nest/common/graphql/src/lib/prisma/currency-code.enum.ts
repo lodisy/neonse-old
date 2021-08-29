@@ -8,6 +8,5 @@ export enum CurrencyCode {
     GBP = "GBP"
 }
 
-registerEnumType(CurrencyCode, { name: 'CurrencyCode',
-        description: "货币"
-    })
+
+registerEnumType(CurrencyCode, { name: 'CurrencyCode', description: "货币" })

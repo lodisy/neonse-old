@@ -33,8 +33,5 @@ export class RoleOrderByInput {
     isDefault?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    permissions?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     languageCode?: keyof typeof SortOrder;
 }
