@@ -26,7 +26,7 @@ type Address {
   email: String
   fullname: String!
   id: ID!
-  phone: String
+  mobile: String
   postalCode: String
   profileId: String
   state: String
@@ -47,7 +47,7 @@ type AddressCountAggregate {
   email: Int!
   fullname: Int!
   id: Int!
-  phone: Int!
+  mobile: Int!
   postalCode: Int!
   profileId: Int!
   state: Int!
@@ -67,7 +67,7 @@ input AddressCreateManyProfileInput {
   email: String
   fullname: String!
   id: String
-  phone: String
+  mobile: String
   postalCode: String
   state: String
   streetLine1: String!
@@ -103,7 +103,7 @@ input AddressCreateWithoutProfileInput {
   email: String
   fullname: String!
   id: String
-  phone: String
+  mobile: String
   postalCode: String
   state: String
   streetLine1: String!
@@ -127,7 +127,7 @@ type AddressMaxAggregate {
   email: String
   fullname: String
   id: String
-  phone: String
+  mobile: String
   postalCode: String
   profileId: String
   state: String
@@ -146,7 +146,7 @@ type AddressMinAggregate {
   email: String
   fullname: String
   id: String
-  phone: String
+  mobile: String
   postalCode: String
   profileId: String
   state: String
@@ -169,7 +169,7 @@ input AddressScalarWhereInput {
   email: StringNullableFilter
   fullname: StringFilter
   id: StringFilter
-  phone: StringNullableFilter
+  mobile: StringNullableFilter
   postalCode: StringNullableFilter
   profileId: StringNullableFilter
   state: StringNullableFilter
@@ -189,7 +189,7 @@ input AddressUpdateManyMutationInput {
   email: NullableStringFieldUpdateOperationsInput
   fullname: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  phone: NullableStringFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
   postalCode: NullableStringFieldUpdateOperationsInput
   state: NullableStringFieldUpdateOperationsInput
   streetLine1: StringFieldUpdateOperationsInput
@@ -232,7 +232,7 @@ input AddressUpdateWithoutProfileInput {
   email: NullableStringFieldUpdateOperationsInput
   fullname: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  phone: NullableStringFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
   postalCode: NullableStringFieldUpdateOperationsInput
   state: NullableStringFieldUpdateOperationsInput
   streetLine1: StringFieldUpdateOperationsInput
@@ -261,7 +261,7 @@ input AddressWhereInput {
   email: StringNullableFilter
   fullname: StringFilter
   id: StringFilter
-  phone: StringNullableFilter
+  mobile: StringNullableFilter
   postalCode: StringNullableFilter
   profileId: StringNullableFilter
   state: StringNullableFilter
@@ -1725,13 +1725,6 @@ input EnumPaymentMethodFilter {
   notIn: [PaymentMethod!]
 }
 
-input EnumRoleStatusNullableFilter {
-  equals: RoleStatus
-  in: [RoleStatus!]
-  not: NestedEnumRoleStatusNullableFilter
-  notIn: [RoleStatus!]
-}
-
 """文件"""
 type File {
   OrderItem: [OrderItem!]
@@ -3007,13 +3000,6 @@ input NestedEnumPaymentMethodFilter {
   notIn: [PaymentMethod!]
 }
 
-input NestedEnumRoleStatusNullableFilter {
-  equals: RoleStatus
-  in: [RoleStatus!]
-  not: NestedEnumRoleStatusNullableFilter
-  notIn: [RoleStatus!]
-}
-
 input NestedIntFilter {
   equals: Int
   gt: Int
@@ -3078,10 +3064,6 @@ input NullableBoolFieldUpdateOperationsInput {
 
 input NullableDateTimeFieldUpdateOperationsInput {
   set: DateTime
-}
-
-input NullableEnumRoleStatusFieldUpdateOperationsInput {
-  set: RoleStatus
 }
 
 input NullableIntFieldUpdateOperationsInput {
@@ -3855,7 +3837,7 @@ type Permission {
   reason: String
   role: Role!
   roleId: String!
-  subject: String
+  subject: String!
 }
 
 type PermissionCountAggregate {
@@ -3878,7 +3860,7 @@ input PermissionCreateInput {
   inverted: Boolean
   reason: String
   role: RoleCreateNestedOneWithoutPermissionsInput!
-  subject: String
+  subject: String!
 }
 
 input PermissionCreateManyRoleInput {
@@ -3888,7 +3870,7 @@ input PermissionCreateManyRoleInput {
   id: String
   inverted: Boolean
   reason: String
-  subject: String
+  subject: String!
 }
 
 input PermissionCreateManyRoleInputEnvelope {
@@ -3919,7 +3901,7 @@ input PermissionCreateWithoutRoleInput {
   id: String
   inverted: Boolean
   reason: String
-  subject: String
+  subject: String!
 }
 
 input PermissionCreatefieldsInput {
@@ -3983,7 +3965,7 @@ input PermissionScalarWhereInput {
   inverted: BoolNullableFilter
   reason: StringNullableFilter
   roleId: StringFilter
-  subject: StringNullableFilter
+  subject: StringFilter
 }
 
 input PermissionUpdateManyMutationInput {
@@ -3993,7 +3975,7 @@ input PermissionUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   inverted: NullableBoolFieldUpdateOperationsInput
   reason: NullableStringFieldUpdateOperationsInput
-  subject: NullableStringFieldUpdateOperationsInput
+  subject: StringFieldUpdateOperationsInput
 }
 
 input PermissionUpdateManyWithWhereWithoutRoleInput {
@@ -4027,7 +4009,7 @@ input PermissionUpdateWithoutRoleInput {
   id: StringFieldUpdateOperationsInput
   inverted: NullableBoolFieldUpdateOperationsInput
   reason: NullableStringFieldUpdateOperationsInput
-  subject: NullableStringFieldUpdateOperationsInput
+  subject: StringFieldUpdateOperationsInput
 }
 
 input PermissionUpdatefieldsInput {
@@ -4053,7 +4035,7 @@ input PermissionWhereInput {
   reason: StringNullableFilter
   role: RoleRelationFilter
   roleId: StringFilter
-  subject: StringNullableFilter
+  subject: StringFilter
 }
 
 input PermissionWhereUniqueInput {
@@ -8338,13 +8320,13 @@ type Role {
   channels: [Channel!]
   createdAt: DateTime!
   description: String
+  enabled: Boolean
   id: ID!
   isDefault: Boolean
   languageCode: LanguageCode!
   name: String!
   permissions: [Permission!]
   slug: String!
-  status: RoleStatus
   translations: [RoleTranslation!]
   updatedAt: DateTime
   user: User
@@ -8355,12 +8337,12 @@ type RoleCountAggregate {
   _all: Int!
   createdAt: Int!
   description: Int!
+  enabled: Int!
   id: Int!
   isDefault: Int!
   languageCode: Int!
   name: Int!
   slug: Int!
-  status: Int!
   updatedAt: Int!
   userId: Int!
 }
@@ -8368,12 +8350,12 @@ type RoleCountAggregate {
 input RoleCreateManyUserInput {
   createdAt: DateTime
   description: String
+  enabled: Boolean
   id: String
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
   slug: String!
-  status: RoleStatus
   updatedAt: DateTime
 }
 
@@ -8419,13 +8401,13 @@ input RoleCreateOrConnectWithoutUserInput {
 input RoleCreateWithoutChannelsInput {
   createdAt: DateTime
   description: String
+  enabled: Boolean
   id: String
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
   permissions: PermissionCreateNestedManyWithoutRoleInput
   slug: String!
-  status: RoleStatus
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
   updatedAt: DateTime
   user: UserCreateNestedOneWithoutRolesInput
@@ -8435,12 +8417,12 @@ input RoleCreateWithoutPermissionsInput {
   channels: ChannelCreateNestedManyWithoutRoleInput
   createdAt: DateTime
   description: String
+  enabled: Boolean
   id: String
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
   slug: String!
-  status: RoleStatus
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
   updatedAt: DateTime
   user: UserCreateNestedOneWithoutRolesInput
@@ -8450,13 +8432,13 @@ input RoleCreateWithoutUserInput {
   channels: ChannelCreateNestedManyWithoutRoleInput
   createdAt: DateTime
   description: String
+  enabled: Boolean
   id: String
   isDefault: Boolean
   languageCode: LanguageCode
   name: String!
   permissions: PermissionCreateNestedManyWithoutRoleInput
   slug: String!
-  status: RoleStatus
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
   updatedAt: DateTime
 }
@@ -8470,12 +8452,12 @@ input RoleListRelationFilter {
 type RoleMaxAggregate {
   createdAt: DateTime
   description: String
+  enabled: Boolean
   id: String
   isDefault: Boolean
   languageCode: LanguageCode
   name: String
   slug: String
-  status: RoleStatus
   updatedAt: DateTime
   userId: String
 }
@@ -8483,12 +8465,12 @@ type RoleMaxAggregate {
 type RoleMinAggregate {
   createdAt: DateTime
   description: String
+  enabled: Boolean
   id: String
   isDefault: Boolean
   languageCode: LanguageCode
   name: String
   slug: String
-  status: RoleStatus
   updatedAt: DateTime
   userId: String
 }
@@ -8504,20 +8486,14 @@ input RoleScalarWhereInput {
   OR: [RoleScalarWhereInput!]
   createdAt: DateTimeFilter
   description: StringNullableFilter
+  enabled: BoolNullableFilter
   id: StringFilter
   isDefault: BoolNullableFilter
   languageCode: EnumLanguageCodeFilter
   name: StringFilter
   slug: StringFilter
-  status: EnumRoleStatusNullableFilter
   updatedAt: DateTimeNullableFilter
   userId: StringNullableFilter
-}
-
-"""角色状态"""
-enum RoleStatus {
-  normal
-  terminated
 }
 
 type RoleTranslation {
@@ -8665,12 +8641,12 @@ input RoleTranslationWhereUniqueInput {
 input RoleUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
+  enabled: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isDefault: NullableBoolFieldUpdateOperationsInput
   languageCode: EnumLanguageCodeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
-  status: NullableEnumRoleStatusFieldUpdateOperationsInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
 
@@ -8711,13 +8687,13 @@ input RoleUpdateWithWhereUniqueWithoutUserInput {
 input RoleUpdateWithoutChannelsInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
+  enabled: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isDefault: NullableBoolFieldUpdateOperationsInput
   languageCode: EnumLanguageCodeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   permissions: PermissionUpdateManyWithoutRoleInput
   slug: StringFieldUpdateOperationsInput
-  status: NullableEnumRoleStatusFieldUpdateOperationsInput
   translations: RoleTranslationUpdateManyWithoutRoleInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
   user: UserUpdateOneWithoutRolesInput
@@ -8727,13 +8703,13 @@ input RoleUpdateWithoutUserInput {
   channels: ChannelUpdateManyWithoutRoleInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
+  enabled: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isDefault: NullableBoolFieldUpdateOperationsInput
   languageCode: EnumLanguageCodeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   permissions: PermissionUpdateManyWithoutRoleInput
   slug: StringFieldUpdateOperationsInput
-  status: NullableEnumRoleStatusFieldUpdateOperationsInput
   translations: RoleTranslationUpdateManyWithoutRoleInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
@@ -8756,13 +8732,13 @@ input RoleWhereInput {
   channels: ChannelListRelationFilter
   createdAt: DateTimeFilter
   description: StringNullableFilter
+  enabled: BoolNullableFilter
   id: StringFilter
   isDefault: BoolNullableFilter
   languageCode: EnumLanguageCodeFilter
   name: StringFilter
   permissions: PermissionListRelationFilter
   slug: StringFilter
-  status: EnumRoleStatusNullableFilter
   translations: RoleTranslationListRelationFilter
   updatedAt: DateTimeNullableFilter
   user: UserRelationFilter
@@ -8991,8 +8967,17 @@ type User {
   email: String!
   id: ID!
   identifierToken: String
+
+  """email 是否 confirmed"""
+  isEmailConfirmed: Boolean
+
+  """手机号是否 confirmed"""
+  isMobileConfirmed: Boolean
   jwtToken: String!
   lastLoginAt: DateTime
+
+  """带 + 号"""
+  mobile: String
   profile: Profile
   refreshToken: String
   resetPasswordToken: String
@@ -9008,8 +8993,11 @@ type UserCountAggregate {
   email: Int!
   id: Int!
   identifierToken: Int!
+  isEmailConfirmed: Int!
+  isMobileConfirmed: Int!
   jwtToken: Int!
   lastLoginAt: Int!
+  mobile: Int!
   refreshToken: Int!
   resetPasswordToken: Int!
   updatedAt: Int!
@@ -9045,8 +9033,11 @@ input UserCreateWithoutProfileInput {
   email: String!
   id: String
   identifierToken: String
+  isEmailConfirmed: Boolean
+  isMobileConfirmed: Boolean
   jwtToken: String!
   lastLoginAt: DateTime
+  mobile: String
   password: String!
   refreshToken: String
   resetPasswordToken: String
@@ -9062,8 +9053,11 @@ input UserCreateWithoutRolesInput {
   email: String!
   id: String
   identifierToken: String
+  isEmailConfirmed: Boolean
+  isMobileConfirmed: Boolean
   jwtToken: String!
   lastLoginAt: DateTime
+  mobile: String
   password: String!
   profile: ProfileCreateNestedOneWithoutUserInput
   refreshToken: String
@@ -9077,8 +9071,11 @@ type UserMaxAggregate {
   email: String
   id: String
   identifierToken: String
+  isEmailConfirmed: Boolean
+  isMobileConfirmed: Boolean
   jwtToken: String
   lastLoginAt: DateTime
+  mobile: String
   refreshToken: String
   resetPasswordToken: String
   updatedAt: DateTime
@@ -9090,8 +9087,11 @@ type UserMinAggregate {
   email: String
   id: String
   identifierToken: String
+  isEmailConfirmed: Boolean
+  isMobileConfirmed: Boolean
   jwtToken: String
   lastLoginAt: DateTime
+  mobile: String
   refreshToken: String
   resetPasswordToken: String
   updatedAt: DateTime
@@ -9128,8 +9128,11 @@ input UserUpdateWithoutProfileInput {
   email: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   identifierToken: NullableStringFieldUpdateOperationsInput
+  isEmailConfirmed: NullableBoolFieldUpdateOperationsInput
+  isMobileConfirmed: NullableBoolFieldUpdateOperationsInput
   jwtToken: StringFieldUpdateOperationsInput
   lastLoginAt: NullableDateTimeFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
   refreshToken: NullableStringFieldUpdateOperationsInput
   resetPasswordToken: NullableStringFieldUpdateOperationsInput
@@ -9145,8 +9148,11 @@ input UserUpdateWithoutRolesInput {
   email: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   identifierToken: NullableStringFieldUpdateOperationsInput
+  isEmailConfirmed: NullableBoolFieldUpdateOperationsInput
+  isMobileConfirmed: NullableBoolFieldUpdateOperationsInput
   jwtToken: StringFieldUpdateOperationsInput
   lastLoginAt: NullableDateTimeFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
   profile: ProfileUpdateOneWithoutUserInput
   refreshToken: NullableStringFieldUpdateOperationsInput
@@ -9175,8 +9181,11 @@ input UserWhereInput {
   email: StringFilter
   id: StringFilter
   identifierToken: StringNullableFilter
+  isEmailConfirmed: BoolNullableFilter
+  isMobileConfirmed: BoolNullableFilter
   jwtToken: StringFilter
   lastLoginAt: DateTimeNullableFilter
+  mobile: StringNullableFilter
   password: StringFilter
   profile: ProfileRelationFilter
   refreshToken: StringNullableFilter
@@ -9191,6 +9200,7 @@ input UserWhereUniqueInput {
   id: String
   identifierToken: String
   jwtToken: String
+  mobile: String
   refreshToken: String
   resetPasswordToken: String
   username: String

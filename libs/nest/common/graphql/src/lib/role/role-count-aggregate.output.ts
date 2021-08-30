@@ -27,7 +27,7 @@ export class RoleCountAggregate {
     description!: number;
 
     @Field(() => Int, {nullable:false})
-    status!: number;
+    enabled!: number;
 
     @Field(() => Int, {nullable:false})
     isDefault!: number;

@@ -5,7 +5,6 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { EnumRoleStatusNullableFilter } from '../prisma/enum-role-status-nullable-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { ChannelListRelationFilter } from '../channel/channel-list-relation-filter.input';
 import { PermissionListRelationFilter } from '../permission/permission-list-relation-filter.input';
@@ -48,8 +47,8 @@ export class RoleWhereInput {
     @Field(() => StringNullableFilter, {nullable:true})
     description?: StringNullableFilter;
 
-    @Field(() => EnumRoleStatusNullableFilter, {nullable:true})
-    status?: EnumRoleStatusNullableFilter;
+    @Field(() => BoolNullableFilter, {nullable:true})
+    enabled?: BoolNullableFilter;
 
     @Field(() => BoolNullableFilter, {nullable:true})
     isDefault?: BoolNullableFilter;

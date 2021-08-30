@@ -27,7 +27,7 @@ export class AddressGroupBy {
     email?: string;
 
     @Field(() => String, {nullable:true})
-    phone?: string;
+    mobile?: string;
 
     @Field(() => String, {nullable:true})
     company?: string;

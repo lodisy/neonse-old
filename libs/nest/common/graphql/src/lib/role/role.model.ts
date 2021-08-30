@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { User } from '../user/user.model';
-import { RoleStatus } from '../prisma/role-status.enum';
 import { Channel } from '../channel/channel.model';
 import { Permission } from '../permission/permission.model';
 import { LanguageCode } from '../prisma/language-code.enum';
@@ -36,8 +35,8 @@ export class Role {
     @Field(() => String, {nullable:true})
     description!: string | null;
 
-    @Field(() => RoleStatus, {nullable:true,defaultValue:'normal'})
-    status!: keyof typeof RoleStatus | null;
+    @Field(() => Boolean, {nullable:true,defaultValue:true})
+    enabled!: boolean | null;
 
     @Field(() => Boolean, {nullable:true,defaultValue:false})
     isDefault!: boolean | null;

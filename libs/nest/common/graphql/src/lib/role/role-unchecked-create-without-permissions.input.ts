@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
-import { RoleStatus } from '../prisma/role-status.enum';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { ChannelUncheckedCreateNestedManyWithoutRoleInput } from '../channel/channel-unchecked-create-nested-many-without-role.input';
 import { RoleTranslationUncheckedCreateNestedManyWithoutRoleInput } from '../role-translation/role-translation-unchecked-create-nested-many-without-role.input';
@@ -32,8 +31,8 @@ export class RoleUncheckedCreateWithoutPermissionsInput {
     @Validator.MaxLength(50)
     description?: string;
 
-    @Field(() => RoleStatus, {nullable:true})
-    status?: keyof typeof RoleStatus;
+    @Field(() => Boolean, {nullable:true})
+    enabled?: boolean;
 
     @Field(() => Boolean, {nullable:true})
     isDefault?: boolean;

@@ -27,7 +27,7 @@ export class RoleOrderByInput {
     description?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    status?: keyof typeof SortOrder;
+    enabled?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     isDefault?: keyof typeof SortOrder;

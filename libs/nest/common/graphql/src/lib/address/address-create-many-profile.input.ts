@@ -24,7 +24,7 @@ export class AddressCreateManyProfileInput {
 
     @Field(() => String, {nullable:true})
     @Validator.IsMobilePhone()
-    phone?: string;
+    mobile?: string;
 
     @Field(() => String, {nullable:true})
     company?: string;

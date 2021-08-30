@@ -34,8 +34,8 @@ export class UserWhereInput {
     @Field(() => StringFilter, {nullable:true})
     email?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    mobile?: StringFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    mobile?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     username?: StringNullableFilter;

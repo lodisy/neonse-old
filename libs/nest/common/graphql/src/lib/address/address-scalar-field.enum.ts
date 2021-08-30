@@ -7,7 +7,7 @@ export enum AddressScalarFieldEnum {
     profileId = "profileId",
     fullname = "fullname",
     email = "email",
-    phone = "phone",
+    mobile = "mobile",
     company = "company",
     streetLine1 = "streetLine1",
     streetLine2 = "streetLine2",

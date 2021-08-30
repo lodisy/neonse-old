@@ -102,7 +102,7 @@ export class ProductsResolver {
         description: '创建商品',
     })
     async createProduct(@Args('data') data: ProductCreateInput): Promise<Product> {
-        const { sku } = data
+        const { sku, variants } = data
 
         await this.productsService.isExisting({
             sku,

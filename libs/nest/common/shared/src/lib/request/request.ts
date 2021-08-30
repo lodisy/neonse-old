@@ -1,5 +1,9 @@
+/**
+ * TODO https://github.com/vendure-ecommerce/vendure/blob/master/packages/core/src/api/common/request-context.ts
+ */
+
 import { Channel, LanguageCode } from '@prisma/client'
-import { Request } from 'express'
+import { RequestWithUser } from './request.interface'
 
 export class RequestContext {
     private readonly _languageCode: LanguageCode
@@ -9,10 +13,10 @@ export class RequestContext {
     private readonly _authorizedAsOwnerOnly: boolean
     // private readonly _translationFn: TFunction
     // private readonly _apiType: ApiType
-    private readonly _req?: Request
+    private readonly _req?: RequestWithUser
 
     constructor(options: {
-        req?: Request
+        req?: RequestWithUser
         //  apiType: ApiType;
         channel: Channel
         //   session?: CachedSession;

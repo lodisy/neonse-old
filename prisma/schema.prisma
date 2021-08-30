@@ -117,14 +117,6 @@ enum PaymentMethod {
   PayPal
 }
 
-/// 角色状态
-enum RoleStatus {
-  /// 正常
-  normal
-  /// 暂时冻结
-  terminated
-}
-
 /// 权限的 Action
 enum Action {
   Manage
@@ -145,7 +137,7 @@ model Address {
   /// @Validator.IsEmail()
   email        String?
   /// @Validator.IsMobilePhone()
-  phone        String?
+  mobile       String?
   company      String?
   streetLine1  String
   streetLine2  String?
@@ -661,7 +653,7 @@ model Role {
   slug         String            @unique
   /// @Validator.MaxLength(50)
   description  String?
-  status       RoleStatus?       @default(normal)
+  enabled      Boolean?          @default(true)
   isDefault    Boolean?          @default(false)
   channels     Channel[]
   permissions  Permission[]
@@ -723,8 +715,9 @@ model User {
   updatedAt             DateTime?              @updatedAt
   /// @Validator.IsEmail()
   email                 String                 @unique
+  /// 带 + 号
   /// @Validator.IsMobilePhone()
-  mobile                String                 @unique
+  mobile                String?                @unique
   username              String?                @unique
   /// @Validator.MinLength(6)
   /// @Validator.MaxLength(10)

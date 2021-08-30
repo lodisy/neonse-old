@@ -4,7 +4,6 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
-import { NullableEnumRoleStatusFieldUpdateOperationsInput } from '../prisma/nullable-enum-role-status-field-update-operations.input';
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { EnumLanguageCodeFieldUpdateOperationsInput } from '../prisma/enum-language-code-field-update-operations.input';
 import { UserUpdateOneWithoutRolesInput } from '../user/user-update-one-without-roles.input';
@@ -32,8 +31,8 @@ export class RoleUpdateWithoutTranslationsInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     description?: NullableStringFieldUpdateOperationsInput;
 
-    @Field(() => NullableEnumRoleStatusFieldUpdateOperationsInput, {nullable:true})
-    status?: NullableEnumRoleStatusFieldUpdateOperationsInput;
+    @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
+    enabled?: NullableBoolFieldUpdateOperationsInput;
 
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     isDefault?: NullableBoolFieldUpdateOperationsInput;

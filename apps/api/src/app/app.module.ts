@@ -1,13 +1,12 @@
 import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
 import { FilesModule } from '@neonse/nest-common-files'
-import { PermissionsModule } from '@neonse/nest-common-permissions'
+import { PrismaModule } from '@neonse/nest-common-prisma'
 import { SMSModule } from '@neonse/nest-common-sms'
 import { ProductCategoriesModule, ProductsModule, ProductTypesModule } from '@neonse/nest-products'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
 
 @Module({
     imports: [
@@ -23,8 +22,8 @@ import { AppService } from './app.service'
                     sortSchema: graphqlConfig.sortSchema,
                     autoSchemaFile: graphqlConfig.schemaDestination || './schema.graphql',
                     debug: graphqlConfig.debug,
-                    playground: graphqlConfig.playgroundEnabled,
-                    //  plugins: [],
+                    playground: false,
+                    plugins: [ApolloServerPluginLandingPageLocalDefault()],
                     context: ({ req }) => ({ req }),
                 }
             },
@@ -32,13 +31,14 @@ import { AppService } from './app.service'
         }),
 
         FilesModule,
+        PrismaModule,
         ProductsModule,
         ProductTypesModule,
         ProductCategoriesModule,
-        PermissionsModule,
+        //   PermissionsModule,
         SMSModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {}

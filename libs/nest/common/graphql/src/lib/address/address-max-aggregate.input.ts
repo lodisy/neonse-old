@@ -23,7 +23,7 @@ export class AddressMaxAggregateInput {
     email?: true;
 
     @Field(() => Boolean, {nullable:true})
-    phone?: true;
+    mobile?: true;
 
     @Field(() => Boolean, {nullable:true})
     company?: true;

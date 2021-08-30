@@ -2,20 +2,17 @@
  *
  */
 
-import { SecurityConfig } from '@neonse/nest-common-configs'
 import { PasswordService } from '@neonse/nest-common-password'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { JwtService } from '@nestjs/jwt'
-import { Prisma, User } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 
 @Injectable()
 export class UsersService {
     constructor(
         private prisma: PrismaService,
         private passwordService: PasswordService,
-        private jwtService: JwtService,
         private configService: ConfigService,
     ) {}
 
@@ -28,47 +25,6 @@ export class UsersService {
         if (!targetUser) {
             return false
         } else return true
-    }
-
-    /** 根据 email 生成 jwt */
-    private generateJwtToken(payload: { email: string }): string {
-        return this.jwtService.sign(payload)
-    }
-
-    /** 根据 email 生成 refresh token */
-
-    private generateRefreshToken(payload: { email: string }): string {
-        const securityConfig = this.configService.get<SecurityConfig>('security')
-
-        return this.jwtService.sign(payload, {
-            secret: this.configService.get('JWT_REFRESH_SECRET'),
-            expiresIn: securityConfig.refreshIn,
-        })
-    }
-
-    /** 生成 identifierToken 类似 fingerpring */
-    // TODO
-
-    /** 批量生成多个 tokens */
-
-    generateTokens(payload: { email: string }) {
-        return {
-            jwtToken: this.generateJwtToken(payload),
-            refreshToken: this.generateRefreshToken(payload),
-        }
-    }
-
-    /** 刷新 jwt 和 refreshToken */
-
-    refreshTokens(jwt: string) {
-        try {
-            const user = this.jwtService.verify(jwt, {
-                secret: this.configService.get('JWT_REFRESH_SECRET'),
-            }) as User
-            return this.generateTokens({ email: user.email })
-        } catch (error) {
-            throw new HttpException('Error', HttpStatus.UNAUTHORIZED)
-        }
     }
 
     /** 查询用户 */
@@ -96,7 +52,7 @@ export class UsersService {
 
     /** 创建用户 */
 
-    async createUser(data: Pick<Prisma.UserCreateInput, 'email' | 'username' | 'password'>) {
+    async createUser(data: Prisma.UserCreateInput) {
         const { email, password } = data
 
         const isExisting = await this.isUserExisting({ email })
@@ -105,13 +61,12 @@ export class UsersService {
 
         const hashedPassword = await this.passwordService.hashPassword(password)
 
-        const tokens = this.generateTokens({ email })
+        //const tokens = this.generateTokens({ email })
 
         const user = await this.prisma.user.create({
             data: {
                 email,
                 password: hashedPassword,
-                jwtToken: tokens.jwtToken,
                 ...data,
                 //roles:
             },

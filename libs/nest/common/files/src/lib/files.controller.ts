@@ -25,7 +25,7 @@ import * as fs from 'fs'
 import * as multer from 'multer'
 import { FilesService } from './files.service'
 
-@Controller()
+@Controller('files')
 export class FilesController {
     constructor(
         private prisma: PrismaService,

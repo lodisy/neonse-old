@@ -8,7 +8,7 @@ export enum RoleScalarFieldEnum {
     name = "name",
     slug = "slug",
     description = "description",
-    status = "status",
+    enabled = "enabled",
     isDefault = "isDefault",
     languageCode = "languageCode"
 }

@@ -26,7 +26,7 @@ export class RoleMaxAggregateInput {
     description?: true;
 
     @Field(() => Boolean, {nullable:true})
-    status?: true;
+    enabled?: true;
 
     @Field(() => Boolean, {nullable:true})
     isDefault?: true;

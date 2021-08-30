@@ -23,8 +23,9 @@ export class User {
     @Field(() => String, {nullable:false})
     email!: string;
 
-    @Field(() => String, {nullable:false})
-    mobile!: string;
+    /** 带 + 号 */
+    @Field(() => String, {nullable:true,description:'带 + 号'})
+    mobile!: string | null;
 
     @Field(() => String, {nullable:true})
     username!: string | null;

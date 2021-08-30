@@ -37,7 +37,7 @@ export class AddressScalarWhereInput {
     email?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
-    phone?: StringNullableFilter;
+    mobile?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     company?: StringNullableFilter;

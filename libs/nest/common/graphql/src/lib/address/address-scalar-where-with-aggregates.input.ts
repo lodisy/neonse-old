@@ -37,7 +37,7 @@ export class AddressScalarWhereWithAggregatesInput {
     email?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
-    phone?: StringNullableWithAggregatesFilter;
+    mobile?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     company?: StringNullableWithAggregatesFilter;

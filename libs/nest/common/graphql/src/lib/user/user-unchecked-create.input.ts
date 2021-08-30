@@ -22,9 +22,9 @@ export class UserUncheckedCreateInput {
     @Validator.IsEmail()
     email!: string;
 
-    @Field(() => String, {nullable:false})
+    @Field(() => String, {nullable:true})
     @Validator.IsMobilePhone()
-    mobile!: string;
+    mobile?: string;
 
     @Field(() => String, {nullable:true})
     username?: string;

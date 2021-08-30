@@ -24,7 +24,7 @@ export class AddressCountAggregate {
     email!: number;
 
     @Field(() => Int, {nullable:false})
-    phone!: number;
+    mobile!: number;
 
     @Field(() => Int, {nullable:false})
     company!: number;

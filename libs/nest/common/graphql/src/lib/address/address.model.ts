@@ -30,7 +30,7 @@ export class Address {
     email!: string | null;
 
     @Field(() => String, {nullable:true})
-    phone!: string | null;
+    mobile!: string | null;
 
     @Field(() => String, {nullable:true})
     company!: string | null;

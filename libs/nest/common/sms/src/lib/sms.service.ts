@@ -16,8 +16,6 @@ export class SMSService {
     /**
      * 发送短信
      * @param mobile 手机号
-     * @param code 模版验证吗
-     * @param minute 模版过期时间
      */
 
     async sendSMS(mobile: string) {
@@ -25,36 +23,39 @@ export class SMSService {
 
         return await this.sms
             .SendSms({
-                PhoneNumberSet: [`+86${mobile}`], // 判断国家
+                PhoneNumberSet: [mobile], // 前端录入手机号时连带国家代码 +8613333xxx
                 SmsSdkAppId: this.configService.get<string>('sms.SmsSdkAppid'),
                 TemplateId: this.configService.get<string>('sms.TemplateId'), // 若向境外手机号发送短信，仅支持使用国际/港澳台短信模板。
                 SignName: this.configService.get<string>('sms.SignName'),
                 TemplateParamSet: [code, '1'], // 根据模版设置
             })
-            .then((value) => {
-                value.SendStatusSet.forEach((result) => {
-                    if (result.Code === 'Ok') {
-                        if (this.list[mobile]) {
-                            this.list[mobile].push(code)
-                        } else {
-                            this.list[mobile] = [code]
-                        }
-
-                        // 1 分钟后删除验证码
-                        setTimeout(() => {
-                            _.pull(this.list[mobile], code)
-                            if (this.list[mobile] && this.list[mobile].length == 0) {
-                                delete this.list[mobile]
+            .then(
+                (value) => {
+                    value.SendStatusSet.forEach((result) => {
+                        if (result.Code === 'Ok') {
+                            if (this.list[mobile]) {
+                                this.list[mobile].push(code)
+                            } else {
+                                this.list[mobile] = [code]
                             }
-                        }, 60 * 1000)
-                    }
-                    return result
-                })
-            })
+
+                            // 1 分钟后删除验证码
+                            setTimeout(() => {
+                                _.pull(this.list[mobile], code)
+                                if (this.list[mobile] && this.list[mobile].length == 0) {
+                                    delete this.list[mobile]
+                                }
+                            }, 60 * 1000)
+                        }
+                    })
+                    return value
+                },
+                () => [],
+            )
     }
 
     /**
-     * 核对验证码 更新状态
+     * 核对验证码 更新用户状态
      * @param mobile 手机号
      * @param code 待验证短信验证码
      */
@@ -67,9 +68,9 @@ export class SMSService {
                     isMobileConfirmed: true,
                 },
             )
-        } else {
-            throw new HttpException('短信验证码错误或已过期', HttpStatus.UNAUTHORIZED)
-        }
+        } else if (this.list[mobile].length === 0) {
+            throw new HttpException('短信验证码已过期', HttpStatus.INTERNAL_SERVER_ERROR)
+        } else throw new HttpException('短信验证码错误', HttpStatus.UNAUTHORIZED)
     }
 
     /**

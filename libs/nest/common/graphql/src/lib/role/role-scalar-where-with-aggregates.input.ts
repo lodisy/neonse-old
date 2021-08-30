@@ -4,7 +4,6 @@ import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-fil
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullable-with-aggregates-filter.input';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
-import { EnumRoleStatusNullableWithAggregatesFilter } from '../prisma/enum-role-status-nullable-with-aggregates-filter.input';
 import { BoolNullableWithAggregatesFilter } from '../prisma/bool-nullable-with-aggregates-filter.input';
 import { EnumLanguageCodeWithAggregatesFilter } from '../prisma/enum-language-code-with-aggregates-filter.input';
 
@@ -41,8 +40,8 @@ export class RoleScalarWhereWithAggregatesInput {
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     description?: StringNullableWithAggregatesFilter;
 
-    @Field(() => EnumRoleStatusNullableWithAggregatesFilter, {nullable:true})
-    status?: EnumRoleStatusNullableWithAggregatesFilter;
+    @Field(() => BoolNullableWithAggregatesFilter, {nullable:true})
+    enabled?: BoolNullableWithAggregatesFilter;
 
     @Field(() => BoolNullableWithAggregatesFilter, {nullable:true})
     isDefault?: BoolNullableWithAggregatesFilter;

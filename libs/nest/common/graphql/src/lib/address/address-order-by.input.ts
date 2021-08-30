@@ -24,7 +24,7 @@ export class AddressOrderByInput {
     email?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    phone?: keyof typeof SortOrder;
+    mobile?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     company?: keyof typeof SortOrder;

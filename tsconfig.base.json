@@ -33,7 +33,7 @@
             "@neonse/nest-products": ["libs/nest/products/src/index.ts"],
             "@neonse/nest-server-products": ["libs/nest/server/products/src/index.ts"],
             "@neonse/nest-server-user": ["libs/nest/server/user/src/index.ts"],
-            "@neonse/nest/common/shared": ["libs/nest/common/shared/src/index.ts"],
+            "@neonse/nest-common-shared": ["libs/nest/common/shared/src/index.ts"],
             "@neonse/ui": ["libs/ui/src/index.ts"],
             "@neonse/ui-animations": ["libs/ui/src/animations/src/index.ts"],
             "@neonse/ui-components": ["libs/ui/src/components/src/index.ts"],

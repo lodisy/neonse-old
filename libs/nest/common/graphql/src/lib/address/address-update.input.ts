@@ -27,7 +27,7 @@ export class AddressUpdateInput {
     email?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    phone?: NullableStringFieldUpdateOperationsInput;
+    mobile?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     company?: NullableStringFieldUpdateOperationsInput;

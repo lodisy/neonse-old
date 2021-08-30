@@ -1,6 +1,5 @@
 import { SecurityConfig } from '@neonse/nest-common-configs'
 import { PasswordService } from '@neonse/nest-common-password'
-import { PrismaModule } from '@neonse/nest-common-prisma'
 import { UsersModule } from '@neonse/nest-common-users'
 import { Module } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
@@ -27,7 +26,6 @@ import { JwtStrategy } from './strategies/jwt.strategy'
             },
             inject: [ConfigService],
         }),
-        PrismaModule,
         UsersModule,
     ],
     controllers: [],

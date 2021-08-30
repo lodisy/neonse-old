@@ -4,7 +4,6 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { EnumRoleStatusNullableFilter } from '../prisma/enum-role-status-nullable-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { EnumLanguageCodeFilter } from '../prisma/enum-language-code-filter.input';
 
@@ -41,8 +40,8 @@ export class RoleScalarWhereInput {
     @Field(() => StringNullableFilter, {nullable:true})
     description?: StringNullableFilter;
 
-    @Field(() => EnumRoleStatusNullableFilter, {nullable:true})
-    status?: EnumRoleStatusNullableFilter;
+    @Field(() => BoolNullableFilter, {nullable:true})
+    enabled?: BoolNullableFilter;
 
     @Field(() => BoolNullableFilter, {nullable:true})
     isDefault?: BoolNullableFilter;

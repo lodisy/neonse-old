@@ -2,6 +2,7 @@
  * TODO 权限
  */
 
+import { RequestWithUser } from '@neonse/nest-common-shared'
 import { Body, Controller, Get, HttpException, HttpStatus, Post, Req } from '@nestjs/common'
 import { SMSService } from './sms.service'
 @Controller()
@@ -13,7 +14,7 @@ export class SMSController {
      */
 
     @Post('sendSMS')
-    async sendSMS(@Req() request, @Body() mobile: string) {
+    async sendSMS(@Req() request: RequestWithUser, @Body() mobile: string) {
         if (request.user.isMobileConfirmed) {
             throw new HttpException('已经验证', HttpStatus.BAD_REQUEST)
         }
@@ -26,7 +27,7 @@ export class SMSController {
      */
 
     @Post('validateSMS')
-    async validateSMS(@Req() request, @Body() code: string) {
+    async validateSMS(@Req() request: RequestWithUser, @Body() code: string) {
         // request 中包含 user
         if (request.user.isMobileConfirmed) {
             throw new HttpException('已经验证', HttpStatus.BAD_REQUEST)
