@@ -43,7 +43,7 @@ export class AuthService {
 
     generateTokens(payload: { userId: string }) {
         return {
-            jwtToken: this.generateAccessToken(payload),
+            accessToken: this.generateAccessToken(payload),
             refreshToken: this.generateRefreshToken(payload),
         }
     }
@@ -128,7 +128,7 @@ export class AuthService {
         const user = await this.prisma.user.update({
             where: { email },
             data: {
-                jwtToken: tokens.jwtToken, // TODO
+                accessToken: tokens.accessToken, // TODO
                 lastLoginAt,
             },
         })
@@ -138,7 +138,7 @@ export class AuthService {
             user: {
                 id: user.id,
                 email: user.email,
-                jwtToken: user.jwtToken, // TODO
+                accessToken: user.accessToken, // TODO
             },
         }
     }
@@ -147,6 +147,6 @@ export class AuthService {
 
     async register(email: string, password: string, username?: string) {
         const tokens = this.generateTokens({ email }) // todo
-        return await this.usersService.createUser({ email, password, username, jwtToken: tokens.jwtToken })
+        return await this.usersService.createUser({ email, password, username, accessToken: tokens.accessToken })
     }
 }

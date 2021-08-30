@@ -88,7 +88,7 @@ export class UsersService {
                 id: user.id,
                 email: user.email,
                 username: user.username,
-                jwtToken: user.jwtToken,
+                accessToken: user.accessToken,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,
             },
