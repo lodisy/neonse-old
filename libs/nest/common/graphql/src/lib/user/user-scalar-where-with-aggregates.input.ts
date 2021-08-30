@@ -55,8 +55,8 @@ export class UserScalarWhereWithAggregatesInput {
     @Field(() => JsonNullableWithAggregatesFilter, {nullable:true})
     customFields?: JsonNullableWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    accessToken?: StringWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    accessToken?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     refreshToken?: StringNullableWithAggregatesFilter;

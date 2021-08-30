@@ -747,7 +747,7 @@ model User {
   customFields          Json?
   authenticationMethods AuthenticationMethod[]
   /// @Validator.IsJWT()
-  accessToken           String                 @unique
+  accessToken           String?                @unique
   refreshToken          String?                @unique
   resetPasswordToken    String?                @unique
   identifierToken       String?                @unique

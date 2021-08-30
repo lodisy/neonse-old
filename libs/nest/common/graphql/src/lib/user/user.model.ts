@@ -56,8 +56,8 @@ export class User {
     @Field(() => [AuthenticationMethod], {nullable:true})
     authenticationMethods?: Array<AuthenticationMethod>;
 
-    @Field(() => String, {nullable:false})
-    accessToken!: string;
+    @Field(() => String, {nullable:true})
+    accessToken!: string | null;
 
     @Field(() => String, {nullable:true})
     refreshToken!: string | null;

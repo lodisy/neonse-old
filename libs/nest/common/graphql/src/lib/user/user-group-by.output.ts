@@ -45,8 +45,8 @@ export class UserGroupBy {
     @Field(() => GraphQLJSON, {nullable:true})
     customFields?: any;
 
-    @Field(() => String, {nullable:false})
-    accessToken!: string;
+    @Field(() => String, {nullable:true})
+    accessToken?: string;
 
     @Field(() => String, {nullable:true})
     refreshToken?: string;

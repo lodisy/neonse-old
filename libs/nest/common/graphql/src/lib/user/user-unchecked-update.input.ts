@@ -51,8 +51,8 @@ export class UserUncheckedUpdateInput {
     @Validator.IsJSON()
     customFields?: any;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    accessToken?: StringFieldUpdateOperationsInput;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    accessToken?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     refreshToken?: NullableStringFieldUpdateOperationsInput;

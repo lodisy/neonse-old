@@ -146,7 +146,6 @@ export class AuthService {
     /** 注册 */
 
     async register(email: string, password: string, username?: string) {
-        const tokens = this.generateTokens({ email }) // todo
-        return await this.usersService.createUser({ email, password, username, accessToken: tokens.accessToken })
+        return await this.usersService.createUser({ email, password, username })
     }
 }

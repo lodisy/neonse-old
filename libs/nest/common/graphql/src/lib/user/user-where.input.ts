@@ -64,8 +64,8 @@ export class UserWhereInput {
     @Field(() => AuthenticationMethodListRelationFilter, {nullable:true})
     authenticationMethods?: AuthenticationMethodListRelationFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    accessToken?: StringFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    accessToken?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     refreshToken?: StringNullableFilter;

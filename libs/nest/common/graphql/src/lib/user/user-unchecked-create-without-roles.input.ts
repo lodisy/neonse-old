@@ -49,9 +49,9 @@ export class UserUncheckedCreateWithoutRolesInput {
     @Validator.IsJSON()
     customFields?: any;
 
-    @Field(() => String, {nullable:false})
+    @Field(() => String, {nullable:true})
     @Validator.IsJWT()
-    accessToken!: string;
+    accessToken?: string;
 
     @Field(() => String, {nullable:true})
     refreshToken?: string;
