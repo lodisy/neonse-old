@@ -36,10 +36,13 @@ export class UserOrderByInput {
     lastLoginAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    lastLogoutAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     customFields?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    jwtToken?: keyof typeof SortOrder;
+    accessToken?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     refreshToken?: keyof typeof SortOrder;

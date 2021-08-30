@@ -37,10 +37,13 @@ export class UserCountAggregate {
     lastLoginAt!: number;
 
     @Field(() => Int, {nullable:false})
+    lastLogoutAt!: number;
+
+    @Field(() => Int, {nullable:false})
     customFields!: number;
 
     @Field(() => Int, {nullable:false})
-    jwtToken!: number;
+    accessToken!: number;
 
     @Field(() => Int, {nullable:false})
     refreshToken!: number;

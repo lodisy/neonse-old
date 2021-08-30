@@ -2,11 +2,13 @@
  *
  */
 
+import { SecurityConfig } from '@neonse/nest-common-configs'
 import { PasswordService } from '@neonse/nest-common-password'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { Prisma } from '@prisma/client'
+import { compare, hash } from 'bcrypt'
 
 @Injectable()
 export class UsersService {
@@ -15,6 +17,13 @@ export class UsersService {
         private passwordService: PasswordService,
         private configService: ConfigService,
     ) {}
+
+    get bcryptSaltRounds(): string | number {
+        const securityConfig = this.configService.get<SecurityConfig>('security')
+        const saltOrRounds = securityConfig.bcryptSaltOrRound
+
+        return Number.isInteger(Number(saltOrRounds)) ? Number(saltOrRounds) : saltOrRounds
+    }
 
     /** 验证用户是否存在 */
 
@@ -32,22 +41,23 @@ export class UsersService {
     async findUser(id: string) {
         const isExisting = await this.isUserExisting({ id })
         if (isExisting) {
-            const user = await this.prisma.user.findUnique({
+            return await this.prisma.user.findUnique({
                 where: {
                     id,
                 },
-                select: {
-                    id: true,
-                    email: true,
-                    username: true,
-                    createdAt: true,
-                },
             })
-
-            return user
         } else {
             throw new HttpException(`The user you are looking for does not exist`, HttpStatus.NOT_FOUND)
         }
+    }
+
+    async findUserByRefreshToken(refreshToken: string, id: string) {
+        const user = await this.findUser(id)
+        const isMatch = await compare(refreshToken, user.refreshToken)
+
+        if (!isMatch) throw new HttpException('refresh token 不一致', HttpStatus.UNAUTHORIZED)
+
+        return user
     }
 
     /** 创建用户 */
@@ -85,6 +95,29 @@ export class UsersService {
         }
     }
 
+    /** 设置 refreshToken */
+
+    async setRefreshToken(refreshToken: string, where: Prisma.UserWhereUniqueInput) {
+        const hashedToken = await hash(refreshToken, this.bcryptSaltRounds)
+        await this.prisma.user.update({
+            where,
+            data: {
+                refreshToken: hashedToken,
+            },
+        })
+    }
+
+    /** 清空 refreshToken */
+
+    async removeRefreshToken(where: Prisma.UserWhereUniqueInput) {
+        await this.prisma.user.update({
+            where,
+            data: {
+                refreshToken: null,
+            },
+        })
+    }
+
     /** 修改用户资料（非密码） */
 
     /** 修改用户资料（非密码、非邮箱），包括 profile */
@@ -105,34 +138,6 @@ export class UsersService {
         })
 
         // TODO
-    }
-
-    /** admin 修改用户密码 */
-
-    async changePasswordAdmin(email: string, newPassword: string) {
-        // 给新密码加密
-        const hashedPassword = await this.passwordService.hashPassword(newPassword)
-        // 更新
-        const updatedUser = await this.prisma.user.update({
-            where: {
-                email,
-            },
-            data: {
-                password: hashedPassword,
-            },
-        })
-
-        return {
-            status: 'success',
-            user: {
-                id: updatedUser.id,
-                email: updatedUser.email,
-                username: updatedUser.username,
-                jwtToken: updatedUser.jwtToken,
-                createdAt: updatedUser.createdAt,
-                updatedAt: updatedUser.updatedAt,
-            },
-        }
     }
 
     /** 修改密码 */

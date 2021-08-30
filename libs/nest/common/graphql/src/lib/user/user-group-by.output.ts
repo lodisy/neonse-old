@@ -39,11 +39,14 @@ export class UserGroupBy {
     @Field(() => Date, {nullable:true})
     lastLoginAt?: Date | string;
 
+    @Field(() => Date, {nullable:true})
+    lastLogoutAt?: Date | string;
+
     @Field(() => GraphQLJSON, {nullable:true})
     customFields?: any;
 
     @Field(() => String, {nullable:false})
-    jwtToken!: string;
+    accessToken!: string;
 
     @Field(() => String, {nullable:true})
     refreshToken?: string;

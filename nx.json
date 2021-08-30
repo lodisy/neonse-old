@@ -38,6 +38,9 @@
         "nest-common-cos": {
             "tags": []
         },
+        "nest-common-dtos": {
+            "tags": []
+        },
         "nest-common-files": {
             "tags": []
         },

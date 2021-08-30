@@ -35,8 +35,11 @@ export class UserMaxAggregate {
     @Field(() => Date, {nullable:true})
     lastLoginAt?: Date | string;
 
+    @Field(() => Date, {nullable:true})
+    lastLogoutAt?: Date | string;
+
     @Field(() => String, {nullable:true})
-    jwtToken?: string;
+    accessToken?: string;
 
     @Field(() => String, {nullable:true})
     refreshToken?: string;

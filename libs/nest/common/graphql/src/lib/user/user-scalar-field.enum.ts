@@ -11,8 +11,9 @@ export enum UserScalarFieldEnum {
     isEmailConfirmed = "isEmailConfirmed",
     isMobileConfirmed = "isMobileConfirmed",
     lastLoginAt = "lastLoginAt",
+    lastLogoutAt = "lastLogoutAt",
     customFields = "customFields",
-    jwtToken = "jwtToken",
+    accessToken = "accessToken",
     refreshToken = "refreshToken",
     resetPasswordToken = "resetPasswordToken",
     identifierToken = "identifierToken"

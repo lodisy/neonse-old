@@ -43,12 +43,15 @@ export class UserUncheckedUpdateWithoutRolesInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     lastLoginAt?: NullableDateTimeFieldUpdateOperationsInput;
 
+    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
+    lastLogoutAt?: NullableDateTimeFieldUpdateOperationsInput;
+
     @Field(() => GraphQLJSON, {nullable:true})
     @Validator.IsJSON()
     customFields?: any;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    jwtToken?: StringFieldUpdateOperationsInput;
+    accessToken?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     refreshToken?: NullableStringFieldUpdateOperationsInput;

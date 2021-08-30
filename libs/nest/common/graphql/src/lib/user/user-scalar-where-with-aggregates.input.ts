@@ -49,11 +49,14 @@ export class UserScalarWhereWithAggregatesInput {
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     lastLoginAt?: DateTimeNullableWithAggregatesFilter;
 
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    lastLogoutAt?: DateTimeNullableWithAggregatesFilter;
+
     @Field(() => JsonNullableWithAggregatesFilter, {nullable:true})
     customFields?: JsonNullableWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
-    jwtToken?: StringWithAggregatesFilter;
+    accessToken?: StringWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     refreshToken?: StringNullableWithAggregatesFilter;

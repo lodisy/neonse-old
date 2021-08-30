@@ -23,6 +23,19 @@ generator nestgraphql {
   fields_Validator_input = true
 }
 
+// generator nestjsDto {
+//   provider                        = "prisma-generator-nestjs-dto"
+//   output                          = "../libs/nest/common/dtos/src/lib"
+//   outputToNestJsResourceStructure = "false"
+//   exportRelationModifierClasses   = "true"
+//   reExport                        = "true"
+//   createDtoPrefix                 = "Create"
+//   updateDtoPrefix                 = "Update"
+//   dtoSuffix                       = "Dto"
+//   entityPrefix                    = ""
+//   entitySuffix                    = ""
+// }
+
 // ******
 // ******
 // ******
@@ -729,11 +742,12 @@ model User {
   isMobileConfirmed     Boolean?               @default(false)
   roles                 Role[]
   lastLoginAt           DateTime?
+  lastLogoutAt          DateTime?
   /// @Validator.IsJSON()
   customFields          Json?
   authenticationMethods AuthenticationMethod[]
   /// @Validator.IsJWT()
-  jwtToken              String                 @unique
+  accessToken           String                 @unique
   refreshToken          String?                @unique
   resetPasswordToken    String?                @unique
   identifierToken       String?                @unique

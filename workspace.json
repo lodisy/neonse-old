@@ -213,6 +213,27 @@
                 }
             }
         },
+        "nest-common-dtos": {
+            "root": "libs/nest/common/dtos",
+            "sourceRoot": "libs/nest/common/dtos/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/dtos/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/dtos"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/dtos/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-common-files": {
             "root": "libs/nest/common/files",
             "sourceRoot": "libs/nest/common/files/src",

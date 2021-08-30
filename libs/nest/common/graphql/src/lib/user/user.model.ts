@@ -47,6 +47,9 @@ export class User {
     @Field(() => Date, {nullable:true})
     lastLoginAt!: Date | null;
 
+    @Field(() => Date, {nullable:true})
+    lastLogoutAt!: Date | null;
+
     @Field(() => GraphQLJSON, {nullable:true})
     customFields!: any | null;
 
@@ -54,7 +57,7 @@ export class User {
     authenticationMethods?: Array<AuthenticationMethod>;
 
     @Field(() => String, {nullable:false})
-    jwtToken!: string;
+    accessToken!: string;
 
     @Field(() => String, {nullable:true})
     refreshToken!: string | null;

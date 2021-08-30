@@ -21,7 +21,7 @@ export class UserWhereUniqueInput {
 
     @Field(() => String, {nullable:true})
     @Validator.IsJWT()
-    jwtToken?: string;
+    accessToken?: string;
 
     @Field(() => String, {nullable:true})
     refreshToken?: string;

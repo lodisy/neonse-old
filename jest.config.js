@@ -27,5 +27,6 @@ module.exports = {
         '<rootDir>/libs/nest/common/cos',
         '<rootDir>/libs/nest/common/permissions',
         '<rootDir>/libs/nest/common/shared',
+        '<rootDir>/libs/nest/common/dtos',
     ],
 }

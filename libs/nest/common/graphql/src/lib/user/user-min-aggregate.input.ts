@@ -35,7 +35,10 @@ export class UserMinAggregateInput {
     lastLoginAt?: true;
 
     @Field(() => Boolean, {nullable:true})
-    jwtToken?: true;
+    lastLogoutAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    accessToken?: true;
 
     @Field(() => Boolean, {nullable:true})
     refreshToken?: true;

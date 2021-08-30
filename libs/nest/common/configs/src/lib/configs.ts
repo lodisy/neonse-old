@@ -78,8 +78,8 @@ const configs: Configs = {
         sortSchema: true,
     },
     security: {
-        expiresIn: '2m',
-        refreshIn: '7d',
+        expiresIn: '3d', // access token expire time
+        refreshIn: '7d', // refresh token expire time
         bcryptSaltOrRound: 10,
     },
     sms: {
@@ -98,10 +98,10 @@ const configs: Configs = {
         },
     },
     cos: {
-        SecretId: 'AKIDzoNfgRxCArKYWDgwxjHZaKwINCm57sMZ',
-        SecretKey: 'xd2B3ey1oKaaKo1wc2C5i5B0YruQggPr',
-        Bucket: 'neonse-1305534499',
-        Region: 'ap-shanghai',
+        SecretId: process.env.COS_SECRET_ID,
+        SecretKey: process.env.COS_SECRET_KEY,
+        Bucket: process.env.COS_BUCKET,
+        Region: process.env.COS_REGION,
         FileParallelLimit: 3, // 并发三张
         ChunkParallelLimit: 3,
         ChunkSize: 1024 * 1024 * 5,

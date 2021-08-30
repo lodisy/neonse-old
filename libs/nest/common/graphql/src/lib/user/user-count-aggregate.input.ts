@@ -35,10 +35,13 @@ export class UserCountAggregateInput {
     lastLoginAt?: true;
 
     @Field(() => Boolean, {nullable:true})
+    lastLogoutAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     customFields?: true;
 
     @Field(() => Boolean, {nullable:true})
-    jwtToken?: true;
+    accessToken?: true;
 
     @Field(() => Boolean, {nullable:true})
     refreshToken?: true;

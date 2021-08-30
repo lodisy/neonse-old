@@ -19,13 +19,13 @@ export class PasswordService {
      * 返回 true 或 false
      */
 
-    validatePassword(password: string, hashedPassword: string): Promise<boolean> {
-        return compare(password, hashedPassword)
+    async validatePassword(password: string, hashedPassword: string): Promise<boolean> {
+        return await compare(password, hashedPassword)
     }
 
     /** 给密码加密 */
 
-    hashPassword(password: string): Promise<string> {
-        return hash(password, this.bcryptSaltRounds)
+    async hashPassword(password: string): Promise<string> {
+        return await hash(password, this.bcryptSaltRounds)
     }
 }

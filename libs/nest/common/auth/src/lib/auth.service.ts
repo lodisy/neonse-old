@@ -1,3 +1,7 @@
+/**
+ * TODO 将权限 rule 作为 jwt payload 一部分
+ */
+
 import { SecurityConfig } from '@neonse/nest-common-configs'
 import { User } from '@neonse/nest-common-graphql'
 import { PasswordService } from '@neonse/nest-common-password'
@@ -6,6 +10,7 @@ import { UsersService } from '@neonse/nest-common-users'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
+import * as dayjs from 'dayjs'
 
 @Injectable()
 export class AuthService {
@@ -17,14 +22,14 @@ export class AuthService {
         private configService: ConfigService,
     ) {}
 
-    /** 根据 email 生成 jwt */
-    private generateJwtToken(payload: { email: string }): string {
+    /** 根据 userId 生成 jwt */
+    private generateAccessToken(payload: { userId: string }): string {
         return this.jwtService.sign(payload)
     }
 
-    /** 根据 email 生成 refresh token */
+    /** 根据 userId 生成 refresh token */
 
-    private generateRefreshToken(payload: { email: string }): string {
+    private generateRefreshToken(payload: { userId: string }): string {
         const securityConfig = this.configService.get<SecurityConfig>('security')
 
         return this.jwtService.sign(payload, {
@@ -36,11 +41,9 @@ export class AuthService {
     /** 生成 identifierToken 类似 fingerpring */
     // TODO
 
-    /** 批量生成多个 tokens */
-
-    generateTokens(payload: { email: string }) {
+    generateTokens(payload: { userId: string }) {
         return {
-            jwtToken: this.generateJwtToken(payload),
+            jwtToken: this.generateAccessToken(payload),
             refreshToken: this.generateRefreshToken(payload),
         }
     }
@@ -52,68 +55,81 @@ export class AuthService {
             const user = this.jwtService.verify(jwt, {
                 secret: this.configService.get('JWT_REFRESH_SECRET'),
             }) as User
-            return this.generateTokens({ email: user.email })
+            return this.generateTokens({ userId: user.id })
         } catch (error) {
             throw new HttpException('Error', HttpStatus.UNAUTHORIZED)
         }
     }
 
+    /** 返回 Cookie 头 */
+
+    getCookieWithAccessToken(userId: string) {
+        const token = this.generateAccessToken({ userId })
+        return `Access=${token}; HttpOnly; Path=/; Max-Age=${this.configService.get<string>('security.expiresIn')}`
+    }
+
+    getCookieWithRefreshToken(userId: string) {
+        const token = this.generateRefreshToken({ userId })
+        const cookie = `Refresh=${token}; HttpOnly; Path=/; Max-Age=${this.configService.get<string>(
+            'security.refreshIn',
+        )}`
+        return {
+            cookie,
+            token,
+        }
+    }
+
+    getCookieWhenLogout() {
+        return ['Access=; HttpOnly; Path=/; Max-Age=0', 'Refresh=; HttpOnly; Path=/; Max-Age=0']
+    }
+
     /** 验证用户密码是否一致，若符合返回 user */
 
     async validateUser(email: string, password: string) {
-        const isExisting = await this.prisma.user.findFirst({
-            where: {
-                email,
-            },
-            select: {
-                id: true,
-                email: true,
-            },
-        })
-
-        if (!isExisting) throw new HttpException('User not existing', HttpStatus.NOT_FOUND)
-
         const user = await this.prisma.user.findUnique({
             where: { email },
             select: {
                 id: true,
                 password: true,
             },
-        }) // 只取 id 和 password
+        })
 
-        const isMatch = await this.passwordService.validatePassword(password, user.password)
+        if (user) {
+            const isMatch = await this.passwordService.validatePassword(password, user.password)
+            if (!isMatch) throw new HttpException('帐号或密码错误哦', HttpStatus.UNAUTHORIZED)
+            return await this.prisma.user.findUnique({
+                where: {
+                    id: user.id,
+                },
+                select: {
+                    id: true,
+                    email: true,
+                    username: true,
+                },
+            })
+        }
 
-        if (!isMatch) throw new HttpException('User credentials are not valid', HttpStatus.UNAUTHORIZED)
-
-        return await this.prisma.user.findUnique({
-            where: {
-                id: user.id,
-            },
-            select: {
-                id: true,
-                email: true,
-                username: true,
-            },
-        }) // 返回 User 不含 password
+        return null
     }
 
     /** 登入 */
 
-    async signIn(email: string, password: string) {
+    async login(email: string, password: string) {
         const validateUser = await this.validateUser(email, password)
 
         if (!validateUser) {
-            throw new HttpException('User credentials do not match', HttpStatus.UNAUTHORIZED)
+            throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
         }
 
-        // 是否每次登入都要生成 jwtToken
+        const tokens = this.generateTokens({ userId: validateUser.id })
 
-        const tokens = this.generateTokens({ email })
+        const lastLoginAt = dayjs().format()
 
         const user = await this.prisma.user.update({
             where: { email },
             data: {
-                jwtToken: tokens.jwtToken,
+                jwtToken: tokens.jwtToken, // TODO
+                lastLoginAt,
             },
         })
 
@@ -122,14 +138,15 @@ export class AuthService {
             user: {
                 id: user.id,
                 email: user.email,
-                jwtToken: user.jwtToken,
+                jwtToken: user.jwtToken, // TODO
             },
         }
     }
 
     /** 注册 */
 
-    async signUp(email: string, password: string, username?: string) {
-        return await this.usersService.createUser({ email, password, username })
+    async register(email: string, password: string, username?: string) {
+        const tokens = this.generateTokens({ email }) // todo
+        return await this.usersService.createUser({ email, password, username, jwtToken: tokens.jwtToken })
     }
 }

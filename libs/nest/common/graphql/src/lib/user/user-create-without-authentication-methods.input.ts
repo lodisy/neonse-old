@@ -42,13 +42,16 @@ export class UserCreateWithoutAuthenticationMethodsInput {
     @Field(() => Date, {nullable:true})
     lastLoginAt?: Date | string;
 
+    @Field(() => Date, {nullable:true})
+    lastLogoutAt?: Date | string;
+
     @Field(() => GraphQLJSON, {nullable:true})
     @Validator.IsJSON()
     customFields?: any;
 
     @Field(() => String, {nullable:false})
     @Validator.IsJWT()
-    jwtToken!: string;
+    accessToken!: string;
 
     @Field(() => String, {nullable:true})
     refreshToken?: string;

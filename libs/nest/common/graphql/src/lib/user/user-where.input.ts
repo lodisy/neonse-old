@@ -55,6 +55,9 @@ export class UserWhereInput {
     @Field(() => DateTimeNullableFilter, {nullable:true})
     lastLoginAt?: DateTimeNullableFilter;
 
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    lastLogoutAt?: DateTimeNullableFilter;
+
     @Field(() => JsonNullableFilter, {nullable:true})
     customFields?: JsonNullableFilter;
 
@@ -62,7 +65,7 @@ export class UserWhereInput {
     authenticationMethods?: AuthenticationMethodListRelationFilter;
 
     @Field(() => StringFilter, {nullable:true})
-    jwtToken?: StringFilter;
+    accessToken?: StringFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     refreshToken?: StringNullableFilter;
