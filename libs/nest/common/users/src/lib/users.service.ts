@@ -40,15 +40,25 @@ export class UsersService {
 
     async findUser(id: string) {
         const isExisting = await this.isUserExisting({ id })
-        if (isExisting) {
-            return await this.prisma.user.findUnique({
-                where: {
-                    id,
-                },
-            })
-        } else {
-            throw new HttpException(`The user you are looking for does not exist`, HttpStatus.NOT_FOUND)
-        }
+        if (!isExisting) throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
+
+        return await this.prisma.user.findUnique({
+            where: {
+                id,
+            },
+            select: {
+                id: true,
+                email: true,
+                username: true,
+                mobile: true,
+                accessToken: true,
+                refreshToken: true,
+                isEmailConfirmed: true,
+                isMobileConfirmed: true,
+                lastLoginAt: true,
+                lastLogoutAt: true,
+            },
+        })
     }
 
     async findUserByRefreshToken(refreshToken: string, id: string) {
@@ -63,36 +73,21 @@ export class UsersService {
     /** 创建用户 */
 
     async createUser(data: Prisma.UserCreateInput) {
-        const { email, password } = data
-
-        const isExisting = await this.isUserExisting({ email })
-
-        if (isExisting) throw new HttpException(`User with ${email} already exists`, HttpStatus.OK)
-
-        const hashedPassword = await this.passwordService.hashPassword(password)
-
-        //const tokens = this.generateTokens({ email })
-
-        const user = await this.prisma.user.create({
-            data: {
-                email,
-                password: hashedPassword,
-                ...data,
-                //roles:
+        return await this.prisma.user.create({
+            data,
+            select: {
+                id: true,
+                email: true,
+                username: true,
+                mobile: true,
+                accessToken: true,
+                refreshToken: true,
+                isEmailConfirmed: true,
+                isMobileConfirmed: true,
+                lastLoginAt: true,
+                lastLogoutAt: true,
             },
         })
-
-        return {
-            status: 'success',
-            user: {
-                id: user.id,
-                email: user.email,
-                username: user.username,
-                accessToken: user.accessToken,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt,
-            },
-        }
     }
 
     /** 设置 refreshToken */
@@ -123,21 +118,22 @@ export class UsersService {
     /** 修改用户资料（非密码、非邮箱），包括 profile */
 
     async updateUser(where: Prisma.UserWhereUniqueInput, data: Prisma.UserUpdateInput) {
-        const isExisting = await this.isUserExisting(where)
-
-        if (!isExisting) throw new HttpException(`User does not exist`, HttpStatus.NOT_FOUND)
-
-        const user = await this.prisma.user.update({
+        return await this.prisma.user.update({
             where,
-            data: {
-                username: data.username,
-            },
-            include: {
-                profile: true,
+            data,
+            select: {
+                id: true,
+                email: true,
+                username: true,
+                mobile: true,
+                accessToken: true,
+                refreshToken: true,
+                isEmailConfirmed: true,
+                isMobileConfirmed: true,
+                lastLoginAt: true,
+                lastLogoutAt: true,
             },
         })
-
-        // TODO
     }
 
     /** 修改密码 */

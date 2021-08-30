@@ -1,11 +1,11 @@
 import { RequestWithUser } from '@neonse/nest-common-shared'
 import { UsersService } from '@neonse/nest-common-users'
-import { Body, Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common'
+import { Body, Controller, Get, HttpCode, Post, Req, UseGuards } from '@nestjs/common'
 import * as dayjs from 'dayjs'
-import { Response } from 'express'
 import { AuthService } from './auth.service'
 import { JwtRefreshGuard } from './guards/jwt-refresh.guard'
 import { JwtAuthGuard } from './guards/jwt.guard'
+import { LocalAuthGuard } from './guards/local.guard'
 
 @Controller('auth')
 export class AuthController {
@@ -22,19 +22,25 @@ export class AuthController {
      */
 
     @Post('login')
-    async login(@Req() request: RequestWithUser, @Res() response: Response) {
-        const accessCookie = this.authService.getCookieWithAccessToken(request.user.id)
-        const { cookie: refreshCookie, token: refreshToken } = this.authService.getCookieWithRefreshToken(
-            request.user.id,
+    @UseGuards(LocalAuthGuard)
+    async login(@Req() request: RequestWithUser) {
+        const { user } = request
+
+        const { accessToken, accessCookie } = this.authService.getCookieAndAccessToken(user.id)
+        const { refreshToken, refreshCookie } = this.authService.getCookieAndRefreshToken(user.id)
+        request.res.setHeader('Set-Cookie', [accessCookie, refreshCookie])
+
+        await this.usersService.setRefreshToken(refreshToken, { id: user.id })
+
+        const lastLoginAt = dayjs().format()
+
+        return await this.usersService.updateUser(
+            { id: user.id },
+            {
+                accessToken,
+                lastLoginAt,
+            },
         )
-
-        await this.usersService.setRefreshToken(refreshToken, { id: request.user.id })
-
-        // response.cookie('auth-cookie', cookie,)
-        response.setHeader('Set-Cookie', [accessCookie, refreshCookie])
-
-        const { user } = await this.authService.login(request.user.email, request.user.password)
-        return response.send(user)
     }
 
     /**
@@ -44,13 +50,14 @@ export class AuthController {
     @Post('logout')
     @UseGuards(JwtAuthGuard)
     @HttpCode(200)
-    async logout(@Req() request: RequestWithUser, @Res() response: Response) {
+    async logout(@Req() request: RequestWithUser) {
+        const { user } = request
         // 清空 cookie
-        response.setHeader('Set-Cookie', this.authService.getCookieWhenLogout())
+        request.res.setHeader('Set-Cookie', this.authService.getCookieWhenLogout())
         // 清空 refreshToken
-        await this.usersService.removeRefreshToken({ id: request.user.id })
+        await this.usersService.removeRefreshToken({ id: user.id })
         await this.usersService.updateUser(
-            { id: request.user.id },
+            { id: user.id },
             {
                 lastLogoutAt: dayjs().format(),
             },
@@ -63,9 +70,11 @@ export class AuthController {
 
     @Get('refresh')
     @UseGuards(JwtRefreshGuard)
-    refresh(@Req() request: RequestWithUser) {
-        const accessCookie = this.authService.getCookieWithAccessToken(request.user.id)
+    async refresh(@Req() request: RequestWithUser) {
+        const { user } = request
+        const { accessCookie, accessToken } = this.authService.getCookieAndAccessToken(user.id)
         request.res.setHeader('Set-Cookie', accessCookie)
-        return request.user
+        const result = await this.usersService.updateUser({ id: user.id }, { accessToken })
+        return result
     }
 }

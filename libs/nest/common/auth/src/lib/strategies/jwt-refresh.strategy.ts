@@ -7,7 +7,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt'
 
 @Injectable()
 export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'jwt-refreshtoken') {
-    constructor(private configService: ConfigService, private usersService: UsersService) {
+    constructor(configService: ConfigService, private usersService: UsersService) {
         super({
             jwtFromRequest: ExtractJwt.fromExtractors([
                 (request: Request) => {

@@ -1,3 +1,4 @@
+import { AuthModule } from '@neonse/nest-common-auth'
 import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
 import { FilesModule } from '@neonse/nest-common-files'
 import { PrismaModule } from '@neonse/nest-common-prisma'
@@ -29,7 +30,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
             },
             inject: [ConfigService],
         }),
-
+        AuthModule,
         FilesModule,
         PrismaModule,
         ProductsModule,

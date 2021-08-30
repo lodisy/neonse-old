@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { Role } from '../role/role.model';
 import { GraphQLJSON } from 'graphql-type-json';
 import { AuthenticationMethod } from '../authentication-method/authentication-method.model';
@@ -30,7 +29,7 @@ export class User {
     @Field(() => String, {nullable:true})
     username!: string | null;
 
-    @HideField()
+    @Field(() => String, {nullable:false})
     password!: string;
 
     /** email 是否 confirmed */

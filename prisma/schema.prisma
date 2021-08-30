@@ -734,7 +734,6 @@ model User {
   username              String?                @unique
   /// @Validator.MinLength(6)
   /// @Validator.MaxLength(10)
-  /// @HideField()
   password              String
   /// email 是否 confirmed
   isEmailConfirmed      Boolean?               @default(false)

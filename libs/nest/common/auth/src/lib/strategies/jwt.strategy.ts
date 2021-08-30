@@ -1,16 +1,16 @@
 /**
  * 验证来自前端的 jwt
  */
+import { UsersService } from '@neonse/nest-common-users'
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { PassportStrategy } from '@nestjs/passport'
 import { Request } from 'express'
 import { ExtractJwt, Strategy } from 'passport-jwt'
-import { AuthService } from '../auth.service'
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-    constructor(private authService: AuthService, private configService: ConfigService) {
+    constructor(configService: ConfigService, private usersService: UsersService) {
         super({
             jwtFromRequest: ExtractJwt.fromExtractors([
                 (request: Request) => {
@@ -21,7 +21,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             ignoreExpiration: false,
         })
     }
-    async validate(email: string, password: string) {
-        return await this.authService.validateUser(email, password)
+    async validate(payload: { userId: string; iat: number; exp: number }) {
+        return await this.usersService.findUser(payload.userId)
     }
 }

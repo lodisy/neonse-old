@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class UserMinAggregate {
@@ -23,7 +22,7 @@ export class UserMinAggregate {
     @Field(() => String, {nullable:true})
     username?: string;
 
-    @HideField()
+    @Field(() => String, {nullable:true})
     password?: string;
 
     @Field(() => Boolean, {nullable:true})

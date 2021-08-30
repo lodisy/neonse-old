@@ -8007,7 +8007,7 @@ type RefundMinAggregate {
   updatedAt: DateTime
 }
 
-"""商品评价"""
+"""商品评���"""
 type Review {
   by: Profile!
   createdAt: DateTime!
@@ -8961,6 +8961,7 @@ input StringNullableListFilter {
 
 """User 用户"""
 type User {
+  accessToken: String
   authenticationMethods: [AuthenticationMethod!]
   createdAt: DateTime!
   customFields: JSON
@@ -8973,11 +8974,12 @@ type User {
 
   """手机号是否 confirmed"""
   isMobileConfirmed: Boolean
-  jwtToken: String!
   lastLoginAt: DateTime
+  lastLogoutAt: DateTime
 
   """带 + 号"""
   mobile: String
+  password: String!
   profile: Profile
   refreshToken: String
   resetPasswordToken: String
@@ -8988,6 +8990,7 @@ type User {
 
 type UserCountAggregate {
   _all: Int!
+  accessToken: Int!
   createdAt: Int!
   customFields: Int!
   email: Int!
@@ -8995,9 +8998,10 @@ type UserCountAggregate {
   identifierToken: Int!
   isEmailConfirmed: Int!
   isMobileConfirmed: Int!
-  jwtToken: Int!
   lastLoginAt: Int!
+  lastLogoutAt: Int!
   mobile: Int!
+  password: Int!
   refreshToken: Int!
   resetPasswordToken: Int!
   updatedAt: Int!
@@ -9027,6 +9031,7 @@ input UserCreateOrConnectWithoutRolesInput {
 }
 
 input UserCreateWithoutProfileInput {
+  accessToken: String
   authenticationMethods: AuthenticationMethodCreateNestedManyWithoutUserInput
   createdAt: DateTime
   customFields: JSON
@@ -9035,8 +9040,8 @@ input UserCreateWithoutProfileInput {
   identifierToken: String
   isEmailConfirmed: Boolean
   isMobileConfirmed: Boolean
-  jwtToken: String!
   lastLoginAt: DateTime
+  lastLogoutAt: DateTime
   mobile: String
   password: String!
   refreshToken: String
@@ -9047,6 +9052,7 @@ input UserCreateWithoutProfileInput {
 }
 
 input UserCreateWithoutRolesInput {
+  accessToken: String
   authenticationMethods: AuthenticationMethodCreateNestedManyWithoutUserInput
   createdAt: DateTime
   customFields: JSON
@@ -9055,8 +9061,8 @@ input UserCreateWithoutRolesInput {
   identifierToken: String
   isEmailConfirmed: Boolean
   isMobileConfirmed: Boolean
-  jwtToken: String!
   lastLoginAt: DateTime
+  lastLogoutAt: DateTime
   mobile: String
   password: String!
   profile: ProfileCreateNestedOneWithoutUserInput
@@ -9067,15 +9073,17 @@ input UserCreateWithoutRolesInput {
 }
 
 type UserMaxAggregate {
+  accessToken: String
   createdAt: DateTime
   email: String
   id: String
   identifierToken: String
   isEmailConfirmed: Boolean
   isMobileConfirmed: Boolean
-  jwtToken: String
   lastLoginAt: DateTime
+  lastLogoutAt: DateTime
   mobile: String
+  password: String
   refreshToken: String
   resetPasswordToken: String
   updatedAt: DateTime
@@ -9083,15 +9091,17 @@ type UserMaxAggregate {
 }
 
 type UserMinAggregate {
+  accessToken: String
   createdAt: DateTime
   email: String
   id: String
   identifierToken: String
   isEmailConfirmed: Boolean
   isMobileConfirmed: Boolean
-  jwtToken: String
   lastLoginAt: DateTime
+  lastLogoutAt: DateTime
   mobile: String
+  password: String
   refreshToken: String
   resetPasswordToken: String
   updatedAt: DateTime
@@ -9122,6 +9132,7 @@ input UserUpdateOneWithoutRolesInput {
 }
 
 input UserUpdateWithoutProfileInput {
+  accessToken: NullableStringFieldUpdateOperationsInput
   authenticationMethods: AuthenticationMethodUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   customFields: JSON
@@ -9130,8 +9141,8 @@ input UserUpdateWithoutProfileInput {
   identifierToken: NullableStringFieldUpdateOperationsInput
   isEmailConfirmed: NullableBoolFieldUpdateOperationsInput
   isMobileConfirmed: NullableBoolFieldUpdateOperationsInput
-  jwtToken: StringFieldUpdateOperationsInput
   lastLoginAt: NullableDateTimeFieldUpdateOperationsInput
+  lastLogoutAt: NullableDateTimeFieldUpdateOperationsInput
   mobile: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
   refreshToken: NullableStringFieldUpdateOperationsInput
@@ -9142,6 +9153,7 @@ input UserUpdateWithoutProfileInput {
 }
 
 input UserUpdateWithoutRolesInput {
+  accessToken: NullableStringFieldUpdateOperationsInput
   authenticationMethods: AuthenticationMethodUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   customFields: JSON
@@ -9150,8 +9162,8 @@ input UserUpdateWithoutRolesInput {
   identifierToken: NullableStringFieldUpdateOperationsInput
   isEmailConfirmed: NullableBoolFieldUpdateOperationsInput
   isMobileConfirmed: NullableBoolFieldUpdateOperationsInput
-  jwtToken: StringFieldUpdateOperationsInput
   lastLoginAt: NullableDateTimeFieldUpdateOperationsInput
+  lastLogoutAt: NullableDateTimeFieldUpdateOperationsInput
   mobile: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
   profile: ProfileUpdateOneWithoutUserInput
@@ -9175,6 +9187,7 @@ input UserWhereInput {
   AND: [UserWhereInput!]
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
+  accessToken: StringNullableFilter
   authenticationMethods: AuthenticationMethodListRelationFilter
   createdAt: DateTimeFilter
   customFields: JsonNullableFilter
@@ -9183,8 +9196,8 @@ input UserWhereInput {
   identifierToken: StringNullableFilter
   isEmailConfirmed: BoolNullableFilter
   isMobileConfirmed: BoolNullableFilter
-  jwtToken: StringFilter
   lastLoginAt: DateTimeNullableFilter
+  lastLogoutAt: DateTimeNullableFilter
   mobile: StringNullableFilter
   password: StringFilter
   profile: ProfileRelationFilter
@@ -9196,10 +9209,10 @@ input UserWhereInput {
 }
 
 input UserWhereUniqueInput {
+  accessToken: String
   email: String
   id: String
   identifierToken: String
-  jwtToken: String
   mobile: String
   refreshToken: String
   resetPasswordToken: String
