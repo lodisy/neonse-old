@@ -44,7 +44,13 @@ export class FilesService {
                 id,
             },
         })
-        if (!isExisting) throw new HttpException('文件不存在', HttpStatus.NOT_FOUND)
+        if (!isExisting)
+            throw new HttpException(
+                {
+                    key: 'files.FILE_NOT_EXISTS',
+                },
+                HttpStatus.NOT_FOUND,
+            )
 
         return true
     }

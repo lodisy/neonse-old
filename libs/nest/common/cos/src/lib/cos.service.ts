@@ -64,7 +64,12 @@ export class COSService {
         } catch (err) {
             console.log(err)
 
-            throw new HttpException('上传失败', HttpStatus.INTERNAL_SERVER_ERROR)
+            throw new HttpException(
+                {
+                    key: 'cos.UPLOAD_FAILED',
+                },
+                HttpStatus.INTERNAL_SERVER_ERROR,
+            )
         }
     }
 

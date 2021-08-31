@@ -35,6 +35,13 @@ export type SMSConfig = {
     }
 }
 
+export type I18nConfig = {
+    fallbackLanguage: string
+    fallbacks?: {
+        [key: string]: string
+    }
+}
+
 export type COSConfig = {
     SecretId: string
     SecretKey: string
@@ -80,6 +87,7 @@ export type Configs = {
     sms: SMSConfig
     cos: COSConfig
     wechat: WechatConfig
+    i18n: I18nConfig
 }
 
 const configs: Configs = {
@@ -141,6 +149,14 @@ const configs: Configs = {
         miniProgram: {
             appId: 'mp_appid',
             appSecret: 'mp_app_secret',
+        },
+    },
+    i18n: {
+        fallbackLanguage: 'en',
+        fallbacks: {
+            'en-*': 'en',
+            'de-*': 'de',
+            //'zh-TW':'zh'
         },
     },
 }

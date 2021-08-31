@@ -33,6 +33,7 @@
             "@neonse/nest-common-upload": ["libs/nest/common/upload/src/index.ts"],
             "@neonse/nest-common-users": ["libs/nest/common/users/src/index.ts"],
             "@neonse/nest-common-wechat": ["libs/nest/common/wechat/src/index.ts"],
+            "@neonse/nest-main-articles": ["libs/nest/main/articles/src/index.ts"],
             "@neonse/nest-server-products": ["libs/nest/server/products/src/index.ts"],
             "@neonse/nest-server-user": ["libs/nest/server/user/src/index.ts"],
             "@neonse/nest-store-orders": ["libs/nest/store/orders/src/index.ts"],

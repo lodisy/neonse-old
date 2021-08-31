@@ -1,11 +1,15 @@
 import { AuthModule } from '@neonse/nest-common-auth'
-import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
+import configs, { GraphqlConfig, I18nConfig } from '@neonse/nest-common-configs'
 import { FilesModule } from '@neonse/nest-common-files'
 import { PrismaModule } from '@neonse/nest-common-prisma'
+import { HttpExceptionFilter } from '@neonse/nest-common-shared'
 import { ProductCategoriesModule, ProductsModule, ProductTypesModule } from '@neonse/nest-store-products'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
+import { APP_FILTER } from '@nestjs/core'
 import { GraphQLModule } from '@nestjs/graphql'
+import { I18nJsonParser, I18nModule } from 'nestjs-i18n'
+import * as path from 'path'
 
 @Module({
     imports: [
@@ -23,9 +27,23 @@ import { GraphQLModule } from '@nestjs/graphql'
                     debug: graphqlConfig.debug,
                     playground: true,
                     //    plugins: [ApolloServerPluginLandingPageLocalDefault()],
-                    context: ({ req }) => ({ req }),
+                    context: ({ req, connection }) => (connection ? { req: connection.context } : { req }),
                 }
             },
+            inject: [ConfigService],
+        }),
+        I18nModule.forRootAsync({
+            useFactory: async (configService: ConfigService) => {
+                const i18nConfig = configService.get<I18nConfig>('i18n')
+                return {
+                    fallbackLanguage: i18nConfig.fallbackLanguage,
+                    parserOptions: {
+                        path: path.join(process.cwd(), '/locals/'), // TODO need test
+                        watch: true, //enable live translations
+                    },
+                }
+            },
+            parser: I18nJsonParser,
             inject: [ConfigService],
         }),
         AuthModule,
@@ -37,6 +55,11 @@ import { GraphQLModule } from '@nestjs/graphql'
         //   PermissionsModule,
     ],
     controllers: [],
-    providers: [],
+    providers: [
+        {
+            provide: APP_FILTER,
+            useClass: HttpExceptionFilter, // 全局异常过滤器
+        },
+    ],
 })
 export class AppModule {}

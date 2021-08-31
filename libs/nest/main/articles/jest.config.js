@@ -1,5 +1,5 @@
 module.exports = {
-    displayName: 'nest-common-i18n',
+    displayName: 'nest-main-articles',
     preset: '../../../../jest.preset.js',
     globals: {
         'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
         '^.+\\.[tj]sx?$': 'ts-jest',
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-    coverageDirectory: '../../../../coverage/libs/nest/common/i18n',
+    coverageDirectory: '../../../../coverage/libs/nest/main/articles',
 }

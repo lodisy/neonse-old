@@ -18,7 +18,6 @@ module.exports = {
         '<rootDir>/libs/ui/src/animations',
         '<rootDir>/libs/nest/common/graphql',
         '<rootDir>/libs/nest/common/roles',
-        '<rootDir>/libs/nest/common/i18n',
         '<rootDir>/apps/api',
         '<rootDir>/libs/nest/common/sms',
         '<rootDir>/apps/admin',
@@ -31,5 +30,6 @@ module.exports = {
         '<rootDir>/libs/nest/common/wechat',
         '<rootDir>/libs/nest/store/orders',
         '<rootDir>/libs/nest/talk/chat',
+        '<rootDir>/libs/nest/main/articles',
     ],
 }

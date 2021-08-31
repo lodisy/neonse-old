@@ -83,7 +83,13 @@ export class AuthService {
 
         if (user) {
             const isMatch = await this.passwordService.validatePassword(password, user.password)
-            if (!isMatch) throw new HttpException('帐号或密码错误哦', HttpStatus.UNAUTHORIZED)
+            if (!isMatch)
+                throw new HttpException(
+                    {
+                        key: 'auth.USER_CREDENTIALS_WRONG',
+                    },
+                    HttpStatus.UNAUTHORIZED,
+                )
             return await this.prisma.user.findUnique({
                 where: {
                     id: user.id,
@@ -103,7 +109,12 @@ export class AuthService {
         if (result?.userId) {
             return await this.usersService.findUser(result.userId)
         } else {
-            throw new HttpException('AccessToken 不匹配', HttpStatus.UNAUTHORIZED)
+            throw new HttpException(
+                {
+                    key: 'auth.ACCESSTOKEN_WRONG',
+                },
+                HttpStatus.UNAUTHORIZED,
+            )
         }
     }
 
@@ -111,7 +122,14 @@ export class AuthService {
 
     async register(email: string, password: string, name: string) {
         const isExisting = await this.usersService.isUserExisting({ email })
-        if (isExisting) throw new HttpException(`用户 ${email} 已存在`, HttpStatus.CONFLICT)
+        if (isExisting)
+            throw new HttpException(
+                {
+                    key: 'auth.USER_ALREADY_EXISTS_EMAIL',
+                    args: { email },
+                },
+                HttpStatus.CONFLICT,
+            )
         const hashedPassword = await this.passwordService.hashPassword(password)
         const lastLoginAt = dayjs().format()
 
@@ -139,7 +157,16 @@ export class AuthService {
 
     async registerWithMobile(mobile: string, code: string) {
         const isExisting = await this.usersService.isUserExisting({ mobile })
-        if (isExisting) throw new HttpException(`用户 ${mobile} 已存在`, HttpStatus.CONFLICT)
+        if (isExisting)
+            throw new HttpException(
+                {
+                    key: 'auth.USER_ALREADY_EXISTS_MOBILE',
+                    args: {
+                        mobile,
+                    },
+                },
+                HttpStatus.CONFLICT,
+            )
 
         return await this.sms.confirmMobileNumber(mobile, code)
     }

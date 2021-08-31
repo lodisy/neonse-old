@@ -1,3 +1,4 @@
+export * from './lib/filters/http-exception.filter'
 export * from './lib/guards/graphql-jwt-auth.guard'
 export * from './lib/guards/jwt-refresh.guard'
 export * from './lib/guards/jwt.guard'

@@ -276,27 +276,6 @@
                 }
             }
         },
-        "nest-common-i18n": {
-            "root": "libs/nest/common/i18n",
-            "sourceRoot": "libs/nest/common/i18n/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/nest/common/i18n/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/nest/common/i18n"],
-                    "options": {
-                        "jestConfig": "libs/nest/common/i18n/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
         "nest-common-password": {
             "root": "libs/nest/common/password",
             "sourceRoot": "libs/nest/common/password/src",
@@ -460,6 +439,27 @@
                     "outputs": ["coverage/libs/nest/common/wechat"],
                     "options": {
                         "jestConfig": "libs/nest/common/wechat/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-main-articles": {
+            "root": "libs/nest/main/articles",
+            "sourceRoot": "libs/nest/main/articles/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/main/articles/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/main/articles"],
+                    "options": {
+                        "jestConfig": "libs/nest/main/articles/jest.config.js",
                         "passWithNoTests": true
                     }
                 }

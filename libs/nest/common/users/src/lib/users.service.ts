@@ -43,7 +43,13 @@ export class UsersService {
 
     async findUser(id: string) {
         const isExisting = await this.isUserExisting({ id })
-        if (!isExisting) throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
+        if (!isExisting)
+            throw new HttpException(
+                {
+                    key: 'users.USER_NOT_FOUND',
+                },
+                HttpStatus.NOT_FOUND,
+            )
 
         return await this.prisma.user.findUnique({
             where: {
@@ -75,7 +81,13 @@ export class UsersService {
         const user = await this.findUser(id)
         const isMatch = await compare(refreshToken, user.refreshToken)
 
-        if (!isMatch) throw new HttpException('refresh token 不一致', HttpStatus.UNAUTHORIZED)
+        if (!isMatch)
+            throw new HttpException(
+                {
+                    key: 'user.REFRESH_TOKEN_WRONG',
+                },
+                HttpStatus.UNAUTHORIZED,
+            )
 
         return user
     }
@@ -145,7 +157,13 @@ export class UsersService {
     /** 修改头像 */
     async updateAvatar(id: string, image: Express.Multer.File) {
         const isExisting = await this.isUserExisting({ id })
-        if (!isExisting) throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
+        if (!isExisting)
+            throw new HttpException(
+                {
+                    key: 'users.USER_NOT_FOUND',
+                },
+                HttpStatus.NOT_FOUND,
+            )
         const user = await this.findUser(id)
         // 删除原文件
         if (user.profile.avatar) {
@@ -188,7 +206,13 @@ export class UsersService {
         // 先判断当前密码是否正确
         const validPassword = await this.passwordService.validatePassword(currentPassword, user.password)
 
-        if (!validPassword) throw new HttpException('Password is wrong', HttpStatus.UNAUTHORIZED)
+        if (!validPassword)
+            throw new HttpException(
+                {
+                    key: 'users.PASSWORD_WRONG',
+                },
+                HttpStatus.UNAUTHORIZED,
+            )
 
         // 给新密码加密
         const hashedPassword = await this.passwordService.hashPassword(newPassword)

@@ -1,0 +1,5 @@
+{
+    "USER_NOT_FOUND": "User not found",
+    "REFRESH_TOKEN_WRONG": "Refresh token is wrong",
+    "PASSWORD_WRONG": "Password is wrong"
+}
