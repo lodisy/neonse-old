@@ -11,6 +11,8 @@ import { CardUncheckedUpdateManyWithoutProfileInput } from '../card/card-uncheck
 import { CommentUncheckedUpdateManyWithoutByInput } from '../comment/comment-unchecked-update-many-without-by.input';
 import { LikeUncheckedUpdateManyWithoutByInput } from '../like/like-unchecked-update-many-without-by.input';
 import { ReviewUncheckedUpdateManyWithoutByInput } from '../review/review-unchecked-update-many-without-by.input';
+import { MessageUncheckedUpdateManyWithoutByInput } from '../message/message-unchecked-update-many-without-by.input';
+import { MessageUncheckedUpdateManyWithoutToInput } from '../message/message-unchecked-update-many-without-to.input';
 
 @InputType()
 export class ProfileUncheckedUpdateWithoutUploadsInput {
@@ -56,4 +58,10 @@ export class ProfileUncheckedUpdateWithoutUploadsInput {
 
     @Field(() => ReviewUncheckedUpdateManyWithoutByInput, {nullable:true})
     reviews?: ReviewUncheckedUpdateManyWithoutByInput;
+
+    @Field(() => MessageUncheckedUpdateManyWithoutByInput, {nullable:true})
+    messagesSent?: MessageUncheckedUpdateManyWithoutByInput;
+
+    @Field(() => MessageUncheckedUpdateManyWithoutToInput, {nullable:true})
+    messagesReceived?: MessageUncheckedUpdateManyWithoutToInput;
 }

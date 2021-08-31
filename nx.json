@@ -74,10 +74,13 @@
         "nest-common-wechat": {
             "tags": []
         },
-        "nest-orders": {
+        "nest-store-orders": {
             "tags": []
         },
-        "nest-products": {
+        "nest-store-products": {
+            "tags": []
+        },
+        "nest-talk-chat": {
             "tags": []
         },
         "store": {

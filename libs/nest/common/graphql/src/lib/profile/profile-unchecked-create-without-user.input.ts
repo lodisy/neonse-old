@@ -9,6 +9,8 @@ import { CommentUncheckedCreateNestedManyWithoutByInput } from '../comment/comme
 import { LikeUncheckedCreateNestedManyWithoutByInput } from '../like/like-unchecked-create-nested-many-without-by.input';
 import { ReviewUncheckedCreateNestedManyWithoutByInput } from '../review/review-unchecked-create-nested-many-without-by.input';
 import { FileUncheckedCreateNestedManyWithoutProfileInput } from '../file/file-unchecked-create-nested-many-without-profile.input';
+import { MessageUncheckedCreateNestedManyWithoutByInput } from '../message/message-unchecked-create-nested-many-without-by.input';
+import { MessageUncheckedCreateNestedManyWithoutToInput } from '../message/message-unchecked-create-nested-many-without-to.input';
 
 @InputType()
 export class ProfileUncheckedCreateWithoutUserInput {
@@ -56,4 +58,10 @@ export class ProfileUncheckedCreateWithoutUserInput {
 
     @Field(() => FileUncheckedCreateNestedManyWithoutProfileInput, {nullable:true})
     uploads?: FileUncheckedCreateNestedManyWithoutProfileInput;
+
+    @Field(() => MessageUncheckedCreateNestedManyWithoutByInput, {nullable:true})
+    messagesSent?: MessageUncheckedCreateNestedManyWithoutByInput;
+
+    @Field(() => MessageUncheckedCreateNestedManyWithoutToInput, {nullable:true})
+    messagesReceived?: MessageUncheckedCreateNestedManyWithoutToInput;
 }

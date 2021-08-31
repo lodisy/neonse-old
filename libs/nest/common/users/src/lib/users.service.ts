@@ -139,32 +139,13 @@ export class UsersService {
         return await this.prisma.user.update({
             where,
             data,
-            select: {
-                id: true,
-                email: true,
-                username: true,
-                mobile: true,
-                accessToken: true,
-                refreshToken: true,
-                isEmailConfirmed: true,
-                isMobileConfirmed: true,
-                lastLoginAt: true,
-                lastLogoutAt: true,
-                profile: {
-                    select: {
-                        id: true,
-                        name: true,
-                        avatar: true,
-                    },
-                },
-            },
         })
     }
 
     /** 修改头像 */
     async updateAvatar(id: string, image: Express.Multer.File) {
         const isExisting = await this.isUserExisting({ id })
-        if (!isExisting) throw new HttpException('User not found', HttpStatus.NOT_FOUND)
+        if (!isExisting) throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
         const user = await this.findUser(id)
         // 删除原文件
         if (user.profile.avatar) {
@@ -213,26 +194,14 @@ export class UsersService {
         const hashedPassword = await this.passwordService.hashPassword(newPassword)
 
         // 更新
-        const updatedUser = await this.prisma.user.update({
+        return await this.prisma.user.update({
             where: {
                 id,
             },
             data: {
                 password: hashedPassword,
             },
-            select: {
-                id: true,
-                email: true,
-                username: true,
-                createdAt: true,
-                updatedAt: true,
-            },
         })
-
-        return {
-            status: 'success',
-            user: updatedUser,
-        }
     }
 
     /** 删除用户 */

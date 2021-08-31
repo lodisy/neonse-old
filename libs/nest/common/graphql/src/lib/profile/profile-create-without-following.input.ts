@@ -12,6 +12,8 @@ import { LikeCreateNestedManyWithoutByInput } from '../like/like-create-nested-m
 import { ReviewCreateNestedManyWithoutByInput } from '../review/review-create-nested-many-without-by.input';
 import { FileCreateNestedManyWithoutProfileInput } from '../file/file-create-nested-many-without-profile.input';
 import { ProfileCreateNestedManyWithoutFollowingInput } from './profile-create-nested-many-without-following.input';
+import { MessageCreateNestedManyWithoutByInput } from '../message/message-create-nested-many-without-by.input';
+import { MessageCreateNestedManyWithoutToInput } from '../message/message-create-nested-many-without-to.input';
 
 @InputType()
 export class ProfileCreateWithoutFollowingInput {
@@ -68,4 +70,10 @@ export class ProfileCreateWithoutFollowingInput {
 
     @Field(() => ProfileCreateNestedManyWithoutFollowingInput, {nullable:true})
     followedBy?: ProfileCreateNestedManyWithoutFollowingInput;
+
+    @Field(() => MessageCreateNestedManyWithoutByInput, {nullable:true})
+    messagesSent?: MessageCreateNestedManyWithoutByInput;
+
+    @Field(() => MessageCreateNestedManyWithoutToInput, {nullable:true})
+    messagesReceived?: MessageCreateNestedManyWithoutToInput;
 }

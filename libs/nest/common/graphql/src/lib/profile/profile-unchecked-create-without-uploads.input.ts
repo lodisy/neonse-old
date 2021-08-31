@@ -8,6 +8,8 @@ import { CardUncheckedCreateNestedManyWithoutProfileInput } from '../card/card-u
 import { CommentUncheckedCreateNestedManyWithoutByInput } from '../comment/comment-unchecked-create-nested-many-without-by.input';
 import { LikeUncheckedCreateNestedManyWithoutByInput } from '../like/like-unchecked-create-nested-many-without-by.input';
 import { ReviewUncheckedCreateNestedManyWithoutByInput } from '../review/review-unchecked-create-nested-many-without-by.input';
+import { MessageUncheckedCreateNestedManyWithoutByInput } from '../message/message-unchecked-create-nested-many-without-by.input';
+import { MessageUncheckedCreateNestedManyWithoutToInput } from '../message/message-unchecked-create-nested-many-without-to.input';
 
 @InputType()
 export class ProfileUncheckedCreateWithoutUploadsInput {
@@ -55,4 +57,10 @@ export class ProfileUncheckedCreateWithoutUploadsInput {
 
     @Field(() => ReviewUncheckedCreateNestedManyWithoutByInput, {nullable:true})
     reviews?: ReviewUncheckedCreateNestedManyWithoutByInput;
+
+    @Field(() => MessageUncheckedCreateNestedManyWithoutByInput, {nullable:true})
+    messagesSent?: MessageUncheckedCreateNestedManyWithoutByInput;
+
+    @Field(() => MessageUncheckedCreateNestedManyWithoutToInput, {nullable:true})
+    messagesReceived?: MessageUncheckedCreateNestedManyWithoutToInput;
 }

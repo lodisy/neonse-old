@@ -10,6 +10,7 @@ import { Card } from '../card/card.model';
 import { Comment } from '../comment/comment.model';
 import { Like } from '../like/like.model';
 import { Review } from '../review/review.model';
+import { Message } from '../message/message.model';
 
 /** Profile */
 @ObjectType({description:'Profile'})
@@ -72,4 +73,10 @@ export class Profile {
 
     @Field(() => [Profile], {nullable:true})
     following?: Array<Profile>;
+
+    @Field(() => [Message], {nullable:true})
+    messagesSent?: Array<Message>;
+
+    @Field(() => [Message], {nullable:true})
+    messagesReceived?: Array<Message>;
 }

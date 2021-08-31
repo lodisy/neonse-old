@@ -3,7 +3,7 @@ module.exports = {
         ,
         '<rootDir>/apps/store',
         '<rootDir>/libs/ui',
-        '<rootDir>/libs/nest/products',
+        '<rootDir>/libs/nest/store/products',
         '<rootDir>/libs/nest/common/prisma',
         '<rootDir>/libs/nest/common/users',
         '<rootDir>/libs/nest/common/auth',
@@ -29,6 +29,7 @@ module.exports = {
         '<rootDir>/libs/nest/common/shared',
         '<rootDir>/libs/nest/common/dtos',
         '<rootDir>/libs/nest/common/wechat',
-        '<rootDir>/libs/nest/orders',
+        '<rootDir>/libs/nest/store/orders',
+        '<rootDir>/libs/nest/talk/chat',
     ],
 }

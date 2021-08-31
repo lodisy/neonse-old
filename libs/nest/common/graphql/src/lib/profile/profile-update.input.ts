@@ -16,6 +16,8 @@ import { ReviewUpdateManyWithoutByInput } from '../review/review-update-many-wit
 import { FileUpdateManyWithoutProfileInput } from '../file/file-update-many-without-profile.input';
 import { ProfileUpdateManyWithoutFollowingInput } from './profile-update-many-without-following.input';
 import { ProfileUpdateManyWithoutFollowedByInput } from './profile-update-many-without-followed-by.input';
+import { MessageUpdateManyWithoutByInput } from '../message/message-update-many-without-by.input';
+import { MessageUpdateManyWithoutToInput } from '../message/message-update-many-without-to.input';
 
 @InputType()
 export class ProfileUpdateInput {
@@ -73,4 +75,10 @@ export class ProfileUpdateInput {
 
     @Field(() => ProfileUpdateManyWithoutFollowedByInput, {nullable:true})
     following?: ProfileUpdateManyWithoutFollowedByInput;
+
+    @Field(() => MessageUpdateManyWithoutByInput, {nullable:true})
+    messagesSent?: MessageUpdateManyWithoutByInput;
+
+    @Field(() => MessageUpdateManyWithoutToInput, {nullable:true})
+    messagesReceived?: MessageUpdateManyWithoutToInput;
 }

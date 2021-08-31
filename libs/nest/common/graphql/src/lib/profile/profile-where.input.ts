@@ -15,6 +15,7 @@ import { LikeListRelationFilter } from '../like/like-list-relation-filter.input'
 import { ReviewListRelationFilter } from '../review/review-list-relation-filter.input';
 import { FileListRelationFilter } from '../file/file-list-relation-filter.input';
 import { ProfileListRelationFilter } from './profile-list-relation-filter.input';
+import { MessageListRelationFilter } from '../message/message-list-relation-filter.input';
 
 @InputType()
 export class ProfileWhereInput {
@@ -84,4 +85,10 @@ export class ProfileWhereInput {
 
     @Field(() => ProfileListRelationFilter, {nullable:true})
     following?: ProfileListRelationFilter;
+
+    @Field(() => MessageListRelationFilter, {nullable:true})
+    messagesSent?: MessageListRelationFilter;
+
+    @Field(() => MessageListRelationFilter, {nullable:true})
+    messagesReceived?: MessageListRelationFilter;
 }

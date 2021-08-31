@@ -20,6 +20,8 @@ export { ProfileCreateNestedOneWithoutAvatarInput } from './profile-create-neste
 export { ProfileCreateNestedOneWithoutCardsInput } from './profile-create-nested-one-without-cards.input';
 export { ProfileCreateNestedOneWithoutCommentsInput } from './profile-create-nested-one-without-comments.input';
 export { ProfileCreateNestedOneWithoutLikesInput } from './profile-create-nested-one-without-likes.input';
+export { ProfileCreateNestedOneWithoutMessagesReceivedInput } from './profile-create-nested-one-without-messages-received.input';
+export { ProfileCreateNestedOneWithoutMessagesSentInput } from './profile-create-nested-one-without-messages-sent.input';
 export { ProfileCreateNestedOneWithoutReviewsInput } from './profile-create-nested-one-without-reviews.input';
 export { ProfileCreateNestedOneWithoutUploadsInput } from './profile-create-nested-one-without-uploads.input';
 export { ProfileCreateNestedOneWithoutUserInput } from './profile-create-nested-one-without-user.input';
@@ -31,6 +33,8 @@ export { ProfileCreateOrConnectWithoutCommentsInput } from './profile-create-or-
 export { ProfileCreateOrConnectWithoutFollowedByInput } from './profile-create-or-connect-without-followed-by.input';
 export { ProfileCreateOrConnectWithoutFollowingInput } from './profile-create-or-connect-without-following.input';
 export { ProfileCreateOrConnectWithoutLikesInput } from './profile-create-or-connect-without-likes.input';
+export { ProfileCreateOrConnectWithoutMessagesReceivedInput } from './profile-create-or-connect-without-messages-received.input';
+export { ProfileCreateOrConnectWithoutMessagesSentInput } from './profile-create-or-connect-without-messages-sent.input';
 export { ProfileCreateOrConnectWithoutReviewsInput } from './profile-create-or-connect-without-reviews.input';
 export { ProfileCreateOrConnectWithoutUploadsInput } from './profile-create-or-connect-without-uploads.input';
 export { ProfileCreateOrConnectWithoutUserInput } from './profile-create-or-connect-without-user.input';
@@ -42,6 +46,8 @@ export { ProfileCreateWithoutCommentsInput } from './profile-create-without-comm
 export { ProfileCreateWithoutFollowedByInput } from './profile-create-without-followed-by.input';
 export { ProfileCreateWithoutFollowingInput } from './profile-create-without-following.input';
 export { ProfileCreateWithoutLikesInput } from './profile-create-without-likes.input';
+export { ProfileCreateWithoutMessagesReceivedInput } from './profile-create-without-messages-received.input';
+export { ProfileCreateWithoutMessagesSentInput } from './profile-create-without-messages-sent.input';
 export { ProfileCreateWithoutReviewsInput } from './profile-create-without-reviews.input';
 export { ProfileCreateWithoutUploadsInput } from './profile-create-without-uploads.input';
 export { ProfileCreateWithoutUserInput } from './profile-create-without-user.input';
@@ -69,6 +75,8 @@ export { ProfileUncheckedCreateWithoutCommentsInput } from './profile-unchecked-
 export { ProfileUncheckedCreateWithoutFollowedByInput } from './profile-unchecked-create-without-followed-by.input';
 export { ProfileUncheckedCreateWithoutFollowingInput } from './profile-unchecked-create-without-following.input';
 export { ProfileUncheckedCreateWithoutLikesInput } from './profile-unchecked-create-without-likes.input';
+export { ProfileUncheckedCreateWithoutMessagesReceivedInput } from './profile-unchecked-create-without-messages-received.input';
+export { ProfileUncheckedCreateWithoutMessagesSentInput } from './profile-unchecked-create-without-messages-sent.input';
 export { ProfileUncheckedCreateWithoutReviewsInput } from './profile-unchecked-create-without-reviews.input';
 export { ProfileUncheckedCreateWithoutUploadsInput } from './profile-unchecked-create-without-uploads.input';
 export { ProfileUncheckedCreateWithoutUserInput } from './profile-unchecked-create-without-user.input';
@@ -86,6 +94,8 @@ export { ProfileUncheckedUpdateWithoutCommentsInput } from './profile-unchecked-
 export { ProfileUncheckedUpdateWithoutFollowedByInput } from './profile-unchecked-update-without-followed-by.input';
 export { ProfileUncheckedUpdateWithoutFollowingInput } from './profile-unchecked-update-without-following.input';
 export { ProfileUncheckedUpdateWithoutLikesInput } from './profile-unchecked-update-without-likes.input';
+export { ProfileUncheckedUpdateWithoutMessagesReceivedInput } from './profile-unchecked-update-without-messages-received.input';
+export { ProfileUncheckedUpdateWithoutMessagesSentInput } from './profile-unchecked-update-without-messages-sent.input';
 export { ProfileUncheckedUpdateWithoutReviewsInput } from './profile-unchecked-update-without-reviews.input';
 export { ProfileUncheckedUpdateWithoutUploadsInput } from './profile-unchecked-update-without-uploads.input';
 export { ProfileUncheckedUpdateWithoutUserInput } from './profile-unchecked-update-without-user.input';
@@ -98,11 +108,13 @@ export { ProfileUpdateManyWithoutBrandsInput } from './profile-update-many-witho
 export { ProfileUpdateManyWithoutFollowedByInput } from './profile-update-many-without-followed-by.input';
 export { ProfileUpdateManyWithoutFollowingInput } from './profile-update-many-without-following.input';
 export { ProfileUpdateOneRequiredWithoutLikesInput } from './profile-update-one-required-without-likes.input';
+export { ProfileUpdateOneRequiredWithoutMessagesSentInput } from './profile-update-one-required-without-messages-sent.input';
 export { ProfileUpdateOneRequiredWithoutReviewsInput } from './profile-update-one-required-without-reviews.input';
 export { ProfileUpdateOneWithoutAddressesInput } from './profile-update-one-without-addresses.input';
 export { ProfileUpdateOneWithoutAvatarInput } from './profile-update-one-without-avatar.input';
 export { ProfileUpdateOneWithoutCardsInput } from './profile-update-one-without-cards.input';
 export { ProfileUpdateOneWithoutCommentsInput } from './profile-update-one-without-comments.input';
+export { ProfileUpdateOneWithoutMessagesReceivedInput } from './profile-update-one-without-messages-received.input';
 export { ProfileUpdateOneWithoutUploadsInput } from './profile-update-one-without-uploads.input';
 export { ProfileUpdateOneWithoutUserInput } from './profile-update-one-without-user.input';
 export { ProfileUpdateWithWhereUniqueWithoutBrandsInput } from './profile-update-with-where-unique-without-brands.input';
@@ -116,6 +128,8 @@ export { ProfileUpdateWithoutCommentsInput } from './profile-update-without-comm
 export { ProfileUpdateWithoutFollowedByInput } from './profile-update-without-followed-by.input';
 export { ProfileUpdateWithoutFollowingInput } from './profile-update-without-following.input';
 export { ProfileUpdateWithoutLikesInput } from './profile-update-without-likes.input';
+export { ProfileUpdateWithoutMessagesReceivedInput } from './profile-update-without-messages-received.input';
+export { ProfileUpdateWithoutMessagesSentInput } from './profile-update-without-messages-sent.input';
 export { ProfileUpdateWithoutReviewsInput } from './profile-update-without-reviews.input';
 export { ProfileUpdateWithoutUploadsInput } from './profile-update-without-uploads.input';
 export { ProfileUpdateWithoutUserInput } from './profile-update-without-user.input';
@@ -128,6 +142,8 @@ export { ProfileUpsertWithoutAvatarInput } from './profile-upsert-without-avatar
 export { ProfileUpsertWithoutCardsInput } from './profile-upsert-without-cards.input';
 export { ProfileUpsertWithoutCommentsInput } from './profile-upsert-without-comments.input';
 export { ProfileUpsertWithoutLikesInput } from './profile-upsert-without-likes.input';
+export { ProfileUpsertWithoutMessagesReceivedInput } from './profile-upsert-without-messages-received.input';
+export { ProfileUpsertWithoutMessagesSentInput } from './profile-upsert-without-messages-sent.input';
 export { ProfileUpsertWithoutReviewsInput } from './profile-upsert-without-reviews.input';
 export { ProfileUpsertWithoutUploadsInput } from './profile-upsert-without-uploads.input';
 export { ProfileUpsertWithoutUserInput } from './profile-upsert-without-user.input';

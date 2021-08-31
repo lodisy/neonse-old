@@ -38,7 +38,7 @@ export class Review {
     @Field(() => String, {nullable:true})
     description!: string | null;
 
-    /** 买��秀 */
-    @Field(() => [File], {nullable:true,description:'买��秀'})
+    /** 买家秀 */
+    @Field(() => [File], {nullable:true,description:'买家秀'})
     uploads?: Array<File>;
 }

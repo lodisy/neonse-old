@@ -1,6 +1,11 @@
+/**
+ * TODO
+ */
+
 import { JwtAuthGuard, RequestWithUser } from '@neonse/nest-common-shared'
-import { Controller, Post, Req, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
+import { Body, Controller, Post, Req, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
 import { FileInterceptor } from '@nestjs/platform-express'
+import { Prisma } from '@prisma/client'
 import * as multer from 'multer'
 import { UsersService } from './users.service'
 
@@ -28,5 +33,22 @@ export class UsersController {
         await this.usersService.updateAvatar(user.id, image)
 
         return user
+    }
+
+    @Post('changepass')
+    @UseGuards(JwtAuthGuard)
+    async changePassword(
+        @Req() request: RequestWithUser,
+        @Body() data: { currentPassword: string; newPassword: string },
+    ) {
+        const { user } = request
+        return await this.usersService.changePassword(user.id, data.currentPassword, data.newPassword)
+    }
+
+    @Post('update')
+    @UseGuards(JwtAuthGuard)
+    async updateUser(@Req() request: RequestWithUser, @Body() data: Prisma.UserUpdateInput) {
+        const { user } = request
+        return await this.usersService.updateUser({ id: user.id }, data)
     }
 }

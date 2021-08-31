@@ -92,6 +92,20 @@ export class AuthService {
         }
         return null
     }
+    /**
+     * 根据 accessToken 验证用户
+     */
+    async validateUserWithAccessToken(accessToken: string) {
+        const result = this.jwtService.verify(accessToken, {
+            secret: this.configService.get('JWT_ACCESS_SECRET'),
+        })
+
+        if (result?.userId) {
+            return await this.usersService.findUser(result.userId)
+        } else {
+            throw new HttpException('AccessToken 不匹配', HttpStatus.UNAUTHORIZED)
+        }
+    }
 
     /** 注册 */
 
