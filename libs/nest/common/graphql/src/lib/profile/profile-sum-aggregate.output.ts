@@ -5,9 +5,6 @@ import { Int } from '@nestjs/graphql';
 @ObjectType()
 export class ProfileSumAggregate {
 
-    @Field(() => String, {nullable:true})
-    phone?: bigint | number;
-
     @Field(() => Int, {nullable:true})
     point?: number;
 

@@ -21,7 +21,7 @@ export class ProfileOrderByInput {
     name?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    phone?: keyof typeof SortOrder;
+    mobile?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     point?: keyof typeof SortOrder;

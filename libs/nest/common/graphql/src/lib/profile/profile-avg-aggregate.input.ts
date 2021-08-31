@@ -5,9 +5,6 @@ import { InputType } from '@nestjs/graphql';
 export class ProfileAvgAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
-    phone?: true;
-
-    @Field(() => Boolean, {nullable:true})
     point?: true;
 
     @Field(() => Boolean, {nullable:true})

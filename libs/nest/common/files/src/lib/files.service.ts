@@ -1,10 +1,8 @@
 import { COSService } from '@neonse/nest-common-cos'
 import { PrismaService } from '@neonse/nest-common-prisma'
-import { HttpException, HttpStatus, Injectable, UploadedFile, UploadedFiles, UseInterceptors } from '@nestjs/common'
-import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { FileType, Prisma } from '@prisma/client'
 import * as fs from 'fs'
-import * as multer from 'multer'
 import * as sharp from 'sharp'
 
 @Injectable()
@@ -28,10 +26,12 @@ export class FilesService {
 
     async imagify(input: Buffer, filename: string): Promise<sharp.OutputInfo> {
         var slugify = require('slugify')
+        const path = 'uploads/image/'
+        fs.mkdirSync(path, { recursive: true }) // 创建文件夹
         const result = sharp(input)
             .toFormat('webp')
             .webp()
-            .toFile(`uploads/image/${slugify(filename, { lower: true }).split('.')[0]}.webp`)
+            .toFile(`${path}${slugify(filename, { lower: true }).split('.')[0]}.webp`)
 
         return result
     }
@@ -51,19 +51,8 @@ export class FilesService {
     // ------- //
 
     /** 上传单张图片，例如头像图 */
-    @UseInterceptors(
-        FileInterceptor('image', {
-            storage: multer.memoryStorage(),
-            fileFilter: (req, file, cb) => {
-                if (file.mimetype.startsWith('image')) {
-                    cb(null, true)
-                } else {
-                    cb(new Error('仅支持图片文件'), false)
-                }
-            },
-        }),
-    )
-    async uploadImage(@UploadedFile() image: Express.Multer.File) {
+
+    async uploadImage(image: Express.Multer.File) {
         const { originalname, buffer } = image
         var slugify = require('slugify')
         const filename = `${slugify(originalname, { lower: true }).split('.')[0]}.webp`
@@ -78,25 +67,14 @@ export class FilesService {
                 width,
                 height,
                 size,
-                url,
+                url: url,
             },
         })
     }
 
     /** 上传多张图片 */
-    @UseInterceptors(
-        FilesInterceptor('images', 10, {
-            storage: multer.memoryStorage(),
-            fileFilter: (req, file, cb) => {
-                if (file.mimetype.startsWith('image')) {
-                    cb(null, true)
-                } else {
-                    cb(new Error('仅支持图片文件'), false)
-                }
-            },
-        }),
-    )
-    async uploadImages(@UploadedFiles() images: Array<Express.Multer.File>) {
+
+    async uploadImages(images: Array<Express.Multer.File>) {
         var data = []
         Promise.all(
             images.map(async (image) => {
@@ -124,35 +102,7 @@ export class FilesService {
 
     /** 上传非图片类文件 */
 
-    @UseInterceptors(
-        FilesInterceptor('files', 5, {
-            storage: multer.diskStorage({
-                destination: (req, file, cb) => {
-                    const format = file.mimetype.split('/')[0]
-                    const path = `uploads/${format}/`
-                    fs.mkdirSync(path, { recursive: true }) // 创建文件夹
-                    cb(null, path)
-                }, // 创建文件夹
-                filename: (req, file, cb) => {
-                    var slugify = require('slugify')
-                    cb(null, slugify(file.originalname, { lower: true }))
-                },
-            }),
-            fileFilter: (req, file, cb) => {
-                if (
-                    file.mimetype.startsWith('audio') ||
-                    file.mimetype.startsWith('video') ||
-                    file.mimetype.startsWith('model') ||
-                    file.mimetype.endsWith('pdf')
-                ) {
-                    cb(null, true)
-                } else {
-                    cb(new Error('该格式文件暂不支持'), false)
-                }
-            },
-        }),
-    )
-    async uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
+    async uploadFiles(files: Array<Express.Multer.File>) {
         var data = []
         Promise.all(
             files.map(async (file) => {

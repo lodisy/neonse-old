@@ -26,7 +26,7 @@ export class ProfileGroupBy {
     name!: string;
 
     @Field(() => String, {nullable:true})
-    phone?: bigint | number;
+    mobile?: string;
 
     @Field(() => Int, {nullable:true})
     point?: number;

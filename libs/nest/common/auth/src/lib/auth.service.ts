@@ -10,6 +10,7 @@ import { UsersService } from '@neonse/nest-common-users'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
+import * as _ from 'lodash'
 import dayjs = require('dayjs')
 
 @Injectable()
@@ -94,15 +95,25 @@ export class AuthService {
 
     /** 注册 */
 
-    async register(email: string, password: string, username?: string) {
+    async register(email: string, password: string, name: string) {
         const isExisting = await this.usersService.isUserExisting({ email })
         if (isExisting) throw new HttpException(`用户 ${email} 已存在`, HttpStatus.CONFLICT)
         const hashedPassword = await this.passwordService.hashPassword(password)
         const lastLoginAt = dayjs().format()
+
+        // 自动随机生成用户名
+
+        const username = email.split('@')[0] + _.random(9) + _.random(9) + _.random(9)
+
         return await this.usersService.createUser({
             email,
-            password: hashedPassword,
             username,
+            password: hashedPassword,
+            profile: {
+                create: {
+                    name,
+                },
+            },
             lastLoginAt,
         })
     }

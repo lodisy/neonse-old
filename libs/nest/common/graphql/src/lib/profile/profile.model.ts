@@ -34,7 +34,7 @@ export class Profile {
     name!: string;
 
     @Field(() => String, {nullable:true})
-    phone!: bigint | null;
+    mobile!: string | null;
 
     @Field(() => File, {nullable:true})
     avatar?: File;

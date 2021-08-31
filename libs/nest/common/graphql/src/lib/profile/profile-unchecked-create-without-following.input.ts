@@ -30,7 +30,8 @@ export class ProfileUncheckedCreateWithoutFollowingInput {
     name!: string;
 
     @Field(() => String, {nullable:true})
-    phone?: bigint | number;
+    @Validator.IsMobilePhone()
+    mobile?: string;
 
     @Field(() => Int, {nullable:true})
     point?: number;

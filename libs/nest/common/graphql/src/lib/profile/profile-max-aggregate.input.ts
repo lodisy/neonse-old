@@ -20,7 +20,7 @@ export class ProfileMaxAggregateInput {
     name?: true;
 
     @Field(() => Boolean, {nullable:true})
-    phone?: true;
+    mobile?: true;
 
     @Field(() => Boolean, {nullable:true})
     point?: true;

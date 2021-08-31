@@ -2,6 +2,7 @@
  *
  */
 import { SecurityConfig } from '@neonse/nest-common-configs'
+import { COSService } from '@neonse/nest-common-cos'
 import { FilesService } from '@neonse/nest-common-files'
 import { PasswordService } from '@neonse/nest-common-password'
 import { PrismaService } from '@neonse/nest-common-prisma'
@@ -17,6 +18,7 @@ export class UsersService {
         private passwordService: PasswordService,
         private configService: ConfigService,
         private filesService: FilesService,
+        private cosService: COSService,
     ) {}
 
     get bcryptSaltRounds(): string | number {
@@ -58,6 +60,13 @@ export class UsersService {
                 isMobileConfirmed: true,
                 lastLoginAt: true,
                 lastLogoutAt: true,
+                profile: {
+                    select: {
+                        id: true,
+                        name: true,
+                        avatar: true,
+                    },
+                },
             },
         })
     }
@@ -76,6 +85,7 @@ export class UsersService {
     async createUser(data: Prisma.UserCreateInput) {
         return await this.prisma.user.create({
             data,
+
             select: {
                 id: true,
                 email: true,
@@ -87,6 +97,13 @@ export class UsersService {
                 isMobileConfirmed: true,
                 lastLoginAt: true,
                 lastLogoutAt: true,
+                profile: {
+                    select: {
+                        id: true,
+                        name: true,
+                        avatar: true,
+                    },
+                },
             },
         })
     }
@@ -133,25 +150,53 @@ export class UsersService {
                 isMobileConfirmed: true,
                 lastLoginAt: true,
                 lastLogoutAt: true,
+                profile: {
+                    select: {
+                        id: true,
+                        name: true,
+                        avatar: true,
+                    },
+                },
             },
         })
     }
 
     /** 修改头像 */
+    async updateAvatar(id: string, image: Express.Multer.File) {
+        const isExisting = await this.isUserExisting({ id })
+        if (!isExisting) throw new HttpException('User not found', HttpStatus.NOT_FOUND)
+        const user = await this.findUser(id)
+        // 删除原文件
+        if (user.profile.avatar) {
+            await this.filesService.deleteFile({
+                id: user.profile.avatar.id,
+            })
+            await this.prisma.profile.update({
+                where: {
+                    id: user.profile.id,
+                },
+                data: {
+                    avatar: undefined,
+                },
+            })
 
-    async updateAvatar(where: Prisma.UserWhereUniqueInput, image: Express.Multer.File) {
-        const isExisting = await this.isUserExisting(where)
-        if (!isExisting) throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
-
+            await this.cosService.deleteFile(user.profile.avatar.name)
+        }
         const avatar = await this.filesService.uploadImage(image)
-        // TODO
-        await this.updateUser(where, {
-            profile: {
-                update: {
-                    avatar,
+        await this.prisma.profile.update({
+            where: {
+                id: user.profile.id,
+            },
+            data: {
+                avatar: {
+                    connect: {
+                        id: avatar.id,
+                    },
                 },
             },
         })
+
+        return avatar
     }
 
     /** 修改密码 */
@@ -195,6 +240,9 @@ export class UsersService {
     async deleteUser(email: string) {
         await this.prisma.user.delete({
             where: { email },
+            include: {
+                profile: true,
+            },
         })
 
         return {

@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
-import { BigIntNullableFilter } from '../prisma/big-int-nullable-filter.input';
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 
 @InputType()
@@ -33,8 +33,8 @@ export class ProfileScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     name?: StringFilter;
 
-    @Field(() => BigIntNullableFilter, {nullable:true})
-    phone?: BigIntNullableFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    mobile?: StringNullableFilter;
 
     @Field(() => IntNullableFilter, {nullable:true})
     point?: IntNullableFilter;

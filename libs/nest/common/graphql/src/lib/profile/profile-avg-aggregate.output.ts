@@ -6,9 +6,6 @@ import { Float } from '@nestjs/graphql';
 export class ProfileAvgAggregate {
 
     @Field(() => Float, {nullable:true})
-    phone?: number;
-
-    @Field(() => Float, {nullable:true})
     point?: number;
 
     @Field(() => Float, {nullable:true})

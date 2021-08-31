@@ -1,4 +1,3 @@
-import { GraphqlJwtAuthGuard } from '@neonse/nest-common-auth'
 import {
     Product,
     ProductCreateInput,
@@ -7,6 +6,7 @@ import {
     ProductWhereInput,
 } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
+import { GraphqlJwtAuthGuard } from '@neonse/nest-common-shared'
 import { HttpException, HttpStatus, UseGuards } from '@nestjs/common'
 import { Args, Info, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { PrismaSelect } from '@paljs/plugins'

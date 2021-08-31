@@ -6,8 +6,8 @@ import { Product } from '../product/product.model';
 import { Int } from '@nestjs/graphql';
 import { File } from '../file/file.model';
 
-/** 商品评��� */
-@ObjectType({description:'商品评���'})
+/** 商品评价 */
+@ObjectType({description:'商品评价'})
 export class Review {
 
     @Field(() => ID, {nullable:false})
@@ -38,7 +38,7 @@ export class Review {
     @Field(() => String, {nullable:true})
     description!: string | null;
 
-    /** 买家秀 */
-    @Field(() => [File], {nullable:true,description:'买家秀'})
+    /** 买��秀 */
+    @Field(() => [File], {nullable:true,description:'买��秀'})
     uploads?: Array<File>;
 }

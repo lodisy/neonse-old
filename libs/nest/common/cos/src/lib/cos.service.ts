@@ -24,14 +24,6 @@ export class COSService {
     async uploadFile(file: COS.Key): Promise<string> {
         const cosConfig = this.configService.get<COSConfig>('cos')
 
-        // const Authorization = this.cos.getAuth({
-        //     Bucket: cosConfig.Bucket,
-        //     Region: cosConfig.Region,
-        //     Key: file,
-        // })
-
-        // console.log(Authorization)
-
         const folder = file.split('.')[1] === 'webp' ? 'image' : file.split('.')[1]
 
         const result = await this.cos.uploadFile({
@@ -40,9 +32,6 @@ export class COSService {
             Key: file,
             FilePath: `uploads/${folder}/${file}`,
             SliceSize: cosConfig.SliceSize,
-            // Headers:{
-
-            // },
             onTaskReady: function (taskId) {
                 console.log(taskId)
             },
@@ -79,7 +68,17 @@ export class COSService {
         }
     }
 
-    /**删除文件*/
+    /** 删除单个文件 */
+
+    async deleteFile(file: COS.Key) {
+        return await this.cos.deleteObject({
+            Bucket: this.configService.get<string>('Bucket'),
+            Region: this.configService.get<string>('Region'),
+            Key: file,
+        })
+    }
+
+    /**删除多个文件*/
 
     async deleteFiles(files: { Key: COS.Key }[]) {
         try {

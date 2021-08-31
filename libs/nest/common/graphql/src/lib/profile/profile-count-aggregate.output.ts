@@ -21,7 +21,7 @@ export class ProfileCountAggregate {
     name!: number;
 
     @Field(() => Int, {nullable:false})
-    phone!: number;
+    mobile!: number;
 
     @Field(() => Int, {nullable:false})
     point!: number;

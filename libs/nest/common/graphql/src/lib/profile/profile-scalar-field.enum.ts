@@ -6,7 +6,7 @@ export enum ProfileScalarFieldEnum {
     updatedAt = "updatedAt",
     userId = "userId",
     name = "name",
-    phone = "phone",
+    mobile = "mobile",
     point = "point",
     level = "level"
 }

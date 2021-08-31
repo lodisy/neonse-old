@@ -588,7 +588,8 @@ model Profile {
   userId     String    @unique
   /// @Validator.MinLength(2)
   name       String
-  phone      BigInt?
+  /// @Validator.IsMobilePhone()
+  mobile     String?
   avatar     File?     @relation("Avatar")
   point      Int?      @default(0)
   level      Int?

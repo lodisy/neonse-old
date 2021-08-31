@@ -2,7 +2,6 @@
  * TODO 权限
  */
 
-import { JwtAuthGuard } from '@neonse/nest-common-auth'
 import { COSService } from '@neonse/nest-common-cos'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import {
@@ -16,10 +15,13 @@ import {
     Query,
     UploadedFile,
     UploadedFiles,
-    UseGuards,
+    UseInterceptors,
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
+import { FilesInterceptor } from '@nestjs/platform-express'
 import { Prisma } from '@prisma/client'
+import * as fs from 'fs'
+import * as multer from 'multer'
 import { FilesService } from './files.service'
 
 @Controller('files')
@@ -34,7 +36,6 @@ export class FilesController {
     /** 上传单张图片，例如头像图 */
 
     @Post('upload/image')
-    @UseGuards(JwtAuthGuard)
     async uploadImage(@UploadedFile() image: Express.Multer.File) {
         return await this.filesService.uploadImage(image)
     }
@@ -42,7 +43,18 @@ export class FilesController {
     /** 上传多张图片，例如商品图等 */
 
     @Post('upload/images')
-    @UseGuards(JwtAuthGuard)
+    @UseInterceptors(
+        FilesInterceptor('images', 10, {
+            storage: multer.memoryStorage(),
+            fileFilter: (req, file, cb) => {
+                if (file.mimetype.startsWith('image')) {
+                    cb(null, true)
+                } else {
+                    cb(new Error('仅支持图片文件'), false)
+                }
+            },
+        }),
+    )
     async uploadImages(@UploadedFiles() images: Array<Express.Multer.File>) {
         return await this.filesService.uploadImages(images)
     }
@@ -52,7 +64,34 @@ export class FilesController {
      */
 
     @Post('upload')
-    @UseGuards(JwtAuthGuard)
+    @UseInterceptors(
+        FilesInterceptor('files', 5, {
+            storage: multer.diskStorage({
+                destination: (req, file, cb) => {
+                    const format = file.mimetype.split('/')[0]
+                    const path = `uploads/${format}/`
+                    fs.mkdirSync(path, { recursive: true }) // 创建文件夹
+                    cb(null, path)
+                }, // 创建文件夹
+                filename: (req, file, cb) => {
+                    var slugify = require('slugify')
+                    cb(null, slugify(file.originalname, { lower: true }))
+                },
+            }),
+            fileFilter: (req, file, cb) => {
+                if (
+                    file.mimetype.startsWith('audio') ||
+                    file.mimetype.startsWith('video') ||
+                    file.mimetype.startsWith('model') ||
+                    file.mimetype.endsWith('pdf')
+                ) {
+                    cb(null, true)
+                } else {
+                    cb(new Error('该格式文件暂不支持'), false)
+                }
+            },
+        }),
+    )
     async uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
         return await this.filesService.uploadFiles(files)
     }
@@ -81,7 +120,6 @@ export class FilesController {
      * 修改单个文件
      */
     @Put(':id')
-    @UseGuards(JwtAuthGuard)
     async updateFile(@Param('id') id: string, @Body() data: Prisma.FileUpdateInput) {
         await this.filesService.isExisting(id)
         return await this.filesService.updateFile(
@@ -96,7 +134,6 @@ export class FilesController {
      * 删除单个文件
      */
     @Delete(':id')
-    @UseGuards(JwtAuthGuard)
     async deleteFile(@Param('id') id: string) {
         await this.filesService.isExisting(id)
 

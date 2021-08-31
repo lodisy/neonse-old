@@ -1,11 +1,8 @@
-import { RequestWithUser } from '@neonse/nest-common-shared'
+import { JwtAuthGuard, JwtRefreshGuard, LocalAuthGuard, RequestWithUser } from '@neonse/nest-common-shared'
 import { UsersService } from '@neonse/nest-common-users'
 import { Body, Controller, Get, HttpCode, Post, Req, UseGuards } from '@nestjs/common'
 import * as dayjs from 'dayjs'
 import { AuthService } from './auth.service'
-import { JwtRefreshGuard } from './guards/jwt-refresh.guard'
-import { JwtAuthGuard } from './guards/jwt.guard'
-import { LocalAuthGuard } from './guards/local.guard'
 
 @Controller('auth')
 export class AuthController {
@@ -16,9 +13,9 @@ export class AuthController {
      *
      */
     @Post('register')
-    async register(@Body() data: { email: string; password: string; username?: string }) {
-        const { email, password, username } = data
-        return await this.authService.register(email, password, username)
+    async register(@Body() data: { email: string; password: string; name: string }) {
+        const { email, password, name } = data
+        return await this.authService.register(email, password, name)
     }
 
     @Post('mobile/register')

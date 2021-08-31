@@ -443,17 +443,6 @@ input BigIntFilter {
   notIn: [String!]
 }
 
-input BigIntNullableFilter {
-  equals: String
-  gt: String
-  gte: String
-  in: [String!]
-  lt: String
-  lte: String
-  not: NestedBigIntNullableFilter
-  notIn: [String!]
-}
-
 input BoolFieldUpdateOperationsInput {
   set: Boolean
 }
@@ -466,6 +455,17 @@ input BoolFilter {
 input BoolNullableFilter {
   equals: Boolean
   not: NestedBoolNullableFilter
+}
+
+input BoolNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedBoolNullableFilter
+  _min: NestedBoolNullableFilter
+  count: NestedIntNullableFilter
+  equals: Boolean
+  max: NestedBoolNullableFilter
+  min: NestedBoolNullableFilter
+  not: NestedBoolNullableWithAggregatesFilter
 }
 
 """品牌"""
@@ -1637,6 +1637,23 @@ input DateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
+input DateTimeWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedDateTimeFilter
+  _min: NestedDateTimeFilter
+  count: NestedIntFilter
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  max: NestedDateTimeFilter
+  min: NestedDateTimeFilter
+  not: NestedDateTimeWithAggregatesFilter
+  notIn: [DateTime!]
+}
+
 input EnumActionFieldUpdateOperationsInput {
   set: Action
 }
@@ -1700,6 +1717,19 @@ input EnumLanguageCodeFilter {
   equals: LanguageCode
   in: [LanguageCode!]
   not: NestedEnumLanguageCodeFilter
+  notIn: [LanguageCode!]
+}
+
+input EnumLanguageCodeWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedEnumLanguageCodeFilter
+  _min: NestedEnumLanguageCodeFilter
+  count: NestedIntFilter
+  equals: LanguageCode
+  in: [LanguageCode!]
+  max: NestedEnumLanguageCodeFilter
+  min: NestedEnumLanguageCodeFilter
+  not: NestedEnumLanguageCodeWithAggregatesFilter
   notIn: [LanguageCode!]
 }
 
@@ -2607,6 +2637,48 @@ input IntNullableFilter {
   notIn: [Int!]
 }
 
+input IntNullableWithAggregatesFilter {
+  _avg: NestedFloatNullableFilter
+  _count: NestedIntNullableFilter
+  _max: NestedIntNullableFilter
+  _min: NestedIntNullableFilter
+  _sum: NestedIntNullableFilter
+  avg: NestedFloatNullableFilter
+  count: NestedIntNullableFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  max: NestedIntNullableFilter
+  min: NestedIntNullableFilter
+  not: NestedIntNullableWithAggregatesFilter
+  notIn: [Int!]
+  sum: NestedIntNullableFilter
+}
+
+input IntWithAggregatesFilter {
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
+  avg: NestedFloatFilter
+  count: NestedIntFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  max: NestedIntFilter
+  min: NestedIntFilter
+  not: NestedIntWithAggregatesFilter
+  notIn: [Int!]
+  sum: NestedIntFilter
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -2898,17 +2970,6 @@ input NestedBigIntFilter {
   notIn: [String!]
 }
 
-input NestedBigIntNullableFilter {
-  equals: String
-  gt: String
-  gte: String
-  in: [String!]
-  lt: String
-  lte: String
-  not: NestedBigIntNullableFilter
-  notIn: [String!]
-}
-
 input NestedBoolFilter {
   equals: Boolean
   not: NestedBoolFilter
@@ -2917,6 +2978,17 @@ input NestedBoolFilter {
 input NestedBoolNullableFilter {
   equals: Boolean
   not: NestedBoolNullableFilter
+}
+
+input NestedBoolNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedBoolNullableFilter
+  _min: NestedBoolNullableFilter
+  count: NestedIntNullableFilter
+  equals: Boolean
+  max: NestedBoolNullableFilter
+  min: NestedBoolNullableFilter
+  not: NestedBoolNullableWithAggregatesFilter
 }
 
 input NestedDateTimeFilter {
@@ -2938,6 +3010,23 @@ input NestedDateTimeNullableFilter {
   lt: DateTime
   lte: DateTime
   not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedDateTimeFilter
+  _min: NestedDateTimeFilter
+  count: NestedIntFilter
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  max: NestedDateTimeFilter
+  min: NestedDateTimeFilter
+  not: NestedDateTimeWithAggregatesFilter
   notIn: [DateTime!]
 }
 
@@ -2983,6 +3072,19 @@ input NestedEnumLanguageCodeFilter {
   notIn: [LanguageCode!]
 }
 
+input NestedEnumLanguageCodeWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedEnumLanguageCodeFilter
+  _min: NestedEnumLanguageCodeFilter
+  count: NestedIntFilter
+  equals: LanguageCode
+  in: [LanguageCode!]
+  max: NestedEnumLanguageCodeFilter
+  min: NestedEnumLanguageCodeFilter
+  not: NestedEnumLanguageCodeWithAggregatesFilter
+  notIn: [LanguageCode!]
+}
+
 input NestedEnumOrderStatusFilter {
   equals: OrderStatus
   in: [OrderStatus!]
@@ -2995,6 +3097,28 @@ input NestedEnumPaymentMethodFilter {
   in: [PaymentMethod!]
   not: NestedEnumPaymentMethodFilter
   notIn: [PaymentMethod!]
+}
+
+input NestedFloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input NestedFloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatNullableFilter
+  notIn: [Float!]
 }
 
 input NestedIntFilter {
@@ -3017,6 +3141,48 @@ input NestedIntNullableFilter {
   lte: Int
   not: NestedIntNullableFilter
   notIn: [Int!]
+}
+
+input NestedIntNullableWithAggregatesFilter {
+  _avg: NestedFloatNullableFilter
+  _count: NestedIntNullableFilter
+  _max: NestedIntNullableFilter
+  _min: NestedIntNullableFilter
+  _sum: NestedIntNullableFilter
+  avg: NestedFloatNullableFilter
+  count: NestedIntNullableFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  max: NestedIntNullableFilter
+  min: NestedIntNullableFilter
+  not: NestedIntNullableWithAggregatesFilter
+  notIn: [Int!]
+  sum: NestedIntNullableFilter
+}
+
+input NestedIntWithAggregatesFilter {
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
+  avg: NestedFloatFilter
+  count: NestedIntFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  max: NestedIntFilter
+  min: NestedIntFilter
+  not: NestedIntWithAggregatesFilter
+  notIn: [Int!]
+  sum: NestedIntFilter
 }
 
 input NestedStringFilter {
@@ -3047,12 +3213,44 @@ input NestedStringNullableFilter {
   startsWith: String
 }
 
-input NullableBigIntFieldUpdateOperationsInput {
-  decrement: String
-  divide: String
-  increment: String
-  multiply: String
-  set: String
+input NestedStringNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedStringNullableFilter
+  _min: NestedStringNullableFilter
+  contains: String
+  count: NestedIntNullableFilter
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  max: NestedStringNullableFilter
+  min: NestedStringNullableFilter
+  not: NestedStringNullableWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
+  contains: String
+  count: NestedIntFilter
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  max: NestedStringFilter
+  min: NestedStringFilter
+  not: NestedStringWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
 }
 
 input NullableBoolFieldUpdateOperationsInput {
@@ -4036,6 +4234,12 @@ type ProductAvgAggregate {
   stock: Float
 }
 
+input ProductAvgAggregateInput {
+  price: Boolean
+  sold: Boolean
+  stock: Boolean
+}
+
 """商品种类"""
 type ProductCategory {
   children: [ProductCategory!]
@@ -4581,6 +4785,22 @@ type ProductCountAggregate {
   updatedAt: Int!
 }
 
+input ProductCountAggregateInput {
+  _all: Boolean
+  createdAt: Boolean
+  discription: Boolean
+  draft: Boolean
+  featured: Boolean
+  id: Boolean
+  languageCode: Boolean
+  name: Boolean
+  price: Boolean
+  sku: Boolean
+  sold: Boolean
+  stock: Boolean
+  updatedAt: Boolean
+}
+
 input ProductCreateInput {
   assets: FileCreateNestedManyWithoutProductInput
   brands: BrandCreateNestedManyWithoutProductsInput
@@ -4856,6 +5076,21 @@ type ProductMaxAggregate {
   updatedAt: DateTime
 }
 
+input ProductMaxAggregateInput {
+  createdAt: Boolean
+  discription: Boolean
+  draft: Boolean
+  featured: Boolean
+  id: Boolean
+  languageCode: Boolean
+  name: Boolean
+  price: Boolean
+  sku: Boolean
+  sold: Boolean
+  stock: Boolean
+  updatedAt: Boolean
+}
+
 type ProductMinAggregate {
   createdAt: DateTime
   discription: String
@@ -4869,6 +5104,21 @@ type ProductMinAggregate {
   sold: Int
   stock: Int
   updatedAt: DateTime
+}
+
+input ProductMinAggregateInput {
+  createdAt: Boolean
+  discription: Boolean
+  draft: Boolean
+  featured: Boolean
+  id: Boolean
+  languageCode: Boolean
+  name: Boolean
+  price: Boolean
+  sku: Boolean
+  sold: Boolean
+  stock: Boolean
+  updatedAt: Boolean
 }
 
 input ProductOrderByInput {
@@ -4891,6 +5141,21 @@ input ProductRelationFilter {
   isNot: ProductWhereInput
 }
 
+enum ProductScalarFieldEnum {
+  createdAt
+  discription
+  draft
+  featured
+  id
+  languageCode
+  name
+  price
+  sku
+  sold
+  stock
+  updatedAt
+}
+
 input ProductScalarWhereInput {
   AND: [ProductScalarWhereInput!]
   NOT: [ProductScalarWhereInput!]
@@ -4909,10 +5174,34 @@ input ProductScalarWhereInput {
   updatedAt: DateTimeFilter
 }
 
+input ProductScalarWhereWithAggregatesInput {
+  AND: [ProductScalarWhereWithAggregatesInput!]
+  NOT: [ProductScalarWhereWithAggregatesInput!]
+  OR: [ProductScalarWhereWithAggregatesInput!]
+  createdAt: DateTimeWithAggregatesFilter
+  discription: StringNullableWithAggregatesFilter
+  draft: BoolNullableWithAggregatesFilter
+  featured: BoolNullableWithAggregatesFilter
+  id: StringWithAggregatesFilter
+  languageCode: EnumLanguageCodeWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  price: IntWithAggregatesFilter
+  sku: StringWithAggregatesFilter
+  sold: IntNullableWithAggregatesFilter
+  stock: IntWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
 type ProductSumAggregate {
   price: Int
   sold: Int
   stock: Int
+}
+
+input ProductSumAggregateInput {
+  price: Boolean
+  sold: Boolean
+  stock: Boolean
 }
 
 type ProductTranslation {
@@ -7141,8 +7430,8 @@ type Profile {
   id: ID!
   level: Int
   likes: [Like!]
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: [Review!]
   updatedAt: DateTime
@@ -7153,7 +7442,6 @@ type Profile {
 
 type ProfileAvgAggregate {
   level: Float
-  phone: Float
   point: Float
 }
 
@@ -7162,8 +7450,8 @@ type ProfileCountAggregate {
   createdAt: Int!
   id: Int!
   level: Int!
+  mobile: Int!
   name: Int!
-  phone: Int!
   point: Int!
   updatedAt: Int!
   userId: Int!
@@ -7268,8 +7556,8 @@ input ProfileCreateWithoutAvatarInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7288,8 +7576,8 @@ input ProfileCreateWithoutBrandsInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7308,8 +7596,8 @@ input ProfileCreateWithoutFollowedByInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7328,8 +7616,8 @@ input ProfileCreateWithoutFollowingInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7348,8 +7636,8 @@ input ProfileCreateWithoutLikesInput {
   following: ProfileCreateNestedManyWithoutFollowedByInput
   id: String
   level: Int
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7369,8 +7657,8 @@ input ProfileCreateWithoutReviewsInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   updatedAt: DateTime
   uploads: FileCreateNestedManyWithoutProfileInput
@@ -7389,8 +7677,8 @@ input ProfileCreateWithoutUploadsInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7409,8 +7697,8 @@ input ProfileCreateWithoutUserInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  mobile: String
   name: String!
-  phone: String
   point: Int
   reviews: ReviewCreateNestedManyWithoutByInput
   updatedAt: DateTime
@@ -7427,8 +7715,8 @@ type ProfileMaxAggregate {
   createdAt: DateTime
   id: String
   level: Int
+  mobile: String
   name: String
-  phone: String
   point: Int
   updatedAt: DateTime
   userId: String
@@ -7438,8 +7726,8 @@ type ProfileMinAggregate {
   createdAt: DateTime
   id: String
   level: Int
+  mobile: String
   name: String
-  phone: String
   point: Int
   updatedAt: DateTime
   userId: String
@@ -7457,8 +7745,8 @@ input ProfileScalarWhereInput {
   createdAt: DateTimeFilter
   id: StringFilter
   level: IntNullableFilter
+  mobile: StringNullableFilter
   name: StringFilter
-  phone: BigIntNullableFilter
   point: IntNullableFilter
   updatedAt: DateTimeNullableFilter
   userId: StringFilter
@@ -7466,7 +7754,6 @@ input ProfileScalarWhereInput {
 
 type ProfileSumAggregate {
   level: Int
-  phone: String
   point: Int
 }
 
@@ -7474,8 +7761,8 @@ input ProfileUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
@@ -7606,8 +7893,8 @@ input ProfileUpdateWithoutAvatarInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7626,8 +7913,8 @@ input ProfileUpdateWithoutBrandsInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7646,8 +7933,8 @@ input ProfileUpdateWithoutFollowedByInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7666,8 +7953,8 @@ input ProfileUpdateWithoutFollowingInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7686,8 +7973,8 @@ input ProfileUpdateWithoutLikesInput {
   following: ProfileUpdateManyWithoutFollowedByInput
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7707,8 +7994,8 @@ input ProfileUpdateWithoutReviewsInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
   uploads: FileUpdateManyWithoutProfileInput
@@ -7727,8 +8014,8 @@ input ProfileUpdateWithoutUploadsInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7747,8 +8034,8 @@ input ProfileUpdateWithoutUserInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  phone: NullableBigIntFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
   reviews: ReviewUpdateManyWithoutByInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -7813,8 +8100,8 @@ input ProfileWhereInput {
   id: StringFilter
   level: IntNullableFilter
   likes: LikeListRelationFilter
+  mobile: StringNullableFilter
   name: StringFilter
-  phone: BigIntNullableFilter
   point: IntNullableFilter
   reviews: ReviewListRelationFilter
   updatedAt: DateTimeNullableFilter
@@ -7938,7 +8225,7 @@ type Query {
   productTypes: [ProductType!]!
 
   """获取多个商品，可指定条件"""
-  products(cursor: ProductWhereUniqueInput, orderBy: ProductOrderByInput = {createdAt: desc}, skip: Int, take: Int, where: ProductWhereInput): [Product!]!
+  products(_avg: ProductAvgAggregateInput, _count: ProductCountAggregateInput, _max: ProductMaxAggregateInput, _min: ProductMinAggregateInput, _sum: ProductSumAggregateInput, by: [ProductScalarFieldEnum!]!, having: ProductScalarWhereWithAggregatesInput, orderBy: [ProductOrderByInput!], skip: Int, take: Int, where: ProductWhereInput): [Product!]!
 }
 
 enum QueryMode {
@@ -7968,7 +8255,7 @@ type RefundMinAggregate {
   updatedAt: DateTime
 }
 
-"""商品评���"""
+"""商品评价"""
 type Review {
   by: Profile!
   createdAt: DateTime!
@@ -7982,7 +8269,7 @@ type Review {
   rate: Int!
   updatedAt: DateTime!
 
-  """买家秀"""
+  """买��秀"""
   uploads: [File!]
 }
 
@@ -8892,6 +9179,48 @@ input StringNullableListFilter {
   hasEvery: [String!]
   hasSome: [String!]
   isEmpty: Boolean
+}
+
+input StringNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedStringNullableFilter
+  _min: NestedStringNullableFilter
+  contains: String
+  count: NestedIntNullableFilter
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  max: NestedStringNullableFilter
+  min: NestedStringNullableFilter
+  mode: QueryMode
+  not: NestedStringNullableWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
+  contains: String
+  count: NestedIntFilter
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  max: NestedStringFilter
+  min: NestedStringFilter
+  mode: QueryMode
+  not: NestedStringWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
 }
 
 """User 用户"""

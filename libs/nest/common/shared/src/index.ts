@@ -1,2 +1,6 @@
+export * from './lib/guards/graphql-jwt-auth.guard'
+export * from './lib/guards/jwt-refresh.guard'
+export * from './lib/guards/jwt.guard'
+export * from './lib/guards/local.guard'
 export * from './lib/request/request'
 export * from './lib/request/request.interface'
