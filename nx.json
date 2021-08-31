@@ -71,6 +71,12 @@
         "nest-common-users": {
             "tags": []
         },
+        "nest-common-wechat": {
+            "tags": []
+        },
+        "nest-orders": {
+            "tags": []
+        },
         "nest-products": {
             "tags": []
         },

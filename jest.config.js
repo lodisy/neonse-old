@@ -28,5 +28,7 @@ module.exports = {
         '<rootDir>/libs/nest/common/permissions',
         '<rootDir>/libs/nest/common/shared',
         '<rootDir>/libs/nest/common/dtos',
+        '<rootDir>/libs/nest/common/wechat',
+        '<rootDir>/libs/nest/orders',
     ],
 }

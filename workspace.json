@@ -444,6 +444,48 @@
                 }
             }
         },
+        "nest-common-wechat": {
+            "root": "libs/nest/common/wechat",
+            "sourceRoot": "libs/nest/common/wechat/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/common/wechat/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/common/wechat"],
+                    "options": {
+                        "jestConfig": "libs/nest/common/wechat/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-orders": {
+            "root": "libs/nest/orders",
+            "sourceRoot": "libs/nest/orders/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/orders/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/orders"],
+                    "options": {
+                        "jestConfig": "libs/nest/orders/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-products": {
             "root": "libs/nest/products",
             "sourceRoot": "libs/nest/products/src",

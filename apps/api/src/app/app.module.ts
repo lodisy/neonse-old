@@ -2,12 +2,10 @@ import { AuthModule } from '@neonse/nest-common-auth'
 import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
 import { FilesModule } from '@neonse/nest-common-files'
 import { PrismaModule } from '@neonse/nest-common-prisma'
-import { SMSModule } from '@neonse/nest-common-sms'
 import { ProductCategoriesModule, ProductsModule, ProductTypesModule } from '@neonse/nest-products'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
-import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
 
 @Module({
     imports: [
@@ -23,8 +21,8 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
                     sortSchema: graphqlConfig.sortSchema,
                     autoSchemaFile: graphqlConfig.schemaDestination || './schema.graphql',
                     debug: graphqlConfig.debug,
-                    playground: false,
-                    plugins: [ApolloServerPluginLandingPageLocalDefault()],
+                    playground: true,
+                    //    plugins: [ApolloServerPluginLandingPageLocalDefault()],
                     context: ({ req }) => ({ req }),
                 }
             },
@@ -37,7 +35,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
         ProductTypesModule,
         ProductCategoriesModule,
         //   PermissionsModule,
-        SMSModule,
     ],
     controllers: [],
     providers: [],

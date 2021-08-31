@@ -1,4 +1,5 @@
 import { PasswordService } from '@neonse/nest-common-password'
+import { SMSModule } from '@neonse/nest-common-sms'
 import { UsersModule } from '@neonse/nest-common-users'
 import { Module } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
@@ -26,6 +27,7 @@ import { LocalStrategy } from './strategies/local.strategy'
             },
             inject: [ConfigService],
         }),
+        SMSModule,
         UsersModule,
     ],
     controllers: [AuthController],

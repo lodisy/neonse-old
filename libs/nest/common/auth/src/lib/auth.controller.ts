@@ -11,10 +11,20 @@ import { LocalAuthGuard } from './guards/local.guard'
 export class AuthController {
     constructor(private authService: AuthService, private usersService: UsersService) {}
 
+    /**
+     * 注册
+     *
+     */
     @Post('register')
     async register(@Body() data: { email: string; password: string; username?: string }) {
         const { email, password, username } = data
         return await this.authService.register(email, password, username)
+    }
+
+    @Post('mobile/register')
+    async registerWithMobile(@Body() data: { mobile: string; code: string }) {
+        const { mobile, code } = data
+        return await this.authService.registerWithMobile(mobile, code)
     }
 
     /**
@@ -43,6 +53,8 @@ export class AuthController {
         )
     }
 
+    //  @Post('mobile/login')
+
     /**
      * 登出
      */
@@ -65,7 +77,7 @@ export class AuthController {
     }
 
     /**
-     * 重新生成 token
+     * 在登入的情况下刷新 accessToken
      */
 
     @Get('refresh')

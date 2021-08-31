@@ -55,6 +55,23 @@ export type COSConfig = {
     UseAccelerate?: boolean
 }
 
+export type WechatConfig = {
+    wechatRedirectUrl: string
+    wechatToken: string
+    appId: string
+    appSecret: string
+    card: boolean //开启卡券支持，默认关闭
+    payment: boolean //开启支付支持，默认关闭
+    merchantId: string //商户ID
+    paymentSandBox: boolean //沙箱模式，验收用例
+    paymentKey: string //必传，验签密钥，TIP:获取沙箱密钥也需要真实的密钥，所以即使在沙箱模式下，真实验签密钥也需要传入。
+    paymentNotifyUrl: string
+    miniProgram: {
+        appId: string
+        appSecret: string
+    }
+}
+
 export type Configs = {
     nest: NestConfig
     cors: CorsConfig
@@ -62,6 +79,7 @@ export type Configs = {
     security: SecurityConfig
     sms: SMSConfig
     cos: COSConfig
+    wechat: WechatConfig
 }
 
 const configs: Configs = {
@@ -108,6 +126,22 @@ const configs: Configs = {
         SliceSize: 1024 * 1024 * 10,
         Protocol: 'https:',
         UseAccelerate: true,
+    },
+    wechat: {
+        wechatRedirectUrl: 'http://yourdomain.com/wechat/oauth-callback',
+        wechatToken: 'xxx',
+        appId: 'xxx',
+        appSecret: 'xxx',
+        card: false,
+        payment: true,
+        merchantId: '',
+        paymentSandBox: true,
+        paymentKey: '',
+        paymentNotifyUrl: `http://your.domain.com/api/wechat/payment/`,
+        miniProgram: {
+            appId: 'mp_appid',
+            appSecret: 'mp_app_secret',
+        },
     },
 }
 

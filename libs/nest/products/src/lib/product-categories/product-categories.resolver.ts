@@ -1,5 +1,7 @@
+import { GraphqlJwtAuthGuard } from '@neonse/nest-common-auth'
 import { ProductCategory, ProductCategoryCreateInput, ProductCategoryUpdateInput } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
+import { UseGuards } from '@nestjs/common'
 import { Args, Info, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { PrismaSelect } from '@paljs/plugins'
 import { GraphQLResolveInfo } from 'graphql'
@@ -69,6 +71,7 @@ export class ProductCategoriesResolver {
     @Mutation(() => ProductCategory, {
         description: '创建商品分类',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async createProductCategory(
         @Args('data', { type: () => ProductCategoryCreateInput }) data: ProductCategoryCreateInput,
     ): Promise<ProductCategory> {
@@ -96,6 +99,7 @@ export class ProductCategoriesResolver {
     @Mutation(() => ProductCategory, {
         description: '修改商品分类',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async updateProductCategory(
         @Args('slug') slug: string,
         @Args('data', { type: () => ProductCategoryUpdateInput }) data: ProductCategoryUpdateInput,
@@ -122,6 +126,7 @@ export class ProductCategoriesResolver {
         description: '后台删除商品分类',
         nullable: true,
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async deleteProductCategory(@Args('slug') slug: string): Promise<ProductCategory> {
         await this.productCategoriesService.isExisting(slug)
         await this.productCategoriesService.hasProducts(slug)

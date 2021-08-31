@@ -2856,9 +2856,6 @@ type Mutation {
   """后台批量发布或批量取消发布商品"""
   bulkToggleDraft(draft: Boolean!, where: ProductWhereInput!): Product
 
-  """创建权限"""
-  createPermission(data: PermissionCreateInput!): Permission!
-
   """创建商品"""
   createProduct(data: ProductCreateInput!): Product!
 
@@ -3852,17 +3849,6 @@ type PermissionCountAggregate {
   subject: Int!
 }
 
-input PermissionCreateInput {
-  action: Action!
-  conditions: JSON
-  fields: PermissionCreatefieldsInput
-  id: String
-  inverted: Boolean
-  reason: String
-  role: RoleCreateNestedOneWithoutPermissionsInput!
-  subject: String!
-}
-
 input PermissionCreateManyRoleInput {
   action: Action!
   conditions: JSON
@@ -3930,28 +3916,6 @@ type PermissionMinAggregate {
   reason: String
   roleId: String
   subject: String
-}
-
-input PermissionOrderByInput {
-  action: SortOrder
-  conditions: SortOrder
-  fields: SortOrder
-  id: SortOrder
-  inverted: SortOrder
-  reason: SortOrder
-  roleId: SortOrder
-  subject: SortOrder
-}
-
-enum PermissionScalarFieldEnum {
-  action
-  conditions
-  fields
-  id
-  inverted
-  reason
-  roleId
-  subject
 }
 
 input PermissionScalarWhereInput {
@@ -7958,9 +7922,6 @@ type PromotionSumAggregate {
 }
 
 type Query {
-  """查询多个权限"""
-  permissions(cursor: PermissionWhereUniqueInput, distinct: [PermissionScalarFieldEnum!], orderBy: [PermissionOrderByInput!], skip: Int, take: Int, where: PermissionWhereInput): [Permission!]!
-
   """根据 SKU 获取单个商品"""
   product(sku: String!): Product!
 
@@ -8377,19 +8338,8 @@ input RoleCreateNestedOneWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput
 }
 
-input RoleCreateNestedOneWithoutPermissionsInput {
-  connect: RoleWhereUniqueInput
-  connectOrCreate: RoleCreateOrConnectWithoutPermissionsInput
-  create: RoleCreateWithoutPermissionsInput
-}
-
 input RoleCreateOrConnectWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput!
-  where: RoleWhereUniqueInput!
-}
-
-input RoleCreateOrConnectWithoutPermissionsInput {
-  create: RoleCreateWithoutPermissionsInput!
   where: RoleWhereUniqueInput!
 }
 
@@ -8407,21 +8357,6 @@ input RoleCreateWithoutChannelsInput {
   languageCode: LanguageCode
   name: String!
   permissions: PermissionCreateNestedManyWithoutRoleInput
-  slug: String!
-  translations: RoleTranslationCreateNestedManyWithoutRoleInput
-  updatedAt: DateTime
-  user: UserCreateNestedOneWithoutRolesInput
-}
-
-input RoleCreateWithoutPermissionsInput {
-  channels: ChannelCreateNestedManyWithoutRoleInput
-  createdAt: DateTime
-  description: String
-  enabled: Boolean
-  id: String
-  isDefault: Boolean
-  languageCode: LanguageCode
-  name: String!
   slug: String!
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
   updatedAt: DateTime

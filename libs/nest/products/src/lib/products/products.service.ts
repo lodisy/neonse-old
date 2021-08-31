@@ -1,11 +1,10 @@
-import { AbilityFactory } from '@neonse/nest-common-permissions'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { Prisma } from '@prisma/client'
 
 @Injectable()
 export class ProductsService {
-    constructor(private prisma: PrismaService, private abilityFactory: AbilityFactory) {}
+    constructor(private prisma: PrismaService) {}
 
     /** 验证商品是否不存在 for query */
 

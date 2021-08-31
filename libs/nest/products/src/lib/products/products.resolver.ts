@@ -1,8 +1,4 @@
-/**
- * reference https://paljs.com/plugins/select/
- * https://github.com/unlight/prisma-nestjs-graphql/blob/8896256a8e9eaf4422f2a1939889b8926b61f2a4/src/example/user/user.resolver.ts
- */
-
+import { GraphqlJwtAuthGuard } from '@neonse/nest-common-auth'
 import {
     Product,
     ProductCreateInput,
@@ -12,7 +8,7 @@ import {
     ProductWhereUniqueInput,
 } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
-import { HttpException, HttpStatus } from '@nestjs/common'
+import { HttpException, HttpStatus, UseGuards } from '@nestjs/common'
 import { Args, Info, Int, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { PrismaSelect } from '@paljs/plugins'
 import { GraphQLResolveInfo } from 'graphql'
@@ -38,6 +34,7 @@ export class ProductsResolver {
     })
     async products(
         @Info() info: GraphQLResolveInfo,
+
         @Args('skip', { type: () => Int, nullable: true }) skip?: number,
         @Args('take', { type: () => Int, nullable: true }) take?: number,
         @Args('cursor', { type: () => ProductWhereUniqueInput, nullable: true }) cursor?: ProductWhereUniqueInput,
@@ -101,6 +98,7 @@ export class ProductsResolver {
     @Mutation(() => Product, {
         description: '创建商品',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async createProduct(@Args('data') data: ProductCreateInput): Promise<Product> {
         const { sku, variants } = data
 
@@ -126,6 +124,7 @@ export class ProductsResolver {
     @Mutation(() => Product, {
         description: '根据 SKU 发布或取消单个商品',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async toggleDraft(@Args('sku', { type: () => String }) sku: string): Promise<Product> {
         await this.productsService.isNotExisting({ sku })
 
@@ -160,6 +159,7 @@ export class ProductsResolver {
         description: '后台批量发布或批量取消发布商品',
         nullable: true,
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async bulkToggleDraft(@Args('draft') draft: boolean, @Args('where') where: ProductWhereInput) {
         await this.prisma.product.updateMany({
             data: {
@@ -186,6 +186,7 @@ export class ProductsResolver {
     @Mutation(() => Product, {
         description: '根据 SKU 修改指定商品信息',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async updateProduct(
         @Args('sku', { type: () => String }) sku: string,
         @Args('data') data: ProductUpdateInput,
@@ -215,6 +216,7 @@ export class ProductsResolver {
         description: '根据 SKU 删除指定商品',
         nullable: true,
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async deleteProduct(@Args('sku') sku: string): Promise<Product> {
         const { reviews, variants: productVariants } = await this.prisma.product.findUnique({
             where: { sku },

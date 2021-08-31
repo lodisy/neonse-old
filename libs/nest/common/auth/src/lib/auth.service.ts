@@ -5,6 +5,7 @@
 import { SecurityConfig } from '@neonse/nest-common-configs'
 import { PasswordService } from '@neonse/nest-common-password'
 import { PrismaService } from '@neonse/nest-common-prisma'
+import { SMSService } from '@neonse/nest-common-sms'
 import { UsersService } from '@neonse/nest-common-users'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
@@ -19,6 +20,7 @@ export class AuthService {
         private passwordService: PasswordService,
         private jwtService: JwtService,
         private configService: ConfigService,
+        private sms: SMSService,
     ) {}
 
     /** 根据 userId 生成 jwt */
@@ -105,7 +107,15 @@ export class AuthService {
         })
     }
 
-    /** 手机注册 */
+    /** 手机注册
+     * @param mobile 手机号码
+     * @param code 收到的短信验证码
+     */
 
-    async registerWithMobile(mobile: string, code: string) {}
+    async registerWithMobile(mobile: string, code: string) {
+        const isExisting = await this.usersService.isUserExisting({ mobile })
+        if (isExisting) throw new HttpException(`用户 ${mobile} 已存在`, HttpStatus.CONFLICT)
+
+        return await this.sms.confirmMobileNumber(mobile, code)
+    }
 }

@@ -1,5 +1,7 @@
+import { GraphqlJwtAuthGuard } from '@neonse/nest-common-auth'
 import { ProductType, ProductTypeCreateInput, ProductTypeUpdateInput } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
+import { UseGuards } from '@nestjs/common'
 import { Args, Info, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { PrismaSelect } from '@paljs/plugins'
 import { GraphQLResolveInfo } from 'graphql'
@@ -69,6 +71,7 @@ export class ProductTypesResolver {
     @Mutation(() => ProductType, {
         description: '创建商品分类',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async createProductType(
         @Args('data', { type: () => ProductTypeCreateInput }) data: ProductTypeCreateInput,
     ): Promise<ProductType> {
@@ -96,6 +99,7 @@ export class ProductTypesResolver {
     @Mutation(() => ProductType, {
         description: '修改商品分类',
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async updateProductType(
         @Args('slug') slug: string,
         @Args('data', { type: () => ProductTypeUpdateInput }) data: ProductTypeUpdateInput,
@@ -122,6 +126,7 @@ export class ProductTypesResolver {
         description: '后台删除商品分类',
         nullable: true,
     })
+    @UseGuards(GraphqlJwtAuthGuard)
     async deleteProductType(@Args('slug') slug: string): Promise<ProductType> {
         await this.productTypesService.isExisting(slug)
         await this.productTypesService.hasProducts(slug)

@@ -1,4 +1,5 @@
-import { createCss } from '@stitches/react'
+import type * as Stitches from '@stitches/react'
+import { createStitches } from '@stitches/react'
 import { fonts } from './fonts'
 import { media } from './media'
 import { palettes } from './palettes'
@@ -7,10 +8,8 @@ import { shadows } from './shadows'
 import { space } from './space'
 import { utils } from './utils'
 import { zIndices } from './zIndices'
-export type { StitchesVariants } from '@stitches/react'
-export { styled, css, keyframes, getCssString }
 
-const stitches = createCss({
+const stitches = createStitches({
     theme: {
         colors: {
             ...palettes.default,
@@ -43,9 +42,9 @@ const stitches = createCss({
     },
 })
 
-const { styled, css, global, keyframes, getCssString, theme } = stitches
+const { styled, css, globalCss, keyframes, createTheme, config } = stitches
 
-export const darkTheme = theme('dark', {
+export const darkTheme = createTheme('dark', {
     colors: {
         ...palettes.dark,
         ...palettes.common,
@@ -53,19 +52,19 @@ export const darkTheme = theme('dark', {
     shadows: { ...shadows.dark },
 })
 
-export const sommerTheme = theme('sommer', {
+export const sommerTheme = createTheme('sommer', {
     colors: {
         ...palettes.sommer,
     },
 })
 
-export const nightTheme = theme('night', {
+export const nightTheme = createTheme('night', {
     colors: {
         ...palettes.night,
         ...palettes.common,
     },
 })
-export const globalStyles = global({
+export const globalStyles = globalCss({
     '*': {
         boxSizing: 'border-box',
         padding: 0,
@@ -84,6 +83,10 @@ export const globalStyles = global({
     ':focus:not(:focus-visible)': {
         outline: 'none!important',
     },
-    '&.dark': darkTheme,
-    '&.night': nightTheme,
+    // '&.dark': darkTheme,
+    // '&.night': nightTheme,
 })()
+
+type CSS = Stitches.CSS<typeof config>
+
+export { styled, css, keyframes, CSS }

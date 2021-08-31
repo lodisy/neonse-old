@@ -1,56 +1,57 @@
-import { keyframes } from './stitches.config'
-const size =
-    (config: any) =>
-    ({ width, ratio = 1 }: { width: string | number; ratio?: number }) => ({
-        width,
-        aspectRatio: ratio,
-    })
+import type * as Stitches from '@stitches/react'
 
-const marginX = (config: any) => (value: string | number) => ({
+const size = ({ width, ratio = 1 }: { width: string | number; ratio?: number }) => ({
+    width,
+    aspectRatio: ratio,
+})
+
+const marginX = (value: Stitches.ScaleValue<'space'>) => ({
     marginLeft: value,
     marginRight: value,
 })
 
-const marginY = (config: any) => (value: string | number) => ({
+const marginY = (value: Stitches.ScaleValue<'space'>) => ({
     marginTop: value,
     marginBottom: value,
 })
 
-const getPadding = (config: any) => (value: number) => ({
+const getPadding = (value: number) => ({
     padding: `${value}px calc(1.5 * ${value}px)`,
 })
 
-const disabled = (config: any) => (value: number) => ({
+const disabled = (value: number) => ({
     '&:disabled': {
         opacity: value,
         cursor: 'not-allowed',
     },
 })
 
-const b = (config: any) => (value: string) => ({
+const b = (value: string) => ({
     border: `1px solid ${value}`,
 })
 
-const smoothen = (config: any) => (props: string[]) => ({
+const bc = (value: Stitches.PropertyValue<'backgroundColor'>) => ({
+    backgroundColor: value,
+})
+
+const smoothen = (props: string[]) => ({
     transitionProperty: props.map((prop) => `${prop}`).join(', '),
     transitionDuration: '300ms',
     transitionTimingFunction: 'ease-in',
 })
 
-const linearGradient =
-    (config: any) =>
-    ({ deg = 90, from, to }: { deg: number; from: string; to: string }) => ({
-        background: `linear-gradient(${deg} ${from} ${to})`,
-    })
+const linearGradient = ({ deg = 90, from, to }: { deg: number; from: string; to: string }) => ({
+    background: `linear-gradient(${deg} ${from} ${to})`,
+})
 
-const blur = (config: any) => (value: string) => ({
+const blur = (value: string) => ({
     backdropFilter: `blur(${value})`,
 })
 
-const transY = (config: any) => (value: string) => ({
+const transY = (value: string) => ({
     transform: `translateY(${value})`,
 })
-const transX = (config: any) => (value: string) => ({
+const transX = (value: string) => ({
     transform: `translateX(${value})`,
 })
 
@@ -61,6 +62,7 @@ export const utils = {
     p: getPadding,
     disabled,
     b,
+    bc,
     smoothen,
     linearGradient,
     blur,
