@@ -1,8 +1,8 @@
 /**
  *
  */
-
 import { SecurityConfig } from '@neonse/nest-common-configs'
+import { FilesService } from '@neonse/nest-common-files'
 import { PasswordService } from '@neonse/nest-common-password'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
@@ -16,6 +16,7 @@ export class UsersService {
         private prisma: PrismaService,
         private passwordService: PasswordService,
         private configService: ConfigService,
+        private filesService: FilesService,
     ) {}
 
     get bcryptSaltRounds(): string | number {
@@ -132,6 +133,23 @@ export class UsersService {
                 isMobileConfirmed: true,
                 lastLoginAt: true,
                 lastLogoutAt: true,
+            },
+        })
+    }
+
+    /** 修改头像 */
+
+    async updateAvatar(where: Prisma.UserWhereUniqueInput, image: Express.Multer.File) {
+        const isExisting = await this.isUserExisting(where)
+        if (!isExisting) throw new HttpException('用户不存在', HttpStatus.NOT_FOUND)
+
+        const avatar = await this.filesService.uploadImage(image)
+        // TODO
+        await this.updateUser(where, {
+            profile: {
+                update: {
+                    avatar,
+                },
             },
         })
     }

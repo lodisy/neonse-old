@@ -2,14 +2,13 @@ import { GraphqlJwtAuthGuard } from '@neonse/nest-common-auth'
 import {
     Product,
     ProductCreateInput,
-    ProductOrderByInput,
+    ProductGroupByArgs,
     ProductUpdateInput,
     ProductWhereInput,
-    ProductWhereUniqueInput,
 } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import { HttpException, HttpStatus, UseGuards } from '@nestjs/common'
-import { Args, Info, Int, Mutation, Query, Resolver } from '@nestjs/graphql'
+import { Args, Info, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { PrismaSelect } from '@paljs/plugins'
 import { GraphQLResolveInfo } from 'graphql'
 import { ProductsService } from './products.service'
@@ -32,30 +31,11 @@ export class ProductsResolver {
     @Query(() => [Product], {
         description: '获取多个商品，可指定条件',
     })
-    async products(
-        @Info() info: GraphQLResolveInfo,
-
-        @Args('skip', { type: () => Int, nullable: true }) skip?: number,
-        @Args('take', { type: () => Int, nullable: true }) take?: number,
-        @Args('cursor', { type: () => ProductWhereUniqueInput, nullable: true }) cursor?: ProductWhereUniqueInput,
-        @Args('where', { type: () => ProductWhereInput, nullable: true }) where?: ProductWhereInput,
-        @Args('orderBy', {
-            type: () => ProductOrderByInput,
-            nullable: true,
-            defaultValue: {
-                createdAt: 'desc',
-            },
-        })
-        orderBy?: ProductOrderByInput,
-    ): Promise<Product[]> {
+    async products(@Info() info: GraphQLResolveInfo, @Args() query: ProductGroupByArgs): Promise<Product[]> {
         const select = new PrismaSelect(info).value
 
         return await this.prisma.product.findMany({
-            where,
-            skip,
-            take,
-            cursor,
-            orderBy,
+            query,
             ...select,
         })
     }
