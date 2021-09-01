@@ -8,7 +8,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { APP_FILTER } from '@nestjs/core'
 import { GraphQLModule } from '@nestjs/graphql'
-import { I18nJsonParser, I18nModule } from 'nestjs-i18n'
+import { AcceptLanguageResolver, I18nJsonParser, I18nModule } from 'nestjs-i18n'
 import * as path from 'path'
 
 @Module({
@@ -38,12 +38,13 @@ import * as path from 'path'
                 return {
                     fallbackLanguage: i18nConfig.fallbackLanguage,
                     parserOptions: {
-                        path: path.join(process.cwd(), '/locals/'), // TODO need test
+                        path: path.join(__dirname, '/locales/'),
                         watch: true, //enable live translations
                     },
                 }
             },
             parser: I18nJsonParser,
+            resolvers: [AcceptLanguageResolver],
             inject: [ConfigService],
         }),
         AuthModule,

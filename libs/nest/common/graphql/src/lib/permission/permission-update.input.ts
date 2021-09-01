@@ -7,6 +7,7 @@ import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { PermissionUpdatefieldsInput } from '../prisma/permission-updatefields.input';
 import { RoleUpdateOneRequiredWithoutPermissionsInput } from '../role/role-update-one-required-without-permissions.input';
+import { UserUpdateOneRequiredWithoutPermissionsInput } from '../user/user-update-one-required-without-permissions.input';
 
 @InputType()
 export class PermissionUpdateInput {
@@ -34,4 +35,7 @@ export class PermissionUpdateInput {
 
     @Field(() => RoleUpdateOneRequiredWithoutPermissionsInput, {nullable:true})
     role?: RoleUpdateOneRequiredWithoutPermissionsInput;
+
+    @Field(() => UserUpdateOneRequiredWithoutPermissionsInput, {nullable:true})
+    user?: UserUpdateOneRequiredWithoutPermissionsInput;
 }

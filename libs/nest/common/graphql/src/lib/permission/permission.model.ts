@@ -4,6 +4,7 @@ import { ID } from '@nestjs/graphql';
 import { Action } from '../prisma/action.enum';
 import { GraphQLJSON } from 'graphql-type-json';
 import { Role } from '../role/role.model';
+import { User } from '../user/user.model';
 
 @ObjectType()
 export class Permission {
@@ -34,4 +35,10 @@ export class Permission {
 
     @Field(() => String, {nullable:false})
     roleId!: string;
+
+    @Field(() => User, {nullable:false})
+    user?: User;
+
+    @Field(() => String, {nullable:false})
+    userId!: string;
 }

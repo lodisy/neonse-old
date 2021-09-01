@@ -42,4 +42,7 @@ export class PermissionScalarWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     roleId?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    userId?: StringFilter;
 }

@@ -31,6 +31,9 @@ export class PermissionUncheckedUpdateManyInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     roleId?: StringFieldUpdateOperationsInput;
 
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: StringFieldUpdateOperationsInput;
+
     @Field(() => PermissionUpdatefieldsInput, {nullable:true})
     fields?: PermissionUpdatefieldsInput;
 }

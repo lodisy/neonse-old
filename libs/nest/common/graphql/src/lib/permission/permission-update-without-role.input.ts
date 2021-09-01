@@ -6,6 +6,7 @@ import { GraphQLJSON } from 'graphql-type-json';
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { PermissionUpdatefieldsInput } from '../prisma/permission-updatefields.input';
+import { UserUpdateOneRequiredWithoutPermissionsInput } from '../user/user-update-one-required-without-permissions.input';
 
 @InputType()
 export class PermissionUpdateWithoutRoleInput {
@@ -30,4 +31,7 @@ export class PermissionUpdateWithoutRoleInput {
 
     @Field(() => PermissionUpdatefieldsInput, {nullable:true})
     fields?: PermissionUpdatefieldsInput;
+
+    @Field(() => UserUpdateOneRequiredWithoutPermissionsInput, {nullable:true})
+    user?: UserUpdateOneRequiredWithoutPermissionsInput;
 }

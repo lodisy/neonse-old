@@ -457,17 +457,6 @@ input BoolNullableFilter {
   not: NestedBoolNullableFilter
 }
 
-input BoolNullableWithAggregatesFilter {
-  _count: NestedIntNullableFilter
-  _max: NestedBoolNullableFilter
-  _min: NestedBoolNullableFilter
-  count: NestedIntNullableFilter
-  equals: Boolean
-  max: NestedBoolNullableFilter
-  min: NestedBoolNullableFilter
-  not: NestedBoolNullableWithAggregatesFilter
-}
-
 """品牌"""
 type Brand {
   country: String
@@ -1637,23 +1626,6 @@ input DateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
-input DateTimeWithAggregatesFilter {
-  _count: NestedIntFilter
-  _max: NestedDateTimeFilter
-  _min: NestedDateTimeFilter
-  count: NestedIntFilter
-  equals: DateTime
-  gt: DateTime
-  gte: DateTime
-  in: [DateTime!]
-  lt: DateTime
-  lte: DateTime
-  max: NestedDateTimeFilter
-  min: NestedDateTimeFilter
-  not: NestedDateTimeWithAggregatesFilter
-  notIn: [DateTime!]
-}
-
 input EnumActionFieldUpdateOperationsInput {
   set: Action
 }
@@ -1717,19 +1689,6 @@ input EnumLanguageCodeFilter {
   equals: LanguageCode
   in: [LanguageCode!]
   not: NestedEnumLanguageCodeFilter
-  notIn: [LanguageCode!]
-}
-
-input EnumLanguageCodeWithAggregatesFilter {
-  _count: NestedIntFilter
-  _max: NestedEnumLanguageCodeFilter
-  _min: NestedEnumLanguageCodeFilter
-  count: NestedIntFilter
-  equals: LanguageCode
-  in: [LanguageCode!]
-  max: NestedEnumLanguageCodeFilter
-  min: NestedEnumLanguageCodeFilter
-  not: NestedEnumLanguageCodeWithAggregatesFilter
   notIn: [LanguageCode!]
 }
 
@@ -2637,48 +2596,6 @@ input IntNullableFilter {
   notIn: [Int!]
 }
 
-input IntNullableWithAggregatesFilter {
-  _avg: NestedFloatNullableFilter
-  _count: NestedIntNullableFilter
-  _max: NestedIntNullableFilter
-  _min: NestedIntNullableFilter
-  _sum: NestedIntNullableFilter
-  avg: NestedFloatNullableFilter
-  count: NestedIntNullableFilter
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  max: NestedIntNullableFilter
-  min: NestedIntNullableFilter
-  not: NestedIntNullableWithAggregatesFilter
-  notIn: [Int!]
-  sum: NestedIntNullableFilter
-}
-
-input IntWithAggregatesFilter {
-  _avg: NestedFloatFilter
-  _count: NestedIntFilter
-  _max: NestedIntFilter
-  _min: NestedIntFilter
-  _sum: NestedIntFilter
-  avg: NestedFloatFilter
-  count: NestedIntFilter
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  max: NestedIntFilter
-  min: NestedIntFilter
-  not: NestedIntWithAggregatesFilter
-  notIn: [Int!]
-  sum: NestedIntFilter
-}
-
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -2924,6 +2841,244 @@ input LikeWhereUniqueInput {
   profileId: String
 }
 
+"""聊天信息"""
+type Message {
+  by: Profile!
+  content: String!
+  createdAt: DateTime!
+  id: ID!
+  receiverId: String
+  reported: Boolean
+  senderId: String!
+  to: Profile
+  updatedAt: DateTime!
+}
+
+type MessageCountAggregate {
+  _all: Int!
+  content: Int!
+  createdAt: Int!
+  id: Int!
+  receiverId: Int!
+  reported: Int!
+  senderId: Int!
+  updatedAt: Int!
+}
+
+input MessageCreateManyByInput {
+  content: String!
+  createdAt: DateTime
+  id: String
+  receiverId: String
+  reported: Boolean
+  updatedAt: DateTime
+}
+
+input MessageCreateManyByInputEnvelope {
+  data: [MessageCreateManyByInput!]!
+  skipDuplicates: Boolean
+}
+
+input MessageCreateManyToInput {
+  content: String!
+  createdAt: DateTime
+  id: String
+  reported: Boolean
+  senderId: String!
+  updatedAt: DateTime
+}
+
+input MessageCreateManyToInputEnvelope {
+  data: [MessageCreateManyToInput!]!
+  skipDuplicates: Boolean
+}
+
+input MessageCreateNestedManyWithoutByInput {
+  connect: [MessageWhereUniqueInput!]
+  connectOrCreate: [MessageCreateOrConnectWithoutByInput!]
+  create: [MessageCreateWithoutByInput!]
+  createMany: MessageCreateManyByInputEnvelope
+}
+
+input MessageCreateNestedManyWithoutToInput {
+  connect: [MessageWhereUniqueInput!]
+  connectOrCreate: [MessageCreateOrConnectWithoutToInput!]
+  create: [MessageCreateWithoutToInput!]
+  createMany: MessageCreateManyToInputEnvelope
+}
+
+input MessageCreateOrConnectWithoutByInput {
+  create: MessageCreateWithoutByInput!
+  where: MessageWhereUniqueInput!
+}
+
+input MessageCreateOrConnectWithoutToInput {
+  create: MessageCreateWithoutToInput!
+  where: MessageWhereUniqueInput!
+}
+
+input MessageCreateWithoutByInput {
+  content: String!
+  createdAt: DateTime
+  id: String
+  reported: Boolean
+  to: ProfileCreateNestedOneWithoutMessagesReceivedInput
+  updatedAt: DateTime
+}
+
+input MessageCreateWithoutToInput {
+  by: ProfileCreateNestedOneWithoutMessagesSentInput!
+  content: String!
+  createdAt: DateTime
+  id: String
+  reported: Boolean
+  updatedAt: DateTime
+}
+
+input MessageListRelationFilter {
+  every: MessageWhereInput
+  none: MessageWhereInput
+  some: MessageWhereInput
+}
+
+type MessageMaxAggregate {
+  content: String
+  createdAt: DateTime
+  id: String
+  receiverId: String
+  reported: Boolean
+  senderId: String
+  updatedAt: DateTime
+}
+
+type MessageMinAggregate {
+  content: String
+  createdAt: DateTime
+  id: String
+  receiverId: String
+  reported: Boolean
+  senderId: String
+  updatedAt: DateTime
+}
+
+input MessageScalarWhereInput {
+  AND: [MessageScalarWhereInput!]
+  NOT: [MessageScalarWhereInput!]
+  OR: [MessageScalarWhereInput!]
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: StringFilter
+  receiverId: StringNullableFilter
+  reported: BoolNullableFilter
+  senderId: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input MessageUpdateManyMutationInput {
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  reported: NullableBoolFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input MessageUpdateManyWithWhereWithoutByInput {
+  data: MessageUpdateManyMutationInput!
+  where: MessageScalarWhereInput!
+}
+
+input MessageUpdateManyWithWhereWithoutToInput {
+  data: MessageUpdateManyMutationInput!
+  where: MessageScalarWhereInput!
+}
+
+input MessageUpdateManyWithoutByInput {
+  connect: [MessageWhereUniqueInput!]
+  connectOrCreate: [MessageCreateOrConnectWithoutByInput!]
+  create: [MessageCreateWithoutByInput!]
+  createMany: MessageCreateManyByInputEnvelope
+  delete: [MessageWhereUniqueInput!]
+  deleteMany: [MessageScalarWhereInput!]
+  disconnect: [MessageWhereUniqueInput!]
+  set: [MessageWhereUniqueInput!]
+  update: [MessageUpdateWithWhereUniqueWithoutByInput!]
+  updateMany: [MessageUpdateManyWithWhereWithoutByInput!]
+  upsert: [MessageUpsertWithWhereUniqueWithoutByInput!]
+}
+
+input MessageUpdateManyWithoutToInput {
+  connect: [MessageWhereUniqueInput!]
+  connectOrCreate: [MessageCreateOrConnectWithoutToInput!]
+  create: [MessageCreateWithoutToInput!]
+  createMany: MessageCreateManyToInputEnvelope
+  delete: [MessageWhereUniqueInput!]
+  deleteMany: [MessageScalarWhereInput!]
+  disconnect: [MessageWhereUniqueInput!]
+  set: [MessageWhereUniqueInput!]
+  update: [MessageUpdateWithWhereUniqueWithoutToInput!]
+  updateMany: [MessageUpdateManyWithWhereWithoutToInput!]
+  upsert: [MessageUpsertWithWhereUniqueWithoutToInput!]
+}
+
+input MessageUpdateWithWhereUniqueWithoutByInput {
+  data: MessageUpdateWithoutByInput!
+  where: MessageWhereUniqueInput!
+}
+
+input MessageUpdateWithWhereUniqueWithoutToInput {
+  data: MessageUpdateWithoutToInput!
+  where: MessageWhereUniqueInput!
+}
+
+input MessageUpdateWithoutByInput {
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  reported: NullableBoolFieldUpdateOperationsInput
+  to: ProfileUpdateOneWithoutMessagesReceivedInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input MessageUpdateWithoutToInput {
+  by: ProfileUpdateOneRequiredWithoutMessagesSentInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  reported: NullableBoolFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input MessageUpsertWithWhereUniqueWithoutByInput {
+  create: MessageCreateWithoutByInput!
+  update: MessageUpdateWithoutByInput!
+  where: MessageWhereUniqueInput!
+}
+
+input MessageUpsertWithWhereUniqueWithoutToInput {
+  create: MessageCreateWithoutToInput!
+  update: MessageUpdateWithoutToInput!
+  where: MessageWhereUniqueInput!
+}
+
+input MessageWhereInput {
+  AND: [MessageWhereInput!]
+  NOT: [MessageWhereInput!]
+  OR: [MessageWhereInput!]
+  by: ProfileRelationFilter
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: StringFilter
+  receiverId: StringNullableFilter
+  reported: BoolNullableFilter
+  senderId: StringFilter
+  to: ProfileRelationFilter
+  updatedAt: DateTimeFilter
+}
+
+input MessageWhereUniqueInput {
+  id: String
+}
+
 type Mutation {
   """后台批量发布或批量取消发布商品"""
   bulkToggleDraft(draft: Boolean!, where: ProductWhereInput!): Product
@@ -2980,17 +3135,6 @@ input NestedBoolNullableFilter {
   not: NestedBoolNullableFilter
 }
 
-input NestedBoolNullableWithAggregatesFilter {
-  _count: NestedIntNullableFilter
-  _max: NestedBoolNullableFilter
-  _min: NestedBoolNullableFilter
-  count: NestedIntNullableFilter
-  equals: Boolean
-  max: NestedBoolNullableFilter
-  min: NestedBoolNullableFilter
-  not: NestedBoolNullableWithAggregatesFilter
-}
-
 input NestedDateTimeFilter {
   equals: DateTime
   gt: DateTime
@@ -3010,23 +3154,6 @@ input NestedDateTimeNullableFilter {
   lt: DateTime
   lte: DateTime
   not: NestedDateTimeNullableFilter
-  notIn: [DateTime!]
-}
-
-input NestedDateTimeWithAggregatesFilter {
-  _count: NestedIntFilter
-  _max: NestedDateTimeFilter
-  _min: NestedDateTimeFilter
-  count: NestedIntFilter
-  equals: DateTime
-  gt: DateTime
-  gte: DateTime
-  in: [DateTime!]
-  lt: DateTime
-  lte: DateTime
-  max: NestedDateTimeFilter
-  min: NestedDateTimeFilter
-  not: NestedDateTimeWithAggregatesFilter
   notIn: [DateTime!]
 }
 
@@ -3072,19 +3199,6 @@ input NestedEnumLanguageCodeFilter {
   notIn: [LanguageCode!]
 }
 
-input NestedEnumLanguageCodeWithAggregatesFilter {
-  _count: NestedIntFilter
-  _max: NestedEnumLanguageCodeFilter
-  _min: NestedEnumLanguageCodeFilter
-  count: NestedIntFilter
-  equals: LanguageCode
-  in: [LanguageCode!]
-  max: NestedEnumLanguageCodeFilter
-  min: NestedEnumLanguageCodeFilter
-  not: NestedEnumLanguageCodeWithAggregatesFilter
-  notIn: [LanguageCode!]
-}
-
 input NestedEnumOrderStatusFilter {
   equals: OrderStatus
   in: [OrderStatus!]
@@ -3097,28 +3211,6 @@ input NestedEnumPaymentMethodFilter {
   in: [PaymentMethod!]
   not: NestedEnumPaymentMethodFilter
   notIn: [PaymentMethod!]
-}
-
-input NestedFloatFilter {
-  equals: Float
-  gt: Float
-  gte: Float
-  in: [Float!]
-  lt: Float
-  lte: Float
-  not: NestedFloatFilter
-  notIn: [Float!]
-}
-
-input NestedFloatNullableFilter {
-  equals: Float
-  gt: Float
-  gte: Float
-  in: [Float!]
-  lt: Float
-  lte: Float
-  not: NestedFloatNullableFilter
-  notIn: [Float!]
 }
 
 input NestedIntFilter {
@@ -3141,48 +3233,6 @@ input NestedIntNullableFilter {
   lte: Int
   not: NestedIntNullableFilter
   notIn: [Int!]
-}
-
-input NestedIntNullableWithAggregatesFilter {
-  _avg: NestedFloatNullableFilter
-  _count: NestedIntNullableFilter
-  _max: NestedIntNullableFilter
-  _min: NestedIntNullableFilter
-  _sum: NestedIntNullableFilter
-  avg: NestedFloatNullableFilter
-  count: NestedIntNullableFilter
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  max: NestedIntNullableFilter
-  min: NestedIntNullableFilter
-  not: NestedIntNullableWithAggregatesFilter
-  notIn: [Int!]
-  sum: NestedIntNullableFilter
-}
-
-input NestedIntWithAggregatesFilter {
-  _avg: NestedFloatFilter
-  _count: NestedIntFilter
-  _max: NestedIntFilter
-  _min: NestedIntFilter
-  _sum: NestedIntFilter
-  avg: NestedFloatFilter
-  count: NestedIntFilter
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  max: NestedIntFilter
-  min: NestedIntFilter
-  not: NestedIntWithAggregatesFilter
-  notIn: [Int!]
-  sum: NestedIntFilter
 }
 
 input NestedStringFilter {
@@ -3209,46 +3259,6 @@ input NestedStringNullableFilter {
   lt: String
   lte: String
   not: NestedStringNullableFilter
-  notIn: [String!]
-  startsWith: String
-}
-
-input NestedStringNullableWithAggregatesFilter {
-  _count: NestedIntNullableFilter
-  _max: NestedStringNullableFilter
-  _min: NestedStringNullableFilter
-  contains: String
-  count: NestedIntNullableFilter
-  endsWith: String
-  equals: String
-  gt: String
-  gte: String
-  in: [String!]
-  lt: String
-  lte: String
-  max: NestedStringNullableFilter
-  min: NestedStringNullableFilter
-  not: NestedStringNullableWithAggregatesFilter
-  notIn: [String!]
-  startsWith: String
-}
-
-input NestedStringWithAggregatesFilter {
-  _count: NestedIntFilter
-  _max: NestedStringFilter
-  _min: NestedStringFilter
-  contains: String
-  count: NestedIntFilter
-  endsWith: String
-  equals: String
-  gt: String
-  gte: String
-  in: [String!]
-  lt: String
-  lte: String
-  max: NestedStringFilter
-  min: NestedStringFilter
-  not: NestedStringWithAggregatesFilter
   notIn: [String!]
   startsWith: String
 }
@@ -4033,6 +4043,8 @@ type Permission {
   role: Role!
   roleId: String!
   subject: String!
+  user: User!
+  userId: String!
 }
 
 type PermissionCountAggregate {
@@ -4045,6 +4057,7 @@ type PermissionCountAggregate {
   reason: Int!
   roleId: Int!
   subject: Int!
+  userId: Int!
 }
 
 input PermissionCreateManyRoleInput {
@@ -4055,10 +4068,27 @@ input PermissionCreateManyRoleInput {
   inverted: Boolean
   reason: String
   subject: String!
+  userId: String!
 }
 
 input PermissionCreateManyRoleInputEnvelope {
   data: [PermissionCreateManyRoleInput!]!
+  skipDuplicates: Boolean
+}
+
+input PermissionCreateManyUserInput {
+  action: Action!
+  conditions: JSON
+  fields: PermissionCreateManyfieldsInput
+  id: String
+  inverted: Boolean
+  reason: String
+  roleId: String!
+  subject: String!
+}
+
+input PermissionCreateManyUserInputEnvelope {
+  data: [PermissionCreateManyUserInput!]!
   skipDuplicates: Boolean
 }
 
@@ -4073,8 +4103,20 @@ input PermissionCreateNestedManyWithoutRoleInput {
   createMany: PermissionCreateManyRoleInputEnvelope
 }
 
+input PermissionCreateNestedManyWithoutUserInput {
+  connect: [PermissionWhereUniqueInput!]
+  connectOrCreate: [PermissionCreateOrConnectWithoutUserInput!]
+  create: [PermissionCreateWithoutUserInput!]
+  createMany: PermissionCreateManyUserInputEnvelope
+}
+
 input PermissionCreateOrConnectWithoutRoleInput {
   create: PermissionCreateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionCreateOrConnectWithoutUserInput {
+  create: PermissionCreateWithoutUserInput!
   where: PermissionWhereUniqueInput!
 }
 
@@ -4085,6 +4127,18 @@ input PermissionCreateWithoutRoleInput {
   id: String
   inverted: Boolean
   reason: String
+  subject: String!
+  user: UserCreateNestedOneWithoutPermissionsInput!
+}
+
+input PermissionCreateWithoutUserInput {
+  action: Action!
+  conditions: JSON
+  fields: PermissionCreatefieldsInput
+  id: String
+  inverted: Boolean
+  reason: String
+  role: RoleCreateNestedOneWithoutPermissionsInput!
   subject: String!
 }
 
@@ -4105,6 +4159,7 @@ type PermissionMaxAggregate {
   reason: String
   roleId: String
   subject: String
+  userId: String
 }
 
 type PermissionMinAggregate {
@@ -4114,6 +4169,7 @@ type PermissionMinAggregate {
   reason: String
   roleId: String
   subject: String
+  userId: String
 }
 
 input PermissionScalarWhereInput {
@@ -4128,6 +4184,7 @@ input PermissionScalarWhereInput {
   reason: StringNullableFilter
   roleId: StringFilter
   subject: StringFilter
+  userId: StringFilter
 }
 
 input PermissionUpdateManyMutationInput {
@@ -4141,6 +4198,11 @@ input PermissionUpdateManyMutationInput {
 }
 
 input PermissionUpdateManyWithWhereWithoutRoleInput {
+  data: PermissionUpdateManyMutationInput!
+  where: PermissionScalarWhereInput!
+}
+
+input PermissionUpdateManyWithWhereWithoutUserInput {
   data: PermissionUpdateManyMutationInput!
   where: PermissionScalarWhereInput!
 }
@@ -4159,8 +4221,27 @@ input PermissionUpdateManyWithoutRoleInput {
   upsert: [PermissionUpsertWithWhereUniqueWithoutRoleInput!]
 }
 
+input PermissionUpdateManyWithoutUserInput {
+  connect: [PermissionWhereUniqueInput!]
+  connectOrCreate: [PermissionCreateOrConnectWithoutUserInput!]
+  create: [PermissionCreateWithoutUserInput!]
+  createMany: PermissionCreateManyUserInputEnvelope
+  delete: [PermissionWhereUniqueInput!]
+  deleteMany: [PermissionScalarWhereInput!]
+  disconnect: [PermissionWhereUniqueInput!]
+  set: [PermissionWhereUniqueInput!]
+  update: [PermissionUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [PermissionUpdateManyWithWhereWithoutUserInput!]
+  upsert: [PermissionUpsertWithWhereUniqueWithoutUserInput!]
+}
+
 input PermissionUpdateWithWhereUniqueWithoutRoleInput {
   data: PermissionUpdateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionUpdateWithWhereUniqueWithoutUserInput {
+  data: PermissionUpdateWithoutUserInput!
   where: PermissionWhereUniqueInput!
 }
 
@@ -4172,6 +4253,18 @@ input PermissionUpdateWithoutRoleInput {
   inverted: NullableBoolFieldUpdateOperationsInput
   reason: NullableStringFieldUpdateOperationsInput
   subject: StringFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutPermissionsInput
+}
+
+input PermissionUpdateWithoutUserInput {
+  action: EnumActionFieldUpdateOperationsInput
+  conditions: JSON
+  fields: PermissionUpdatefieldsInput
+  id: StringFieldUpdateOperationsInput
+  inverted: NullableBoolFieldUpdateOperationsInput
+  reason: NullableStringFieldUpdateOperationsInput
+  role: RoleUpdateOneRequiredWithoutPermissionsInput
+  subject: StringFieldUpdateOperationsInput
 }
 
 input PermissionUpdatefieldsInput {
@@ -4182,6 +4275,12 @@ input PermissionUpdatefieldsInput {
 input PermissionUpsertWithWhereUniqueWithoutRoleInput {
   create: PermissionCreateWithoutRoleInput!
   update: PermissionUpdateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionUpsertWithWhereUniqueWithoutUserInput {
+  create: PermissionCreateWithoutUserInput!
+  update: PermissionUpdateWithoutUserInput!
   where: PermissionWhereUniqueInput!
 }
 
@@ -4198,6 +4297,8 @@ input PermissionWhereInput {
   role: RoleRelationFilter
   roleId: StringFilter
   subject: StringFilter
+  user: UserRelationFilter
+  userId: StringFilter
 }
 
 input PermissionWhereUniqueInput {
@@ -4232,12 +4333,6 @@ type ProductAvgAggregate {
   price: Float
   sold: Float
   stock: Float
-}
-
-input ProductAvgAggregateInput {
-  price: Boolean
-  sold: Boolean
-  stock: Boolean
 }
 
 """商品种类"""
@@ -4785,22 +4880,6 @@ type ProductCountAggregate {
   updatedAt: Int!
 }
 
-input ProductCountAggregateInput {
-  _all: Boolean
-  createdAt: Boolean
-  discription: Boolean
-  draft: Boolean
-  featured: Boolean
-  id: Boolean
-  languageCode: Boolean
-  name: Boolean
-  price: Boolean
-  sku: Boolean
-  sold: Boolean
-  stock: Boolean
-  updatedAt: Boolean
-}
-
 input ProductCreateInput {
   assets: FileCreateNestedManyWithoutProductInput
   brands: BrandCreateNestedManyWithoutProductsInput
@@ -5076,21 +5155,6 @@ type ProductMaxAggregate {
   updatedAt: DateTime
 }
 
-input ProductMaxAggregateInput {
-  createdAt: Boolean
-  discription: Boolean
-  draft: Boolean
-  featured: Boolean
-  id: Boolean
-  languageCode: Boolean
-  name: Boolean
-  price: Boolean
-  sku: Boolean
-  sold: Boolean
-  stock: Boolean
-  updatedAt: Boolean
-}
-
 type ProductMinAggregate {
   createdAt: DateTime
   discription: String
@@ -5104,21 +5168,6 @@ type ProductMinAggregate {
   sold: Int
   stock: Int
   updatedAt: DateTime
-}
-
-input ProductMinAggregateInput {
-  createdAt: Boolean
-  discription: Boolean
-  draft: Boolean
-  featured: Boolean
-  id: Boolean
-  languageCode: Boolean
-  name: Boolean
-  price: Boolean
-  sku: Boolean
-  sold: Boolean
-  stock: Boolean
-  updatedAt: Boolean
 }
 
 input ProductOrderByInput {
@@ -5174,34 +5223,10 @@ input ProductScalarWhereInput {
   updatedAt: DateTimeFilter
 }
 
-input ProductScalarWhereWithAggregatesInput {
-  AND: [ProductScalarWhereWithAggregatesInput!]
-  NOT: [ProductScalarWhereWithAggregatesInput!]
-  OR: [ProductScalarWhereWithAggregatesInput!]
-  createdAt: DateTimeWithAggregatesFilter
-  discription: StringNullableWithAggregatesFilter
-  draft: BoolNullableWithAggregatesFilter
-  featured: BoolNullableWithAggregatesFilter
-  id: StringWithAggregatesFilter
-  languageCode: EnumLanguageCodeWithAggregatesFilter
-  name: StringWithAggregatesFilter
-  price: IntWithAggregatesFilter
-  sku: StringWithAggregatesFilter
-  sold: IntNullableWithAggregatesFilter
-  stock: IntWithAggregatesFilter
-  updatedAt: DateTimeWithAggregatesFilter
-}
-
 type ProductSumAggregate {
   price: Int
   sold: Int
   stock: Int
-}
-
-input ProductSumAggregateInput {
-  price: Boolean
-  sold: Boolean
-  stock: Boolean
 }
 
 type ProductTranslation {
@@ -7430,6 +7455,8 @@ type Profile {
   id: ID!
   level: Int
   likes: [Like!]
+  messagesReceived: [Message!]
+  messagesSent: [Message!]
   mobile: String
   name: String!
   point: Int
@@ -7487,6 +7514,18 @@ input ProfileCreateNestedOneWithoutLikesInput {
   create: ProfileCreateWithoutLikesInput
 }
 
+input ProfileCreateNestedOneWithoutMessagesReceivedInput {
+  connect: ProfileWhereUniqueInput
+  connectOrCreate: ProfileCreateOrConnectWithoutMessagesReceivedInput
+  create: ProfileCreateWithoutMessagesReceivedInput
+}
+
+input ProfileCreateNestedOneWithoutMessagesSentInput {
+  connect: ProfileWhereUniqueInput
+  connectOrCreate: ProfileCreateOrConnectWithoutMessagesSentInput
+  create: ProfileCreateWithoutMessagesSentInput
+}
+
 input ProfileCreateNestedOneWithoutReviewsInput {
   connect: ProfileWhereUniqueInput
   connectOrCreate: ProfileCreateOrConnectWithoutReviewsInput
@@ -7530,6 +7569,16 @@ input ProfileCreateOrConnectWithoutLikesInput {
   where: ProfileWhereUniqueInput!
 }
 
+input ProfileCreateOrConnectWithoutMessagesReceivedInput {
+  create: ProfileCreateWithoutMessagesReceivedInput!
+  where: ProfileWhereUniqueInput!
+}
+
+input ProfileCreateOrConnectWithoutMessagesSentInput {
+  create: ProfileCreateWithoutMessagesSentInput!
+  where: ProfileWhereUniqueInput!
+}
+
 input ProfileCreateOrConnectWithoutReviewsInput {
   create: ProfileCreateWithoutReviewsInput!
   where: ProfileWhereUniqueInput!
@@ -7556,6 +7605,8 @@ input ProfileCreateWithoutAvatarInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7576,6 +7627,8 @@ input ProfileCreateWithoutBrandsInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7596,6 +7649,8 @@ input ProfileCreateWithoutFollowedByInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7616,6 +7671,8 @@ input ProfileCreateWithoutFollowingInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7636,6 +7693,52 @@ input ProfileCreateWithoutLikesInput {
   following: ProfileCreateNestedManyWithoutFollowedByInput
   id: String
   level: Int
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
+  mobile: String
+  name: String!
+  point: Int
+  reviews: ReviewCreateNestedManyWithoutByInput
+  updatedAt: DateTime
+  uploads: FileCreateNestedManyWithoutProfileInput
+  user: UserCreateNestedOneWithoutProfileInput!
+}
+
+input ProfileCreateWithoutMessagesReceivedInput {
+  addresses: AddressCreateNestedManyWithoutProfileInput
+  avatar: FileCreateNestedOneWithoutProfileAvatarInput
+  brands: BrandCreateNestedManyWithoutFoundersInput
+  cards: CardCreateNestedManyWithoutProfileInput
+  comments: CommentCreateNestedManyWithoutByInput
+  createdAt: DateTime
+  followedBy: ProfileCreateNestedManyWithoutFollowingInput
+  following: ProfileCreateNestedManyWithoutFollowedByInput
+  id: String
+  level: Int
+  likes: LikeCreateNestedManyWithoutByInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
+  mobile: String
+  name: String!
+  point: Int
+  reviews: ReviewCreateNestedManyWithoutByInput
+  updatedAt: DateTime
+  uploads: FileCreateNestedManyWithoutProfileInput
+  user: UserCreateNestedOneWithoutProfileInput!
+}
+
+input ProfileCreateWithoutMessagesSentInput {
+  addresses: AddressCreateNestedManyWithoutProfileInput
+  avatar: FileCreateNestedOneWithoutProfileAvatarInput
+  brands: BrandCreateNestedManyWithoutFoundersInput
+  cards: CardCreateNestedManyWithoutProfileInput
+  comments: CommentCreateNestedManyWithoutByInput
+  createdAt: DateTime
+  followedBy: ProfileCreateNestedManyWithoutFollowingInput
+  following: ProfileCreateNestedManyWithoutFollowedByInput
+  id: String
+  level: Int
+  likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
   mobile: String
   name: String!
   point: Int
@@ -7657,6 +7760,8 @@ input ProfileCreateWithoutReviewsInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7677,6 +7782,8 @@ input ProfileCreateWithoutUploadsInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7697,6 +7804,8 @@ input ProfileCreateWithoutUserInput {
   id: String
   level: Int
   likes: LikeCreateNestedManyWithoutByInput
+  messagesReceived: MessageCreateNestedManyWithoutToInput
+  messagesSent: MessageCreateNestedManyWithoutByInput
   mobile: String
   name: String!
   point: Int
@@ -7829,6 +7938,14 @@ input ProfileUpdateOneRequiredWithoutLikesInput {
   upsert: ProfileUpsertWithoutLikesInput
 }
 
+input ProfileUpdateOneRequiredWithoutMessagesSentInput {
+  connect: ProfileWhereUniqueInput
+  connectOrCreate: ProfileCreateOrConnectWithoutMessagesSentInput
+  create: ProfileCreateWithoutMessagesSentInput
+  update: ProfileUpdateWithoutMessagesSentInput
+  upsert: ProfileUpsertWithoutMessagesSentInput
+}
+
 input ProfileUpdateOneRequiredWithoutReviewsInput {
   connect: ProfileWhereUniqueInput
   connectOrCreate: ProfileCreateOrConnectWithoutReviewsInput
@@ -7845,6 +7962,16 @@ input ProfileUpdateOneWithoutAvatarInput {
   disconnect: Boolean
   update: ProfileUpdateWithoutAvatarInput
   upsert: ProfileUpsertWithoutAvatarInput
+}
+
+input ProfileUpdateOneWithoutMessagesReceivedInput {
+  connect: ProfileWhereUniqueInput
+  connectOrCreate: ProfileCreateOrConnectWithoutMessagesReceivedInput
+  create: ProfileCreateWithoutMessagesReceivedInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ProfileUpdateWithoutMessagesReceivedInput
+  upsert: ProfileUpsertWithoutMessagesReceivedInput
 }
 
 input ProfileUpdateOneWithoutUploadsInput {
@@ -7893,6 +8020,8 @@ input ProfileUpdateWithoutAvatarInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -7913,6 +8042,8 @@ input ProfileUpdateWithoutBrandsInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -7933,6 +8064,8 @@ input ProfileUpdateWithoutFollowedByInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -7953,6 +8086,8 @@ input ProfileUpdateWithoutFollowingInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -7973,6 +8108,52 @@ input ProfileUpdateWithoutLikesInput {
   following: ProfileUpdateManyWithoutFollowedByInput
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  point: NullableIntFieldUpdateOperationsInput
+  reviews: ReviewUpdateManyWithoutByInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  uploads: FileUpdateManyWithoutProfileInput
+  user: UserUpdateOneRequiredWithoutProfileInput
+}
+
+input ProfileUpdateWithoutMessagesReceivedInput {
+  addresses: AddressUpdateManyWithoutProfileInput
+  avatar: FileUpdateOneWithoutProfileAvatarInput
+  brands: BrandUpdateManyWithoutFoundersInput
+  cards: CardUpdateManyWithoutProfileInput
+  comments: CommentUpdateManyWithoutByInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  followedBy: ProfileUpdateManyWithoutFollowingInput
+  following: ProfileUpdateManyWithoutFollowedByInput
+  id: StringFieldUpdateOperationsInput
+  level: NullableIntFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutByInput
+  messagesSent: MessageUpdateManyWithoutByInput
+  mobile: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  point: NullableIntFieldUpdateOperationsInput
+  reviews: ReviewUpdateManyWithoutByInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  uploads: FileUpdateManyWithoutProfileInput
+  user: UserUpdateOneRequiredWithoutProfileInput
+}
+
+input ProfileUpdateWithoutMessagesSentInput {
+  addresses: AddressUpdateManyWithoutProfileInput
+  avatar: FileUpdateOneWithoutProfileAvatarInput
+  brands: BrandUpdateManyWithoutFoundersInput
+  cards: CardUpdateManyWithoutProfileInput
+  comments: CommentUpdateManyWithoutByInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  followedBy: ProfileUpdateManyWithoutFollowingInput
+  following: ProfileUpdateManyWithoutFollowedByInput
+  id: StringFieldUpdateOperationsInput
+  level: NullableIntFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -7994,6 +8175,8 @@ input ProfileUpdateWithoutReviewsInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -8014,6 +8197,8 @@ input ProfileUpdateWithoutUploadsInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -8034,6 +8219,8 @@ input ProfileUpdateWithoutUserInput {
   id: StringFieldUpdateOperationsInput
   level: NullableIntFieldUpdateOperationsInput
   likes: LikeUpdateManyWithoutByInput
+  messagesReceived: MessageUpdateManyWithoutToInput
+  messagesSent: MessageUpdateManyWithoutByInput
   mobile: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   point: NullableIntFieldUpdateOperationsInput
@@ -8070,6 +8257,16 @@ input ProfileUpsertWithoutLikesInput {
   update: ProfileUpdateWithoutLikesInput!
 }
 
+input ProfileUpsertWithoutMessagesReceivedInput {
+  create: ProfileCreateWithoutMessagesReceivedInput!
+  update: ProfileUpdateWithoutMessagesReceivedInput!
+}
+
+input ProfileUpsertWithoutMessagesSentInput {
+  create: ProfileCreateWithoutMessagesSentInput!
+  update: ProfileUpdateWithoutMessagesSentInput!
+}
+
 input ProfileUpsertWithoutReviewsInput {
   create: ProfileCreateWithoutReviewsInput!
   update: ProfileUpdateWithoutReviewsInput!
@@ -8100,6 +8297,8 @@ input ProfileWhereInput {
   id: StringFilter
   level: IntNullableFilter
   likes: LikeListRelationFilter
+  messagesReceived: MessageListRelationFilter
+  messagesSent: MessageListRelationFilter
   mobile: StringNullableFilter
   name: StringFilter
   point: IntNullableFilter
@@ -8225,7 +8424,7 @@ type Query {
   productTypes: [ProductType!]!
 
   """获取多个商品，可指定条件"""
-  products(_avg: ProductAvgAggregateInput, _count: ProductCountAggregateInput, _max: ProductMaxAggregateInput, _min: ProductMinAggregateInput, _sum: ProductSumAggregateInput, by: [ProductScalarFieldEnum!]!, having: ProductScalarWhereWithAggregatesInput, orderBy: [ProductOrderByInput!], skip: Int, take: Int, where: ProductWhereInput): [Product!]!
+  products(cursor: ProductWhereUniqueInput, distinct: [ProductScalarFieldEnum!], orderBy: [ProductOrderByInput!], skip: Int, take: Int, where: ProductWhereInput): [Product!]!
 }
 
 enum QueryMode {
@@ -8269,7 +8468,7 @@ type Review {
   rate: Int!
   updatedAt: DateTime!
 
-  """买��秀"""
+  """买家秀"""
   uploads: [File!]
 }
 
@@ -8625,8 +8824,19 @@ input RoleCreateNestedOneWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput
 }
 
+input RoleCreateNestedOneWithoutPermissionsInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutPermissionsInput
+  create: RoleCreateWithoutPermissionsInput
+}
+
 input RoleCreateOrConnectWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput!
+  where: RoleWhereUniqueInput!
+}
+
+input RoleCreateOrConnectWithoutPermissionsInput {
+  create: RoleCreateWithoutPermissionsInput!
   where: RoleWhereUniqueInput!
 }
 
@@ -8644,6 +8854,21 @@ input RoleCreateWithoutChannelsInput {
   languageCode: LanguageCode
   name: String!
   permissions: PermissionCreateNestedManyWithoutRoleInput
+  slug: String!
+  translations: RoleTranslationCreateNestedManyWithoutRoleInput
+  updatedAt: DateTime
+  user: UserCreateNestedOneWithoutRolesInput
+}
+
+input RoleCreateWithoutPermissionsInput {
+  channels: ChannelCreateNestedManyWithoutRoleInput
+  createdAt: DateTime
+  description: String
+  enabled: Boolean
+  id: String
+  isDefault: Boolean
+  languageCode: LanguageCode
+  name: String!
   slug: String!
   translations: RoleTranslationCreateNestedManyWithoutRoleInput
   updatedAt: DateTime
@@ -8891,6 +9116,14 @@ input RoleUpdateManyWithoutUserInput {
   upsert: [RoleUpsertWithWhereUniqueWithoutUserInput!]
 }
 
+input RoleUpdateOneRequiredWithoutPermissionsInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutPermissionsInput
+  create: RoleCreateWithoutPermissionsInput
+  update: RoleUpdateWithoutPermissionsInput
+  upsert: RoleUpsertWithoutPermissionsInput
+}
+
 input RoleUpdateOneWithoutChannelsInput {
   connect: RoleWhereUniqueInput
   connectOrCreate: RoleCreateOrConnectWithoutChannelsInput
@@ -8921,6 +9154,21 @@ input RoleUpdateWithoutChannelsInput {
   user: UserUpdateOneWithoutRolesInput
 }
 
+input RoleUpdateWithoutPermissionsInput {
+  channels: ChannelUpdateManyWithoutRoleInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  enabled: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isDefault: NullableBoolFieldUpdateOperationsInput
+  languageCode: EnumLanguageCodeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  slug: StringFieldUpdateOperationsInput
+  translations: RoleTranslationUpdateManyWithoutRoleInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneWithoutRolesInput
+}
+
 input RoleUpdateWithoutUserInput {
   channels: ChannelUpdateManyWithoutRoleInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -8945,6 +9193,11 @@ input RoleUpsertWithWhereUniqueWithoutUserInput {
 input RoleUpsertWithoutChannelsInput {
   create: RoleCreateWithoutChannelsInput!
   update: RoleUpdateWithoutChannelsInput!
+}
+
+input RoleUpsertWithoutPermissionsInput {
+  create: RoleCreateWithoutPermissionsInput!
+  update: RoleUpdateWithoutPermissionsInput!
 }
 
 input RoleWhereInput {
@@ -9181,48 +9434,6 @@ input StringNullableListFilter {
   isEmpty: Boolean
 }
 
-input StringNullableWithAggregatesFilter {
-  _count: NestedIntNullableFilter
-  _max: NestedStringNullableFilter
-  _min: NestedStringNullableFilter
-  contains: String
-  count: NestedIntNullableFilter
-  endsWith: String
-  equals: String
-  gt: String
-  gte: String
-  in: [String!]
-  lt: String
-  lte: String
-  max: NestedStringNullableFilter
-  min: NestedStringNullableFilter
-  mode: QueryMode
-  not: NestedStringNullableWithAggregatesFilter
-  notIn: [String!]
-  startsWith: String
-}
-
-input StringWithAggregatesFilter {
-  _count: NestedIntFilter
-  _max: NestedStringFilter
-  _min: NestedStringFilter
-  contains: String
-  count: NestedIntFilter
-  endsWith: String
-  equals: String
-  gt: String
-  gte: String
-  in: [String!]
-  lt: String
-  lte: String
-  max: NestedStringFilter
-  min: NestedStringFilter
-  mode: QueryMode
-  not: NestedStringWithAggregatesFilter
-  notIn: [String!]
-  startsWith: String
-}
-
 """User 用户"""
 type User {
   accessToken: String
@@ -9244,9 +9455,14 @@ type User {
   """带 + 号"""
   mobile: String
   password: String!
+
+  """可随意修改具体的权限"""
+  permissions: [Permission!]
   profile: Profile
   refreshToken: String
   resetPasswordToken: String
+
+  """角色相当于预设的权限集合"""
   roles: [Role!]
   updatedAt: DateTime
   username: String
@@ -9272,6 +9488,12 @@ type UserCountAggregate {
   username: Int!
 }
 
+input UserCreateNestedOneWithoutPermissionsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutPermissionsInput
+  create: UserCreateWithoutPermissionsInput
+}
+
 input UserCreateNestedOneWithoutProfileInput {
   connect: UserWhereUniqueInput
   connectOrCreate: UserCreateOrConnectWithoutProfileInput
@@ -9284,6 +9506,11 @@ input UserCreateNestedOneWithoutRolesInput {
   create: UserCreateWithoutRolesInput
 }
 
+input UserCreateOrConnectWithoutPermissionsInput {
+  create: UserCreateWithoutPermissionsInput!
+  where: UserWhereUniqueInput!
+}
+
 input UserCreateOrConnectWithoutProfileInput {
   create: UserCreateWithoutProfileInput!
   where: UserWhereUniqueInput!
@@ -9292,6 +9519,28 @@ input UserCreateOrConnectWithoutProfileInput {
 input UserCreateOrConnectWithoutRolesInput {
   create: UserCreateWithoutRolesInput!
   where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutPermissionsInput {
+  accessToken: String
+  authenticationMethods: AuthenticationMethodCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  customFields: JSON
+  email: String!
+  id: String
+  identifierToken: String
+  isEmailConfirmed: Boolean
+  isMobileConfirmed: Boolean
+  lastLoginAt: DateTime
+  lastLogoutAt: DateTime
+  mobile: String
+  password: String!
+  profile: ProfileCreateNestedOneWithoutUserInput
+  refreshToken: String
+  resetPasswordToken: String
+  roles: RoleCreateNestedManyWithoutUserInput
+  updatedAt: DateTime
+  username: String
 }
 
 input UserCreateWithoutProfileInput {
@@ -9308,6 +9557,7 @@ input UserCreateWithoutProfileInput {
   lastLogoutAt: DateTime
   mobile: String
   password: String!
+  permissions: PermissionCreateNestedManyWithoutUserInput
   refreshToken: String
   resetPasswordToken: String
   roles: RoleCreateNestedManyWithoutUserInput
@@ -9329,6 +9579,7 @@ input UserCreateWithoutRolesInput {
   lastLogoutAt: DateTime
   mobile: String
   password: String!
+  permissions: PermissionCreateNestedManyWithoutUserInput
   profile: ProfileCreateNestedOneWithoutUserInput
   refreshToken: String
   resetPasswordToken: String
@@ -9377,6 +9628,14 @@ input UserRelationFilter {
   isNot: UserWhereInput
 }
 
+input UserUpdateOneRequiredWithoutPermissionsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutPermissionsInput
+  create: UserCreateWithoutPermissionsInput
+  update: UserUpdateWithoutPermissionsInput
+  upsert: UserUpsertWithoutPermissionsInput
+}
+
 input UserUpdateOneRequiredWithoutProfileInput {
   connect: UserWhereUniqueInput
   connectOrCreate: UserCreateOrConnectWithoutProfileInput
@@ -9395,6 +9654,28 @@ input UserUpdateOneWithoutRolesInput {
   upsert: UserUpsertWithoutRolesInput
 }
 
+input UserUpdateWithoutPermissionsInput {
+  accessToken: NullableStringFieldUpdateOperationsInput
+  authenticationMethods: AuthenticationMethodUpdateManyWithoutUserInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  customFields: JSON
+  email: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  identifierToken: NullableStringFieldUpdateOperationsInput
+  isEmailConfirmed: NullableBoolFieldUpdateOperationsInput
+  isMobileConfirmed: NullableBoolFieldUpdateOperationsInput
+  lastLoginAt: NullableDateTimeFieldUpdateOperationsInput
+  lastLogoutAt: NullableDateTimeFieldUpdateOperationsInput
+  mobile: NullableStringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  profile: ProfileUpdateOneWithoutUserInput
+  refreshToken: NullableStringFieldUpdateOperationsInput
+  resetPasswordToken: NullableStringFieldUpdateOperationsInput
+  roles: RoleUpdateManyWithoutUserInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
 input UserUpdateWithoutProfileInput {
   accessToken: NullableStringFieldUpdateOperationsInput
   authenticationMethods: AuthenticationMethodUpdateManyWithoutUserInput
@@ -9409,6 +9690,7 @@ input UserUpdateWithoutProfileInput {
   lastLogoutAt: NullableDateTimeFieldUpdateOperationsInput
   mobile: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  permissions: PermissionUpdateManyWithoutUserInput
   refreshToken: NullableStringFieldUpdateOperationsInput
   resetPasswordToken: NullableStringFieldUpdateOperationsInput
   roles: RoleUpdateManyWithoutUserInput
@@ -9430,11 +9712,17 @@ input UserUpdateWithoutRolesInput {
   lastLogoutAt: NullableDateTimeFieldUpdateOperationsInput
   mobile: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  permissions: PermissionUpdateManyWithoutUserInput
   profile: ProfileUpdateOneWithoutUserInput
   refreshToken: NullableStringFieldUpdateOperationsInput
   resetPasswordToken: NullableStringFieldUpdateOperationsInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
   username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpsertWithoutPermissionsInput {
+  create: UserCreateWithoutPermissionsInput!
+  update: UserUpdateWithoutPermissionsInput!
 }
 
 input UserUpsertWithoutProfileInput {
@@ -9464,6 +9752,7 @@ input UserWhereInput {
   lastLogoutAt: DateTimeNullableFilter
   mobile: StringNullableFilter
   password: StringFilter
+  permissions: PermissionListRelationFilter
   profile: ProfileRelationFilter
   refreshToken: StringNullableFilter
   resetPasswordToken: StringNullableFilter

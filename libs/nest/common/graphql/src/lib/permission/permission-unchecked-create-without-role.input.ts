@@ -25,6 +25,9 @@ export class PermissionUncheckedCreateWithoutRoleInput {
     @Field(() => String, {nullable:true})
     reason?: string;
 
+    @Field(() => String, {nullable:false})
+    userId!: string;
+
     @Field(() => PermissionCreatefieldsInput, {nullable:true})
     fields?: PermissionCreatefieldsInput;
 }

@@ -1,7 +1,7 @@
 import {
+    FindManyProductArgs,
     Product,
     ProductCreateInput,
-    ProductGroupByArgs,
     ProductUpdateInput,
     ProductWhereInput,
 } from '@neonse/nest-common-graphql'
@@ -31,11 +31,12 @@ export class ProductsResolver {
     @Query(() => [Product], {
         description: '获取多个商品，可指定条件',
     })
-    async products(@Info() info: GraphQLResolveInfo, @Args() query: ProductGroupByArgs): Promise<Product[]> {
+    // @UseGuards(GraphqlJwtAuthGuard) // test
+    async products(@Info() info: GraphQLResolveInfo, @Args() query: FindManyProductArgs): Promise<Product[]> {
         const select = new PrismaSelect(info).value
 
         return await this.prisma.product.findMany({
-            query,
+            ...query,
             ...select,
         })
     }

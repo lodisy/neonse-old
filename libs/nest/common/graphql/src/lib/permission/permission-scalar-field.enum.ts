@@ -8,7 +8,8 @@ export enum PermissionScalarFieldEnum {
     conditions = "conditions",
     inverted = "inverted",
     reason = "reason",
-    roleId = "roleId"
+    roleId = "roleId",
+    userId = "userId"
 }
 
 

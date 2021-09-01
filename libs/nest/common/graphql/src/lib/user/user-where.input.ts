@@ -6,6 +6,7 @@ import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.inpu
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { RoleListRelationFilter } from '../role/role-list-relation-filter.input';
+import { PermissionListRelationFilter } from '../permission/permission-list-relation-filter.input';
 import { JsonNullableFilter } from '../prisma/json-nullable-filter.input';
 import { AuthenticationMethodListRelationFilter } from '../authentication-method/authentication-method-list-relation-filter.input';
 import { ProfileRelationFilter } from '../profile/profile-relation-filter.input';
@@ -51,6 +52,9 @@ export class UserWhereInput {
 
     @Field(() => RoleListRelationFilter, {nullable:true})
     roles?: RoleListRelationFilter;
+
+    @Field(() => PermissionListRelationFilter, {nullable:true})
+    permissions?: PermissionListRelationFilter;
 
     @Field(() => DateTimeNullableFilter, {nullable:true})
     lastLoginAt?: DateTimeNullableFilter;

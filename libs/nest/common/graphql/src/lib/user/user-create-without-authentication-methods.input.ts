@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { GraphQLJSON } from 'graphql-type-json';
 import { RoleCreateNestedManyWithoutUserInput } from '../role/role-create-nested-many-without-user.input';
+import { PermissionCreateNestedManyWithoutUserInput } from '../permission/permission-create-nested-many-without-user.input';
 import { ProfileCreateNestedOneWithoutUserInput } from '../profile/profile-create-nested-one-without-user.input';
 
 @InputType()
@@ -64,6 +65,9 @@ export class UserCreateWithoutAuthenticationMethodsInput {
 
     @Field(() => RoleCreateNestedManyWithoutUserInput, {nullable:true})
     roles?: RoleCreateNestedManyWithoutUserInput;
+
+    @Field(() => PermissionCreateNestedManyWithoutUserInput, {nullable:true})
+    permissions?: PermissionCreateNestedManyWithoutUserInput;
 
     @Field(() => ProfileCreateNestedOneWithoutUserInput, {nullable:true})
     profile?: ProfileCreateNestedOneWithoutUserInput;

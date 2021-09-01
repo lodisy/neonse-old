@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Role } from '../role/role.model';
+import { Permission } from '../permission/permission.model';
 import { GraphQLJSON } from 'graphql-type-json';
 import { AuthenticationMethod } from '../authentication-method/authentication-method.model';
 import { Profile } from '../profile/profile.model';
@@ -40,8 +41,13 @@ export class User {
     @Field(() => Boolean, {nullable:true,defaultValue:false,description:'手机号是否 confirmed'})
     isMobileConfirmed!: boolean | null;
 
-    @Field(() => [Role], {nullable:true})
+    /** 角色相当于预设的权限集合 */
+    @Field(() => [Role], {nullable:true,description:'角色相当于预设的权限集合'})
     roles?: Array<Role>;
+
+    /** 可随意修改具体的权限 */
+    @Field(() => [Permission], {nullable:true,description:'可随意修改具体的权限'})
+    permissions?: Array<Permission>;
 
     @Field(() => Date, {nullable:true})
     lastLoginAt!: Date | null;

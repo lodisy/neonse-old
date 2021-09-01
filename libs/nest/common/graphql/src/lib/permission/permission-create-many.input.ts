@@ -28,6 +28,9 @@ export class PermissionCreateManyInput {
     @Field(() => String, {nullable:false})
     roleId!: string;
 
+    @Field(() => String, {nullable:false})
+    userId!: string;
+
     @Field(() => PermissionCreateManyfieldsInput, {nullable:true})
     fields?: PermissionCreateManyfieldsInput;
 }

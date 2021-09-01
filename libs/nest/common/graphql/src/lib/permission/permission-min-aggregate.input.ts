@@ -21,4 +21,7 @@ export class PermissionMinAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     roleId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    userId?: true;
 }

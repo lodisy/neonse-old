@@ -22,4 +22,7 @@ export class PermissionMaxAggregate {
 
     @Field(() => String, {nullable:true})
     roleId?: string;
+
+    @Field(() => String, {nullable:true})
+    userId?: string;
 }

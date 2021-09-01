@@ -33,6 +33,9 @@ export class PermissionGroupBy {
     @Field(() => String, {nullable:false})
     roleId!: string;
 
+    @Field(() => String, {nullable:false})
+    userId!: string;
+
     @Field(() => PermissionCountAggregate, {nullable:true})
     _count?: PermissionCountAggregate;
 

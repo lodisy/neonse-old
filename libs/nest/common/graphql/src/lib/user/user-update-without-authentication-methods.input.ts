@@ -8,6 +8,7 @@ import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-
 import { GraphQLJSON } from 'graphql-type-json';
 import * as Validator from 'class-validator';
 import { RoleUpdateManyWithoutUserInput } from '../role/role-update-many-without-user.input';
+import { PermissionUpdateManyWithoutUserInput } from '../permission/permission-update-many-without-user.input';
 import { ProfileUpdateOneWithoutUserInput } from '../profile/profile-update-one-without-user.input';
 
 @InputType()
@@ -64,6 +65,9 @@ export class UserUpdateWithoutAuthenticationMethodsInput {
 
     @Field(() => RoleUpdateManyWithoutUserInput, {nullable:true})
     roles?: RoleUpdateManyWithoutUserInput;
+
+    @Field(() => PermissionUpdateManyWithoutUserInput, {nullable:true})
+    permissions?: PermissionUpdateManyWithoutUserInput;
 
     @Field(() => ProfileUpdateOneWithoutUserInput, {nullable:true})
     profile?: ProfileUpdateOneWithoutUserInput;

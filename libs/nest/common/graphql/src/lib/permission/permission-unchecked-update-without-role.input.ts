@@ -28,6 +28,9 @@ export class PermissionUncheckedUpdateWithoutRoleInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     reason?: NullableStringFieldUpdateOperationsInput;
 
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: StringFieldUpdateOperationsInput;
+
     @Field(() => PermissionUpdatefieldsInput, {nullable:true})
     fields?: PermissionUpdatefieldsInput;
 }

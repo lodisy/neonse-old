@@ -1,5 +1,5 @@
 {
     "USER_NOT_FOUND": "该用户并不存在",
     "REFRESH_TOKEN_WRONG": "Refresh token 错误",
-    "PASSWORD_WRONG": "密码可能错误"
+    "PASSWORD_WRONG": "密码错误"
 }

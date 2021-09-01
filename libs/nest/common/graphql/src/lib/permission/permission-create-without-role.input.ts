@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { Action } from '../prisma/action.enum';
 import { GraphQLJSON } from 'graphql-type-json';
 import { PermissionCreatefieldsInput } from '../prisma/permission-createfields.input';
+import { UserCreateNestedOneWithoutPermissionsInput } from '../user/user-create-nested-one-without-permissions.input';
 
 @InputType()
 export class PermissionCreateWithoutRoleInput {
@@ -27,4 +28,7 @@ export class PermissionCreateWithoutRoleInput {
 
     @Field(() => PermissionCreatefieldsInput, {nullable:true})
     fields?: PermissionCreatefieldsInput;
+
+    @Field(() => UserCreateNestedOneWithoutPermissionsInput, {nullable:false})
+    user!: UserCreateNestedOneWithoutPermissionsInput;
 }

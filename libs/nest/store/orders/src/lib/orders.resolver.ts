@@ -1,4 +1,4 @@
-import { Order, OrderCreateInput, OrderGroupByArgs, OrderUpdateInput } from '@neonse/nest-common-graphql'
+import { FindManyOrderArgs, Order, OrderCreateInput, OrderUpdateInput } from '@neonse/nest-common-graphql'
 import { PrismaService } from '@neonse/nest-common-prisma'
 import { GraphqlJwtAuthGuard } from '@neonse/nest-common-shared'
 import { UseGuards } from '@nestjs/common'
@@ -26,7 +26,7 @@ export class OrdersResolver {
         description: '获取多条订单，可指定条件',
     })
     @UseGuards(GraphqlJwtAuthGuard)
-    async orders(@Info() info: GraphQLResolveInfo, @Args() query: OrderGroupByArgs): Promise<Order[]> {
+    async orders(@Info() info: GraphQLResolveInfo, @Args() query: FindManyOrderArgs): Promise<Order[]> {
         const select = new PrismaSelect(info).value
 
         return await this.prisma.order.findMany({

@@ -7,6 +7,7 @@ import { JsonNullableFilter } from '../prisma/json-nullable-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { RoleRelationFilter } from '../role/role-relation-filter.input';
+import { UserRelationFilter } from '../user/user-relation-filter.input';
 
 @InputType()
 export class PermissionWhereInput {
@@ -46,4 +47,10 @@ export class PermissionWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     roleId?: StringFilter;
+
+    @Field(() => UserRelationFilter, {nullable:true})
+    user?: UserRelationFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    userId?: StringFilter;
 }
