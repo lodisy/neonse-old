@@ -2358,7 +2358,7 @@
     tmp "~0.2.1"
     tslib "^2.0.0"
 
-"@nrwl/nest@^12.8.0":
+"@nrwl/nest@12.8.0":
   version "12.8.0"
   resolved "https://registry.yarnpkg.com/@nrwl/nest/-/nest-12.8.0.tgz#b82ffcd7e8a3f50c220fe89ac5f6e794b6da9888"
   integrity sha512-lLGcK0TO3hfMte9W/kHRcZCQ9cLnbocYBKTs+ofBDn98tQ6fHPOyFjgX14lUBWWg+2QqfBswv2U/TI/o2lYOZg==
@@ -2445,7 +2445,7 @@
     webpack "4.46.0"
     webpack-merge "4.2.1"
 
-"@nrwl/storybook@12.8.0", "@nrwl/storybook@^12.8.0":
+"@nrwl/storybook@12.8.0":
   version "12.8.0"
   resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-12.8.0.tgz#4d110e99f4a7b1c9e487841850490a44d06be31e"
   integrity sha512-NO8weLhaNrHIUsTZP8tb08JUB5aEAkeuwvkVtARf+qhd83gbJg1N2SnoBSvCKxnsJ6qXM+0wQQbWSdsb08w44w==
