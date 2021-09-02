@@ -65,7 +65,7 @@ export class FilesService {
         const result = await this.imagify(buffer, originalname)
         const { width, height, size } = result
         const url = await this.cos.uploadFile(filename)
-        return await this.prisma.file.create({
+        return this.prisma.file.create({
             data: {
                 name: filename,
                 mimeType: 'image/webp',
@@ -135,7 +135,7 @@ export class FilesService {
      */
 
     async findFiles(query: Prisma.FileFindManyArgs) {
-        return await this.prisma.file.findMany(query)
+        return this.prisma.file.findMany(query)
     }
 
     /**
@@ -143,7 +143,7 @@ export class FilesService {
      */
 
     async findFile(where: Prisma.FileWhereUniqueInput) {
-        return await this.prisma.file.findUnique({ where })
+        return this.prisma.file.findUnique({ where })
     }
 
     /**
@@ -151,7 +151,7 @@ export class FilesService {
      */
 
     async updateFile(where: Prisma.FileWhereUniqueInput, data: Prisma.FileUpdateInput) {
-        return await this.prisma.file.update({
+        return this.prisma.file.update({
             where,
             data,
         })
@@ -162,6 +162,6 @@ export class FilesService {
      */
 
     async deleteFile(where: Prisma.FileWhereUniqueInput) {
-        return await this.prisma.file.delete({ where })
+        return this.prisma.file.delete({ where })
     }
 }

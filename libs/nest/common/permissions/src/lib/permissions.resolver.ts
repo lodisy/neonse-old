@@ -10,7 +10,7 @@ export class PermissionsResolver {
         description: '查询多个权限',
     })
     async permissions(@Args() query: FindManyPermissionArgs): Promise<Permission[]> {
-        return await this.permissionsService.readPermissions(query)
+        return this.permissionsService.readPermissions(query)
     }
 
     @Mutation(() => Permission, {
@@ -19,6 +19,6 @@ export class PermissionsResolver {
     async createPermission(
         @Args('data', { type: () => PermissionCreateInput }) data: PermissionCreateInput,
     ): Promise<Permission> {
-        return await this.permissionsService.createPermission(data)
+        return this.permissionsService.createPermission(data)
     }
 }

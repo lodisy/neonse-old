@@ -90,7 +90,7 @@ export class AuthService {
                     },
                     HttpStatus.UNAUTHORIZED,
                 )
-            return await this.prisma.user.findUnique({
+            return this.prisma.user.findUnique({
                 where: {
                     id: user.id,
                 },
@@ -107,7 +107,7 @@ export class AuthService {
         })
 
         if (result?.userId) {
-            return await this.usersService.findUser(result.userId)
+            return this.usersService.findUser(result.userId)
         } else {
             throw new HttpException(
                 {
@@ -137,7 +137,7 @@ export class AuthService {
 
         const username = email.split('@')[0] + _.random(9) + _.random(9) + _.random(9)
 
-        return await this.usersService.createUser({
+        return this.usersService.createUser({
             email,
             username,
             password: hashedPassword,
@@ -168,6 +168,6 @@ export class AuthService {
                 HttpStatus.CONFLICT,
             )
 
-        return await this.sms.confirmMobileNumber(mobile, code)
+        return this.sms.confirmMobileNumber(mobile, code)
     }
 }

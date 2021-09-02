@@ -19,12 +19,12 @@ export class PasswordService {
      */
 
     async validatePassword(password: string, hashedPassword: string): Promise<boolean> {
-        return await compare(password, hashedPassword)
+        return compare(password, hashedPassword)
     }
 
     /** 给密码加密 */
 
     async hashPassword(password: string): Promise<string> {
-        return await hash(password, this.bcryptSaltRounds)
+        return hash(password, this.bcryptSaltRounds)
     }
 }

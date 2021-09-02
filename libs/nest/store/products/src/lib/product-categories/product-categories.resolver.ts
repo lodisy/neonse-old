@@ -31,7 +31,7 @@ export class ProductCategoriesResolver {
 
         const select = new PrismaSelect(info).value
 
-        return await this.prisma.productCategory.findUnique({
+        return this.prisma.productCategory.findUnique({
             where: {
                 slug,
             },
@@ -53,7 +53,7 @@ export class ProductCategoriesResolver {
     })
     async productCategories(@Info() info: GraphQLResolveInfo): Promise<ProductCategory[]> {
         const select = new PrismaSelect(info).value
-        return await this.prisma.productCategory.findMany({
+        return this.prisma.productCategory.findMany({
             ...select,
         })
     }
@@ -79,7 +79,7 @@ export class ProductCategoriesResolver {
 
         await this.productCategoriesService.isExisting(slug)
 
-        return await this.prisma.productCategory.create({
+        return this.prisma.productCategory.create({
             data,
         })
     }
@@ -105,7 +105,7 @@ export class ProductCategoriesResolver {
         @Args('data', { type: () => ProductCategoryUpdateInput }) data: ProductCategoryUpdateInput,
     ): Promise<ProductCategory> {
         await this.productCategoriesService.isExisting(slug)
-        return await this.prisma.productCategory.update({
+        return this.prisma.productCategory.update({
             data,
             where: {
                 slug,
@@ -130,7 +130,7 @@ export class ProductCategoriesResolver {
     async deleteProductCategory(@Args('slug') slug: string): Promise<ProductCategory> {
         await this.productCategoriesService.isExisting(slug)
         await this.productCategoriesService.hasProducts(slug)
-        return await this.prisma.productCategory.delete({
+        return this.prisma.productCategory.delete({
             where: { slug },
         })
     }

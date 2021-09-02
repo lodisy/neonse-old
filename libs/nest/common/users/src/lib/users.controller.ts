@@ -42,13 +42,13 @@ export class UsersController {
         @Body() data: { currentPassword: string; newPassword: string },
     ) {
         const { user } = request
-        return await this.usersService.changePassword(user.id, data.currentPassword, data.newPassword)
+        return this.usersService.changePassword(user.id, data.currentPassword, data.newPassword)
     }
 
     @Post('update')
     @UseGuards(JwtAuthGuard)
     async updateUser(@Req() request: RequestWithUser, @Body() data: Prisma.UserUpdateInput) {
         const { user } = request
-        return await this.usersService.updateUser({ id: user.id }, data)
+        return this.usersService.updateUser({ id: user.id }, data)
     }
 }

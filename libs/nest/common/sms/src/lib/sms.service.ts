@@ -21,7 +21,7 @@ export class SMSService {
     async sendSMS(mobile: string) {
         const code = '' + _.random(9) + _.random(9) + _.random(9) + _.random(9)
 
-        return await this.sms
+        return this.sms
             .SendSms({
                 PhoneNumberSet: [mobile], // 前端录入手机号时连带国家代码 +8613333xxx
                 SmsSdkAppId: this.configService.get<string>('sms.SmsSdkAppid'),
@@ -78,7 +78,7 @@ export class SMSService {
      */
 
     async getSMSStatics(page = 1, page_size = 10) {
-        return await this.sms
+        return this.sms
             .SmsPackagesStatistics({
                 SmsSdkAppId: this.configService.get<string>('sms.SmsSdkAppId'),
                 Limit: page_size,

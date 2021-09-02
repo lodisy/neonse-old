@@ -33,7 +33,7 @@ export class PermissionsService {
      * 查询权限
      */
     async readPermission(where: Prisma.PermissionWhereUniqueInput): Promise<Permission> {
-        return await this.prisma.permission.findUnique({
+        return this.prisma.permission.findUnique({
             where,
         })
     }
@@ -42,13 +42,13 @@ export class PermissionsService {
      * 查询多个权限
      */
     async readPermissions(query: Prisma.PermissionFindManyArgs): Promise<Permission[]> {
-        return await this.prisma.permission.findMany(query)
+        return this.prisma.permission.findMany(query)
     }
     /**
      * 创建权限
      */
     async createPermission(data: Prisma.PermissionCreateInput): Promise<Permission> {
-        return await this.prisma.permission.create({
+        return this.prisma.permission.create({
             data,
         })
     }
@@ -58,7 +58,7 @@ export class PermissionsService {
      */
 
     async deletePermission(where: Prisma.PermissionWhereUniqueInput): Promise<Permission> {
-        return await this.prisma.permission.delete({
+        return this.prisma.permission.delete({
             where,
         })
     }
@@ -71,7 +71,7 @@ export class PermissionsService {
         where: Prisma.PermissionWhereUniqueInput,
         data: Prisma.PermissionUpdateInput,
     ): Promise<Permission> {
-        return await this.prisma.permission.update({
+        return this.prisma.permission.update({
             where,
             data,
         })

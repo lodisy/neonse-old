@@ -51,7 +51,7 @@ export class UsersService {
                 HttpStatus.NOT_FOUND,
             )
 
-        return await this.prisma.user.findUnique({
+        return this.prisma.user.findUnique({
             where: {
                 id,
             },
@@ -95,7 +95,7 @@ export class UsersService {
     /** 创建用户 */
 
     async createUser(data: Prisma.UserCreateInput) {
-        return await this.prisma.user.create({
+        return this.prisma.user.create({
             data,
 
             select: {
@@ -148,7 +148,7 @@ export class UsersService {
     /** 修改用户资料（非密码、非邮箱），包括 profile */
 
     async updateUser(where: Prisma.UserWhereUniqueInput, data: Prisma.UserUpdateInput) {
-        return await this.prisma.user.update({
+        return this.prisma.user.update({
             where,
             data,
         })
@@ -218,7 +218,7 @@ export class UsersService {
         const hashedPassword = await this.passwordService.hashPassword(newPassword)
 
         // 更新
-        return await this.prisma.user.update({
+        return this.prisma.user.update({
             where: {
                 id,
             },

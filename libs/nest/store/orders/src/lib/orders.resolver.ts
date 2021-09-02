@@ -29,7 +29,7 @@ export class OrdersResolver {
     async orders(@Info() info: GraphQLResolveInfo, @Args() query: FindManyOrderArgs): Promise<Order[]> {
         const select = new PrismaSelect(info).value
 
-        return await this.prisma.order.findMany({
+        return this.prisma.order.findMany({
             query,
             ...select,
         })
@@ -55,7 +55,7 @@ export class OrdersResolver {
 
         const select = new PrismaSelect(info).value
 
-        return await this.prisma.order.findUnique({
+        return this.prisma.order.findUnique({
             where: { code },
             ...select,
         })
@@ -76,7 +76,7 @@ export class OrdersResolver {
             code,
         })
 
-        return await this.prisma.order.create({
+        return this.prisma.order.create({
             data,
         })
     }
@@ -103,7 +103,7 @@ export class OrdersResolver {
             code,
         })
 
-        return await this.prisma.order.update({
+        return this.prisma.order.update({
             where: { code },
             data,
         })

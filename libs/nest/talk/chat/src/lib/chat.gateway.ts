@@ -44,7 +44,7 @@ export class ChatGateway implements OnGatewayConnection {
     @SubscribeMessage('sendMessage')
     @UseGuards(WsJwtGuard)
     async sendMessage(@ConnectedSocket() client: Socket, @MessageBody() content: string) {
-        return await this.chatService.sendMessage({
+        return this.chatService.sendMessage({
             content,
             by: client.data.user,
         })

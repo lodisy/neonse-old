@@ -8,12 +8,12 @@ export class ChatService {
 
     /** 发送消息 */
     async sendMessage(data: Prisma.MessageCreateInput) {
-        return await this.prisma.message.create({
+        return this.prisma.message.create({
             data,
         })
     }
     /** 查询多条消息 */
     async findMessages(query: Prisma.MessageFindManyArgs) {
-        return await this.prisma.message.findMany(query)
+        return this.prisma.message.findMany(query)
     }
 }

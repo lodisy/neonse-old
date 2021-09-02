@@ -18,7 +18,7 @@ export class SMSController {
         if (request.user.isMobileConfirmed) {
             throw new HttpException('已经验证', HttpStatus.BAD_REQUEST)
         }
-        return await this.sms.sendSMS(mobile)
+        return this.sms.sendSMS(mobile)
     }
 
     /**
@@ -41,6 +41,6 @@ export class SMSController {
 
     @Get('sms')
     async getSMSStatics() {
-        return await this.sms.getSMSStatics()
+        return this.sms.getSMSStatics()
     }
 }

@@ -15,13 +15,13 @@ export class AuthController {
     @Post('register')
     async register(@Body() data: { email: string; password: string; name: string }) {
         const { email, password, name } = data
-        return await this.authService.register(email, password, name)
+        return this.authService.register(email, password, name)
     }
 
     @Post('mobile/register')
     async registerWithMobile(@Body() data: { mobile: string; code: string }) {
         const { mobile, code } = data
-        return await this.authService.registerWithMobile(mobile, code)
+        return this.authService.registerWithMobile(mobile, code)
     }
 
     /**
@@ -41,7 +41,7 @@ export class AuthController {
 
         const lastLoginAt = dayjs().format()
 
-        return await this.usersService.updateUser(
+        return this.usersService.updateUser(
             { id: user.id },
             {
                 accessToken,

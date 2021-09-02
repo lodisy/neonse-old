@@ -35,7 +35,7 @@ export class ProductsResolver {
     async products(@Info() info: GraphQLResolveInfo, @Args() query: FindManyProductArgs): Promise<Product[]> {
         const select = new PrismaSelect(info).value
 
-        return await this.prisma.product.findMany({
+        return this.prisma.product.findMany({
             ...query,
             ...select,
         })
@@ -87,7 +87,7 @@ export class ProductsResolver {
             sku,
         })
 
-        return await this.prisma.product.create({
+        return this.prisma.product.create({
             data,
         })
     }
@@ -113,7 +113,7 @@ export class ProductsResolver {
             sku,
         })
 
-        return await this.prisma.product.update({
+        return this.prisma.product.update({
             where: { sku },
             data: {
                 draft: {
@@ -176,7 +176,7 @@ export class ProductsResolver {
             sku,
         })
 
-        return await this.prisma.product.update({
+        return this.prisma.product.update({
             where: { sku },
             data,
         })
@@ -224,7 +224,7 @@ export class ProductsResolver {
             throw new HttpException('删除商品规格失败', HttpStatus.INTERNAL_SERVER_ERROR)
         }
 
-        return await this.prisma.product.delete({
+        return this.prisma.product.delete({
             where: { sku },
         })
     }

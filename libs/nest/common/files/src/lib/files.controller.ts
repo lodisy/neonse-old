@@ -37,7 +37,7 @@ export class FilesController {
 
     @Post('upload/image')
     async uploadImage(@UploadedFile() image: Express.Multer.File) {
-        return await this.filesService.uploadImage(image)
+        return this.filesService.uploadImage(image)
     }
 
     /** 上传多张图片，例如商品图等 */
@@ -56,7 +56,7 @@ export class FilesController {
         }),
     )
     async uploadImages(@UploadedFiles() images: Array<Express.Multer.File>) {
-        return await this.filesService.uploadImages(images)
+        return this.filesService.uploadImages(images)
     }
 
     /**
@@ -93,7 +93,7 @@ export class FilesController {
         }),
     )
     async uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
-        return await this.filesService.uploadFiles(files)
+        return this.filesService.uploadFiles(files)
     }
 
     /**
@@ -102,7 +102,7 @@ export class FilesController {
 
     @Get()
     async findFiles(@Query() query: Prisma.FileFindManyArgs) {
-        return await this.filesService.findFiles(query)
+        return this.filesService.findFiles(query)
     }
 
     /**
@@ -111,7 +111,7 @@ export class FilesController {
     @Get(':id')
     async findOne(@Param('id') id: string) {
         await this.filesService.isExisting(id)
-        return await this.filesService.findFile({
+        return this.filesService.findFile({
             id,
         })
     }
@@ -122,7 +122,7 @@ export class FilesController {
     @Put(':id')
     async updateFile(@Param('id') id: string, @Body() data: Prisma.FileUpdateInput) {
         await this.filesService.isExisting(id)
-        return await this.filesService.updateFile(
+        return this.filesService.updateFile(
             {
                 id,
             },

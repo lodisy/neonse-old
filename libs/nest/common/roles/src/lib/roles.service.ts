@@ -26,7 +26,7 @@ export class RolesService {
         if (!isExist) {
             throw new HttpException('Role not found', HttpStatus.NOT_FOUND)
         }
-        return await this.prisma.role.findUnique({
+        return this.prisma.role.findUnique({
             where: {
                 slug,
             },
@@ -36,7 +36,7 @@ export class RolesService {
     /** 查询所有角色 */
 
     async findRoles(): Promise<Role[]> {
-        return await this.prisma.role.findMany()
+        return this.prisma.role.findMany()
     }
 
     /** 创建角色 */
@@ -63,7 +63,7 @@ export class RolesService {
             }
         }
 
-        return await this.prisma.role.create({ data })
+        return this.prisma.role.create({ data })
     }
 
     /** 修改角色 */
@@ -95,7 +95,7 @@ export class RolesService {
             })
         }
 
-        return await this.prisma.role.update({
+        return this.prisma.role.update({
             data,
             where: {
                 slug,
@@ -121,7 +121,7 @@ export class RolesService {
 
         if (targetRole.user) throw new HttpException('当前有属于该角色的用户，无法删除', HttpStatus.BAD_REQUEST)
 
-        return await this.prisma.role.delete({
+        return this.prisma.role.delete({
             where: {
                 slug: targetRole.slug,
             },

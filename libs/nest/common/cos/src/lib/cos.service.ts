@@ -76,7 +76,7 @@ export class COSService {
     /** 删除单个文件 */
 
     async deleteFile(file: COS.Key) {
-        return await this.cos.deleteObject({
+        return this.cos.deleteObject({
             Bucket: this.configService.get<string>('Bucket'),
             Region: this.configService.get<string>('Region'),
             Key: file,
