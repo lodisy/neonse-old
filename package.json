@@ -196,5 +196,40 @@
         "ts-node": "10.0.0",
         "typescript": "4.4.2",
         "url-loader": "4.1.1"
+    },
+    "renovate": {
+        "labels": [
+            "dependencies"
+        ],
+        "packageRules": [
+            {
+                "matchPackagePatterns": [
+                    "eslint"
+                ],
+                "labels": [
+                    "linting"
+                ]
+            },
+            {
+                "matchDepTypes": [
+                    "optionalDependencies"
+                ],
+                "addLabels": [
+                    "optional"
+                ]
+            },
+            {
+                "matchUpdateTypes": [
+                    "minor",
+                    "patch",
+                    "pin",
+                    "digest"
+                ],
+                "automerge": true
+            }
+        ],
+        "extends": [
+            "config:base"
+        ]
     }
 }
