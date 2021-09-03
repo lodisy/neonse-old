@@ -21579,10 +21579,10 @@ tempy@1.0.1, tempy@^1.0.0:
     type-fest "^0.16.0"
     unique-string "^2.0.0"
 
-tencentcloud-sdk-nodejs@4.0.192:
-  version "4.0.192"
-  resolved "https://registry.yarnpkg.com/tencentcloud-sdk-nodejs/-/tencentcloud-sdk-nodejs-4.0.192.tgz#db8102006f1612ac2c3d386519fc0fc1472bc1c2"
-  integrity sha512-4ZBv/8E4o524YqGrhJjcsxgy93PBGMUgqvKjODZUC9z0YnE8mNxYqv0LMWauYRifY9ZxZjTkz1TI7HwyZRRg3A==
+tencentcloud-sdk-nodejs@4.0.194:
+  version "4.0.194"
+  resolved "https://registry.yarnpkg.com/tencentcloud-sdk-nodejs/-/tencentcloud-sdk-nodejs-4.0.194.tgz#d31986f9c99bfddd248b8f4800666e29b4712745"
+  integrity sha512-baZ/zV1EJFMHSNJD05+RxJ+uBl/F3Ilvkhz3QOUfy/Wd7TzUtC2XJ+OLj+hxFx5f+o/TieI+0ZCwokADxFHSJQ==
   dependencies:
     form-data "^3.0.0"
     get-stream "^6.0.0"
