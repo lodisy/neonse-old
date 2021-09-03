@@ -6604,17 +6604,17 @@
   dependencies:
     "@umijs/deps" "3.5.17"
 
-"@use-gesture/core@^10.0.0-beta.22":
-  version "10.0.0-beta.22"
-  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.0.0-beta.22.tgz#5627dd00137462e306116942aedeadf249634353"
-  integrity sha512-nFPsMiHii99huDpeKjC9e5Ggagn4M/UAb3DFWw1/dEZl1fJSfFobrNdtB+5sPOTwyDBBsKpk4oS7Nde4coGDzA==
+"@use-gesture/core@^10.0.0-beta.23":
+  version "10.0.0-beta.23"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.0.0-beta.23.tgz#0497124072d19ffdf5ce7c0df1055e63b9532dd0"
+  integrity sha512-OIrx8FrQowWQzFkTaA0UCB94OwbtorQ6PD8O3gxtzZD0uDpjUbsqWdPUXLO1iPfkguu639Som/6sX2RV4VJ99g==
 
-"@use-gesture/react@10.0.0-beta.22":
-  version "10.0.0-beta.22"
-  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.0.0-beta.22.tgz#e88da83d1eedde4f422d53a09fbc09522e823a67"
-  integrity sha512-6ZTpyK1XwL6xgzV0LArxE/rMBNueOiIp0LJoKHdX5/LSf33unMd/E7v9YGOf55NM7vl0tOevpa9f5gSlw4Pvhw==
+"@use-gesture/react@10.0.0-beta.23":
+  version "10.0.0-beta.23"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.0.0-beta.23.tgz#483e2595fb17f6a21ee7529fa23233493843ea65"
+  integrity sha512-+p6CmuD/z/oATMrcH4bXFJzUzCCmkr0DUbU5Tjmg5F0eB+V02XYzBgxh39JHxlJVNQ4jXIRyPktWt0hJp1zeHw==
   dependencies:
-    "@use-gesture/core" "^10.0.0-beta.22"
+    "@use-gesture/core" "^10.0.0-beta.23"
 
 "@vegardit/prisma-generator-nestjs-dto@1.3.0":
   version "1.3.0"
