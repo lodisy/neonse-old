@@ -18701,7 +18701,7 @@ react-native-device-info@8.3.0:
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-8.3.0.tgz#705d68b8d6112a6e46e74717606c77ed93a674e5"
   integrity sha512-UkqK47w5r9rgjFpNMgXoMXj5D9GVQO8QxaTAbtJ/66XXt23WSHDroIzn+MVtTLl6SPKBw5/qakPKivLG44IPtw==
 
-react-native@^0.65.1:
+react-native@0.65.1:
   version "0.65.1"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.65.1.tgz#bd8cd313e0eb8ddcf08e61e3f8b54b7fc31a418c"
   integrity sha512-0UOVSnlssweQZjuaUtzViCifE/4tXm8oRbxwakopc8GavPu9vLulde145GOw6QVYiOy4iL50f+2XXRdX9NmMeQ==
