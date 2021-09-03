@@ -3268,7 +3268,7 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@reach/portal@^0.16.0":
+"@reach/portal@0.16.0":
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.16.0.tgz#1544531d978b770770b718b2872b35652a11e7e3"
   integrity sha512-vXJ0O9T+72HiSEWHPs2cx7YbSO7pQsTMhgqPc5aaddIYpo2clJx1PnYuS0lSNlVaDO0IxQhwYq43evXaXnmviw==
