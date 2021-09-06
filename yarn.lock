@@ -15640,13 +15640,6 @@ markdown-to-jsx@^7.1.3:
   resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.1.3.tgz#f00bae66c0abe7dd2d274123f84cb6bd2a2c7c6a"
   integrity sha512-jtQ6VyT7rMT5tPV0g2EJakEnXLiPksnvlYtwQsVVZ611JsWGN8bQ1tVSDX4s6JllfEH6wmsYxNjTUAMrPmNA8w==
 
-matcher@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/matcher/-/matcher-4.0.0.tgz#a42a05a09aaed92e2d241eb91fddac689461ea51"
-  integrity sha512-S6x5wmcDmsDRRU/c2dkccDwQPXoFczc5+HpQ2lON8pnvHlnvHAHj5WlLVvw6n6vNyHuVugYrFohYxbS+pvFpKQ==
-  dependencies:
-    escape-string-regexp "^4.0.0"
-
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -18617,10 +18610,10 @@ prettysize@^2.0.0:
   resolved "https://registry.yarnpkg.com/prettysize/-/prettysize-2.0.0.tgz#902c02480d865d9cc0813011c9feb4fa02ce6996"
   integrity sha512-VVtxR7sOh0VsG8o06Ttq5TrI1aiZKmC+ClSn4eBPaNf4SHr5lzbYW+kYGX3HocBL/MfpVrRfFZ9V3vCbLaiplg==
 
-prisma-nestjs-graphql@13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-13.0.0.tgz#6ee8ab6975c66c1cec1cea76864ca0a6b7581d93"
-  integrity sha512-3w/RcPxRR1SsXoERJqp1ch8vs+DuhKzuebMiam8K8WDbhK9JhdnWO6faxPfZ01tWEEjYiaSP62Xtkl8qtNx87Q==
+prisma-nestjs-graphql@14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.0.0.tgz#49582acbea53a90e112e2c6175d41c0aa234b4f9"
+  integrity sha512-OmbtMNofLpUwiwxo+CLlax3KehNI49TDHPPjS3XpjdtUSwwffUKlTjapTK9XoYgS5Vsv6b2fdixvADb65NzwgQ==
   dependencies:
     "@prisma/generator-helper" "^2.30.0"
     await-event-emitter "^2.0.2"
@@ -18629,7 +18622,6 @@ prisma-nestjs-graphql@13.0.0:
     get-relative-path "^1.0.2"
     json5 "^2.2.0"
     lodash "^4.17.21"
-    matcher "^4.0.0"
     outmatch "^0.7.0"
     pluralize "^8.0.0"
     pupa "2.X"
