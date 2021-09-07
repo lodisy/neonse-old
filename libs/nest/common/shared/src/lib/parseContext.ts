@@ -1,6 +1,7 @@
+import { Request } from '@neonse/nest-common-shared'
 import { ArgumentsHost, ExecutionContext } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { GraphQLResolveInfo } from 'graphql'
 
 export type RestContext = { req: Request; res: Response; isGraphQL: false; info: undefined }

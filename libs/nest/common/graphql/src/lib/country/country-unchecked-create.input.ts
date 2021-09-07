@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { CountryTranslationUncheckedCreateNestedManyWithoutCountryInput } from '../country-translation/country-translation-unchecked-create-nested-many-without-country.input';
+import { AddressUncheckedCreateNestedManyWithoutCountryInput } from '../address/address-unchecked-create-nested-many-without-country.input';
 
 @InputType()
 export class CountryUncheckedCreateInput {
@@ -27,6 +28,12 @@ export class CountryUncheckedCreateInput {
     @Field(() => LanguageCode, {nullable:true})
     languageCode?: keyof typeof LanguageCode;
 
+    @Field(() => String, {nullable:true})
+    shippingZoneId?: string;
+
     @Field(() => CountryTranslationUncheckedCreateNestedManyWithoutCountryInput, {nullable:true})
     translations?: CountryTranslationUncheckedCreateNestedManyWithoutCountryInput;
+
+    @Field(() => AddressUncheckedCreateNestedManyWithoutCountryInput, {nullable:true})
+    address?: AddressUncheckedCreateNestedManyWithoutCountryInput;
 }

@@ -507,6 +507,48 @@
                 }
             }
         },
+        "nest-store-promotions": {
+            "root": "libs/nest/store/promotions",
+            "sourceRoot": "libs/nest/store/promotions/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/store/promotions/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/store/promotions"],
+                    "options": {
+                        "jestConfig": "libs/nest/store/promotions/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-store-shipping": {
+            "root": "libs/nest/store/shipping",
+            "sourceRoot": "libs/nest/store/shipping/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/store/shipping/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/store/shipping"],
+                    "options": {
+                        "jestConfig": "libs/nest/store/shipping/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-talk-chat": {
             "root": "libs/nest/talk/chat",
             "sourceRoot": "libs/nest/talk/chat/src",

@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Profile } from '../profile/profile.model';
+import { Country } from '../country/country.model';
 import { GraphQLJSON } from 'graphql-type-json';
 
 /** 地址 */
@@ -53,8 +54,11 @@ export class Address {
     @Field(() => String, {nullable:true})
     postalCode!: string | null;
 
+    @Field(() => Country, {nullable:false})
+    country?: Country;
+
     @Field(() => String, {nullable:false})
-    country!: string;
+    countryId!: string;
 
     /** 是否作为默认地址 */
     @Field(() => Boolean, {nullable:true,defaultValue:true,description:'是否作为默认地址'})

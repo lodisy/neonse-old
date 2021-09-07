@@ -15,7 +15,7 @@ export enum AddressScalarFieldEnum {
     city = "city",
     state = "state",
     postalCode = "postalCode",
-    country = "country",
+    countryId = "countryId",
     'default' = "default",
     customFields = "customFields"
 }

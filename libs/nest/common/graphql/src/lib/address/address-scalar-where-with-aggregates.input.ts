@@ -61,7 +61,7 @@ export class AddressScalarWhereWithAggregatesInput {
     postalCode?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
-    country?: StringWithAggregatesFilter;
+    countryId?: StringWithAggregatesFilter;
 
     @Field(() => BoolNullableWithAggregatesFilter, {nullable:true})
     default?: BoolNullableWithAggregatesFilter;

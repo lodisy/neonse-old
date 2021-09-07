@@ -27,5 +27,8 @@ export class CountryCountAggregate {
     languageCode!: number;
 
     @Field(() => Int, {nullable:false})
+    shippingZoneId!: number;
+
+    @Field(() => Int, {nullable:false})
     _all!: number;
 }

@@ -7,7 +7,8 @@ export enum CountryScalarFieldEnum {
     code = "code",
     name = "name",
     enabled = "enabled",
-    languageCode = "languageCode"
+    languageCode = "languageCode",
+    shippingZoneId = "shippingZoneId"
 }
 
 

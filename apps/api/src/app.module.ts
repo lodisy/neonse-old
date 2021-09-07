@@ -1,5 +1,5 @@
 import { AuthModule } from '@neonse/nest-common-auth'
-import configs, { GraphqlConfig, I18nConfig } from '@neonse/nest-common-configs'
+import configs, { GraphqlConfig } from '@neonse/nest-common-configs'
 import { FilesModule } from '@neonse/nest-common-files'
 import { PrismaModule } from '@neonse/nest-common-prisma'
 import { HttpExceptionFilter } from '@neonse/nest-common-shared'
@@ -32,20 +32,13 @@ import * as path from 'path'
             },
             inject: [ConfigService],
         }),
-        I18nModule.forRootAsync({
-            useFactory: async (configService: ConfigService) => {
-                const i18nConfig = configService.get<I18nConfig>('i18n')
-                return {
-                    fallbackLanguage: i18nConfig.fallbackLanguage,
-                    parserOptions: {
-                        path: path.join(__dirname, '/locales/'),
-                        watch: true, //enable live translations
-                    },
-                }
+        I18nModule.forRoot({
+            fallbackLanguage: 'en',
+            parserOptions: {
+                path: path.join(__dirname, '/locales/'),
             },
             parser: I18nJsonParser,
             resolvers: [AcceptLanguageResolver],
-            inject: [ConfigService],
         }),
         AuthModule,
         FilesModule,

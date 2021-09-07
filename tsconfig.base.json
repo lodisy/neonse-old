@@ -38,6 +38,8 @@
             "@neonse/nest-server-user": ["libs/nest/server/user/src/index.ts"],
             "@neonse/nest-store-orders": ["libs/nest/store/orders/src/index.ts"],
             "@neonse/nest-store-products": ["libs/nest/store/products/src/index.ts"],
+            "@neonse/nest-store-promotions": ["libs/nest/store/promotions/src/index.ts"],
+            "@neonse/nest-store-shipping": ["libs/nest/store/shipping/src/index.ts"],
             "@neonse/nest-talk-chat": ["libs/nest/talk/chat/src/index.ts"],
             "@neonse/ui": ["libs/ui/src/index.ts"],
             "@neonse/ui-animations": ["libs/ui/src/animations/src/index.ts"],

@@ -47,7 +47,7 @@ export class AddressMinAggregate {
     postalCode?: string;
 
     @Field(() => String, {nullable:true})
-    country?: string;
+    countryId?: string;
 
     @Field(() => Boolean, {nullable:true})
     default?: boolean;

@@ -47,7 +47,7 @@ export class AddressCountAggregateInput {
     postalCode?: true;
 
     @Field(() => Boolean, {nullable:true})
-    country?: true;
+    countryId?: true;
 
     @Field(() => Boolean, {nullable:true})
     default?: true;

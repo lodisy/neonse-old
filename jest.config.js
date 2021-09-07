@@ -31,5 +31,7 @@ module.exports = {
         '<rootDir>/libs/nest/store/orders',
         '<rootDir>/libs/nest/talk/chat',
         '<rootDir>/libs/nest/main/articles',
+        '<rootDir>/libs/nest/store/shipping',
+        '<rootDir>/libs/nest/store/promotions',
     ],
 }

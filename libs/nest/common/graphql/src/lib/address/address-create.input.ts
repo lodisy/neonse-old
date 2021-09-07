@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { GraphQLJSON } from 'graphql-type-json';
 import { ProfileCreateNestedOneWithoutAddressesInput } from '../profile/profile-create-nested-one-without-addresses.input';
+import { CountryCreateNestedOneWithoutAddressInput } from '../country/country-create-nested-one-without-address.input';
 
 @InputType()
 export class AddressCreateInput {
@@ -49,9 +50,6 @@ export class AddressCreateInput {
     @Validator.IsPostalCode()
     postalCode?: string;
 
-    @Field(() => String, {nullable:false})
-    country!: string;
-
     @Field(() => Boolean, {nullable:true})
     default?: boolean;
 
@@ -61,4 +59,7 @@ export class AddressCreateInput {
 
     @Field(() => ProfileCreateNestedOneWithoutAddressesInput, {nullable:true})
     Profile?: ProfileCreateNestedOneWithoutAddressesInput;
+
+    @Field(() => CountryCreateNestedOneWithoutAddressInput, {nullable:false})
+    country!: CountryCreateNestedOneWithoutAddressInput;
 }

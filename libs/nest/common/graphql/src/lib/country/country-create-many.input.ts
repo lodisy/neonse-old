@@ -25,4 +25,7 @@ export class CountryCreateManyInput {
 
     @Field(() => LanguageCode, {nullable:true})
     languageCode?: keyof typeof LanguageCode;
+
+    @Field(() => String, {nullable:true})
+    shippingZoneId?: string;
 }
