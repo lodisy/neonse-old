@@ -3239,6 +3239,13 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
+"@radix-ui/number@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/number/-/number-0.1.0.tgz#73ad13d5cc5f75fa5e147d72e5d5d5e50d688256"
+  integrity sha512-rpf6QiOWLHAkM4FEMYu9i+5Jr8cKT893+R4mPpcdsy4LD7omr9JfdOqj/h/xPA5+EcVrpMMlU6rrRYpUB5UI8g==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
 "@radix-ui/popper@0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@radix-ui/popper/-/popper-0.0.10.tgz#9f707d9cec8762423f81acaf8e650e40a554cb73"
@@ -3617,22 +3624,21 @@
     "@radix-ui/react-use-callback-ref" "0.1.0"
     "@radix-ui/react-use-controllable-state" "0.1.0"
 
-"@radix-ui/react-scroll-area@0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-scroll-area/-/react-scroll-area-0.0.16.tgz#21aa93288acc3a888545d09bf3b2c6f25682acdf"
-  integrity sha512-GUVT1DtYhQEryMpNFdap40S6pQLmYMN9avDUFZy74zyz3gEy1y7hx0Dp/WBINPy/pLmzTaBqJajzVnmOJjzzrA==
+"@radix-ui/react-scroll-area@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-scroll-area/-/react-scroll-area-0.1.0.tgz#70887848e9ea98f178e84227d1cca6bd455be14f"
+  integrity sha512-yK+lqXGYCmRbYoI0npjMNQ8ah6Naz7SGfWokcQvO44Qh4dQeTshIYgSzewgFWCYMgZlSa1PiRHvJinJYUSlyaQ==
   dependencies:
     "@babel/runtime" "^7.13.10"
-    "@radix-ui/number" "0.0.6"
-    "@radix-ui/primitive" "0.0.5"
-    "@radix-ui/react-compose-refs" "0.0.5"
-    "@radix-ui/react-context" "0.0.5"
-    "@radix-ui/react-polymorphic" "0.0.13"
-    "@radix-ui/react-presence" "0.0.15"
-    "@radix-ui/react-primitive" "0.0.15"
-    "@radix-ui/react-use-callback-ref" "0.0.5"
-    "@radix-ui/react-use-direction" "0.0.1"
-    "@radix-ui/react-use-layout-effect" "0.0.5"
+    "@radix-ui/number" "0.1.0"
+    "@radix-ui/primitive" "0.1.0"
+    "@radix-ui/react-compose-refs" "0.1.0"
+    "@radix-ui/react-context" "0.1.0"
+    "@radix-ui/react-presence" "0.1.0"
+    "@radix-ui/react-primitive" "0.1.0"
+    "@radix-ui/react-use-callback-ref" "0.1.0"
+    "@radix-ui/react-use-direction" "0.1.0"
+    "@radix-ui/react-use-layout-effect" "0.1.0"
 
 "@radix-ui/react-slider@0.0.17":
   version "0.0.17"
@@ -3749,6 +3755,13 @@
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-use-direction/-/react-use-direction-0.0.1.tgz#9ac72eb6d9902ed505c8a34048981d94f9433e14"
   integrity sha512-sU+tkP09uEI1m+YJAR1ZAZLVFY1h/JD+jLSSQt5Wo3b9SYrJA889i2hH1P3DNRyWbbbisweiEQdK3MWILhFCig==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
+"@radix-ui/react-use-direction@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-direction/-/react-use-direction-0.1.0.tgz#97ac1d52e497c974389e7988f809238ed72e7df7"
+  integrity sha512-NajpY/An9TCPSfOVkgWIdXJV+VuWl67PxB6kOKYmtNAFHvObzIoh8o0n9sAuwSAyFCZVq211FEf9gvVDRhOyiA==
   dependencies:
     "@babel/runtime" "^7.13.10"
 
