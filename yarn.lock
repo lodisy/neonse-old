@@ -3303,22 +3303,6 @@
     "@radix-ui/react-use-callback-ref" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
 
-"@radix-ui/react-collapsible@0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-collapsible/-/react-collapsible-0.0.17.tgz#d778ec1d5b7b4543fd4db1b3e4be96c74568d441"
-  integrity sha512-MiRf6eTNXBIEhOOK7F2kEJy6atr26PLVAT3gTONUvGTMPT2fUVZTOrG/KfnTyOuUoL4W468UPwTD1xN2L9tbUw==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    "@radix-ui/primitive" "0.0.5"
-    "@radix-ui/react-compose-refs" "0.0.5"
-    "@radix-ui/react-context" "0.0.5"
-    "@radix-ui/react-id" "0.0.6"
-    "@radix-ui/react-polymorphic" "0.0.13"
-    "@radix-ui/react-presence" "0.0.15"
-    "@radix-ui/react-primitive" "0.0.15"
-    "@radix-ui/react-use-controllable-state" "0.0.6"
-    "@radix-ui/react-use-layout-effect" "0.0.5"
-
 "@radix-ui/react-collapsible@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-collapsible/-/react-collapsible-0.1.0.tgz#62276b5300de7db9b9a809fd0996165890de0805"
