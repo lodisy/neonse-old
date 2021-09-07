@@ -528,6 +528,27 @@
                 }
             }
         },
+        "nest-store-reviews": {
+            "root": "libs/nest/store/reviews",
+            "sourceRoot": "libs/nest/store/reviews/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/store/reviews/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/store/reviews"],
+                    "options": {
+                        "jestConfig": "libs/nest/store/reviews/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "nest-store-shipping": {
             "root": "libs/nest/store/shipping",
             "sourceRoot": "libs/nest/store/shipping/src",

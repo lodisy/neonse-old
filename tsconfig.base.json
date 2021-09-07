@@ -41,6 +41,7 @@
             "@neonse/nest-store-promotions": ["libs/nest/store/promotions/src/index.ts"],
             "@neonse/nest-store-shipping": ["libs/nest/store/shipping/src/index.ts"],
             "@neonse/nest-talk-chat": ["libs/nest/talk/chat/src/index.ts"],
+            "@neonse/nest/store/reviews": ["libs/nest/store/reviews/src/index.ts"],
             "@neonse/ui": ["libs/ui/src/index.ts"],
             "@neonse/ui-animations": ["libs/ui/src/animations/src/index.ts"],
             "@neonse/ui-components": ["libs/ui/src/components/src/index.ts"],

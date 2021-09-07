@@ -33,5 +33,6 @@ module.exports = {
         '<rootDir>/libs/nest/main/articles',
         '<rootDir>/libs/nest/store/shipping',
         '<rootDir>/libs/nest/store/promotions',
+        '<rootDir>/libs/nest/store/reviews',
     ],
 }
