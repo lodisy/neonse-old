@@ -3232,13 +3232,6 @@
   resolved "https://registry.yarnpkg.com/@radix-ui/colors/-/colors-0.1.7.tgz#055cdf104f92ae58a7d6a7f1c7327c635b90747f"
   integrity sha512-E6+ZPQ+FFn1/NZ4c/KRvZTu9KjC/MXrbJNETYs1HKe96gyxQivPu65FkhOsRnPigvJ0YJ9ZxYGxayqDNmaC1cQ==
 
-"@radix-ui/number@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@radix-ui/number/-/number-0.0.6.tgz#b99c5397592d4714f2addaac86879e3ed5136acd"
-  integrity sha512-4ezhe9dWl3mSrZ6EaYQE+OhOOT1+KW73FTbpaQmg8rD7RgArnmbSW7gLdWw9X9zq4zv+FGqcTqErxctiG3ZzRA==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-
 "@radix-ui/number@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/number/-/number-0.1.0.tgz#73ad13d5cc5f75fa5e147d72e5d5d5e50d688256"
@@ -3640,24 +3633,23 @@
     "@radix-ui/react-use-direction" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
 
-"@radix-ui/react-slider@0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-slider/-/react-slider-0.0.17.tgz#14cc1bb89ff189fb082bc9efda8fe6161e491d6e"
-  integrity sha512-bYu+SuHnQnPCx7oOsMIujPPqgRi83PF7rVQ6/bRaLUjbJutHB8Arye8KhcvW/OUcqMqWllt0Jwp5aV6akM+ukA==
+"@radix-ui/react-slider@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slider/-/react-slider-0.1.0.tgz#a94d3a1a5d8570c78ee88615b48aa4fcfefe13d0"
+  integrity sha512-igzRMqgauyT3pxF6nSdKL0L31BmSR/J+gt+jvz8wqYdftkGTrGKuJgFWwPoso7z6VJ6Oc8izdXN+Z3S/8QB3Lg==
   dependencies:
     "@babel/runtime" "^7.13.10"
-    "@radix-ui/number" "0.0.6"
-    "@radix-ui/primitive" "0.0.5"
-    "@radix-ui/react-collection" "0.0.15"
-    "@radix-ui/react-compose-refs" "0.0.5"
-    "@radix-ui/react-context" "0.0.5"
-    "@radix-ui/react-polymorphic" "0.0.13"
-    "@radix-ui/react-primitive" "0.0.15"
-    "@radix-ui/react-use-controllable-state" "0.0.6"
-    "@radix-ui/react-use-direction" "0.0.1"
-    "@radix-ui/react-use-layout-effect" "0.0.5"
-    "@radix-ui/react-use-previous" "0.0.5"
-    "@radix-ui/react-use-size" "0.0.6"
+    "@radix-ui/number" "0.1.0"
+    "@radix-ui/primitive" "0.1.0"
+    "@radix-ui/react-collection" "0.1.0"
+    "@radix-ui/react-compose-refs" "0.1.0"
+    "@radix-ui/react-context" "0.1.0"
+    "@radix-ui/react-primitive" "0.1.0"
+    "@radix-ui/react-use-controllable-state" "0.1.0"
+    "@radix-ui/react-use-direction" "0.1.0"
+    "@radix-ui/react-use-layout-effect" "0.1.0"
+    "@radix-ui/react-use-previous" "0.1.0"
+    "@radix-ui/react-use-size" "0.1.0"
 
 "@radix-ui/react-slot@0.0.12":
   version "0.0.12"
@@ -3750,13 +3742,6 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-use-callback-ref" "0.1.0"
-
-"@radix-ui/react-use-direction@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-direction/-/react-use-direction-0.0.1.tgz#9ac72eb6d9902ed505c8a34048981d94f9433e14"
-  integrity sha512-sU+tkP09uEI1m+YJAR1ZAZLVFY1h/JD+jLSSQt5Wo3b9SYrJA889i2hH1P3DNRyWbbbisweiEQdK3MWILhFCig==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
 
 "@radix-ui/react-use-direction@0.1.0":
   version "0.1.0"
