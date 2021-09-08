@@ -16517,10 +16517,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-nestjs-i18n@8.1.5:
-  version "8.1.5"
-  resolved "https://registry.yarnpkg.com/nestjs-i18n/-/nestjs-i18n-8.1.5.tgz#302295de73663b84fa4938d4e607baf32266dd8d"
-  integrity sha512-/b7ZfySX+L+rZBKRdDX1jxW+OFl5xBD4hi0QK+XYaWjNHX4q3xSB2ZrljPf6PrqlBQ+imGG4524TkdfmmVPWTA==
+nestjs-i18n@8.1.6:
+  version "8.1.6"
+  resolved "https://registry.yarnpkg.com/nestjs-i18n/-/nestjs-i18n-8.1.6.tgz#f8f2af7f1158e45e71f0ee266b34917bbd9c73da"
+  integrity sha512-fTTMpiekply6RdiXTYdvHj3mAlxcZ2n2vu92wxUn0xCTqDtr+VUbg2j43qP+5TEiVAJeTpjzzrogOovWOAZjcA==
   dependencies:
     accept-language-parser "^1.5.0"
     chokidar "^3.5.1"
