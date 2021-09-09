@@ -3110,19 +3110,19 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
-"@paljs/plugins@3.8.3":
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/@paljs/plugins/-/plugins-3.8.3.tgz#88dc5561bcdb13efd16490fb94949318297a5a3b"
-  integrity sha512-Od30Vw1tz+jc3mSpH2HFTX4d0ilcW+xXqOtuLNfLHIHfkLQQsM9qqsYh2gJ3TcT38hntFJV0t1ToiP09CrUhwQ==
+"@paljs/plugins@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@paljs/plugins/-/plugins-4.0.0.tgz#e79a02f8622e960e59080bd31c18a409b09d9175"
+  integrity sha512-TgyAugwM38x6do5dZ871geVtALvHiVQwvyeqWfXOWhf3onaOpGbqftiQAjtX9/xbS6RQzO+YSYCJqMIG4rN0kA==
   dependencies:
-    "@paljs/types" "^3.8.3"
+    "@paljs/types" "^4.0.0"
     graphql-fields "2.0.3"
     graphql-tag "2.12.5"
 
-"@paljs/types@^3.8.3":
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/@paljs/types/-/types-3.8.3.tgz#556c64b83c8caa1bb6bdcb5ed6f1cd633a037357"
-  integrity sha512-ymY5hqwNo5rpbOYc5xnoSiV45p9oAK1SH4q/NqoMQ99FitWPx0/qLxjMAmEy2cGsvqC7gCdWKjgV5gE/Fvf5iQ==
+"@paljs/types@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@paljs/types/-/types-4.0.0.tgz#853017eec13d1e2ea73bbafa6493896e636e29cb"
+  integrity sha512-1HsZjBUcdjXvgDPilpSZT4gPgfvXNezsf+z7FdaC00haiubkzSgDOnwTQXieGwrONVXDvGoAeEOOxiPBHS6suA==
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"

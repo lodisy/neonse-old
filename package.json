@@ -43,7 +43,7 @@
         "@nestjs/platform-socket.io": "8.0.6",
         "@nestjs/websockets": "8.0.6",
         "@nrwl/next": "12.9.0",
-        "@paljs/plugins": "3.8.3",
+        "@paljs/plugins": "4.0.0",
         "@prisma/client": "2.30.3",
         "@radix-ui/colors": "0.1.7",
         "@radix-ui/react-accordion": "0.1.0",
