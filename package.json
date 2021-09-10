@@ -72,7 +72,7 @@
         "cookie": "0.4.1",
         "cookie-parser": "1.4.5",
         "core-js": "3.17.3",
-        "cos-nodejs-sdk-v5": "2.10.0",
+        "cos-nodejs-sdk-v5": "2.10.1",
         "dayjs": "1.10.6",
         "document-register-element": "1.14.10",
         "embla-carousel": "4.5.3",
