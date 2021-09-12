@@ -110,7 +110,7 @@
         "socket.io": "4.2.0",
         "socket.io-client": "4.2.0",
         "stitches-native": "0.0.1-0",
-        "swr": "1.0.0",
+        "swr": "1.0.1",
         "tencentcloud-sdk-nodejs": "4.0.199",
         "three": "0.132.2",
         "tslib": "2.3.1",
