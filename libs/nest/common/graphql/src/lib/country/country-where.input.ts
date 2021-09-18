@@ -5,6 +5,9 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { BoolFilter } from '../prisma/bool-filter.input';
 import { EnumLanguageCodeFilter } from '../prisma/enum-language-code-filter.input';
 import { CountryTranslationListRelationFilter } from '../country-translation/country-translation-list-relation-filter.input';
+import { AddressListRelationFilter } from '../address/address-list-relation-filter.input';
+import { ShippingZoneRelationFilter } from '../shipping-zone/shipping-zone-relation-filter.input';
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 
 @InputType()
 export class CountryWhereInput {
@@ -41,4 +44,13 @@ export class CountryWhereInput {
 
     @Field(() => CountryTranslationListRelationFilter, {nullable:true})
     translations?: CountryTranslationListRelationFilter;
+
+    @Field(() => AddressListRelationFilter, {nullable:true})
+    address?: AddressListRelationFilter;
+
+    @Field(() => ShippingZoneRelationFilter, {nullable:true})
+    shippingZone?: ShippingZoneRelationFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    shippingZoneId?: StringNullableFilter;
 }

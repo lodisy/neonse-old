@@ -53,7 +53,7 @@ export class AddressUncheckedUpdateManyInput {
     postalCode?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    country?: StringFieldUpdateOperationsInput;
+    countryId?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     default?: NullableBoolFieldUpdateOperationsInput;

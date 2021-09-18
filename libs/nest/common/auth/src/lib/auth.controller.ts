@@ -1,4 +1,4 @@
-import { JwtAuthGuard, JwtRefreshGuard, LocalAuthGuard, RequestWithUser } from '@neonse/nest-common-shared'
+import { JwtAuthGuard, JwtRefreshGuard, LocalAuthGuard, Request } from '@neonse/nest-common-shared'
 import { UsersService } from '@neonse/nest-common-users'
 import { Body, Controller, Get, HttpCode, Post, Req, UseGuards } from '@nestjs/common'
 import * as dayjs from 'dayjs'
@@ -30,7 +30,7 @@ export class AuthController {
 
     @Post('login')
     @UseGuards(LocalAuthGuard)
-    async login(@Req() request: RequestWithUser) {
+    async login(@Req() request: Request) {
         const { user } = request
 
         const { accessToken, accessCookie } = this.authService.getCookieAndAccessToken(user.id)
@@ -59,7 +59,7 @@ export class AuthController {
     @Post('logout')
     @UseGuards(JwtAuthGuard)
     @HttpCode(200)
-    async logout(@Req() request: RequestWithUser) {
+    async logout(@Req() request: Request) {
         const { user } = request
         // 清空 cookie
         request.res.setHeader('Set-Cookie', this.authService.getCookieWhenLogout())
@@ -79,7 +79,7 @@ export class AuthController {
 
     @Get('refresh')
     @UseGuards(JwtRefreshGuard)
-    async refresh(@Req() request: RequestWithUser) {
+    async refresh(@Req() request: Request) {
         const { user } = request
         const { accessCookie, accessToken } = this.authService.getCookieAndAccessToken(user.id)
         request.res.setHeader('Set-Cookie', accessCookie)

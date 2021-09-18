@@ -3,7 +3,7 @@
  */
 
 import { Channel, LanguageCode } from '@prisma/client'
-import { RequestWithUser } from './request.interface'
+import { Request } from './request.interface'
 
 export class RequestContext {
     private readonly _languageCode: LanguageCode
@@ -13,10 +13,10 @@ export class RequestContext {
     private readonly _authorizedAsOwnerOnly: boolean
     // private readonly _translationFn: TFunction
     // private readonly _apiType: ApiType
-    private readonly _req?: RequestWithUser
+    private readonly _req?: Request
 
     constructor(options: {
-        req?: RequestWithUser
+        req?: Request
         //  apiType: ApiType;
         channel: Channel
         //   session?: CachedSession;

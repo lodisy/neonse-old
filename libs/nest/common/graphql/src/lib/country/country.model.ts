@@ -3,6 +3,8 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { CountryTranslation } from '../country-translation/country-translation.model';
+import { Address } from '../address/address.model';
+import { ShippingZone } from '../shipping-zone/shipping-zone.model';
 
 /** 支持运送的国家 */
 @ObjectType({description:'支持运送的国家'})
@@ -32,4 +34,13 @@ export class Country {
 
     @Field(() => [CountryTranslation], {nullable:true})
     translations?: Array<CountryTranslation>;
+
+    @Field(() => [Address], {nullable:true})
+    address?: Array<Address>;
+
+    @Field(() => ShippingZone, {nullable:true})
+    shippingZone?: ShippingZone;
+
+    @Field(() => String, {nullable:true})
+    shippingZoneId!: string | null;
 }

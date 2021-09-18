@@ -49,7 +49,7 @@ export class AddressCreateManyProfileInput {
     postalCode?: string;
 
     @Field(() => String, {nullable:false})
-    country!: string;
+    countryId!: string;
 
     @Field(() => Boolean, {nullable:true})
     default?: boolean;

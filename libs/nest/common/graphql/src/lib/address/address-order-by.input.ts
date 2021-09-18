@@ -48,7 +48,7 @@ export class AddressOrderByInput {
     postalCode?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    country?: keyof typeof SortOrder;
+    countryId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     default?: keyof typeof SortOrder;

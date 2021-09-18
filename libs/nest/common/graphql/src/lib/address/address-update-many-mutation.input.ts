@@ -49,9 +49,6 @@ export class AddressUpdateManyMutationInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     postalCode?: NullableStringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    country?: StringFieldUpdateOperationsInput;
-
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     default?: NullableBoolFieldUpdateOperationsInput;
 

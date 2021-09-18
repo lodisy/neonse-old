@@ -61,7 +61,7 @@ export class AddressScalarWhereInput {
     postalCode?: StringNullableFilter;
 
     @Field(() => StringFilter, {nullable:true})
-    country?: StringFilter;
+    countryId?: StringFilter;
 
     @Field(() => BoolNullableFilter, {nullable:true})
     default?: BoolNullableFilter;

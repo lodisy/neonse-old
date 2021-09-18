@@ -48,7 +48,7 @@ export class AddressCountAggregate {
     postalCode!: number;
 
     @Field(() => Int, {nullable:false})
-    country!: number;
+    countryId!: number;
 
     @Field(() => Int, {nullable:false})
     default!: number;

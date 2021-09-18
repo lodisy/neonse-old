@@ -159,7 +159,8 @@ model Address {
   state        String?
   /// @Validator.IsPostalCode()
   postalCode   String?
-  country      String
+  country      Country  @relation(fields: [countryId], references: [id])
+  countryId    String
   /// 是否作为默认地址
   default      Boolean? @default(true)
   /// @Validator.IsJSON()
@@ -250,15 +251,18 @@ model Comment {
 
 /// 支持运送的国家
 model Country {
-  id           String               @id @default(cuid())
-  createdAt    DateTime             @default(now())
-  updatedAt    DateTime             @updatedAt
-  code         String               @unique
-  name         String
+  id             String               @id @default(cuid())
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @updatedAt
+  code           String               @unique
+  name           String
   /// 开启支持运送
-  enabled      Boolean
-  languageCode LanguageCode         @default(en)
-  translations CountryTranslation[]
+  enabled        Boolean
+  languageCode   LanguageCode         @default(en)
+  translations   CountryTranslation[]
+  address        Address[]
+  shippingZone   ShippingZone?        @relation(fields: [shippingZoneId], references: [id])
+  shippingZoneId String?
 }
 
 model CountryTranslation {
@@ -727,6 +731,14 @@ model ShippingMethodTranslation {
   description      String?
   shippingMethod   ShippingMethod @relation(fields: [shippingMethodId], references: [id])
   shippingMethodId String
+}
+
+model ShippingZone {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  name      String    @unique
+  members   Country[]
 }
 
 /// 文章、图片、视频等来源

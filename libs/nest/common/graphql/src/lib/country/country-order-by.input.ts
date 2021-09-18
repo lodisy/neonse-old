@@ -25,4 +25,7 @@ export class CountryOrderByInput {
 
     @Field(() => SortOrder, {nullable:true})
     languageCode?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    shippingZoneId?: keyof typeof SortOrder;
 }

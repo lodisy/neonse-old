@@ -2,7 +2,7 @@
  * TODO
  */
 
-import { JwtAuthGuard, RequestWithUser } from '@neonse/nest-common-shared'
+import { JwtAuthGuard, Request } from '@neonse/nest-common-shared'
 import { Body, Controller, Post, Req, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { Prisma } from '@prisma/client'
@@ -27,7 +27,7 @@ export class UsersController {
         }),
     )
     @UseGuards(JwtAuthGuard)
-    async changeAvatar(@Req() request: RequestWithUser, @UploadedFile() image: Express.Multer.File) {
+    async changeAvatar(@Req() request: Request, @UploadedFile() image: Express.Multer.File) {
         const { user } = request
 
         await this.usersService.updateAvatar(user.id, image)
@@ -37,17 +37,14 @@ export class UsersController {
 
     @Post('changepass')
     @UseGuards(JwtAuthGuard)
-    async changePassword(
-        @Req() request: RequestWithUser,
-        @Body() data: { currentPassword: string; newPassword: string },
-    ) {
+    async changePassword(@Req() request: Request, @Body() data: { currentPassword: string; newPassword: string }) {
         const { user } = request
         return this.usersService.changePassword(user.id, data.currentPassword, data.newPassword)
     }
 
     @Post('update')
     @UseGuards(JwtAuthGuard)
-    async updateUser(@Req() request: RequestWithUser, @Body() data: Prisma.UserUpdateInput) {
+    async updateUser(@Req() request: Request, @Body() data: Prisma.UserUpdateInput) {
         const { user } = request
         return this.usersService.updateUser({ id: user.id }, data)
     }

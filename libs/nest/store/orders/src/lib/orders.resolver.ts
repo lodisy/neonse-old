@@ -70,15 +70,7 @@ export class OrdersResolver {
         description: '创建订单',
     })
     async createOrder(@Args('data') data: OrderCreateInput): Promise<Order> {
-        const { code } = data
-
-        await this.ordersService.isExisting({
-            code,
-        })
-
-        return this.prisma.order.create({
-            data,
-        })
+        return this.ordersService.createOrder(data)
     }
 
     /** 前后端更新单条订单
@@ -99,13 +91,6 @@ export class OrdersResolver {
         @Args('code', { type: () => String }) code: string,
         @Args('data') data: OrderUpdateInput,
     ): Promise<Order> {
-        await this.ordersService.isExisting({
-            code,
-        })
-
-        return this.prisma.order.update({
-            where: { code },
-            data,
-        })
+        return this.ordersService.updateOrder(code, data)
     }
 }

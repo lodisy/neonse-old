@@ -80,6 +80,12 @@
         "nest-store-products": {
             "tags": []
         },
+        "nest-store-promotion": {
+            "tags": []
+        },
+        "nest-store-shipping": {
+            "tags": []
+        },
         "nest-talk-chat": {
             "tags": []
         },

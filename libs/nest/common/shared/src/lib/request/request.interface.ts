@@ -1,6 +1,7 @@
 import { User } from '@prisma/client'
-import { Request } from 'express'
+import { Request as ExpressRequest } from 'express'
 
-export interface RequestWithUser extends Request {
+export interface Request extends ExpressRequest {
     user: User
+    i18nLang: string
 }

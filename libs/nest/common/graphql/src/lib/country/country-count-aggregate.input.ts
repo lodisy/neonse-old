@@ -26,5 +26,8 @@ export class CountryCountAggregateInput {
     languageCode?: true;
 
     @Field(() => Boolean, {nullable:true})
+    shippingZoneId?: true;
+
+    @Field(() => Boolean, {nullable:true})
     _all?: true;
 }

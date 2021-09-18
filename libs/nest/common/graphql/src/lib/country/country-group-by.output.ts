@@ -29,6 +29,9 @@ export class CountryGroupBy {
     @Field(() => LanguageCode, {nullable:false})
     languageCode!: keyof typeof LanguageCode;
 
+    @Field(() => String, {nullable:true})
+    shippingZoneId?: string;
+
     @Field(() => CountryCountAggregate, {nullable:true})
     _count?: CountryCountAggregate;
 

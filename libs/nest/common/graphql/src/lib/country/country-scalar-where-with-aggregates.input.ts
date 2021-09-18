@@ -4,6 +4,7 @@ import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-fil
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 import { BoolWithAggregatesFilter } from '../prisma/bool-with-aggregates-filter.input';
 import { EnumLanguageCodeWithAggregatesFilter } from '../prisma/enum-language-code-with-aggregates-filter.input';
+import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 
 @InputType()
 export class CountryScalarWhereWithAggregatesInput {
@@ -37,4 +38,7 @@ export class CountryScalarWhereWithAggregatesInput {
 
     @Field(() => EnumLanguageCodeWithAggregatesFilter, {nullable:true})
     languageCode?: EnumLanguageCodeWithAggregatesFilter;
+
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    shippingZoneId?: StringNullableWithAggregatesFilter;
 }

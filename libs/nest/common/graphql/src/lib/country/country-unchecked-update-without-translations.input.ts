@@ -4,6 +4,8 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { EnumLanguageCodeFieldUpdateOperationsInput } from '../prisma/enum-language-code-field-update-operations.input';
+import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
+import { AddressUncheckedUpdateManyWithoutCountryInput } from '../address/address-unchecked-update-many-without-country.input';
 
 @InputType()
 export class CountryUncheckedUpdateWithoutTranslationsInput {
@@ -28,4 +30,10 @@ export class CountryUncheckedUpdateWithoutTranslationsInput {
 
     @Field(() => EnumLanguageCodeFieldUpdateOperationsInput, {nullable:true})
     languageCode?: EnumLanguageCodeFieldUpdateOperationsInput;
+
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    shippingZoneId?: NullableStringFieldUpdateOperationsInput;
+
+    @Field(() => AddressUncheckedUpdateManyWithoutCountryInput, {nullable:true})
+    address?: AddressUncheckedUpdateManyWithoutCountryInput;
 }

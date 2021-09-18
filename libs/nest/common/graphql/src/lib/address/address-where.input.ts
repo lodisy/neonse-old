@@ -4,6 +4,7 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { ProfileRelationFilter } from '../profile/profile-relation-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
+import { CountryRelationFilter } from '../country/country-relation-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { JsonNullableFilter } from '../prisma/json-nullable-filter.input';
 
@@ -64,8 +65,11 @@ export class AddressWhereInput {
     @Field(() => StringNullableFilter, {nullable:true})
     postalCode?: StringNullableFilter;
 
+    @Field(() => CountryRelationFilter, {nullable:true})
+    country?: CountryRelationFilter;
+
     @Field(() => StringFilter, {nullable:true})
-    country?: StringFilter;
+    countryId?: StringFilter;
 
     @Field(() => BoolNullableFilter, {nullable:true})
     default?: BoolNullableFilter;

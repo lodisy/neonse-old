@@ -24,4 +24,7 @@ export class CountryMinAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     languageCode?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    shippingZoneId?: true;
 }

@@ -16,7 +16,8 @@ type Address {
   Profile: Profile
   city: String!
   company: String
-  country: String!
+  country: Country!
+  countryId: String!
   createdAt: DateTime!
   customFields: JSON
 
@@ -39,7 +40,7 @@ type AddressCountAggregate {
   _all: Int!
   city: Int!
   company: Int!
-  country: Int!
+  countryId: Int!
   createdAt: Int!
   customFields: Int!
   default: Int!
@@ -59,7 +60,7 @@ type AddressCountAggregate {
 input AddressCreateManyProfileInput {
   city: String!
   company: String
-  country: String!
+  countryId: String!
   createdAt: DateTime
   customFields: JSON
   default: Boolean
@@ -95,7 +96,7 @@ input AddressCreateOrConnectWithoutProfileInput {
 input AddressCreateWithoutProfileInput {
   city: String!
   company: String
-  country: String!
+  country: CountryCreateNestedOneWithoutAddressInput!
   createdAt: DateTime
   customFields: JSON
   default: Boolean
@@ -120,7 +121,7 @@ input AddressListRelationFilter {
 type AddressMaxAggregate {
   city: String
   company: String
-  country: String
+  countryId: String
   createdAt: DateTime
   default: Boolean
   district: String
@@ -139,7 +140,7 @@ type AddressMaxAggregate {
 type AddressMinAggregate {
   city: String
   company: String
-  country: String
+  countryId: String
   createdAt: DateTime
   default: Boolean
   district: String
@@ -161,7 +162,7 @@ input AddressScalarWhereInput {
   OR: [AddressScalarWhereInput!]
   city: StringFilter
   company: StringNullableFilter
-  country: StringFilter
+  countryId: StringFilter
   createdAt: DateTimeFilter
   customFields: JsonNullableFilter
   default: BoolNullableFilter
@@ -181,7 +182,6 @@ input AddressScalarWhereInput {
 input AddressUpdateManyMutationInput {
   city: StringFieldUpdateOperationsInput
   company: NullableStringFieldUpdateOperationsInput
-  country: StringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   customFields: JSON
   default: NullableBoolFieldUpdateOperationsInput
@@ -224,7 +224,7 @@ input AddressUpdateWithWhereUniqueWithoutProfileInput {
 input AddressUpdateWithoutProfileInput {
   city: StringFieldUpdateOperationsInput
   company: NullableStringFieldUpdateOperationsInput
-  country: StringFieldUpdateOperationsInput
+  country: CountryUpdateOneRequiredWithoutAddressInput
   createdAt: DateTimeFieldUpdateOperationsInput
   customFields: JSON
   default: NullableBoolFieldUpdateOperationsInput
@@ -253,7 +253,8 @@ input AddressWhereInput {
   Profile: ProfileRelationFilter
   city: StringFilter
   company: StringNullableFilter
-  country: StringFilter
+  country: CountryRelationFilter
+  countryId: StringFilter
   createdAt: DateTimeFilter
   customFields: JsonNullableFilter
   default: BoolNullableFilter
@@ -1513,6 +1514,7 @@ enum ContentType {
 
 """支持运送的国家"""
 type Country {
+  address: [Address!]
   code: String!
   createdAt: DateTime!
 
@@ -1521,6 +1523,8 @@ type Country {
   id: ID!
   languageCode: LanguageCode!
   name: String!
+  shippingZone: ShippingZone
+  shippingZoneId: String
   translations: [CountryTranslation!]
   updatedAt: DateTime!
 }
@@ -1533,7 +1537,37 @@ type CountryCountAggregate {
   id: Int!
   languageCode: Int!
   name: Int!
+  shippingZoneId: Int!
   updatedAt: Int!
+}
+
+input CountryCreateNestedOneWithoutAddressInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutAddressInput
+  create: CountryCreateWithoutAddressInput
+}
+
+input CountryCreateOrConnectWithoutAddressInput {
+  create: CountryCreateWithoutAddressInput!
+  where: CountryWhereUniqueInput!
+}
+
+input CountryCreateWithoutAddressInput {
+  code: String!
+  createdAt: DateTime
+  enabled: Boolean!
+  id: String
+  languageCode: LanguageCode
+  name: String!
+  shippingZone: ShippingZoneCreateNestedOneWithoutMembersInput
+  translations: CountryTranslationCreateNestedManyWithoutCountryInput
+  updatedAt: DateTime
+}
+
+input CountryListRelationFilter {
+  every: CountryWhereInput
+  none: CountryWhereInput
+  some: CountryWhereInput
 }
 
 type CountryMaxAggregate {
@@ -1543,6 +1577,7 @@ type CountryMaxAggregate {
   id: String
   languageCode: LanguageCode
   name: String
+  shippingZoneId: String
   updatedAt: DateTime
 }
 
@@ -1553,7 +1588,13 @@ type CountryMinAggregate {
   id: String
   languageCode: LanguageCode
   name: String
+  shippingZoneId: String
   updatedAt: DateTime
+}
+
+input CountryRelationFilter {
+  is: CountryWhereInput
+  isNot: CountryWhereInput
 }
 
 type CountryTranslation {
@@ -1572,6 +1613,41 @@ type CountryTranslationCountAggregate {
   name: Int!
 }
 
+input CountryTranslationCreateManyCountryInput {
+  id: String
+  languageCode: LanguageCode
+  name: String!
+}
+
+input CountryTranslationCreateManyCountryInputEnvelope {
+  data: [CountryTranslationCreateManyCountryInput!]!
+  skipDuplicates: Boolean
+}
+
+input CountryTranslationCreateNestedManyWithoutCountryInput {
+  connect: [CountryTranslationWhereUniqueInput!]
+  connectOrCreate: [CountryTranslationCreateOrConnectWithoutCountryInput!]
+  create: [CountryTranslationCreateWithoutCountryInput!]
+  createMany: CountryTranslationCreateManyCountryInputEnvelope
+}
+
+input CountryTranslationCreateOrConnectWithoutCountryInput {
+  create: CountryTranslationCreateWithoutCountryInput!
+  where: CountryTranslationWhereUniqueInput!
+}
+
+input CountryTranslationCreateWithoutCountryInput {
+  id: String
+  languageCode: LanguageCode
+  name: String!
+}
+
+input CountryTranslationListRelationFilter {
+  every: CountryTranslationWhereInput
+  none: CountryTranslationWhereInput
+  some: CountryTranslationWhereInput
+}
+
 type CountryTranslationMaxAggregate {
   countryId: String
   id: String
@@ -1584,6 +1660,120 @@ type CountryTranslationMinAggregate {
   id: String
   languageCode: LanguageCode
   name: String
+}
+
+input CountryTranslationScalarWhereInput {
+  AND: [CountryTranslationScalarWhereInput!]
+  NOT: [CountryTranslationScalarWhereInput!]
+  OR: [CountryTranslationScalarWhereInput!]
+  countryId: StringNullableFilter
+  id: StringFilter
+  languageCode: EnumLanguageCodeFilter
+  name: StringFilter
+}
+
+input CountryTranslationUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  languageCode: EnumLanguageCodeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input CountryTranslationUpdateManyWithWhereWithoutCountryInput {
+  data: CountryTranslationUpdateManyMutationInput!
+  where: CountryTranslationScalarWhereInput!
+}
+
+input CountryTranslationUpdateManyWithoutCountryInput {
+  connect: [CountryTranslationWhereUniqueInput!]
+  connectOrCreate: [CountryTranslationCreateOrConnectWithoutCountryInput!]
+  create: [CountryTranslationCreateWithoutCountryInput!]
+  createMany: CountryTranslationCreateManyCountryInputEnvelope
+  delete: [CountryTranslationWhereUniqueInput!]
+  deleteMany: [CountryTranslationScalarWhereInput!]
+  disconnect: [CountryTranslationWhereUniqueInput!]
+  set: [CountryTranslationWhereUniqueInput!]
+  update: [CountryTranslationUpdateWithWhereUniqueWithoutCountryInput!]
+  updateMany: [CountryTranslationUpdateManyWithWhereWithoutCountryInput!]
+  upsert: [CountryTranslationUpsertWithWhereUniqueWithoutCountryInput!]
+}
+
+input CountryTranslationUpdateWithWhereUniqueWithoutCountryInput {
+  data: CountryTranslationUpdateWithoutCountryInput!
+  where: CountryTranslationWhereUniqueInput!
+}
+
+input CountryTranslationUpdateWithoutCountryInput {
+  id: StringFieldUpdateOperationsInput
+  languageCode: EnumLanguageCodeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input CountryTranslationUpsertWithWhereUniqueWithoutCountryInput {
+  create: CountryTranslationCreateWithoutCountryInput!
+  update: CountryTranslationUpdateWithoutCountryInput!
+  where: CountryTranslationWhereUniqueInput!
+}
+
+input CountryTranslationWhereInput {
+  AND: [CountryTranslationWhereInput!]
+  NOT: [CountryTranslationWhereInput!]
+  OR: [CountryTranslationWhereInput!]
+  country: CountryRelationFilter
+  countryId: StringNullableFilter
+  id: StringFilter
+  languageCode: EnumLanguageCodeFilter
+  name: StringFilter
+}
+
+input CountryTranslationWhereUniqueInput {
+  id: String
+}
+
+input CountryUpdateOneRequiredWithoutAddressInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutAddressInput
+  create: CountryCreateWithoutAddressInput
+  update: CountryUpdateWithoutAddressInput
+  upsert: CountryUpsertWithoutAddressInput
+}
+
+input CountryUpdateWithoutAddressInput {
+  code: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  enabled: BoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  languageCode: EnumLanguageCodeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  shippingZone: ShippingZoneUpdateOneWithoutMembersInput
+  translations: CountryTranslationUpdateManyWithoutCountryInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CountryUpsertWithoutAddressInput {
+  create: CountryCreateWithoutAddressInput!
+  update: CountryUpdateWithoutAddressInput!
+}
+
+input CountryWhereInput {
+  AND: [CountryWhereInput!]
+  NOT: [CountryWhereInput!]
+  OR: [CountryWhereInput!]
+  address: AddressListRelationFilter
+  code: StringFilter
+  createdAt: DateTimeFilter
+  enabled: BoolFilter
+  id: StringFilter
+  languageCode: EnumLanguageCodeFilter
+  name: StringFilter
+  shippingZone: ShippingZoneRelationFilter
+  shippingZoneId: StringNullableFilter
+  translations: CountryTranslationListRelationFilter
+  updatedAt: DateTimeFilter
+}
+
+input CountryWhereUniqueInput {
+  code: String
+  id: String
 }
 
 """货币"""
@@ -9299,6 +9489,96 @@ type ShippingMethodTranslationMinAggregate {
   languageCode: LanguageCode
   name: String
   shippingMethodId: String
+}
+
+type ShippingZone {
+  createdAt: DateTime!
+  id: ID!
+  members: [Country!]
+  name: String!
+  updatedAt: DateTime!
+}
+
+type ShippingZoneCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  id: Int!
+  name: Int!
+  updatedAt: Int!
+}
+
+input ShippingZoneCreateNestedOneWithoutMembersInput {
+  connect: ShippingZoneWhereUniqueInput
+  connectOrCreate: ShippingZoneCreateOrConnectWithoutMembersInput
+  create: ShippingZoneCreateWithoutMembersInput
+}
+
+input ShippingZoneCreateOrConnectWithoutMembersInput {
+  create: ShippingZoneCreateWithoutMembersInput!
+  where: ShippingZoneWhereUniqueInput!
+}
+
+input ShippingZoneCreateWithoutMembersInput {
+  createdAt: DateTime
+  id: String
+  name: String!
+  updatedAt: DateTime
+}
+
+type ShippingZoneMaxAggregate {
+  createdAt: DateTime
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+type ShippingZoneMinAggregate {
+  createdAt: DateTime
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+input ShippingZoneRelationFilter {
+  is: ShippingZoneWhereInput
+  isNot: ShippingZoneWhereInput
+}
+
+input ShippingZoneUpdateOneWithoutMembersInput {
+  connect: ShippingZoneWhereUniqueInput
+  connectOrCreate: ShippingZoneCreateOrConnectWithoutMembersInput
+  create: ShippingZoneCreateWithoutMembersInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ShippingZoneUpdateWithoutMembersInput
+  upsert: ShippingZoneUpsertWithoutMembersInput
+}
+
+input ShippingZoneUpdateWithoutMembersInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ShippingZoneUpsertWithoutMembersInput {
+  create: ShippingZoneCreateWithoutMembersInput!
+  update: ShippingZoneUpdateWithoutMembersInput!
+}
+
+input ShippingZoneWhereInput {
+  AND: [ShippingZoneWhereInput!]
+  NOT: [ShippingZoneWhereInput!]
+  OR: [ShippingZoneWhereInput!]
+  createdAt: DateTimeFilter
+  id: StringFilter
+  members: CountryListRelationFilter
+  name: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input ShippingZoneWhereUniqueInput {
+  id: String
 }
 
 enum SortOrder {

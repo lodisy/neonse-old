@@ -6,6 +6,7 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { GraphQLJSON } from 'graphql-type-json';
 import * as Validator from 'class-validator';
+import { CountryUpdateOneRequiredWithoutAddressInput } from '../country/country-update-one-required-without-address.input';
 
 @InputType()
 export class AddressUpdateWithoutProfileInput {
@@ -49,13 +50,13 @@ export class AddressUpdateWithoutProfileInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     postalCode?: NullableStringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    country?: StringFieldUpdateOperationsInput;
-
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     default?: NullableBoolFieldUpdateOperationsInput;
 
     @Field(() => GraphQLJSON, {nullable:true})
     @Validator.IsJSON()
     customFields?: any;
+
+    @Field(() => CountryUpdateOneRequiredWithoutAddressInput, {nullable:true})
+    country?: CountryUpdateOneRequiredWithoutAddressInput;
 }

@@ -10,6 +10,7 @@ import { UsersService } from '@neonse/nest-common-users'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
+import { User } from '@prisma/client'
 import * as _ from 'lodash'
 import dayjs = require('dayjs')
 
@@ -72,7 +73,7 @@ export class AuthService {
 
     /** 验证用户密码是否一致，若符合返回 user 放入 Request (by passport) */
 
-    async validateUser(email: string, password: string) {
+    async validateUser(email: string, password: string): Promise<User | null> {
         const user = await this.prisma.user.findUnique({
             where: { email },
             select: {
