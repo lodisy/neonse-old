@@ -38,9 +38,16 @@
             "@neonse/nest-server-user": ["libs/nest/server/user/src/index.ts"],
             "@neonse/nest-store-orders": ["libs/nest/store/orders/src/index.ts"],
             "@neonse/nest-store-products": ["libs/nest/store/products/src/index.ts"],
+<<<<<<< HEAD
             "@neonse/nest-store-shipping": ["libs/nest/store/shipping/src/index.ts"],
             "@neonse/nest-talk-chat": ["libs/nest/talk/chat/src/index.ts"],
             "@neonse/nest-store-promotion": ["libs/nest/store/promotion/src/index.ts"],
+=======
+            "@neonse/nest-store-promotions": ["libs/nest/store/promotions/src/index.ts"],
+            "@neonse/nest-store-shipping": ["libs/nest/store/shipping/src/index.ts"],
+            "@neonse/nest-talk-chat": ["libs/nest/talk/chat/src/index.ts"],
+            "@neonse/nest/store/reviews": ["libs/nest/store/reviews/src/index.ts"],
+>>>>>>> 6874723eb6dbd8a78113a3f74773c4a21c276ac1
             "@neonse/ui": ["libs/ui/src/index.ts"],
             "@neonse/ui-animations": ["libs/ui/src/animations/src/index.ts"],
             "@neonse/ui-components": ["libs/ui/src/components/src/index.ts"],

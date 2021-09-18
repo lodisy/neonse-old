@@ -45,7 +45,11 @@ export class ShippingService {
 
     async create(data: Prisma.ShippingZoneCreateInput): Promise<ShippingZone> {
         const { name } = data
+<<<<<<< HEAD
 
+=======
+        // TODO
+>>>>>>> 6874723eb6dbd8a78113a3f74773c4a21c276ac1
         return this.prisma.shippingZone.create({
             data,
         })

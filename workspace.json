@@ -507,22 +507,59 @@
                 }
             }
         },
+<<<<<<< HEAD
         "nest-store-promotion": {
             "root": "libs/nest/store/promotion",
             "sourceRoot": "libs/nest/store/promotion/src",
+=======
+        "nest-store-promotions": {
+            "root": "libs/nest/store/promotions",
+            "sourceRoot": "libs/nest/store/promotions/src",
+>>>>>>> 6874723eb6dbd8a78113a3f74773c4a21c276ac1
             "projectType": "library",
             "targets": {
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "options": {
+<<<<<<< HEAD
                         "lintFilePatterns": ["libs/nest/store/promotion/**/*.ts"]
+=======
+                        "lintFilePatterns": ["libs/nest/store/promotions/**/*.ts"]
+>>>>>>> 6874723eb6dbd8a78113a3f74773c4a21c276ac1
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
+<<<<<<< HEAD
                     "outputs": ["coverage/libs/nest/store/promotion"],
                     "options": {
                         "jestConfig": "libs/nest/store/promotion/jest.config.js",
+=======
+                    "outputs": ["coverage/libs/nest/store/promotions"],
+                    "options": {
+                        "jestConfig": "libs/nest/store/promotions/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "nest-store-reviews": {
+            "root": "libs/nest/store/reviews",
+            "sourceRoot": "libs/nest/store/reviews/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["libs/nest/store/reviews/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/nest/store/reviews"],
+                    "options": {
+                        "jestConfig": "libs/nest/store/reviews/jest.config.js",
+>>>>>>> 6874723eb6dbd8a78113a3f74773c4a21c276ac1
                         "passWithNoTests": true
                     }
                 }
