@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { CountryWhereInput } from './country-where.input';
-import { CountryOrderByInput } from './country-order-by.input';
+import { CountryOrderByWithRelationInput } from './country-order-by-with-relation.input';
 import { CountryWhereUniqueInput } from './country-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { CountryScalarFieldEnum } from './country-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindManyCountryArgs {
     @Field(() => CountryWhereInput, {nullable:true})
     where?: CountryWhereInput;
 
-    @Field(() => [CountryOrderByInput], {nullable:true})
-    orderBy?: Array<CountryOrderByInput>;
+    @Field(() => [CountryOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<CountryOrderByWithRelationInput>;
 
     @Field(() => CountryWhereUniqueInput, {nullable:true})
     cursor?: CountryWhereUniqueInput;

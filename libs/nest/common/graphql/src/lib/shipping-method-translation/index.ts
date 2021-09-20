@@ -9,6 +9,7 @@ export { FindUniqueShippingMethodTranslationArgs } from './find-unique-shipping-
 export { ShippingMethodTranslationAggregateArgs } from './shipping-method-translation-aggregate.args';
 export { ShippingMethodTranslationCountAggregateInput } from './shipping-method-translation-count-aggregate.input';
 export { ShippingMethodTranslationCountAggregate } from './shipping-method-translation-count-aggregate.output';
+export { ShippingMethodTranslationCountOrderByAggregateInput } from './shipping-method-translation-count-order-by-aggregate.input';
 export { ShippingMethodTranslationCreateManyShippingMethodInputEnvelope } from './shipping-method-translation-create-many-shipping-method-input-envelope.input';
 export { ShippingMethodTranslationCreateManyShippingMethodInput } from './shipping-method-translation-create-many-shipping-method.input';
 export { ShippingMethodTranslationCreateManyInput } from './shipping-method-translation-create-many.input';
@@ -21,8 +22,13 @@ export { ShippingMethodTranslationGroupBy } from './shipping-method-translation-
 export { ShippingMethodTranslationListRelationFilter } from './shipping-method-translation-list-relation-filter.input';
 export { ShippingMethodTranslationMaxAggregateInput } from './shipping-method-translation-max-aggregate.input';
 export { ShippingMethodTranslationMaxAggregate } from './shipping-method-translation-max-aggregate.output';
+export { ShippingMethodTranslationMaxOrderByAggregateInput } from './shipping-method-translation-max-order-by-aggregate.input';
 export { ShippingMethodTranslationMinAggregateInput } from './shipping-method-translation-min-aggregate.input';
 export { ShippingMethodTranslationMinAggregate } from './shipping-method-translation-min-aggregate.output';
+export { ShippingMethodTranslationMinOrderByAggregateInput } from './shipping-method-translation-min-order-by-aggregate.input';
+export { ShippingMethodTranslationOrderByRelationAggregateInput } from './shipping-method-translation-order-by-relation-aggregate.input';
+export { ShippingMethodTranslationOrderByWithAggregationInput } from './shipping-method-translation-order-by-with-aggregation.input';
+export { ShippingMethodTranslationOrderByWithRelationInput } from './shipping-method-translation-order-by-with-relation.input';
 export { ShippingMethodTranslationOrderByInput } from './shipping-method-translation-order-by.input';
 export { ShippingMethodTranslationScalarFieldEnum } from './shipping-method-translation-scalar-field.enum';
 export { ShippingMethodTranslationScalarWhereWithAggregatesInput } from './shipping-method-translation-scalar-where-with-aggregates.input';

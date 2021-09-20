@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { BrandTranslationWhereInput } from './brand-translation-where.input';
-import { BrandTranslationOrderByInput } from './brand-translation-order-by.input';
+import { BrandTranslationOrderByWithRelationInput } from './brand-translation-order-by-with-relation.input';
 import { BrandTranslationWhereUniqueInput } from './brand-translation-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { BrandTranslationCountAggregateInput } from './brand-translation-count-aggregate.input';
@@ -14,8 +14,8 @@ export class BrandTranslationAggregateArgs {
     @Field(() => BrandTranslationWhereInput, {nullable:true})
     where?: BrandTranslationWhereInput;
 
-    @Field(() => [BrandTranslationOrderByInput], {nullable:true})
-    orderBy?: Array<BrandTranslationOrderByInput>;
+    @Field(() => [BrandTranslationOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<BrandTranslationOrderByWithRelationInput>;
 
     @Field(() => BrandTranslationWhereUniqueInput, {nullable:true})
     cursor?: BrandTranslationWhereUniqueInput;

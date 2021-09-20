@@ -6,6 +6,7 @@ import { Channel } from '../channel/channel.model';
 import { Permission } from '../permission/permission.model';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { RoleTranslation } from '../role-translation/role-translation.model';
+import { RoleCount } from './role-count.output';
 
 /** 角色 */
 @ObjectType({description:'角色'})
@@ -52,4 +53,7 @@ export class Role {
 
     @Field(() => [RoleTranslation], {nullable:true})
     translations?: Array<RoleTranslation>;
+
+    @Field(() => RoleCount, {nullable:true})
+    _count?: RoleCount;
 }

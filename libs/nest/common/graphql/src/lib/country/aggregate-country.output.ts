@@ -10,18 +10,9 @@ export class AggregateCountry {
     @Field(() => CountryCountAggregate, {nullable:true})
     _count?: CountryCountAggregate;
 
-    @Field(() => CountryCountAggregate, {nullable:true})
-    count?: CountryCountAggregate;
-
     @Field(() => CountryMinAggregate, {nullable:true})
     _min?: CountryMinAggregate;
 
-    @Field(() => CountryMinAggregate, {nullable:true})
-    min?: CountryMinAggregate;
-
     @Field(() => CountryMaxAggregate, {nullable:true})
     _max?: CountryMaxAggregate;
-
-    @Field(() => CountryMaxAggregate, {nullable:true})
-    max?: CountryMaxAggregate;
 }

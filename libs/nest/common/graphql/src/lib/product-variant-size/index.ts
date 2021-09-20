@@ -9,6 +9,7 @@ export { FindUniqueProductVariantSizeArgs } from './find-unique-product-variant-
 export { ProductVariantSizeAggregateArgs } from './product-variant-size-aggregate.args';
 export { ProductVariantSizeCountAggregateInput } from './product-variant-size-count-aggregate.input';
 export { ProductVariantSizeCountAggregate } from './product-variant-size-count-aggregate.output';
+export { ProductVariantSizeCountOrderByAggregateInput } from './product-variant-size-count-order-by-aggregate.input';
 export { ProductVariantSizeCreateManyInput } from './product-variant-size-create-many.input';
 export { ProductVariantSizeCreateNestedOneWithoutProductVariantInput } from './product-variant-size-create-nested-one-without-product-variant.input';
 export { ProductVariantSizeCreateOrConnectWithoutProductVariantInput } from './product-variant-size-create-or-connect-without-product-variant.input';
@@ -18,8 +19,12 @@ export { ProductVariantSizeGroupByArgs } from './product-variant-size-group-by.a
 export { ProductVariantSizeGroupBy } from './product-variant-size-group-by.output';
 export { ProductVariantSizeMaxAggregateInput } from './product-variant-size-max-aggregate.input';
 export { ProductVariantSizeMaxAggregate } from './product-variant-size-max-aggregate.output';
+export { ProductVariantSizeMaxOrderByAggregateInput } from './product-variant-size-max-order-by-aggregate.input';
 export { ProductVariantSizeMinAggregateInput } from './product-variant-size-min-aggregate.input';
 export { ProductVariantSizeMinAggregate } from './product-variant-size-min-aggregate.output';
+export { ProductVariantSizeMinOrderByAggregateInput } from './product-variant-size-min-order-by-aggregate.input';
+export { ProductVariantSizeOrderByWithAggregationInput } from './product-variant-size-order-by-with-aggregation.input';
+export { ProductVariantSizeOrderByWithRelationInput } from './product-variant-size-order-by-with-relation.input';
 export { ProductVariantSizeOrderByInput } from './product-variant-size-order-by.input';
 export { ProductVariantSizeRelationFilter } from './product-variant-size-relation-filter.input';
 export { ProductVariantSizeScalarFieldEnum } from './product-variant-size-scalar-field.enum';

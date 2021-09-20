@@ -199,7 +199,7 @@ model BrandTranslation {
   name         String
   country      String?
   description  String?
-  brand        Brand        @relation(fields: [brandId], references: [id])
+  brand        Brand        @relation(fields: [brandId], references: [id], onDelete: Cascade)
   brandId      String
 }
 
@@ -269,7 +269,7 @@ model CountryTranslation {
   id           String       @id @default(cuid())
   languageCode LanguageCode @default(zh_Hans)
   name         String
-  country      Country?     @relation(fields: [countryId], references: [id])
+  country      Country?     @relation(fields: [countryId], references: [id], onDelete: Cascade)
   countryId    String?
 }
 
@@ -297,9 +297,10 @@ model File {
   autoPlay            Boolean?
   /// @Validator.IsJSON()
   customFields        Json?
-  profile             Profile?              @relation("Uploads", fields: [profileId], references: [id]) // uploaded by 
+  /// deleting a profile will delete all his uploads
+  profile             Profile?              @relation("Uploads", fields: [profileId], references: [id], onDelete: Cascade)
   profileId           String?
-  profileAvatar       Profile?              @relation("Avatar", fields: [profileAvatarId], references: [id])
+  profileAvatar       Profile?              @relation("Avatar", fields: [profileAvatarId], references: [id], onDelete: Cascade)
   profileAvatarId     String?
   OrderItem           OrderItem[]
   Product             Product?              @relation(fields: [productId], references: [id])
@@ -307,7 +308,8 @@ model File {
   ProductVariant      ProductVariant?       @relation(fields: [productVariantId], references: [id])
   productVariantId    String?
   ProductVariantStyle ProductVariantStyle[]
-  Review              Review?               @relation(fields: [reviewId], references: [id])
+  /// deleting a review will delete all its uploads
+  Review              Review?               @relation(fields: [reviewId], references: [id], onDelete: Cascade)
   reviewId            String?
 }
 
@@ -462,7 +464,7 @@ model ProductTranslation {
   languageCode LanguageCode @default(zh_Hans)
   name         String
   discription  String?
-  product      Product?     @relation(fields: [productId], references: [id])
+  product      Product?     @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId    String?
 }
 
@@ -486,7 +488,7 @@ model ProductCategoryTranslation {
   id                String           @id @default(cuid())
   languageCode      LanguageCode     @default(zh_Hans)
   name              String
-  productCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
+  productCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id], onDelete: Cascade)
   productCategoryId String?
 }
 
@@ -507,7 +509,7 @@ model ProductTypeTranslation {
   id            String       @id @default(cuid())
   languageCode  LanguageCode @default(zh_Hans)
   name          String
-  productType   ProductType? @relation(fields: [productTypeId], references: [id])
+  productType   ProductType? @relation(fields: [productTypeId], references: [id], onDelete: Cascade)
   productTypeId String?
 }
 
@@ -530,7 +532,8 @@ model ProductVariant {
   sold         Int                         @default(0)
   channels     Channel[]
   draft        Boolean?                    @default(false)
-  product      Product                     @relation(fields: [productId], references: [id])
+  /// 删除 product 时也会删除对应 product variant
+  product      Product                     @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId    String
   /// @Validator.IsJSON()
   customFields Json?
@@ -552,7 +555,7 @@ model ProductVariantColor {
   createdAt        DateTime                         @default(now())
   updatedAt        DateTime?                        @updatedAt
   name             String
-  /// 颜色代码 HEX
+  /// ��色代码 HEX
   value            String                           @unique
   languageCode     LanguageCode                     @default(en)
   translations     ProductVariantColorTranslation[]
@@ -564,7 +567,7 @@ model ProductVariantColorTranslation {
   id                    String               @id @default(cuid())
   languageCode          LanguageCode         @default(zh_Hans)
   name                  String
-  ProductVariantColor   ProductVariantColor? @relation(fields: [productVariantColorId], references: [id])
+  ProductVariantColor   ProductVariantColor? @relation(fields: [productVariantColorId], references: [id], onDelete: Cascade)
   productVariantColorId String?
 }
 
@@ -594,7 +597,7 @@ model ProductVariantStyleTranslation {
   id                    String               @id @default(cuid())
   languageCode          LanguageCode         @default(zh_Hans)
   name                  String
-  productVariantStyle   ProductVariantStyle? @relation(fields: [productVariantStyleId], references: [id])
+  productVariantStyle   ProductVariantStyle? @relation(fields: [productVariantStyleId], references: [id], onDelete: Cascade)
   productVariantStyleId String?
 }
 
@@ -603,7 +606,7 @@ model Profile {
   id               String    @id @default(cuid())
   createdAt        DateTime  @default(now())
   updatedAt        DateTime? @updatedAt
-  user             User      @relation(fields: [userId], references: [id])
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId           String    @unique
   /// @Validator.MinLength(2)
   name             String
@@ -661,9 +664,11 @@ model Review {
   id          String   @id @default(cuid())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  by          Profile  @relation(fields: [profileId], references: [id])
+  /// Deleting a profile will delete all its reviews
+  by          Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId   String   @unique
-  product     Product? @relation(fields: [productId], references: [id])
+  /// Unable to delete a product with review
+  product     Product? @relation(fields: [productId], references: [id], onDelete: Restrict)
   productId   String?
   /// 评分 1-5
   /// @Validator.IsInt()
@@ -701,7 +706,7 @@ model RoleTranslation {
   languageCode LanguageCode @default(zh_Hans)
   name         String
   description  String?
-  Role         Role?        @relation(fields: [roleId], references: [id])
+  Role         Role?        @relation(fields: [roleId], references: [id], onDelete: Cascade)
   roleId       String?
 }
 
@@ -729,7 +734,7 @@ model ShippingMethodTranslation {
   languageCode     LanguageCode   @default(zh_Hans)
   name             String
   description      String?
-  shippingMethod   ShippingMethod @relation(fields: [shippingMethodId], references: [id])
+  shippingMethod   ShippingMethod @relation(fields: [shippingMethodId], references: [id], onDelete: Cascade)
   shippingMethodId String
 }
 

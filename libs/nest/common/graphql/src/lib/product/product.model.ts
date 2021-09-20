@@ -11,6 +11,7 @@ import { Like } from '../like/like.model';
 import { Review } from '../review/review.model';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { ProductTranslation } from '../product-translation/product-translation.model';
+import { ProductCount } from './product-count.output';
 
 /** 商品 */
 @ObjectType({description:'商品'})
@@ -75,4 +76,7 @@ export class Product {
 
     @Field(() => [ProductTranslation], {nullable:true})
     translations?: Array<ProductTranslation>;
+
+    @Field(() => ProductCount, {nullable:true})
+    _count?: ProductCount;
 }

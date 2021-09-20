@@ -12,6 +12,7 @@ import { Product } from '../product/product.model';
 import { GraphQLJSON } from 'graphql-type-json';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { ProductVariantTranslation } from '../product-variant-translation/product-variant-translation.model';
+import { ProductVariantCount } from '../product/product-variant-count.output';
 
 /** 子商品 */
 @ObjectType({description:'子商品'})
@@ -68,7 +69,8 @@ export class ProductVariant {
     @Field(() => Boolean, {nullable:true,defaultValue:false})
     draft!: boolean | null;
 
-    @Field(() => Product, {nullable:false})
+    /** 删除 product 时也会删除对应 product variant */
+    @Field(() => Product, {nullable:false,description:'删除 product 时也会删除对应 product variant'})
     product?: Product;
 
     @Field(() => String, {nullable:false})
@@ -82,4 +84,7 @@ export class ProductVariant {
 
     @Field(() => [ProductVariantTranslation], {nullable:true})
     translations?: Array<ProductVariantTranslation>;
+
+    @Field(() => ProductVariantCount, {nullable:true})
+    _count?: ProductVariantCount;
 }

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { SourceWhereInput } from './source-where.input';
-import { SourceOrderByInput } from './source-order-by.input';
+import { SourceOrderByWithRelationInput } from './source-order-by-with-relation.input';
 import { SourceWhereUniqueInput } from './source-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { SourceScalarFieldEnum } from './source-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindFirstSourceArgs {
     @Field(() => SourceWhereInput, {nullable:true})
     where?: SourceWhereInput;
 
-    @Field(() => [SourceOrderByInput], {nullable:true})
-    orderBy?: Array<SourceOrderByInput>;
+    @Field(() => [SourceOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SourceOrderByWithRelationInput>;
 
     @Field(() => SourceWhereUniqueInput, {nullable:true})
     cursor?: SourceWhereUniqueInput;

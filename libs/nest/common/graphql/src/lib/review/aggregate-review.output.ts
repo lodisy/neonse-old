@@ -12,30 +12,15 @@ export class AggregateReview {
     @Field(() => ReviewCountAggregate, {nullable:true})
     _count?: ReviewCountAggregate;
 
-    @Field(() => ReviewCountAggregate, {nullable:true})
-    count?: ReviewCountAggregate;
-
     @Field(() => ReviewAvgAggregate, {nullable:true})
     _avg?: ReviewAvgAggregate;
-
-    @Field(() => ReviewAvgAggregate, {nullable:true})
-    avg?: ReviewAvgAggregate;
 
     @Field(() => ReviewSumAggregate, {nullable:true})
     _sum?: ReviewSumAggregate;
 
-    @Field(() => ReviewSumAggregate, {nullable:true})
-    sum?: ReviewSumAggregate;
-
     @Field(() => ReviewMinAggregate, {nullable:true})
     _min?: ReviewMinAggregate;
 
-    @Field(() => ReviewMinAggregate, {nullable:true})
-    min?: ReviewMinAggregate;
-
     @Field(() => ReviewMaxAggregate, {nullable:true})
     _max?: ReviewMaxAggregate;
-
-    @Field(() => ReviewMaxAggregate, {nullable:true})
-    max?: ReviewMaxAggregate;
 }

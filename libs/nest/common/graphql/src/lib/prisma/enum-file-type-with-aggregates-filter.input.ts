@@ -23,18 +23,9 @@ export class EnumFileTypeWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumFileTypeFilter, {nullable:true})
     _min?: NestedEnumFileTypeFilter;
 
     @Field(() => NestedEnumFileTypeFilter, {nullable:true})
-    min?: NestedEnumFileTypeFilter;
-
-    @Field(() => NestedEnumFileTypeFilter, {nullable:true})
     _max?: NestedEnumFileTypeFilter;
-
-    @Field(() => NestedEnumFileTypeFilter, {nullable:true})
-    max?: NestedEnumFileTypeFilter;
 }

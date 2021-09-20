@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Promotion } from '../promotion/promotion.model';
 import { Int } from '@nestjs/graphql';
+import { PromotionListCount } from './promotion-list-count.output';
 
 @ObjectType()
 export class PromotionList {
@@ -15,4 +16,7 @@ export class PromotionList {
 
     @Field(() => Int, {nullable:false})
     total!: number;
+
+    @Field(() => PromotionListCount, {nullable:true})
+    _count?: PromotionListCount;
 }

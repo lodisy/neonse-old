@@ -1,0 +1,66 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { SortOrder } from '../prisma/sort-order.enum';
+import { ProfileOrderByWithRelationInput } from '../profile/profile-order-by-with-relation.input';
+import { CountryOrderByWithRelationInput } from '../country/country-order-by-with-relation.input';
+
+@InputType()
+export class AddressOrderByWithRelationInput {
+
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => ProfileOrderByWithRelationInput, {nullable:true})
+    Profile?: ProfileOrderByWithRelationInput;
+
+    @Field(() => SortOrder, {nullable:true})
+    profileId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    fullname?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    email?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    mobile?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    company?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    streetLine1?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    streetLine2?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    district?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    city?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    state?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    postalCode?: keyof typeof SortOrder;
+
+    @Field(() => CountryOrderByWithRelationInput, {nullable:true})
+    country?: CountryOrderByWithRelationInput;
+
+    @Field(() => SortOrder, {nullable:true})
+    countryId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    default?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    customFields?: keyof typeof SortOrder;
+}

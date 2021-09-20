@@ -2,6 +2,7 @@ export { AggregateCountryTranslation } from './aggregate-country-translation.out
 export { CountryTranslationAggregateArgs } from './country-translation-aggregate.args';
 export { CountryTranslationCountAggregateInput } from './country-translation-count-aggregate.input';
 export { CountryTranslationCountAggregate } from './country-translation-count-aggregate.output';
+export { CountryTranslationCountOrderByAggregateInput } from './country-translation-count-order-by-aggregate.input';
 export { CountryTranslationCreateManyCountryInputEnvelope } from './country-translation-create-many-country-input-envelope.input';
 export { CountryTranslationCreateManyCountryInput } from './country-translation-create-many-country.input';
 export { CountryTranslationCreateManyInput } from './country-translation-create-many.input';
@@ -14,8 +15,13 @@ export { CountryTranslationGroupBy } from './country-translation-group-by.output
 export { CountryTranslationListRelationFilter } from './country-translation-list-relation-filter.input';
 export { CountryTranslationMaxAggregateInput } from './country-translation-max-aggregate.input';
 export { CountryTranslationMaxAggregate } from './country-translation-max-aggregate.output';
+export { CountryTranslationMaxOrderByAggregateInput } from './country-translation-max-order-by-aggregate.input';
 export { CountryTranslationMinAggregateInput } from './country-translation-min-aggregate.input';
 export { CountryTranslationMinAggregate } from './country-translation-min-aggregate.output';
+export { CountryTranslationMinOrderByAggregateInput } from './country-translation-min-order-by-aggregate.input';
+export { CountryTranslationOrderByRelationAggregateInput } from './country-translation-order-by-relation-aggregate.input';
+export { CountryTranslationOrderByWithAggregationInput } from './country-translation-order-by-with-aggregation.input';
+export { CountryTranslationOrderByWithRelationInput } from './country-translation-order-by-with-relation.input';
 export { CountryTranslationOrderByInput } from './country-translation-order-by.input';
 export { CountryTranslationScalarFieldEnum } from './country-translation-scalar-field.enum';
 export { CountryTranslationScalarWhereWithAggregatesInput } from './country-translation-scalar-where-with-aggregates.input';

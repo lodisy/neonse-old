@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { ShippingMethodTranslation } from '../shipping-method-translation/shipping-method-translation.model';
+import { ShippingMethodCount } from './shipping-method-count.output';
 
 @ObjectType()
 export class ShippingMethod {
@@ -30,4 +31,7 @@ export class ShippingMethod {
 
     @Field(() => [ShippingMethodTranslation], {nullable:true})
     translations?: Array<ShippingMethodTranslation>;
+
+    @Field(() => ShippingMethodCount, {nullable:true})
+    _count?: ShippingMethodCount;
 }

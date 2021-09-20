@@ -11,6 +11,7 @@ import { Product } from '../product/product.model';
 import { ProductVariant } from '../product-variant/product-variant.model';
 import { ProductVariantStyle } from '../product-variant-style/product-variant-style.model';
 import { Review } from '../review/review.model';
+import { FileCount } from './file-count.output';
 
 /** 文件 */
 @ObjectType({description:'文件'})
@@ -67,7 +68,8 @@ export class File {
     @Field(() => GraphQLJSON, {nullable:true})
     customFields!: any | null;
 
-    @Field(() => Profile, {nullable:true})
+    /** deleting a profile will delete all his uploads */
+    @Field(() => Profile, {nullable:true,description:'deleting a profile will delete all his uploads'})
     profile?: Profile;
 
     @Field(() => String, {nullable:true})
@@ -97,9 +99,13 @@ export class File {
     @Field(() => [ProductVariantStyle], {nullable:true})
     ProductVariantStyle?: Array<ProductVariantStyle>;
 
-    @Field(() => Review, {nullable:true})
+    /** deleting a review will delete all its uploads */
+    @Field(() => Review, {nullable:true,description:'deleting a review will delete all its uploads'})
     Review?: Review;
 
     @Field(() => String, {nullable:true})
     reviewId!: string | null;
+
+    @Field(() => FileCount, {nullable:true})
+    _count?: FileCount;
 }

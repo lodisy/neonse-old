@@ -10,18 +10,9 @@ export class AggregateSource {
     @Field(() => SourceCountAggregate, {nullable:true})
     _count?: SourceCountAggregate;
 
-    @Field(() => SourceCountAggregate, {nullable:true})
-    count?: SourceCountAggregate;
-
     @Field(() => SourceMinAggregate, {nullable:true})
     _min?: SourceMinAggregate;
 
-    @Field(() => SourceMinAggregate, {nullable:true})
-    min?: SourceMinAggregate;
-
     @Field(() => SourceMaxAggregate, {nullable:true})
     _max?: SourceMaxAggregate;
-
-    @Field(() => SourceMaxAggregate, {nullable:true})
-    max?: SourceMaxAggregate;
 }

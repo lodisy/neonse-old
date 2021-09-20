@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Country } from '../country/country.model';
+import { ShippingZoneCount } from './shipping-zone-count.output';
 
 @ObjectType()
 export class ShippingZone {
@@ -20,4 +21,7 @@ export class ShippingZone {
 
     @Field(() => [Country], {nullable:true})
     members?: Array<Country>;
+
+    @Field(() => ShippingZoneCount, {nullable:true})
+    _count?: ShippingZoneCount;
 }

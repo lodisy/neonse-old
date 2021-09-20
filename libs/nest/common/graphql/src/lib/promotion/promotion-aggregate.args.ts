@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { PromotionWhereInput } from './promotion-where.input';
-import { PromotionOrderByInput } from './promotion-order-by.input';
+import { PromotionOrderByWithRelationInput } from './promotion-order-by-with-relation.input';
 import { PromotionWhereUniqueInput } from './promotion-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { PromotionCountAggregateInput } from './promotion-count-aggregate.input';
@@ -16,8 +16,8 @@ export class PromotionAggregateArgs {
     @Field(() => PromotionWhereInput, {nullable:true})
     where?: PromotionWhereInput;
 
-    @Field(() => [PromotionOrderByInput], {nullable:true})
-    orderBy?: Array<PromotionOrderByInput>;
+    @Field(() => [PromotionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PromotionOrderByWithRelationInput>;
 
     @Field(() => PromotionWhereUniqueInput, {nullable:true})
     cursor?: PromotionWhereUniqueInput;

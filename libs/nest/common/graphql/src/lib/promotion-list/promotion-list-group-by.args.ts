@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { PromotionListWhereInput } from './promotion-list-where.input';
-import { PromotionListOrderByInput } from './promotion-list-order-by.input';
+import { PromotionListOrderByWithAggregationInput } from './promotion-list-order-by-with-aggregation.input';
 import { PromotionListScalarFieldEnum } from './promotion-list-scalar-field.enum';
 import { PromotionListScalarWhereWithAggregatesInput } from './promotion-list-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class PromotionListGroupByArgs {
     @Field(() => PromotionListWhereInput, {nullable:true})
     where?: PromotionListWhereInput;
 
-    @Field(() => [PromotionListOrderByInput], {nullable:true})
-    orderBy?: Array<PromotionListOrderByInput>;
+    @Field(() => [PromotionListOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<PromotionListOrderByWithAggregationInput>;
 
     @Field(() => [PromotionListScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof PromotionListScalarFieldEnum>;

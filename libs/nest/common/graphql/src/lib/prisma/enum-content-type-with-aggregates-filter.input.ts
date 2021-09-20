@@ -23,18 +23,9 @@ export class EnumContentTypeWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumContentTypeFilter, {nullable:true})
     _min?: NestedEnumContentTypeFilter;
 
     @Field(() => NestedEnumContentTypeFilter, {nullable:true})
-    min?: NestedEnumContentTypeFilter;
-
-    @Field(() => NestedEnumContentTypeFilter, {nullable:true})
     _max?: NestedEnumContentTypeFilter;
-
-    @Field(() => NestedEnumContentTypeFilter, {nullable:true})
-    max?: NestedEnumContentTypeFilter;
 }

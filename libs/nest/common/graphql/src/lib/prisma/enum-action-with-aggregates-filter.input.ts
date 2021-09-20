@@ -23,18 +23,9 @@ export class EnumActionWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumActionFilter, {nullable:true})
     _min?: NestedEnumActionFilter;
 
     @Field(() => NestedEnumActionFilter, {nullable:true})
-    min?: NestedEnumActionFilter;
-
-    @Field(() => NestedEnumActionFilter, {nullable:true})
     _max?: NestedEnumActionFilter;
-
-    @Field(() => NestedEnumActionFilter, {nullable:true})
-    max?: NestedEnumActionFilter;
 }

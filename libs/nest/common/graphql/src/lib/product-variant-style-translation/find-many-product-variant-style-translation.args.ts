@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductVariantStyleTranslationWhereInput } from './product-variant-style-translation-where.input';
-import { ProductVariantStyleTranslationOrderByInput } from './product-variant-style-translation-order-by.input';
+import { ProductVariantStyleTranslationOrderByWithRelationInput } from './product-variant-style-translation-order-by-with-relation.input';
 import { ProductVariantStyleTranslationWhereUniqueInput } from './product-variant-style-translation-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ProductVariantStyleTranslationScalarFieldEnum } from './product-variant-style-translation-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindManyProductVariantStyleTranslationArgs {
     @Field(() => ProductVariantStyleTranslationWhereInput, {nullable:true})
     where?: ProductVariantStyleTranslationWhereInput;
 
-    @Field(() => [ProductVariantStyleTranslationOrderByInput], {nullable:true})
-    orderBy?: Array<ProductVariantStyleTranslationOrderByInput>;
+    @Field(() => [ProductVariantStyleTranslationOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ProductVariantStyleTranslationOrderByWithRelationInput>;
 
     @Field(() => ProductVariantStyleTranslationWhereUniqueInput, {nullable:true})
     cursor?: ProductVariantStyleTranslationWhereUniqueInput;

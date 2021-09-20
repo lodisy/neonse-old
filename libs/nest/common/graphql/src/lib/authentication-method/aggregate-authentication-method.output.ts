@@ -10,18 +10,9 @@ export class AggregateAuthenticationMethod {
     @Field(() => AuthenticationMethodCountAggregate, {nullable:true})
     _count?: AuthenticationMethodCountAggregate;
 
-    @Field(() => AuthenticationMethodCountAggregate, {nullable:true})
-    count?: AuthenticationMethodCountAggregate;
-
     @Field(() => AuthenticationMethodMinAggregate, {nullable:true})
     _min?: AuthenticationMethodMinAggregate;
 
-    @Field(() => AuthenticationMethodMinAggregate, {nullable:true})
-    min?: AuthenticationMethodMinAggregate;
-
     @Field(() => AuthenticationMethodMaxAggregate, {nullable:true})
     _max?: AuthenticationMethodMaxAggregate;
-
-    @Field(() => AuthenticationMethodMaxAggregate, {nullable:true})
-    max?: AuthenticationMethodMaxAggregate;
 }

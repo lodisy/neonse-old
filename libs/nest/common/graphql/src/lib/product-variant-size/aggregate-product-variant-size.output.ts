@@ -10,18 +10,9 @@ export class AggregateProductVariantSize {
     @Field(() => ProductVariantSizeCountAggregate, {nullable:true})
     _count?: ProductVariantSizeCountAggregate;
 
-    @Field(() => ProductVariantSizeCountAggregate, {nullable:true})
-    count?: ProductVariantSizeCountAggregate;
-
     @Field(() => ProductVariantSizeMinAggregate, {nullable:true})
     _min?: ProductVariantSizeMinAggregate;
 
-    @Field(() => ProductVariantSizeMinAggregate, {nullable:true})
-    min?: ProductVariantSizeMinAggregate;
-
     @Field(() => ProductVariantSizeMaxAggregate, {nullable:true})
     _max?: ProductVariantSizeMaxAggregate;
-
-    @Field(() => ProductVariantSizeMaxAggregate, {nullable:true})
-    max?: ProductVariantSizeMaxAggregate;
 }

@@ -10,18 +10,9 @@ export class AggregateProductCategory {
     @Field(() => ProductCategoryCountAggregate, {nullable:true})
     _count?: ProductCategoryCountAggregate;
 
-    @Field(() => ProductCategoryCountAggregate, {nullable:true})
-    count?: ProductCategoryCountAggregate;
-
     @Field(() => ProductCategoryMinAggregate, {nullable:true})
     _min?: ProductCategoryMinAggregate;
 
-    @Field(() => ProductCategoryMinAggregate, {nullable:true})
-    min?: ProductCategoryMinAggregate;
-
     @Field(() => ProductCategoryMaxAggregate, {nullable:true})
     _max?: ProductCategoryMaxAggregate;
-
-    @Field(() => ProductCategoryMaxAggregate, {nullable:true})
-    max?: ProductCategoryMaxAggregate;
 }

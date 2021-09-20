@@ -23,18 +23,9 @@ export class EnumLanguageCodeWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumLanguageCodeFilter, {nullable:true})
     _min?: NestedEnumLanguageCodeFilter;
 
     @Field(() => NestedEnumLanguageCodeFilter, {nullable:true})
-    min?: NestedEnumLanguageCodeFilter;
-
-    @Field(() => NestedEnumLanguageCodeFilter, {nullable:true})
     _max?: NestedEnumLanguageCodeFilter;
-
-    @Field(() => NestedEnumLanguageCodeFilter, {nullable:true})
-    max?: NestedEnumLanguageCodeFilter;
 }

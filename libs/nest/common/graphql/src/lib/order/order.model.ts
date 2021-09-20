@@ -6,6 +6,7 @@ import { OrderAddress } from '../order-address/order-address.model';
 import { OrderItem } from '../order-item/order-item.model';
 import { Int } from '@nestjs/graphql';
 import { Payment } from '../payment/payment.model';
+import { OrderCount } from './order-count.output';
 
 /** 订单 */
 @ObjectType({description:'订单'})
@@ -60,4 +61,7 @@ export class Order {
 
     @Field(() => String, {nullable:true})
     tracking!: string | null;
+
+    @Field(() => OrderCount, {nullable:true})
+    _count?: OrderCount;
 }

@@ -9,6 +9,8 @@ export { FindUniqueProductVariantStyleArgs } from './find-unique-product-variant
 export { ProductVariantStyleAggregateArgs } from './product-variant-style-aggregate.args';
 export { ProductVariantStyleCountAggregateInput } from './product-variant-style-count-aggregate.input';
 export { ProductVariantStyleCountAggregate } from './product-variant-style-count-aggregate.output';
+export { ProductVariantStyleCountOrderByAggregateInput } from './product-variant-style-count-order-by-aggregate.input';
+export { ProductVariantStyleCount } from './product-variant-style-count.output';
 export { ProductVariantStyleCreateManyAssetInputEnvelope } from './product-variant-style-create-many-asset-input-envelope.input';
 export { ProductVariantStyleCreateManyAssetInput } from './product-variant-style-create-many-asset.input';
 export { ProductVariantStyleCreateManyInput } from './product-variant-style-create-many.input';
@@ -27,8 +29,13 @@ export { ProductVariantStyleGroupBy } from './product-variant-style-group-by.out
 export { ProductVariantStyleListRelationFilter } from './product-variant-style-list-relation-filter.input';
 export { ProductVariantStyleMaxAggregateInput } from './product-variant-style-max-aggregate.input';
 export { ProductVariantStyleMaxAggregate } from './product-variant-style-max-aggregate.output';
+export { ProductVariantStyleMaxOrderByAggregateInput } from './product-variant-style-max-order-by-aggregate.input';
 export { ProductVariantStyleMinAggregateInput } from './product-variant-style-min-aggregate.input';
 export { ProductVariantStyleMinAggregate } from './product-variant-style-min-aggregate.output';
+export { ProductVariantStyleMinOrderByAggregateInput } from './product-variant-style-min-order-by-aggregate.input';
+export { ProductVariantStyleOrderByRelationAggregateInput } from './product-variant-style-order-by-relation-aggregate.input';
+export { ProductVariantStyleOrderByWithAggregationInput } from './product-variant-style-order-by-with-aggregation.input';
+export { ProductVariantStyleOrderByWithRelationInput } from './product-variant-style-order-by-with-relation.input';
 export { ProductVariantStyleOrderByInput } from './product-variant-style-order-by.input';
 export { ProductVariantStyleRelationFilter } from './product-variant-style-relation-filter.input';
 export { ProductVariantStyleScalarFieldEnum } from './product-variant-style-scalar-field.enum';

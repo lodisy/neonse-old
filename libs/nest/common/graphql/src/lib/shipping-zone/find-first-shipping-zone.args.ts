@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ShippingZoneWhereInput } from './shipping-zone-where.input';
-import { ShippingZoneOrderByInput } from './shipping-zone-order-by.input';
+import { ShippingZoneOrderByWithRelationInput } from './shipping-zone-order-by-with-relation.input';
 import { ShippingZoneWhereUniqueInput } from './shipping-zone-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ShippingZoneScalarFieldEnum } from './shipping-zone-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindFirstShippingZoneArgs {
     @Field(() => ShippingZoneWhereInput, {nullable:true})
     where?: ShippingZoneWhereInput;
 
-    @Field(() => [ShippingZoneOrderByInput], {nullable:true})
-    orderBy?: Array<ShippingZoneOrderByInput>;
+    @Field(() => [ShippingZoneOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ShippingZoneOrderByWithRelationInput>;
 
     @Field(() => ShippingZoneWhereUniqueInput, {nullable:true})
     cursor?: ShippingZoneWhereUniqueInput;

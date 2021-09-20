@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { File } from '../file/file.model';
+import { SourceCount } from './source-count.output';
 
 /** 文章、图片、视频等来源 */
 @ObjectType({description:'文章、图片、视频等来源'})
@@ -19,4 +20,7 @@ export class Source {
 
     @Field(() => [File], {nullable:true})
     File?: Array<File>;
+
+    @Field(() => SourceCount, {nullable:true})
+    _count?: SourceCount;
 }

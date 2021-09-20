@@ -12,30 +12,15 @@ export class AggregateOrderItem {
     @Field(() => OrderItemCountAggregate, {nullable:true})
     _count?: OrderItemCountAggregate;
 
-    @Field(() => OrderItemCountAggregate, {nullable:true})
-    count?: OrderItemCountAggregate;
-
     @Field(() => OrderItemAvgAggregate, {nullable:true})
     _avg?: OrderItemAvgAggregate;
-
-    @Field(() => OrderItemAvgAggregate, {nullable:true})
-    avg?: OrderItemAvgAggregate;
 
     @Field(() => OrderItemSumAggregate, {nullable:true})
     _sum?: OrderItemSumAggregate;
 
-    @Field(() => OrderItemSumAggregate, {nullable:true})
-    sum?: OrderItemSumAggregate;
-
     @Field(() => OrderItemMinAggregate, {nullable:true})
     _min?: OrderItemMinAggregate;
 
-    @Field(() => OrderItemMinAggregate, {nullable:true})
-    min?: OrderItemMinAggregate;
-
     @Field(() => OrderItemMaxAggregate, {nullable:true})
     _max?: OrderItemMaxAggregate;
-
-    @Field(() => OrderItemMaxAggregate, {nullable:true})
-    max?: OrderItemMaxAggregate;
 }

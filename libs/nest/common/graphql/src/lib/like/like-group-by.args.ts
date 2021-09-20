@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { LikeWhereInput } from './like-where.input';
-import { LikeOrderByInput } from './like-order-by.input';
+import { LikeOrderByWithAggregationInput } from './like-order-by-with-aggregation.input';
 import { LikeScalarFieldEnum } from './like-scalar-field.enum';
 import { LikeScalarWhereWithAggregatesInput } from './like-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class LikeGroupByArgs {
     @Field(() => LikeWhereInput, {nullable:true})
     where?: LikeWhereInput;
 
-    @Field(() => [LikeOrderByInput], {nullable:true})
-    orderBy?: Array<LikeOrderByInput>;
+    @Field(() => [LikeOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<LikeOrderByWithAggregationInput>;
 
     @Field(() => [LikeScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof LikeScalarFieldEnum>;

@@ -10,18 +10,9 @@ export class AggregateProductTypeTranslation {
     @Field(() => ProductTypeTranslationCountAggregate, {nullable:true})
     _count?: ProductTypeTranslationCountAggregate;
 
-    @Field(() => ProductTypeTranslationCountAggregate, {nullable:true})
-    count?: ProductTypeTranslationCountAggregate;
-
     @Field(() => ProductTypeTranslationMinAggregate, {nullable:true})
     _min?: ProductTypeTranslationMinAggregate;
 
-    @Field(() => ProductTypeTranslationMinAggregate, {nullable:true})
-    min?: ProductTypeTranslationMinAggregate;
-
     @Field(() => ProductTypeTranslationMaxAggregate, {nullable:true})
     _max?: ProductTypeTranslationMaxAggregate;
-
-    @Field(() => ProductTypeTranslationMaxAggregate, {nullable:true})
-    max?: ProductTypeTranslationMaxAggregate;
 }

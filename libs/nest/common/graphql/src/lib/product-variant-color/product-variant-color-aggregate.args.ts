@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductVariantColorWhereInput } from './product-variant-color-where.input';
-import { ProductVariantColorOrderByInput } from './product-variant-color-order-by.input';
+import { ProductVariantColorOrderByWithRelationInput } from './product-variant-color-order-by-with-relation.input';
 import { ProductVariantColorWhereUniqueInput } from './product-variant-color-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ProductVariantColorCountAggregateInput } from './product-variant-color-count-aggregate.input';
@@ -14,8 +14,8 @@ export class ProductVariantColorAggregateArgs {
     @Field(() => ProductVariantColorWhereInput, {nullable:true})
     where?: ProductVariantColorWhereInput;
 
-    @Field(() => [ProductVariantColorOrderByInput], {nullable:true})
-    orderBy?: Array<ProductVariantColorOrderByInput>;
+    @Field(() => [ProductVariantColorOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ProductVariantColorOrderByWithRelationInput>;
 
     @Field(() => ProductVariantColorWhereUniqueInput, {nullable:true})
     cursor?: ProductVariantColorWhereUniqueInput;

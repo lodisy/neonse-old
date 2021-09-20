@@ -10,18 +10,9 @@ export class AggregatePermission {
     @Field(() => PermissionCountAggregate, {nullable:true})
     _count?: PermissionCountAggregate;
 
-    @Field(() => PermissionCountAggregate, {nullable:true})
-    count?: PermissionCountAggregate;
-
     @Field(() => PermissionMinAggregate, {nullable:true})
     _min?: PermissionMinAggregate;
 
-    @Field(() => PermissionMinAggregate, {nullable:true})
-    min?: PermissionMinAggregate;
-
     @Field(() => PermissionMaxAggregate, {nullable:true})
     _max?: PermissionMaxAggregate;
-
-    @Field(() => PermissionMaxAggregate, {nullable:true})
-    max?: PermissionMaxAggregate;
 }

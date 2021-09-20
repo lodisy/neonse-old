@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { OrderAddressWhereInput } from './order-address-where.input';
-import { OrderAddressOrderByInput } from './order-address-order-by.input';
+import { OrderAddressOrderByWithAggregationInput } from './order-address-order-by-with-aggregation.input';
 import { OrderAddressScalarFieldEnum } from './order-address-scalar-field.enum';
 import { OrderAddressScalarWhereWithAggregatesInput } from './order-address-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class OrderAddressGroupByArgs {
     @Field(() => OrderAddressWhereInput, {nullable:true})
     where?: OrderAddressWhereInput;
 
-    @Field(() => [OrderAddressOrderByInput], {nullable:true})
-    orderBy?: Array<OrderAddressOrderByInput>;
+    @Field(() => [OrderAddressOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<OrderAddressOrderByWithAggregationInput>;
 
     @Field(() => [OrderAddressScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof OrderAddressScalarFieldEnum>;

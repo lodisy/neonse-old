@@ -22,18 +22,9 @@ export class NestedEnumPaymentMethodWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumPaymentMethodFilter, {nullable:true})
     _min?: NestedEnumPaymentMethodFilter;
 
     @Field(() => NestedEnumPaymentMethodFilter, {nullable:true})
-    min?: NestedEnumPaymentMethodFilter;
-
-    @Field(() => NestedEnumPaymentMethodFilter, {nullable:true})
     _max?: NestedEnumPaymentMethodFilter;
-
-    @Field(() => NestedEnumPaymentMethodFilter, {nullable:true})
-    max?: NestedEnumPaymentMethodFilter;
 }

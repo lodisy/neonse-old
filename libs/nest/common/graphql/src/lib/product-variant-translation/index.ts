@@ -9,6 +9,7 @@ export { FindUniqueProductVariantTranslationArgs } from './find-unique-product-v
 export { ProductVariantTranslationAggregateArgs } from './product-variant-translation-aggregate.args';
 export { ProductVariantTranslationCountAggregateInput } from './product-variant-translation-count-aggregate.input';
 export { ProductVariantTranslationCountAggregate } from './product-variant-translation-count-aggregate.output';
+export { ProductVariantTranslationCountOrderByAggregateInput } from './product-variant-translation-count-order-by-aggregate.input';
 export { ProductVariantTranslationCreateManyProductVariantInputEnvelope } from './product-variant-translation-create-many-product-variant-input-envelope.input';
 export { ProductVariantTranslationCreateManyProductVariantInput } from './product-variant-translation-create-many-product-variant.input';
 export { ProductVariantTranslationCreateManyInput } from './product-variant-translation-create-many.input';
@@ -21,8 +22,13 @@ export { ProductVariantTranslationGroupBy } from './product-variant-translation-
 export { ProductVariantTranslationListRelationFilter } from './product-variant-translation-list-relation-filter.input';
 export { ProductVariantTranslationMaxAggregateInput } from './product-variant-translation-max-aggregate.input';
 export { ProductVariantTranslationMaxAggregate } from './product-variant-translation-max-aggregate.output';
+export { ProductVariantTranslationMaxOrderByAggregateInput } from './product-variant-translation-max-order-by-aggregate.input';
 export { ProductVariantTranslationMinAggregateInput } from './product-variant-translation-min-aggregate.input';
 export { ProductVariantTranslationMinAggregate } from './product-variant-translation-min-aggregate.output';
+export { ProductVariantTranslationMinOrderByAggregateInput } from './product-variant-translation-min-order-by-aggregate.input';
+export { ProductVariantTranslationOrderByRelationAggregateInput } from './product-variant-translation-order-by-relation-aggregate.input';
+export { ProductVariantTranslationOrderByWithAggregationInput } from './product-variant-translation-order-by-with-aggregation.input';
+export { ProductVariantTranslationOrderByWithRelationInput } from './product-variant-translation-order-by-with-relation.input';
 export { ProductVariantTranslationOrderByInput } from './product-variant-translation-order-by.input';
 export { ProductVariantTranslationScalarFieldEnum } from './product-variant-translation-scalar-field.enum';
 export { ProductVariantTranslationScalarWhereWithAggregatesInput } from './product-variant-translation-scalar-where-with-aggregates.input';

@@ -5,6 +5,7 @@ import { File } from '../file/file.model';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { ProductVariantStyleTranslation } from '../product-variant-style-translation/product-variant-style-translation.model';
 import { ProductVariant } from '../product-variant/product-variant.model';
+import { ProductVariantStyleCount } from './product-variant-style-count.output';
 
 @ObjectType()
 export class ProductVariantStyle {
@@ -38,4 +39,7 @@ export class ProductVariantStyle {
 
     @Field(() => String, {nullable:false})
     fileId!: string;
+
+    @Field(() => ProductVariantStyleCount, {nullable:true})
+    _count?: ProductVariantStyleCount;
 }

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductTypeWhereInput } from './product-type-where.input';
-import { ProductTypeOrderByInput } from './product-type-order-by.input';
+import { ProductTypeOrderByWithRelationInput } from './product-type-order-by-with-relation.input';
 import { ProductTypeWhereUniqueInput } from './product-type-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ProductTypeScalarFieldEnum } from './product-type-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindManyProductTypeArgs {
     @Field(() => ProductTypeWhereInput, {nullable:true})
     where?: ProductTypeWhereInput;
 
-    @Field(() => [ProductTypeOrderByInput], {nullable:true})
-    orderBy?: Array<ProductTypeOrderByInput>;
+    @Field(() => [ProductTypeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ProductTypeOrderByWithRelationInput>;
 
     @Field(() => ProductTypeWhereUniqueInput, {nullable:true})
     cursor?: ProductTypeWhereUniqueInput;

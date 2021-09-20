@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { OrderItemWhereInput } from './order-item-where.input';
-import { OrderItemOrderByInput } from './order-item-order-by.input';
+import { OrderItemOrderByWithAggregationInput } from './order-item-order-by-with-aggregation.input';
 import { OrderItemScalarFieldEnum } from './order-item-scalar-field.enum';
 import { OrderItemScalarWhereWithAggregatesInput } from './order-item-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class OrderItemGroupByArgs {
     @Field(() => OrderItemWhereInput, {nullable:true})
     where?: OrderItemWhereInput;
 
-    @Field(() => [OrderItemOrderByInput], {nullable:true})
-    orderBy?: Array<OrderItemOrderByInput>;
+    @Field(() => [OrderItemOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<OrderItemOrderByWithAggregationInput>;
 
     @Field(() => [OrderItemScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof OrderItemScalarFieldEnum>;

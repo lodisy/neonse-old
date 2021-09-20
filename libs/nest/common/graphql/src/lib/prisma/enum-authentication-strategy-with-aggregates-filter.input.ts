@@ -23,18 +23,9 @@ export class EnumAuthenticationStrategyWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumAuthenticationStrategyFilter, {nullable:true})
     _min?: NestedEnumAuthenticationStrategyFilter;
 
     @Field(() => NestedEnumAuthenticationStrategyFilter, {nullable:true})
-    min?: NestedEnumAuthenticationStrategyFilter;
-
-    @Field(() => NestedEnumAuthenticationStrategyFilter, {nullable:true})
     _max?: NestedEnumAuthenticationStrategyFilter;
-
-    @Field(() => NestedEnumAuthenticationStrategyFilter, {nullable:true})
-    max?: NestedEnumAuthenticationStrategyFilter;
 }

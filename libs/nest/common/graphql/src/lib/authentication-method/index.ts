@@ -2,6 +2,7 @@ export { AggregateAuthenticationMethod } from './aggregate-authentication-method
 export { AuthenticationMethodAggregateArgs } from './authentication-method-aggregate.args';
 export { AuthenticationMethodCountAggregateInput } from './authentication-method-count-aggregate.input';
 export { AuthenticationMethodCountAggregate } from './authentication-method-count-aggregate.output';
+export { AuthenticationMethodCountOrderByAggregateInput } from './authentication-method-count-order-by-aggregate.input';
 export { AuthenticationMethodCreateManyUserInputEnvelope } from './authentication-method-create-many-user-input-envelope.input';
 export { AuthenticationMethodCreateManyUserInput } from './authentication-method-create-many-user.input';
 export { AuthenticationMethodCreateManyInput } from './authentication-method-create-many.input';
@@ -14,8 +15,13 @@ export { AuthenticationMethodGroupBy } from './authentication-method-group-by.ou
 export { AuthenticationMethodListRelationFilter } from './authentication-method-list-relation-filter.input';
 export { AuthenticationMethodMaxAggregateInput } from './authentication-method-max-aggregate.input';
 export { AuthenticationMethodMaxAggregate } from './authentication-method-max-aggregate.output';
+export { AuthenticationMethodMaxOrderByAggregateInput } from './authentication-method-max-order-by-aggregate.input';
 export { AuthenticationMethodMinAggregateInput } from './authentication-method-min-aggregate.input';
 export { AuthenticationMethodMinAggregate } from './authentication-method-min-aggregate.output';
+export { AuthenticationMethodMinOrderByAggregateInput } from './authentication-method-min-order-by-aggregate.input';
+export { AuthenticationMethodOrderByRelationAggregateInput } from './authentication-method-order-by-relation-aggregate.input';
+export { AuthenticationMethodOrderByWithAggregationInput } from './authentication-method-order-by-with-aggregation.input';
+export { AuthenticationMethodOrderByWithRelationInput } from './authentication-method-order-by-with-relation.input';
 export { AuthenticationMethodOrderByInput } from './authentication-method-order-by.input';
 export { AuthenticationMethodScalarFieldEnum } from './authentication-method-scalar-field.enum';
 export { AuthenticationMethodScalarWhereWithAggregatesInput } from './authentication-method-scalar-where-with-aggregates.input';

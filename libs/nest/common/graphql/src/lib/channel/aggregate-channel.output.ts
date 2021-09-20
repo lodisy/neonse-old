@@ -10,18 +10,9 @@ export class AggregateChannel {
     @Field(() => ChannelCountAggregate, {nullable:true})
     _count?: ChannelCountAggregate;
 
-    @Field(() => ChannelCountAggregate, {nullable:true})
-    count?: ChannelCountAggregate;
-
     @Field(() => ChannelMinAggregate, {nullable:true})
     _min?: ChannelMinAggregate;
 
-    @Field(() => ChannelMinAggregate, {nullable:true})
-    min?: ChannelMinAggregate;
-
     @Field(() => ChannelMaxAggregate, {nullable:true})
     _max?: ChannelMaxAggregate;
-
-    @Field(() => ChannelMaxAggregate, {nullable:true})
-    max?: ChannelMaxAggregate;
 }

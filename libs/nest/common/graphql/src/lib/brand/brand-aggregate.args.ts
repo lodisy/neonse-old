@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { BrandWhereInput } from './brand-where.input';
-import { BrandOrderByInput } from './brand-order-by.input';
+import { BrandOrderByWithRelationInput } from './brand-order-by-with-relation.input';
 import { BrandWhereUniqueInput } from './brand-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { BrandCountAggregateInput } from './brand-count-aggregate.input';
@@ -16,8 +16,8 @@ export class BrandAggregateArgs {
     @Field(() => BrandWhereInput, {nullable:true})
     where?: BrandWhereInput;
 
-    @Field(() => [BrandOrderByInput], {nullable:true})
-    orderBy?: Array<BrandOrderByInput>;
+    @Field(() => [BrandOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<BrandOrderByWithRelationInput>;
 
     @Field(() => BrandWhereUniqueInput, {nullable:true})
     cursor?: BrandWhereUniqueInput;

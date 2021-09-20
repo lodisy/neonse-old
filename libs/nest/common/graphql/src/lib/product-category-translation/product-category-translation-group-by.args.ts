@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductCategoryTranslationWhereInput } from './product-category-translation-where.input';
-import { ProductCategoryTranslationOrderByInput } from './product-category-translation-order-by.input';
+import { ProductCategoryTranslationOrderByWithAggregationInput } from './product-category-translation-order-by-with-aggregation.input';
 import { ProductCategoryTranslationScalarFieldEnum } from './product-category-translation-scalar-field.enum';
 import { ProductCategoryTranslationScalarWhereWithAggregatesInput } from './product-category-translation-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class ProductCategoryTranslationGroupByArgs {
     @Field(() => ProductCategoryTranslationWhereInput, {nullable:true})
     where?: ProductCategoryTranslationWhereInput;
 
-    @Field(() => [ProductCategoryTranslationOrderByInput], {nullable:true})
-    orderBy?: Array<ProductCategoryTranslationOrderByInput>;
+    @Field(() => [ProductCategoryTranslationOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ProductCategoryTranslationOrderByWithAggregationInput>;
 
     @Field(() => [ProductCategoryTranslationScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ProductCategoryTranslationScalarFieldEnum>;

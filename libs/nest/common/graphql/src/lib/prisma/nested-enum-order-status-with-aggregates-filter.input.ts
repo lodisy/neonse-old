@@ -22,18 +22,9 @@ export class NestedEnumOrderStatusWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumOrderStatusFilter, {nullable:true})
     _min?: NestedEnumOrderStatusFilter;
 
     @Field(() => NestedEnumOrderStatusFilter, {nullable:true})
-    min?: NestedEnumOrderStatusFilter;
-
-    @Field(() => NestedEnumOrderStatusFilter, {nullable:true})
     _max?: NestedEnumOrderStatusFilter;
-
-    @Field(() => NestedEnumOrderStatusFilter, {nullable:true})
-    max?: NestedEnumOrderStatusFilter;
 }

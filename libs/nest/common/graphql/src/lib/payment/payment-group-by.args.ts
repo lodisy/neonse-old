@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { PaymentWhereInput } from './payment-where.input';
-import { PaymentOrderByInput } from './payment-order-by.input';
+import { PaymentOrderByWithAggregationInput } from './payment-order-by-with-aggregation.input';
 import { PaymentScalarFieldEnum } from './payment-scalar-field.enum';
 import { PaymentScalarWhereWithAggregatesInput } from './payment-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class PaymentGroupByArgs {
     @Field(() => PaymentWhereInput, {nullable:true})
     where?: PaymentWhereInput;
 
-    @Field(() => [PaymentOrderByInput], {nullable:true})
-    orderBy?: Array<PaymentOrderByInput>;
+    @Field(() => [PaymentOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<PaymentOrderByWithAggregationInput>;
 
     @Field(() => [PaymentScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof PaymentScalarFieldEnum>;

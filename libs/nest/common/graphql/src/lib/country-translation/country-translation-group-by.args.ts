@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { CountryTranslationWhereInput } from './country-translation-where.input';
-import { CountryTranslationOrderByInput } from './country-translation-order-by.input';
+import { CountryTranslationOrderByWithAggregationInput } from './country-translation-order-by-with-aggregation.input';
 import { CountryTranslationScalarFieldEnum } from './country-translation-scalar-field.enum';
 import { CountryTranslationScalarWhereWithAggregatesInput } from './country-translation-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class CountryTranslationGroupByArgs {
     @Field(() => CountryTranslationWhereInput, {nullable:true})
     where?: CountryTranslationWhereInput;
 
-    @Field(() => [CountryTranslationOrderByInput], {nullable:true})
-    orderBy?: Array<CountryTranslationOrderByInput>;
+    @Field(() => [CountryTranslationOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<CountryTranslationOrderByWithAggregationInput>;
 
     @Field(() => [CountryTranslationScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof CountryTranslationScalarFieldEnum>;

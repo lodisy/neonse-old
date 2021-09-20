@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { PaymentWhereInput } from './payment-where.input';
-import { PaymentOrderByInput } from './payment-order-by.input';
+import { PaymentOrderByWithRelationInput } from './payment-order-by-with-relation.input';
 import { PaymentWhereUniqueInput } from './payment-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { PaymentCountAggregateInput } from './payment-count-aggregate.input';
@@ -14,8 +14,8 @@ export class PaymentAggregateArgs {
     @Field(() => PaymentWhereInput, {nullable:true})
     where?: PaymentWhereInput;
 
-    @Field(() => [PaymentOrderByInput], {nullable:true})
-    orderBy?: Array<PaymentOrderByInput>;
+    @Field(() => [PaymentOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PaymentOrderByWithRelationInput>;
 
     @Field(() => PaymentWhereUniqueInput, {nullable:true})
     cursor?: PaymentWhereUniqueInput;

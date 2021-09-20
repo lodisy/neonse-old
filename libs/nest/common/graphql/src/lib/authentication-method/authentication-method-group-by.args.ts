@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { AuthenticationMethodWhereInput } from './authentication-method-where.input';
-import { AuthenticationMethodOrderByInput } from './authentication-method-order-by.input';
+import { AuthenticationMethodOrderByWithAggregationInput } from './authentication-method-order-by-with-aggregation.input';
 import { AuthenticationMethodScalarFieldEnum } from './authentication-method-scalar-field.enum';
 import { AuthenticationMethodScalarWhereWithAggregatesInput } from './authentication-method-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class AuthenticationMethodGroupByArgs {
     @Field(() => AuthenticationMethodWhereInput, {nullable:true})
     where?: AuthenticationMethodWhereInput;
 
-    @Field(() => [AuthenticationMethodOrderByInput], {nullable:true})
-    orderBy?: Array<AuthenticationMethodOrderByInput>;
+    @Field(() => [AuthenticationMethodOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<AuthenticationMethodOrderByWithAggregationInput>;
 
     @Field(() => [AuthenticationMethodScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof AuthenticationMethodScalarFieldEnum>;

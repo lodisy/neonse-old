@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { MessageWhereInput } from './message-where.input';
-import { MessageOrderByInput } from './message-order-by.input';
+import { MessageOrderByWithAggregationInput } from './message-order-by-with-aggregation.input';
 import { MessageScalarFieldEnum } from './message-scalar-field.enum';
 import { MessageScalarWhereWithAggregatesInput } from './message-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class MessageGroupByArgs {
     @Field(() => MessageWhereInput, {nullable:true})
     where?: MessageWhereInput;
 
-    @Field(() => [MessageOrderByInput], {nullable:true})
-    orderBy?: Array<MessageOrderByInput>;
+    @Field(() => [MessageOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<MessageOrderByWithAggregationInput>;
 
     @Field(() => [MessageScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof MessageScalarFieldEnum>;

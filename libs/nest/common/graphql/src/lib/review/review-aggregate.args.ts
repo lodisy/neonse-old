@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ReviewWhereInput } from './review-where.input';
-import { ReviewOrderByInput } from './review-order-by.input';
+import { ReviewOrderByWithRelationInput } from './review-order-by-with-relation.input';
 import { ReviewWhereUniqueInput } from './review-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ReviewCountAggregateInput } from './review-count-aggregate.input';
@@ -16,8 +16,8 @@ export class ReviewAggregateArgs {
     @Field(() => ReviewWhereInput, {nullable:true})
     where?: ReviewWhereInput;
 
-    @Field(() => [ReviewOrderByInput], {nullable:true})
-    orderBy?: Array<ReviewOrderByInput>;
+    @Field(() => [ReviewOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ReviewOrderByWithRelationInput>;
 
     @Field(() => ReviewWhereUniqueInput, {nullable:true})
     cursor?: ReviewWhereUniqueInput;

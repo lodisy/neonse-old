@@ -23,18 +23,9 @@ export class EnumCurrencyCodeWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedEnumCurrencyCodeFilter, {nullable:true})
     _min?: NestedEnumCurrencyCodeFilter;
 
     @Field(() => NestedEnumCurrencyCodeFilter, {nullable:true})
-    min?: NestedEnumCurrencyCodeFilter;
-
-    @Field(() => NestedEnumCurrencyCodeFilter, {nullable:true})
     _max?: NestedEnumCurrencyCodeFilter;
-
-    @Field(() => NestedEnumCurrencyCodeFilter, {nullable:true})
-    max?: NestedEnumCurrencyCodeFilter;
 }

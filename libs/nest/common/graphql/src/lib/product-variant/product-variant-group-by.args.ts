@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductVariantWhereInput } from './product-variant-where.input';
-import { ProductVariantOrderByInput } from './product-variant-order-by.input';
+import { ProductVariantOrderByWithAggregationInput } from './product-variant-order-by-with-aggregation.input';
 import { ProductVariantScalarFieldEnum } from './product-variant-scalar-field.enum';
 import { ProductVariantScalarWhereWithAggregatesInput } from './product-variant-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class ProductVariantGroupByArgs {
     @Field(() => ProductVariantWhereInput, {nullable:true})
     where?: ProductVariantWhereInput;
 
-    @Field(() => [ProductVariantOrderByInput], {nullable:true})
-    orderBy?: Array<ProductVariantOrderByInput>;
+    @Field(() => [ProductVariantOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ProductVariantOrderByWithAggregationInput>;
 
     @Field(() => [ProductVariantScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ProductVariantScalarFieldEnum>;

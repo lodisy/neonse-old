@@ -9,6 +9,8 @@ export { FindUniqueProductVariantColorArgs } from './find-unique-product-variant
 export { ProductVariantColorAggregateArgs } from './product-variant-color-aggregate.args';
 export { ProductVariantColorCountAggregateInput } from './product-variant-color-count-aggregate.input';
 export { ProductVariantColorCountAggregate } from './product-variant-color-count-aggregate.output';
+export { ProductVariantColorCountOrderByAggregateInput } from './product-variant-color-count-order-by-aggregate.input';
+export { ProductVariantColorCount } from './product-variant-color-count.output';
 export { ProductVariantColorCreateManyInput } from './product-variant-color-create-many.input';
 export { ProductVariantColorCreateNestedOneWithoutProductVariantInput } from './product-variant-color-create-nested-one-without-product-variant.input';
 export { ProductVariantColorCreateNestedOneWithoutTranslationsInput } from './product-variant-color-create-nested-one-without-translations.input';
@@ -21,8 +23,12 @@ export { ProductVariantColorGroupByArgs } from './product-variant-color-group-by
 export { ProductVariantColorGroupBy } from './product-variant-color-group-by.output';
 export { ProductVariantColorMaxAggregateInput } from './product-variant-color-max-aggregate.input';
 export { ProductVariantColorMaxAggregate } from './product-variant-color-max-aggregate.output';
+export { ProductVariantColorMaxOrderByAggregateInput } from './product-variant-color-max-order-by-aggregate.input';
 export { ProductVariantColorMinAggregateInput } from './product-variant-color-min-aggregate.input';
 export { ProductVariantColorMinAggregate } from './product-variant-color-min-aggregate.output';
+export { ProductVariantColorMinOrderByAggregateInput } from './product-variant-color-min-order-by-aggregate.input';
+export { ProductVariantColorOrderByWithAggregationInput } from './product-variant-color-order-by-with-aggregation.input';
+export { ProductVariantColorOrderByWithRelationInput } from './product-variant-color-order-by-with-relation.input';
 export { ProductVariantColorOrderByInput } from './product-variant-color-order-by.input';
 export { ProductVariantColorRelationFilter } from './product-variant-color-relation-filter.input';
 export { ProductVariantColorScalarFieldEnum } from './product-variant-color-scalar-field.enum';

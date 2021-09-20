@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { OrderWhereInput } from './order-where.input';
-import { OrderOrderByInput } from './order-order-by.input';
+import { OrderOrderByWithRelationInput } from './order-order-by-with-relation.input';
 import { OrderWhereUniqueInput } from './order-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { OrderScalarFieldEnum } from './order-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindFirstOrderArgs {
     @Field(() => OrderWhereInput, {nullable:true})
     where?: OrderWhereInput;
 
-    @Field(() => [OrderOrderByInput], {nullable:true})
-    orderBy?: Array<OrderOrderByInput>;
+    @Field(() => [OrderOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<OrderOrderByWithRelationInput>;
 
     @Field(() => OrderWhereUniqueInput, {nullable:true})
     cursor?: OrderWhereUniqueInput;

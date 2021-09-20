@@ -10,18 +10,9 @@ export class AggregateRole {
     @Field(() => RoleCountAggregate, {nullable:true})
     _count?: RoleCountAggregate;
 
-    @Field(() => RoleCountAggregate, {nullable:true})
-    count?: RoleCountAggregate;
-
     @Field(() => RoleMinAggregate, {nullable:true})
     _min?: RoleMinAggregate;
 
-    @Field(() => RoleMinAggregate, {nullable:true})
-    min?: RoleMinAggregate;
-
     @Field(() => RoleMaxAggregate, {nullable:true})
     _max?: RoleMaxAggregate;
-
-    @Field(() => RoleMaxAggregate, {nullable:true})
-    max?: RoleMaxAggregate;
 }

@@ -10,18 +10,9 @@ export class AggregateShippingMethodTranslation {
     @Field(() => ShippingMethodTranslationCountAggregate, {nullable:true})
     _count?: ShippingMethodTranslationCountAggregate;
 
-    @Field(() => ShippingMethodTranslationCountAggregate, {nullable:true})
-    count?: ShippingMethodTranslationCountAggregate;
-
     @Field(() => ShippingMethodTranslationMinAggregate, {nullable:true})
     _min?: ShippingMethodTranslationMinAggregate;
 
-    @Field(() => ShippingMethodTranslationMinAggregate, {nullable:true})
-    min?: ShippingMethodTranslationMinAggregate;
-
     @Field(() => ShippingMethodTranslationMaxAggregate, {nullable:true})
     _max?: ShippingMethodTranslationMaxAggregate;
-
-    @Field(() => ShippingMethodTranslationMaxAggregate, {nullable:true})
-    max?: ShippingMethodTranslationMaxAggregate;
 }

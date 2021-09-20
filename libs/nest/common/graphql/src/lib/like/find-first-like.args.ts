@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { LikeWhereInput } from './like-where.input';
-import { LikeOrderByInput } from './like-order-by.input';
+import { LikeOrderByWithRelationInput } from './like-order-by-with-relation.input';
 import { LikeWhereUniqueInput } from './like-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { LikeScalarFieldEnum } from './like-scalar-field.enum';
@@ -12,8 +12,8 @@ export class FindFirstLikeArgs {
     @Field(() => LikeWhereInput, {nullable:true})
     where?: LikeWhereInput;
 
-    @Field(() => [LikeOrderByInput], {nullable:true})
-    orderBy?: Array<LikeOrderByInput>;
+    @Field(() => [LikeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<LikeOrderByWithRelationInput>;
 
     @Field(() => LikeWhereUniqueInput, {nullable:true})
     cursor?: LikeWhereUniqueInput;

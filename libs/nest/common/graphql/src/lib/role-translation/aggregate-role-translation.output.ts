@@ -10,18 +10,9 @@ export class AggregateRoleTranslation {
     @Field(() => RoleTranslationCountAggregate, {nullable:true})
     _count?: RoleTranslationCountAggregate;
 
-    @Field(() => RoleTranslationCountAggregate, {nullable:true})
-    count?: RoleTranslationCountAggregate;
-
     @Field(() => RoleTranslationMinAggregate, {nullable:true})
     _min?: RoleTranslationMinAggregate;
 
-    @Field(() => RoleTranslationMinAggregate, {nullable:true})
-    min?: RoleTranslationMinAggregate;
-
     @Field(() => RoleTranslationMaxAggregate, {nullable:true})
     _max?: RoleTranslationMaxAggregate;
-
-    @Field(() => RoleTranslationMaxAggregate, {nullable:true})
-    max?: RoleTranslationMaxAggregate;
 }

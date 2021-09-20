@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ShippingZoneWhereInput } from './shipping-zone-where.input';
-import { ShippingZoneOrderByInput } from './shipping-zone-order-by.input';
+import { ShippingZoneOrderByWithAggregationInput } from './shipping-zone-order-by-with-aggregation.input';
 import { ShippingZoneScalarFieldEnum } from './shipping-zone-scalar-field.enum';
 import { ShippingZoneScalarWhereWithAggregatesInput } from './shipping-zone-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class ShippingZoneGroupByArgs {
     @Field(() => ShippingZoneWhereInput, {nullable:true})
     where?: ShippingZoneWhereInput;
 
-    @Field(() => [ShippingZoneOrderByInput], {nullable:true})
-    orderBy?: Array<ShippingZoneOrderByInput>;
+    @Field(() => [ShippingZoneOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ShippingZoneOrderByWithAggregationInput>;
 
     @Field(() => [ShippingZoneScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ShippingZoneScalarFieldEnum>;

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductCategoryWhereInput } from './product-category-where.input';
-import { ProductCategoryOrderByInput } from './product-category-order-by.input';
+import { ProductCategoryOrderByWithRelationInput } from './product-category-order-by-with-relation.input';
 import { ProductCategoryWhereUniqueInput } from './product-category-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ProductCategoryCountAggregateInput } from './product-category-count-aggregate.input';
@@ -14,8 +14,8 @@ export class ProductCategoryAggregateArgs {
     @Field(() => ProductCategoryWhereInput, {nullable:true})
     where?: ProductCategoryWhereInput;
 
-    @Field(() => [ProductCategoryOrderByInput], {nullable:true})
-    orderBy?: Array<ProductCategoryOrderByInput>;
+    @Field(() => [ProductCategoryOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ProductCategoryOrderByWithRelationInput>;
 
     @Field(() => ProductCategoryWhereUniqueInput, {nullable:true})
     cursor?: ProductCategoryWhereUniqueInput;

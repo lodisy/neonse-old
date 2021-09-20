@@ -12,30 +12,15 @@ export class AggregatePromotionList {
     @Field(() => PromotionListCountAggregate, {nullable:true})
     _count?: PromotionListCountAggregate;
 
-    @Field(() => PromotionListCountAggregate, {nullable:true})
-    count?: PromotionListCountAggregate;
-
     @Field(() => PromotionListAvgAggregate, {nullable:true})
     _avg?: PromotionListAvgAggregate;
-
-    @Field(() => PromotionListAvgAggregate, {nullable:true})
-    avg?: PromotionListAvgAggregate;
 
     @Field(() => PromotionListSumAggregate, {nullable:true})
     _sum?: PromotionListSumAggregate;
 
-    @Field(() => PromotionListSumAggregate, {nullable:true})
-    sum?: PromotionListSumAggregate;
-
     @Field(() => PromotionListMinAggregate, {nullable:true})
     _min?: PromotionListMinAggregate;
 
-    @Field(() => PromotionListMinAggregate, {nullable:true})
-    min?: PromotionListMinAggregate;
-
     @Field(() => PromotionListMaxAggregate, {nullable:true})
     _max?: PromotionListMaxAggregate;
-
-    @Field(() => PromotionListMaxAggregate, {nullable:true})
-    max?: PromotionListMaxAggregate;
 }

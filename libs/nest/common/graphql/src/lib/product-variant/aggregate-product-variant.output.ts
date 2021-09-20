@@ -12,30 +12,15 @@ export class AggregateProductVariant {
     @Field(() => ProductVariantCountAggregate, {nullable:true})
     _count?: ProductVariantCountAggregate;
 
-    @Field(() => ProductVariantCountAggregate, {nullable:true})
-    count?: ProductVariantCountAggregate;
-
     @Field(() => ProductVariantAvgAggregate, {nullable:true})
     _avg?: ProductVariantAvgAggregate;
-
-    @Field(() => ProductVariantAvgAggregate, {nullable:true})
-    avg?: ProductVariantAvgAggregate;
 
     @Field(() => ProductVariantSumAggregate, {nullable:true})
     _sum?: ProductVariantSumAggregate;
 
-    @Field(() => ProductVariantSumAggregate, {nullable:true})
-    sum?: ProductVariantSumAggregate;
-
     @Field(() => ProductVariantMinAggregate, {nullable:true})
     _min?: ProductVariantMinAggregate;
 
-    @Field(() => ProductVariantMinAggregate, {nullable:true})
-    min?: ProductVariantMinAggregate;
-
     @Field(() => ProductVariantMaxAggregate, {nullable:true})
     _max?: ProductVariantMaxAggregate;
-
-    @Field(() => ProductVariantMaxAggregate, {nullable:true})
-    max?: ProductVariantMaxAggregate;
 }

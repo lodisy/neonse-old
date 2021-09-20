@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { CardWhereInput } from './card-where.input';
-import { CardOrderByInput } from './card-order-by.input';
+import { CardOrderByWithAggregationInput } from './card-order-by-with-aggregation.input';
 import { CardScalarFieldEnum } from './card-scalar-field.enum';
 import { CardScalarWhereWithAggregatesInput } from './card-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class CardGroupByArgs {
     @Field(() => CardWhereInput, {nullable:true})
     where?: CardWhereInput;
 
-    @Field(() => [CardOrderByInput], {nullable:true})
-    orderBy?: Array<CardOrderByInput>;
+    @Field(() => [CardOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<CardOrderByWithAggregationInput>;
 
     @Field(() => [CardScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof CardScalarFieldEnum>;

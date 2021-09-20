@@ -10,18 +10,9 @@ export class AggregateProductVariantStyle {
     @Field(() => ProductVariantStyleCountAggregate, {nullable:true})
     _count?: ProductVariantStyleCountAggregate;
 
-    @Field(() => ProductVariantStyleCountAggregate, {nullable:true})
-    count?: ProductVariantStyleCountAggregate;
-
     @Field(() => ProductVariantStyleMinAggregate, {nullable:true})
     _min?: ProductVariantStyleMinAggregate;
 
-    @Field(() => ProductVariantStyleMinAggregate, {nullable:true})
-    min?: ProductVariantStyleMinAggregate;
-
     @Field(() => ProductVariantStyleMaxAggregate, {nullable:true})
     _max?: ProductVariantStyleMaxAggregate;
-
-    @Field(() => ProductVariantStyleMaxAggregate, {nullable:true})
-    max?: ProductVariantStyleMaxAggregate;
 }

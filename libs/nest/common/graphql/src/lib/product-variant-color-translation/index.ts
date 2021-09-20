@@ -9,6 +9,7 @@ export { FindUniqueProductVariantColorTranslationArgs } from './find-unique-prod
 export { ProductVariantColorTranslationAggregateArgs } from './product-variant-color-translation-aggregate.args';
 export { ProductVariantColorTranslationCountAggregateInput } from './product-variant-color-translation-count-aggregate.input';
 export { ProductVariantColorTranslationCountAggregate } from './product-variant-color-translation-count-aggregate.output';
+export { ProductVariantColorTranslationCountOrderByAggregateInput } from './product-variant-color-translation-count-order-by-aggregate.input';
 export { ProductVariantColorTranslationCreateManyProductVariantColorInputEnvelope } from './product-variant-color-translation-create-many-product-variant-color-input-envelope.input';
 export { ProductVariantColorTranslationCreateManyProductVariantColorInput } from './product-variant-color-translation-create-many-product-variant-color.input';
 export { ProductVariantColorTranslationCreateManyInput } from './product-variant-color-translation-create-many.input';
@@ -21,8 +22,13 @@ export { ProductVariantColorTranslationGroupBy } from './product-variant-color-t
 export { ProductVariantColorTranslationListRelationFilter } from './product-variant-color-translation-list-relation-filter.input';
 export { ProductVariantColorTranslationMaxAggregateInput } from './product-variant-color-translation-max-aggregate.input';
 export { ProductVariantColorTranslationMaxAggregate } from './product-variant-color-translation-max-aggregate.output';
+export { ProductVariantColorTranslationMaxOrderByAggregateInput } from './product-variant-color-translation-max-order-by-aggregate.input';
 export { ProductVariantColorTranslationMinAggregateInput } from './product-variant-color-translation-min-aggregate.input';
 export { ProductVariantColorTranslationMinAggregate } from './product-variant-color-translation-min-aggregate.output';
+export { ProductVariantColorTranslationMinOrderByAggregateInput } from './product-variant-color-translation-min-order-by-aggregate.input';
+export { ProductVariantColorTranslationOrderByRelationAggregateInput } from './product-variant-color-translation-order-by-relation-aggregate.input';
+export { ProductVariantColorTranslationOrderByWithAggregationInput } from './product-variant-color-translation-order-by-with-aggregation.input';
+export { ProductVariantColorTranslationOrderByWithRelationInput } from './product-variant-color-translation-order-by-with-relation.input';
 export { ProductVariantColorTranslationOrderByInput } from './product-variant-color-translation-order-by.input';
 export { ProductVariantColorTranslationScalarFieldEnum } from './product-variant-color-translation-scalar-field.enum';
 export { ProductVariantColorTranslationScalarWhereWithAggregatesInput } from './product-variant-color-translation-scalar-where-with-aggregates.input';

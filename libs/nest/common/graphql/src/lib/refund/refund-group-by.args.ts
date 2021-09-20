@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { RefundWhereInput } from './refund-where.input';
-import { RefundOrderByInput } from './refund-order-by.input';
+import { RefundOrderByWithAggregationInput } from './refund-order-by-with-aggregation.input';
 import { RefundScalarFieldEnum } from './refund-scalar-field.enum';
 import { RefundScalarWhereWithAggregatesInput } from './refund-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class RefundGroupByArgs {
     @Field(() => RefundWhereInput, {nullable:true})
     where?: RefundWhereInput;
 
-    @Field(() => [RefundOrderByInput], {nullable:true})
-    orderBy?: Array<RefundOrderByInput>;
+    @Field(() => [RefundOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<RefundOrderByWithAggregationInput>;
 
     @Field(() => [RefundScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof RefundScalarFieldEnum>;

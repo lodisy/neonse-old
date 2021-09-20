@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { RoleWhereInput } from './role-where.input';
-import { RoleOrderByInput } from './role-order-by.input';
+import { RoleOrderByWithAggregationInput } from './role-order-by-with-aggregation.input';
 import { RoleScalarFieldEnum } from './role-scalar-field.enum';
 import { RoleScalarWhereWithAggregatesInput } from './role-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class RoleGroupByArgs {
     @Field(() => RoleWhereInput, {nullable:true})
     where?: RoleWhereInput;
 
-    @Field(() => [RoleOrderByInput], {nullable:true})
-    orderBy?: Array<RoleOrderByInput>;
+    @Field(() => [RoleOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<RoleOrderByWithAggregationInput>;
 
     @Field(() => [RoleScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof RoleScalarFieldEnum>;

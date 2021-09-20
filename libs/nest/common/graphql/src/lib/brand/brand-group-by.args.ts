@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { BrandWhereInput } from './brand-where.input';
-import { BrandOrderByInput } from './brand-order-by.input';
+import { BrandOrderByWithAggregationInput } from './brand-order-by-with-aggregation.input';
 import { BrandScalarFieldEnum } from './brand-scalar-field.enum';
 import { BrandScalarWhereWithAggregatesInput } from './brand-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class BrandGroupByArgs {
     @Field(() => BrandWhereInput, {nullable:true})
     where?: BrandWhereInput;
 
-    @Field(() => [BrandOrderByInput], {nullable:true})
-    orderBy?: Array<BrandOrderByInput>;
+    @Field(() => [BrandOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<BrandOrderByWithAggregationInput>;
 
     @Field(() => [BrandScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof BrandScalarFieldEnum>;

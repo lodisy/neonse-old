@@ -15,18 +15,9 @@ export class NestedBoolWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedBoolFilter, {nullable:true})
     _min?: NestedBoolFilter;
 
     @Field(() => NestedBoolFilter, {nullable:true})
-    min?: NestedBoolFilter;
-
-    @Field(() => NestedBoolFilter, {nullable:true})
     _max?: NestedBoolFilter;
-
-    @Field(() => NestedBoolFilter, {nullable:true})
-    max?: NestedBoolFilter;
 }

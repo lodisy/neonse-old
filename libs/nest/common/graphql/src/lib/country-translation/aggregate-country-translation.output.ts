@@ -10,18 +10,9 @@ export class AggregateCountryTranslation {
     @Field(() => CountryTranslationCountAggregate, {nullable:true})
     _count?: CountryTranslationCountAggregate;
 
-    @Field(() => CountryTranslationCountAggregate, {nullable:true})
-    count?: CountryTranslationCountAggregate;
-
     @Field(() => CountryTranslationMinAggregate, {nullable:true})
     _min?: CountryTranslationMinAggregate;
 
-    @Field(() => CountryTranslationMinAggregate, {nullable:true})
-    min?: CountryTranslationMinAggregate;
-
     @Field(() => CountryTranslationMaxAggregate, {nullable:true})
     _max?: CountryTranslationMaxAggregate;
-
-    @Field(() => CountryTranslationMaxAggregate, {nullable:true})
-    max?: CountryTranslationMaxAggregate;
 }

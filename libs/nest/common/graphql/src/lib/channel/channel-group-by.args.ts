@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ChannelWhereInput } from './channel-where.input';
-import { ChannelOrderByInput } from './channel-order-by.input';
+import { ChannelOrderByWithAggregationInput } from './channel-order-by-with-aggregation.input';
 import { ChannelScalarFieldEnum } from './channel-scalar-field.enum';
 import { ChannelScalarWhereWithAggregatesInput } from './channel-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class ChannelGroupByArgs {
     @Field(() => ChannelWhereInput, {nullable:true})
     where?: ChannelWhereInput;
 
-    @Field(() => [ChannelOrderByInput], {nullable:true})
-    orderBy?: Array<ChannelOrderByInput>;
+    @Field(() => [ChannelOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ChannelOrderByWithAggregationInput>;
 
     @Field(() => [ChannelScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ChannelScalarFieldEnum>;

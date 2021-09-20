@@ -12,30 +12,15 @@ export class AggregateFile {
     @Field(() => FileCountAggregate, {nullable:true})
     _count?: FileCountAggregate;
 
-    @Field(() => FileCountAggregate, {nullable:true})
-    count?: FileCountAggregate;
-
     @Field(() => FileAvgAggregate, {nullable:true})
     _avg?: FileAvgAggregate;
-
-    @Field(() => FileAvgAggregate, {nullable:true})
-    avg?: FileAvgAggregate;
 
     @Field(() => FileSumAggregate, {nullable:true})
     _sum?: FileSumAggregate;
 
-    @Field(() => FileSumAggregate, {nullable:true})
-    sum?: FileSumAggregate;
-
     @Field(() => FileMinAggregate, {nullable:true})
     _min?: FileMinAggregate;
 
-    @Field(() => FileMinAggregate, {nullable:true})
-    min?: FileMinAggregate;
-
     @Field(() => FileMaxAggregate, {nullable:true})
     _max?: FileMaxAggregate;
-
-    @Field(() => FileMaxAggregate, {nullable:true})
-    max?: FileMaxAggregate;
 }

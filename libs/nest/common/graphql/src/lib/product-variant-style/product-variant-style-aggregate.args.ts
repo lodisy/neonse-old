@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductVariantStyleWhereInput } from './product-variant-style-where.input';
-import { ProductVariantStyleOrderByInput } from './product-variant-style-order-by.input';
+import { ProductVariantStyleOrderByWithRelationInput } from './product-variant-style-order-by-with-relation.input';
 import { ProductVariantStyleWhereUniqueInput } from './product-variant-style-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ProductVariantStyleCountAggregateInput } from './product-variant-style-count-aggregate.input';
@@ -14,8 +14,8 @@ export class ProductVariantStyleAggregateArgs {
     @Field(() => ProductVariantStyleWhereInput, {nullable:true})
     where?: ProductVariantStyleWhereInput;
 
-    @Field(() => [ProductVariantStyleOrderByInput], {nullable:true})
-    orderBy?: Array<ProductVariantStyleOrderByInput>;
+    @Field(() => [ProductVariantStyleOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ProductVariantStyleOrderByWithRelationInput>;
 
     @Field(() => ProductVariantStyleWhereUniqueInput, {nullable:true})
     cursor?: ProductVariantStyleWhereUniqueInput;

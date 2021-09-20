@@ -12,30 +12,15 @@ export class AggregateProduct {
     @Field(() => ProductCountAggregate, {nullable:true})
     _count?: ProductCountAggregate;
 
-    @Field(() => ProductCountAggregate, {nullable:true})
-    count?: ProductCountAggregate;
-
     @Field(() => ProductAvgAggregate, {nullable:true})
     _avg?: ProductAvgAggregate;
-
-    @Field(() => ProductAvgAggregate, {nullable:true})
-    avg?: ProductAvgAggregate;
 
     @Field(() => ProductSumAggregate, {nullable:true})
     _sum?: ProductSumAggregate;
 
-    @Field(() => ProductSumAggregate, {nullable:true})
-    sum?: ProductSumAggregate;
-
     @Field(() => ProductMinAggregate, {nullable:true})
     _min?: ProductMinAggregate;
 
-    @Field(() => ProductMinAggregate, {nullable:true})
-    min?: ProductMinAggregate;
-
     @Field(() => ProductMaxAggregate, {nullable:true})
     _max?: ProductMaxAggregate;
-
-    @Field(() => ProductMaxAggregate, {nullable:true})
-    max?: ProductMaxAggregate;
 }

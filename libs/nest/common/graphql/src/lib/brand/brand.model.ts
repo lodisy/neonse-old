@@ -6,6 +6,7 @@ import { Int } from '@nestjs/graphql';
 import { Product } from '../product/product.model';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { BrandTranslation } from '../brand-translation/brand-translation.model';
+import { BrandCount } from './brand-count.output';
 
 /** 品牌 */
 @ObjectType({description:'品牌'})
@@ -46,4 +47,7 @@ export class Brand {
 
     @Field(() => [BrandTranslation], {nullable:true})
     translations?: Array<BrandTranslation>;
+
+    @Field(() => BrandCount, {nullable:true})
+    _count?: BrandCount;
 }

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { LikeWhereInput } from './like-where.input';
-import { LikeOrderByInput } from './like-order-by.input';
+import { LikeOrderByWithRelationInput } from './like-order-by-with-relation.input';
 import { LikeWhereUniqueInput } from './like-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { LikeCountAggregateInput } from './like-count-aggregate.input';
@@ -14,8 +14,8 @@ export class LikeAggregateArgs {
     @Field(() => LikeWhereInput, {nullable:true})
     where?: LikeWhereInput;
 
-    @Field(() => [LikeOrderByInput], {nullable:true})
-    orderBy?: Array<LikeOrderByInput>;
+    @Field(() => [LikeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<LikeOrderByWithRelationInput>;
 
     @Field(() => LikeWhereUniqueInput, {nullable:true})
     cursor?: LikeWhereUniqueInput;

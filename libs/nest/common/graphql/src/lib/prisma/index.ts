@@ -50,6 +50,7 @@ export { IntFilter } from './int-filter.input';
 export { IntNullableFilter } from './int-nullable-filter.input';
 export { IntNullableWithAggregatesFilter } from './int-nullable-with-aggregates-filter.input';
 export { IntWithAggregatesFilter } from './int-with-aggregates-filter.input';
+export { JsonNullValueFilter } from './json-null-value-filter.enum';
 export { JsonNullableFilter } from './json-nullable-filter.input';
 export { JsonNullableWithAggregatesFilter } from './json-nullable-with-aggregates-filter.input';
 export { LanguageCode } from './language-code.enum';
@@ -99,6 +100,7 @@ export { NullableBoolFieldUpdateOperationsInput } from './nullable-bool-field-up
 export { NullableDateTimeFieldUpdateOperationsInput } from './nullable-date-time-field-update-operations.input';
 export { NullableEnumRoleStatusFieldUpdateOperationsInput } from './nullable-enum-role-status-field-update-operations.input';
 export { NullableIntFieldUpdateOperationsInput } from './nullable-int-field-update-operations.input';
+export { NullableJsonNullValueInput } from './nullable-json-null-value-input.enum';
 export { NullableStringFieldUpdateOperationsInput } from './nullable-string-field-update-operations.input';
 export { OrderStatus } from './order-status.enum';
 export { PaymentMethod } from './payment-method.enum';

@@ -5,6 +5,7 @@ import { Product } from '../product/product.model';
 import { ProductType } from '../product-type/product-type.model';
 import { LanguageCode } from '../prisma/language-code.enum';
 import { ProductCategoryTranslation } from '../product-category-translation/product-category-translation.model';
+import { ProductCategoryCount } from '../product/product-category-count.output';
 
 /** 商品种类 */
 @ObjectType({description:'商品种类'})
@@ -45,4 +46,7 @@ export class ProductCategory {
 
     @Field(() => [ProductCategoryTranslation], {nullable:true})
     translations?: Array<ProductCategoryTranslation>;
+
+    @Field(() => ProductCategoryCount, {nullable:true})
+    _count?: ProductCategoryCount;
 }

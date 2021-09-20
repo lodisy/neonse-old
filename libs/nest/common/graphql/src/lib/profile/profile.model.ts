@@ -11,6 +11,7 @@ import { Comment } from '../comment/comment.model';
 import { Like } from '../like/like.model';
 import { Review } from '../review/review.model';
 import { Message } from '../message/message.model';
+import { ProfileCount } from './profile-count.output';
 
 /** Profile */
 @ObjectType({description:'Profile'})
@@ -79,4 +80,7 @@ export class Profile {
 
     @Field(() => [Message], {nullable:true})
     messagesReceived?: Array<Message>;
+
+    @Field(() => ProfileCount, {nullable:true})
+    _count?: ProfileCount;
 }

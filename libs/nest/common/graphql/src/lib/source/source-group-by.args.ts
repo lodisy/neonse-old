@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { SourceWhereInput } from './source-where.input';
-import { SourceOrderByInput } from './source-order-by.input';
+import { SourceOrderByWithAggregationInput } from './source-order-by-with-aggregation.input';
 import { SourceScalarFieldEnum } from './source-scalar-field.enum';
 import { SourceScalarWhereWithAggregatesInput } from './source-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class SourceGroupByArgs {
     @Field(() => SourceWhereInput, {nullable:true})
     where?: SourceWhereInput;
 
-    @Field(() => [SourceOrderByInput], {nullable:true})
-    orderBy?: Array<SourceOrderByInput>;
+    @Field(() => [SourceOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<SourceOrderByWithAggregationInput>;
 
     @Field(() => [SourceScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof SourceScalarFieldEnum>;

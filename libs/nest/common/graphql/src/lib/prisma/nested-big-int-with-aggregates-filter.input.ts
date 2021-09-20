@@ -34,30 +34,15 @@ export class NestedBigIntWithAggregatesFilter {
     @Field(() => NestedIntFilter, {nullable:true})
     _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    count?: NestedIntFilter;
-
     @Field(() => NestedFloatFilter, {nullable:true})
     _avg?: NestedFloatFilter;
-
-    @Field(() => NestedFloatFilter, {nullable:true})
-    avg?: NestedFloatFilter;
 
     @Field(() => NestedBigIntFilter, {nullable:true})
     _sum?: NestedBigIntFilter;
 
     @Field(() => NestedBigIntFilter, {nullable:true})
-    sum?: NestedBigIntFilter;
-
-    @Field(() => NestedBigIntFilter, {nullable:true})
     _min?: NestedBigIntFilter;
 
     @Field(() => NestedBigIntFilter, {nullable:true})
-    min?: NestedBigIntFilter;
-
-    @Field(() => NestedBigIntFilter, {nullable:true})
     _max?: NestedBigIntFilter;
-
-    @Field(() => NestedBigIntFilter, {nullable:true})
-    max?: NestedBigIntFilter;
 }

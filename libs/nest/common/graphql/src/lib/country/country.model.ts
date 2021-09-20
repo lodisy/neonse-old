@@ -5,6 +5,7 @@ import { LanguageCode } from '../prisma/language-code.enum';
 import { CountryTranslation } from '../country-translation/country-translation.model';
 import { Address } from '../address/address.model';
 import { ShippingZone } from '../shipping-zone/shipping-zone.model';
+import { CountryCount } from './country-count.output';
 
 /** 支持运送的国家 */
 @ObjectType({description:'支持运送的国家'})
@@ -43,4 +44,7 @@ export class Country {
 
     @Field(() => String, {nullable:true})
     shippingZoneId!: string | null;
+
+    @Field(() => CountryCount, {nullable:true})
+    _count?: CountryCount;
 }

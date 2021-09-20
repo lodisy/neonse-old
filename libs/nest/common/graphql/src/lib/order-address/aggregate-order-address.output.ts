@@ -10,18 +10,9 @@ export class AggregateOrderAddress {
     @Field(() => OrderAddressCountAggregate, {nullable:true})
     _count?: OrderAddressCountAggregate;
 
-    @Field(() => OrderAddressCountAggregate, {nullable:true})
-    count?: OrderAddressCountAggregate;
-
     @Field(() => OrderAddressMinAggregate, {nullable:true})
     _min?: OrderAddressMinAggregate;
 
-    @Field(() => OrderAddressMinAggregate, {nullable:true})
-    min?: OrderAddressMinAggregate;
-
     @Field(() => OrderAddressMaxAggregate, {nullable:true})
     _max?: OrderAddressMaxAggregate;
-
-    @Field(() => OrderAddressMaxAggregate, {nullable:true})
-    max?: OrderAddressMaxAggregate;
 }

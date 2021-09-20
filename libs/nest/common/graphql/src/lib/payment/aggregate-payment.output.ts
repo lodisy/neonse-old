@@ -10,18 +10,9 @@ export class AggregatePayment {
     @Field(() => PaymentCountAggregate, {nullable:true})
     _count?: PaymentCountAggregate;
 
-    @Field(() => PaymentCountAggregate, {nullable:true})
-    count?: PaymentCountAggregate;
-
     @Field(() => PaymentMinAggregate, {nullable:true})
     _min?: PaymentMinAggregate;
 
-    @Field(() => PaymentMinAggregate, {nullable:true})
-    min?: PaymentMinAggregate;
-
     @Field(() => PaymentMaxAggregate, {nullable:true})
     _max?: PaymentMaxAggregate;
-
-    @Field(() => PaymentMaxAggregate, {nullable:true})
-    max?: PaymentMaxAggregate;
 }

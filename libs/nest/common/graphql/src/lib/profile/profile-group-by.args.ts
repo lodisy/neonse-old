@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProfileWhereInput } from './profile-where.input';
-import { ProfileOrderByInput } from './profile-order-by.input';
+import { ProfileOrderByWithAggregationInput } from './profile-order-by-with-aggregation.input';
 import { ProfileScalarFieldEnum } from './profile-scalar-field.enum';
 import { ProfileScalarWhereWithAggregatesInput } from './profile-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class ProfileGroupByArgs {
     @Field(() => ProfileWhereInput, {nullable:true})
     where?: ProfileWhereInput;
 
-    @Field(() => [ProfileOrderByInput], {nullable:true})
-    orderBy?: Array<ProfileOrderByInput>;
+    @Field(() => [ProfileOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ProfileOrderByWithAggregationInput>;
 
     @Field(() => [ProfileScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ProfileScalarFieldEnum>;

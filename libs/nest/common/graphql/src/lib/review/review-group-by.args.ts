@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ReviewWhereInput } from './review-where.input';
-import { ReviewOrderByInput } from './review-order-by.input';
+import { ReviewOrderByWithAggregationInput } from './review-order-by-with-aggregation.input';
 import { ReviewScalarFieldEnum } from './review-scalar-field.enum';
 import { ReviewScalarWhereWithAggregatesInput } from './review-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class ReviewGroupByArgs {
     @Field(() => ReviewWhereInput, {nullable:true})
     where?: ReviewWhereInput;
 
-    @Field(() => [ReviewOrderByInput], {nullable:true})
-    orderBy?: Array<ReviewOrderByInput>;
+    @Field(() => [ReviewOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ReviewOrderByWithAggregationInput>;
 
     @Field(() => [ReviewScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ReviewScalarFieldEnum>;

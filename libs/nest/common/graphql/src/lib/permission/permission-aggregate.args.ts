@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { PermissionWhereInput } from './permission-where.input';
-import { PermissionOrderByInput } from './permission-order-by.input';
+import { PermissionOrderByWithRelationInput } from './permission-order-by-with-relation.input';
 import { PermissionWhereUniqueInput } from './permission-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { PermissionCountAggregateInput } from './permission-count-aggregate.input';
@@ -14,8 +14,8 @@ export class PermissionAggregateArgs {
     @Field(() => PermissionWhereInput, {nullable:true})
     where?: PermissionWhereInput;
 
-    @Field(() => [PermissionOrderByInput], {nullable:true})
-    orderBy?: Array<PermissionOrderByInput>;
+    @Field(() => [PermissionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PermissionOrderByWithRelationInput>;
 
     @Field(() => PermissionWhereUniqueInput, {nullable:true})
     cursor?: PermissionWhereUniqueInput;

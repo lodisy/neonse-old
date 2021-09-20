@@ -10,18 +10,9 @@ export class AggregateShippingMethod {
     @Field(() => ShippingMethodCountAggregate, {nullable:true})
     _count?: ShippingMethodCountAggregate;
 
-    @Field(() => ShippingMethodCountAggregate, {nullable:true})
-    count?: ShippingMethodCountAggregate;
-
     @Field(() => ShippingMethodMinAggregate, {nullable:true})
     _min?: ShippingMethodMinAggregate;
 
-    @Field(() => ShippingMethodMinAggregate, {nullable:true})
-    min?: ShippingMethodMinAggregate;
-
     @Field(() => ShippingMethodMaxAggregate, {nullable:true})
     _max?: ShippingMethodMaxAggregate;
-
-    @Field(() => ShippingMethodMaxAggregate, {nullable:true})
-    max?: ShippingMethodMaxAggregate;
 }

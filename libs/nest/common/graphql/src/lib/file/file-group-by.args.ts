@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { FileWhereInput } from './file-where.input';
-import { FileOrderByInput } from './file-order-by.input';
+import { FileOrderByWithAggregationInput } from './file-order-by-with-aggregation.input';
 import { FileScalarFieldEnum } from './file-scalar-field.enum';
 import { FileScalarWhereWithAggregatesInput } from './file-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -17,8 +17,8 @@ export class FileGroupByArgs {
     @Field(() => FileWhereInput, {nullable:true})
     where?: FileWhereInput;
 
-    @Field(() => [FileOrderByInput], {nullable:true})
-    orderBy?: Array<FileOrderByInput>;
+    @Field(() => [FileOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<FileOrderByWithAggregationInput>;
 
     @Field(() => [FileScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof FileScalarFieldEnum>;

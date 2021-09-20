@@ -5,6 +5,7 @@ import { Profile } from '../profile/profile.model';
 import { Product } from '../product/product.model';
 import { Int } from '@nestjs/graphql';
 import { File } from '../file/file.model';
+import { ReviewCount } from './review-count.output';
 
 /** 商品评价 */
 @ObjectType({description:'商品评价'})
@@ -19,13 +20,15 @@ export class Review {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
 
-    @Field(() => Profile, {nullable:false})
+    /** Deleting a profile will delete all its reviews */
+    @Field(() => Profile, {nullable:false,description:'Deleting a profile will delete all its reviews'})
     by?: Profile;
 
     @Field(() => String, {nullable:false})
     profileId!: string;
 
-    @Field(() => Product, {nullable:true})
+    /** Unable to delete a product with review */
+    @Field(() => Product, {nullable:true,description:'Unable to delete a product with review'})
     product?: Product;
 
     @Field(() => String, {nullable:true})
@@ -41,4 +44,7 @@ export class Review {
     /** 买家秀 */
     @Field(() => [File], {nullable:true,description:'买家秀'})
     uploads?: Array<File>;
+
+    @Field(() => ReviewCount, {nullable:true})
+    _count?: ReviewCount;
 }

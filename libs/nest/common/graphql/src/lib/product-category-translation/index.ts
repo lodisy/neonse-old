@@ -9,6 +9,7 @@ export { FindUniqueProductCategoryTranslationArgs } from './find-unique-product-
 export { ProductCategoryTranslationAggregateArgs } from './product-category-translation-aggregate.args';
 export { ProductCategoryTranslationCountAggregateInput } from './product-category-translation-count-aggregate.input';
 export { ProductCategoryTranslationCountAggregate } from './product-category-translation-count-aggregate.output';
+export { ProductCategoryTranslationCountOrderByAggregateInput } from './product-category-translation-count-order-by-aggregate.input';
 export { ProductCategoryTranslationCreateManyProductCategoryInputEnvelope } from './product-category-translation-create-many-product-category-input-envelope.input';
 export { ProductCategoryTranslationCreateManyProductCategoryInput } from './product-category-translation-create-many-product-category.input';
 export { ProductCategoryTranslationCreateManyInput } from './product-category-translation-create-many.input';
@@ -21,8 +22,13 @@ export { ProductCategoryTranslationGroupBy } from './product-category-translatio
 export { ProductCategoryTranslationListRelationFilter } from './product-category-translation-list-relation-filter.input';
 export { ProductCategoryTranslationMaxAggregateInput } from './product-category-translation-max-aggregate.input';
 export { ProductCategoryTranslationMaxAggregate } from './product-category-translation-max-aggregate.output';
+export { ProductCategoryTranslationMaxOrderByAggregateInput } from './product-category-translation-max-order-by-aggregate.input';
 export { ProductCategoryTranslationMinAggregateInput } from './product-category-translation-min-aggregate.input';
 export { ProductCategoryTranslationMinAggregate } from './product-category-translation-min-aggregate.output';
+export { ProductCategoryTranslationMinOrderByAggregateInput } from './product-category-translation-min-order-by-aggregate.input';
+export { ProductCategoryTranslationOrderByRelationAggregateInput } from './product-category-translation-order-by-relation-aggregate.input';
+export { ProductCategoryTranslationOrderByWithAggregationInput } from './product-category-translation-order-by-with-aggregation.input';
+export { ProductCategoryTranslationOrderByWithRelationInput } from './product-category-translation-order-by-with-relation.input';
 export { ProductCategoryTranslationOrderByInput } from './product-category-translation-order-by.input';
 export { ProductCategoryTranslationScalarFieldEnum } from './product-category-translation-scalar-field.enum';
 export { ProductCategoryTranslationScalarWhereWithAggregatesInput } from './product-category-translation-scalar-where-with-aggregates.input';

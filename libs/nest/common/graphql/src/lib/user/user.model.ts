@@ -6,6 +6,7 @@ import { Permission } from '../permission/permission.model';
 import { GraphQLJSON } from 'graphql-type-json';
 import { AuthenticationMethod } from '../authentication-method/authentication-method.model';
 import { Profile } from '../profile/profile.model';
+import { UserCount } from './user-count.output';
 
 /** User 用户 */
 @ObjectType({description:'User 用户'})
@@ -75,4 +76,7 @@ export class User {
 
     @Field(() => Profile, {nullable:true})
     profile?: Profile;
+
+    @Field(() => UserCount, {nullable:true})
+    _count?: UserCount;
 }

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { FileWhereInput } from './file-where.input';
-import { FileOrderByInput } from './file-order-by.input';
+import { FileOrderByWithRelationInput } from './file-order-by-with-relation.input';
 import { FileWhereUniqueInput } from './file-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { FileCountAggregateInput } from './file-count-aggregate.input';
@@ -16,8 +16,8 @@ export class FileAggregateArgs {
     @Field(() => FileWhereInput, {nullable:true})
     where?: FileWhereInput;
 
-    @Field(() => [FileOrderByInput], {nullable:true})
-    orderBy?: Array<FileOrderByInput>;
+    @Field(() => [FileOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<FileOrderByWithRelationInput>;
 
     @Field(() => FileWhereUniqueInput, {nullable:true})
     cursor?: FileWhereUniqueInput;

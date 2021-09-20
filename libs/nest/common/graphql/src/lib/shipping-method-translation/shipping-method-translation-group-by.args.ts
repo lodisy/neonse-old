@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ShippingMethodTranslationWhereInput } from './shipping-method-translation-where.input';
-import { ShippingMethodTranslationOrderByInput } from './shipping-method-translation-order-by.input';
+import { ShippingMethodTranslationOrderByWithAggregationInput } from './shipping-method-translation-order-by-with-aggregation.input';
 import { ShippingMethodTranslationScalarFieldEnum } from './shipping-method-translation-scalar-field.enum';
 import { ShippingMethodTranslationScalarWhereWithAggregatesInput } from './shipping-method-translation-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
@@ -15,8 +15,8 @@ export class ShippingMethodTranslationGroupByArgs {
     @Field(() => ShippingMethodTranslationWhereInput, {nullable:true})
     where?: ShippingMethodTranslationWhereInput;
 
-    @Field(() => [ShippingMethodTranslationOrderByInput], {nullable:true})
-    orderBy?: Array<ShippingMethodTranslationOrderByInput>;
+    @Field(() => [ShippingMethodTranslationOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<ShippingMethodTranslationOrderByWithAggregationInput>;
 
     @Field(() => [ShippingMethodTranslationScalarFieldEnum], {nullable:false})
     by!: Array<keyof typeof ShippingMethodTranslationScalarFieldEnum>;

@@ -10,18 +10,9 @@ export class AggregateMessage {
     @Field(() => MessageCountAggregate, {nullable:true})
     _count?: MessageCountAggregate;
 
-    @Field(() => MessageCountAggregate, {nullable:true})
-    count?: MessageCountAggregate;
-
     @Field(() => MessageMinAggregate, {nullable:true})
     _min?: MessageMinAggregate;
 
-    @Field(() => MessageMinAggregate, {nullable:true})
-    min?: MessageMinAggregate;
-
     @Field(() => MessageMaxAggregate, {nullable:true})
     _max?: MessageMaxAggregate;
-
-    @Field(() => MessageMaxAggregate, {nullable:true})
-    max?: MessageMaxAggregate;
 }
