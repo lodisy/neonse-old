@@ -31,7 +31,7 @@
         "@casl/ability": "5.4.3",
         "@casl/prisma": "1.0.0",
         "@fingerprintjs/fingerprintjs": "3.3.0",
-        "@meilisearch/instant-meilisearch": "0.5.3",
+        "@meilisearch/instant-meilisearch": "0.5.4",
         "@milkdown/core": "^4.12.0",
         "@milkdown/preset-commonmark": "^4.12.0",
         "@milkdown/react": "^4.12.0",
