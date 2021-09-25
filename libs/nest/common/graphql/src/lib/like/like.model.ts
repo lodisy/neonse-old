@@ -27,7 +27,8 @@ export class Like {
     @Field(() => ContentType, {nullable:false})
     type!: keyof typeof ContentType;
 
-    @Field(() => Product, {nullable:true})
+    /** deleting a product will delete all its likes */
+    @Field(() => Product, {nullable:true,description:'deleting a product will delete all its likes'})
     product?: Product;
 
     @Field(() => String, {nullable:true})
