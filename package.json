@@ -189,7 +189,7 @@
         "jest-react-native": "18.0.0",
         "prettier": "2.4.1",
         "prisma": "3.1.1",
-        "prisma-nestjs-graphql": "14.2.2",
+        "prisma-nestjs-graphql": "14.3.0",
         "react-dev-inspector": "1.6.0",
         "react-test-renderer": "17.0.2",
         "storybook-addon-pseudo-states": "1.0.0",
