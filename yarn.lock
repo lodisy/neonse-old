@@ -22276,10 +22276,10 @@ tempfile@^2.0.0:
     temp-dir "^1.0.0"
     uuid "^3.0.1"
 
-tencentcloud-sdk-nodejs@4.0.210:
-  version "4.0.210"
-  resolved "https://registry.yarnpkg.com/tencentcloud-sdk-nodejs/-/tencentcloud-sdk-nodejs-4.0.210.tgz#77482e496834695e62d484180509680a02b1d0cd"
-  integrity sha512-4x87SavroPdl3oZOvigkwGYrUMgb2eh/yMWGpjK8QjwInmWjFhpKivl3RRqYRW7ci+u1olQXo+Yet2G5AeAHag==
+tencentcloud-sdk-nodejs@4.0.211:
+  version "4.0.211"
+  resolved "https://registry.yarnpkg.com/tencentcloud-sdk-nodejs/-/tencentcloud-sdk-nodejs-4.0.211.tgz#630a8101c5290402937d6996ca39d251adbf511b"
+  integrity sha512-0MZX7Gr8HxvlRHjXF/n7A5xuhICjuA5+iewRFu9EERTrVys5Bk75LSE0jNSI6hyj+/xm88LNB15uZn0nUb4pvA==
   dependencies:
     form-data "^3.0.0"
     get-stream "^6.0.0"
