@@ -19138,10 +19138,10 @@ pretty-time@^1.1.0:
   resolved "https://registry.yarnpkg.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prisma-nestjs-graphql@14.3.0:
-  version "14.3.0"
-  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.3.0.tgz#ab93a69f077a9285a6d85a39a0d54512cc0d01f4"
-  integrity sha512-NUzyxVhJBPKM9awvdtxKCtPa1Leh0zbZf5E7S/g3K3eF/hoS6lIHZL1u7fe2RSOBdNHDszSkEr5FHemppjh0ZQ==
+prisma-nestjs-graphql@14.4.0:
+  version "14.4.0"
+  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.4.0.tgz#3a6469c6eff77e464f5c6810123b33b15c4666e3"
+  integrity sha512-mZts1jFq+TEo3wtkKZfGEkHyD+HE72VHwgFKjWhohwkX3EcwvIeNRvi5K3sRhs4T/lExCbA2WuMmsllfC/uXow==
   dependencies:
     "@prisma/generator-helper" "^3.1.1"
     await-event-emitter "^2.0.2"
