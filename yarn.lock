@@ -2615,10 +2615,10 @@
   dependencies:
     tslib "^2.2.0"
 
-"@milkdown/preset-commonmark@^4.12.0":
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/@milkdown/preset-commonmark/-/preset-commonmark-4.12.0.tgz#fd8474741eaee4be4844d2a18a1b344ccc3ad7b4"
-  integrity sha512-nMWOeneVhw2NpUAIehBS8vfAGgJcNzlfkQgm7sT30k4LY9Qz/6O1NcUVn8kJnOHgMnADDjfmKeyihlzDE7iiDw==
+"@milkdown/preset-commonmark@4.13.0":
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/preset-commonmark/-/preset-commonmark-4.13.0.tgz#3007eab5e3300a77ba8077e2b5eef62954643761"
+  integrity sha512-vha8rJPNtN4Ko4mEurim49uuL+bikMR+rs8x3lwXxb1Mwwof2kJdZbCdf75SxVSqrJ0I5E68MsncMqpErT9e8A==
   dependencies:
     "@emotion/css" "^11.1.3"
     "@milkdown/utils" " *"
