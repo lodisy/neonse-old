@@ -2627,7 +2627,7 @@
     remark-inline-links "^5.0.0"
     tslib "^2.2.0"
 
-"@milkdown/react@^4.12.0":
+"@milkdown/react@4.12.0":
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-4.12.0.tgz#ce78b385b498b6395ae125186c597372b9a53ec9"
   integrity sha512-OLQKF1EEI1vhav1ch7QtvJq3syuKPx/XIuslgU2sfat1GAtBewIunzinBsh03ToQMEa3Qr2nxpZ3YrhNHNHfMw==
