@@ -32,7 +32,7 @@
         "@casl/prisma": "1.0.0",
         "@fingerprintjs/fingerprintjs": "3.3.0",
         "@meilisearch/instant-meilisearch": "0.5.5",
-        "@milkdown/core": "4.13.0",
+        "@milkdown/core": "4.13.1",
         "@milkdown/preset-commonmark": "4.13.0",
         "@milkdown/react": "4.13.0",
         "@moxy/next-layout": "2.2.3",
