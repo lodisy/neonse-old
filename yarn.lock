@@ -2577,10 +2577,10 @@
   dependencies:
     meilisearch "^0.21.0"
 
-"@milkdown/core@4.13.0":
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-4.13.0.tgz#516d644854017480a36df121e5c8c991de94ca4f"
-  integrity sha512-9Bc11gEa/sk6ZvCxiEAUCrLceqFJKrAUVInD9FhYqI7oLdG2UP5ozSNfB1W60ZA+nlvX6JmdJFpz9Tz8E4rFYQ==
+"@milkdown/core@4.13.1":
+  version "4.13.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-4.13.1.tgz#52801b31aa22191bd359ff5911c6e209e20ad452"
+  integrity sha512-F5cSSTw8rU5volVaf+oF6UTPZBghbSuZKxcwlHLTDrAB3UmYPqfMti3v/PVjX6MusL+Lp/hlXS/15HOA5PAXRA==
   dependencies:
     "@milkdown/design-system" " *"
     "@milkdown/exception" " *"
