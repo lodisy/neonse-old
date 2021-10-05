@@ -3319,10 +3319,10 @@
   dependencies:
     "@prisma/engines-version" "3.2.0-34.afdab2f10860244038c4e32458134112852d4dad"
 
-"@prisma/debug@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-3.1.1.tgz#1e9739715465d25c09d21d5c3ed9516694eb7602"
-  integrity sha512-KCpckIAxYnf3wJ6wa2HkdwK7JZdgwr00T5QulC6dHbhn0a8QCSb/yTo74m2zuiyi/5NYo5LslZVPFeQJvKU7cQ==
+"@prisma/debug@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-3.2.0.tgz#aa7d8f2f588ac089d5e7b0f2b612056ddefc5251"
+  integrity sha512-QcGbt0f4qCeWYVWWk41F+bFnt6gqw8Wqr3vWZ/vAVjUI1MCFpIuzHUV4veIlriopA0kvFe0aQj5P+Ihg507Ijg==
   dependencies:
     "@types/debug" "4.1.7"
     debug "4.3.2"
@@ -3338,12 +3338,12 @@
   resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-3.2.0-34.afdab2f10860244038c4e32458134112852d4dad.tgz#d8e6ceaddae105f0c882ac9113873f8f1e89d64a"
   integrity sha512-MiZORXXsGORXTF9RqqKIlN/2ohkaxAWTsS7qxDJTy5ThTYLrXSmzxTSohM4qN/AI616B+o5WV7XTBhjlPKSufg==
 
-"@prisma/generator-helper@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-3.1.1.tgz#d81c2945894d365b5d4dcd890487b8ca9a556a52"
-  integrity sha512-Jke+zZrUE0v1gqaQ4fyMDzDk9yj7W8qMtyyPJjFWyprQNf4zMTffLmYsIrYVCULYt6C47u2AwXbQGyESlSFgJw==
+"@prisma/generator-helper@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-3.2.0.tgz#f2899f69db5932153d48ae2979b3227d06ed3db8"
+  integrity sha512-jjHmG8+AE4715QVLvkr41ZIfGS8vKBqcn8lu6qaIJvD/V+AEgq4R3FZB2w/q7Vz9tp0CsdUI81UE1EcC5QpSbw==
   dependencies:
-    "@prisma/debug" "3.1.1"
+    "@prisma/debug" "3.2.0"
     "@types/cross-spawn" "6.0.2"
     chalk "4.1.2"
     cross-spawn "7.0.3"
@@ -19047,12 +19047,12 @@ pretty-time@^1.1.0:
   resolved "https://registry.yarnpkg.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prisma-nestjs-graphql@14.4.0:
-  version "14.4.0"
-  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.4.0.tgz#3a6469c6eff77e464f5c6810123b33b15c4666e3"
-  integrity sha512-mZts1jFq+TEo3wtkKZfGEkHyD+HE72VHwgFKjWhohwkX3EcwvIeNRvi5K3sRhs4T/lExCbA2WuMmsllfC/uXow==
+prisma-nestjs-graphql@14.4.1:
+  version "14.4.1"
+  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.4.1.tgz#a67e691b3c7c056f7fc7fdf40b31edf8265ae8e5"
+  integrity sha512-6V055e/zcKSU/dLbAeRQvELqpKYCcOrBI46pPbj5lYZC/K5t3X0akkaO4rYgYzXfu3dLbDu6asx+fxEIQvtaQQ==
   dependencies:
-    "@prisma/generator-helper" "^3.1.1"
+    "@prisma/generator-helper" "^3.2.0"
     await-event-emitter "^2.0.2"
     filenamify "4.X"
     flat "^5.0.2"
@@ -19062,7 +19062,7 @@ prisma-nestjs-graphql@14.4.0:
     outmatch "^0.7.0"
     pluralize "^8.0.0"
     pupa "2.X"
-    ts-morph ">=11 <=12"
+    ts-morph ">=11"
 
 prisma@3.2.0:
   version "3.2.0"
@@ -22530,7 +22530,7 @@ ts-loader@5.4.5:
     micromatch "^3.1.4"
     semver "^5.0.1"
 
-"ts-morph@>=11 <=12":
+ts-morph@>=11:
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-12.0.0.tgz#a601c3538703755cbfa2d42b62c52df73e9dbbd7"
   integrity sha512-VHC8XgU2fFW7yO1f/b3mxKDje1vmyzFXHWzOYmKEkCEwcLjDtbdLgBQviqj4ZwP4MJkQtRo6Ha2I29lq/B+VxA==
