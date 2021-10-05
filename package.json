@@ -177,6 +177,7 @@
         "detox": "18.22.1",
         "dotenv": "10.0.0",
         "eslint": "7.32.0",
+        "eslint-config-next": "11.1.2",
         "eslint-config-prettier": "8.3.0",
         "eslint-import-resolver-typescript": "2.5.0",
         "eslint-plugin-cypress": "2.12.1",
