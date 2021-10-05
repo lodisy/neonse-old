@@ -1,3 +1,6 @@
+/**
+ * @description Graphql for client api
+ */
 import {
     FindManyProductArgs,
     Product,

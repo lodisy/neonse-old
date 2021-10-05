@@ -1,12 +1,12 @@
 import { PrismaModule } from '@neonse/nest-common-prisma'
 import { Module } from '@nestjs/common'
 import { AbilityFactory } from './ability.factory'
-import { PermissionsResolver } from './permissions.resolver'
+import { PermissionsController } from './permissions.controller'
 import { PermissionsService } from './permissions.service'
 @Module({
     imports: [PrismaModule],
-    controllers: [],
-    providers: [PermissionsService, PermissionsResolver, AbilityFactory],
+    controllers: [PermissionsController],
+    providers: [PermissionsService, AbilityFactory],
     exports: [PermissionsService, AbilityFactory],
 })
 export class PermissionsModule {}
