@@ -5077,10 +5077,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stitches/react@1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.4.tgz#0b544e97555ffadaeae5ca07f8fff7a6231a4ef3"
-  integrity sha512-QiP54385bx7NPk2dNpCdu49bUaC/lxl5bdP6pJOnxS/VKkF6tD1lTvJ+ud0u6wF2J92TUiCP6E5vKWVzV5dCbg==
+"@stitches/react@1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.5.tgz#2353343c220f0c59ba388a26fdd9ff7962cb6031"
+  integrity sha512-95Wwjp5cvoYQjg616OBiHZM1PnIF51pnFQIgSPxPzS/xXBrer9sNO1tfpVfLYfOifvuotse2IFNbypJ92BXzvg==
 
 "@storybook/addon-a11y@6.3.10":
   version "6.3.10"
