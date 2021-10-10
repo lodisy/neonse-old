@@ -2606,12 +2606,12 @@
     remark-inline-links "^5.0.0"
     tslib "^2.2.0"
 
-"@milkdown/react@4.13.2":
-  version "4.13.2"
-  resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-4.13.2.tgz#71416bc3bbc4accdbe10c670bc4be0a16654fa55"
-  integrity sha512-4g2bPkbMgmft+Rj5VON1Xt2Adr9np93R4S79j7PsA6JRe6s4/VnO5aHNXAVKK5AZwQHj2AKBX/NMa4GV6Fe9gA==
+"@milkdown/react@4.13.3":
+  version "4.13.3"
+  resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-4.13.3.tgz#1517ccb47cb0a547ea866ed0abd8f09a5a79ee3e"
+  integrity sha512-wpnycOR2FM9AvHjGYzWSYRB3Iyb2yIufNDBO1H7N5ZBGp96xW4lTexhd8mQRwD3EKLKU58ofHiyO9BEpI9KXSg==
   dependencies:
-    "@milkdown/utils" "4.13.2"
+    "@milkdown/utils" "4.13.3"
     tslib "^2.2.0"
 
 "@milkdown/utils@ *":
@@ -2622,10 +2622,10 @@
     "@milkdown/exception" " *"
     tslib "^2.2.0"
 
-"@milkdown/utils@4.13.2":
-  version "4.13.2"
-  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-4.13.2.tgz#adbaba9281e691dfa00e580bb149cf4d6207de24"
-  integrity sha512-ESI4fNDkDxtrhUsR81GWq6xdPXAs3+8iP5X5oMYnUBEEiDg5MEC8YqTUqUW3KjV53L3MDC+tfvoIgNVou0Upeg==
+"@milkdown/utils@4.13.3":
+  version "4.13.3"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-4.13.3.tgz#4c25c07d7e9b87a7ff128647f6b5ac9e3158d321"
+  integrity sha512-NRB+c0qB0tmyxCU7HB4ukv/qNq65MFHaU7GOUZK4v3teCkTUGzA0/kHRnEnBnO/yXW77m4SRCveOmofXMb1wBw==
   dependencies:
     "@milkdown/exception" " *"
     tslib "^2.2.0"
