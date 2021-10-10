@@ -65,7 +65,7 @@
         "@radix-ui/react-visually-hidden": "0.1.0",
         "@reach/portal": "0.16.0",
         "@react-spring/three": "9.3.0",
-        "@react-spring/web": "9.2.6",
+        "@react-spring/web": "9.3.0",
         "@react-three/fiber": "7.0.14",
         "@stitches/react": "1.2.5",
         "@use-gesture/react": "10.0.3",
