@@ -3821,18 +3821,18 @@
     "@radix-ui/react-use-direction" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
 
-"@radix-ui/react-slider@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-slider/-/react-slider-0.1.0.tgz#a94d3a1a5d8570c78ee88615b48aa4fcfefe13d0"
-  integrity sha512-igzRMqgauyT3pxF6nSdKL0L31BmSR/J+gt+jvz8wqYdftkGTrGKuJgFWwPoso7z6VJ6Oc8izdXN+Z3S/8QB3Lg==
+"@radix-ui/react-slider@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slider/-/react-slider-0.1.1.tgz#cbf793b7a7e23907252bffc791693f84518e16ff"
+  integrity sha512-4OK46wlX2BmVsYbVYw3gml6CitQSTohkOP6mJEXVVlGAAJXgRWt5GmC35cMNpQFdmmQ5vj1oqTEDEB/8dZAQEA==
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@radix-ui/number" "0.1.0"
     "@radix-ui/primitive" "0.1.0"
-    "@radix-ui/react-collection" "0.1.0"
+    "@radix-ui/react-collection" "0.1.1"
     "@radix-ui/react-compose-refs" "0.1.0"
-    "@radix-ui/react-context" "0.1.0"
-    "@radix-ui/react-primitive" "0.1.0"
+    "@radix-ui/react-context" "0.1.1"
+    "@radix-ui/react-primitive" "0.1.1"
     "@radix-ui/react-use-controllable-state" "0.1.0"
     "@radix-ui/react-use-direction" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
