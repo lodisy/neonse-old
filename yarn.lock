@@ -3805,18 +3805,18 @@
     "@radix-ui/react-use-callback-ref" "0.1.0"
     "@radix-ui/react-use-controllable-state" "0.1.0"
 
-"@radix-ui/react-scroll-area@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-scroll-area/-/react-scroll-area-0.1.0.tgz#70887848e9ea98f178e84227d1cca6bd455be14f"
-  integrity sha512-yK+lqXGYCmRbYoI0npjMNQ8ah6Naz7SGfWokcQvO44Qh4dQeTshIYgSzewgFWCYMgZlSa1PiRHvJinJYUSlyaQ==
+"@radix-ui/react-scroll-area@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-scroll-area/-/react-scroll-area-0.1.1.tgz#a54bce0d61097dbcd9395d4a93fafe07e9acf847"
+  integrity sha512-MyDsb0zHaGaPThDJhsiYpbkMx9yUx3qegIoYodKLXufmd8RhZp0USRx4D+YjqI7GCdMzuV4JaD0l0+vMkE69Cw==
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@radix-ui/number" "0.1.0"
     "@radix-ui/primitive" "0.1.0"
     "@radix-ui/react-compose-refs" "0.1.0"
-    "@radix-ui/react-context" "0.1.0"
-    "@radix-ui/react-presence" "0.1.0"
-    "@radix-ui/react-primitive" "0.1.0"
+    "@radix-ui/react-context" "0.1.1"
+    "@radix-ui/react-presence" "0.1.1"
+    "@radix-ui/react-primitive" "0.1.1"
     "@radix-ui/react-use-callback-ref" "0.1.0"
     "@radix-ui/react-use-direction" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
