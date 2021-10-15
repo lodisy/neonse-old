@@ -3677,14 +3677,6 @@
     "@radix-ui/react-compose-refs" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
 
-"@radix-ui/react-primitive@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-0.1.0.tgz#4e6fb04ede36845cf3a061311a4f879c2051c1c5"
-  integrity sha512-ydO24k5Cvry5RCMfm5OJNnIwvxSIUuUZ3Kf6bu1GaSsDfBKiv5JeuQkipURW28KlX7I85Jr/I02JlE+Ec4HmWA==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    "@radix-ui/react-slot" "0.1.0"
-
 "@radix-ui/react-primitive@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-0.1.1.tgz#98e64d9c3094df737d0f49f0e9e48ff2f44498b0"
@@ -3758,14 +3750,6 @@
     "@radix-ui/react-use-layout-effect" "0.1.0"
     "@radix-ui/react-use-previous" "0.1.0"
     "@radix-ui/react-use-size" "0.1.0"
-
-"@radix-ui/react-slot@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-0.1.0.tgz#56965f2af80576f9e3fcdbba839ef7fccbd3b577"
-  integrity sha512-ZuvAUhSK9EAE42b3+K7k7w4nF1uF+Wd4bFj2OCE1aSiW3tgiu7ZU+J61m2+RIDps0WLu95PUx6eZrnpfqBXFRg==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    "@radix-ui/react-compose-refs" "0.1.0"
 
 "@radix-ui/react-slot@0.1.1":
   version "0.1.1"
@@ -3877,14 +3861,6 @@
   integrity sha512-TcZAsR+BYI46w/RbaSFCRACl+Jh6mDqhu6GS2r0iuJpIVrj8atff7qtTjmMmfGtEDNEjhl7DxN3pr1nTS/oruQ==
   dependencies:
     "@babel/runtime" "^7.13.10"
-
-"@radix-ui/react-visually-hidden@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-visually-hidden/-/react-visually-hidden-0.1.0.tgz#94d546c0507c4140bb369803a66fe557edf12897"
-  integrity sha512-PS1SNgcx79ZOq+IiHJZNL0aNNl5ygYKQ8DI+7+xK+PlLyA6KpVEhk7D9VMyWUygWWqE6trOgcOG0AyuhnLlmjQ==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    "@radix-ui/react-primitive" "0.1.0"
 
 "@radix-ui/react-visually-hidden@0.1.1":
   version "0.1.1"
