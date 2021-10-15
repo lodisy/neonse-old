@@ -60,7 +60,7 @@
         "@radix-ui/react-scroll-area": "0.1.1",
         "@radix-ui/react-slider": "0.1.1",
         "@radix-ui/react-slot": "0.1.1",
-        "@radix-ui/react-tabs": "0.1.0",
+        "@radix-ui/react-tabs": "0.1.1",
         "@radix-ui/react-tooltip": "0.1.0",
         "@radix-ui/react-visually-hidden": "0.1.0",
         "@reach/portal": "0.16.0",
