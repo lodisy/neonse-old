@@ -3877,12 +3877,13 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@reach/portal@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.16.0.tgz#1544531d978b770770b718b2872b35652a11e7e3"
-  integrity sha512-vXJ0O9T+72HiSEWHPs2cx7YbSO7pQsTMhgqPc5aaddIYpo2clJx1PnYuS0lSNlVaDO0IxQhwYq43evXaXnmviw==
+"@reach/portal@0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.16.2.tgz#ca83696215ee03acc2bb25a5ae5d8793eaaf2f64"
+  integrity sha512-9ur/yxNkuVYTIjAcfi46LdKUvH0uYZPfEp4usWcpt6PIp+WDF57F/5deMe/uGi/B/nfDweQu8VVwuMVrCb97JQ==
   dependencies:
     "@reach/utils" "0.16.0"
+    tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
 "@reach/router@^1.3.4":
