@@ -6197,10 +6197,10 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/detox@17.14.2":
-  version "17.14.2"
-  resolved "https://registry.yarnpkg.com/@types/detox/-/detox-17.14.2.tgz#2e3979fdd72c2e38600e5c7100cec412b6b66682"
-  integrity sha512-jkq/4Zk+YnVn3dCoPyPIdz3tiu/akUYy2JajGeEJdoD+tbA4rV2HRwVGRxidri8GlbUR/KDqs8BstY0iVzU4TA==
+"@types/detox@17.14.3":
+  version "17.14.3"
+  resolved "https://registry.yarnpkg.com/@types/detox/-/detox-17.14.3.tgz#a869e561e3bfb10e3ae74d31ad7b977ba4a05421"
+  integrity sha512-TGvlYiol7snFjEk0spDkcfH12CZRAWa1g51bE0GEYa6iLtfYAqHXVc/f5TFhYV17YI5JoxGfwdSv8WDP9fbAIQ==
 
 "@types/estree@*":
   version "0.0.50"
