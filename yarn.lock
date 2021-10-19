@@ -7082,17 +7082,17 @@
   dependencies:
     "@umijs/deps" "3.5.17"
 
-"@use-gesture/core@10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.1.0.tgz#d6c26b4876f21c9b45c2e4fbb47ef11deae7e18b"
-  integrity sha512-SBKLB48ZwbxefSO4a/rF2/51VWqMRdxUptimZ1GoTrR3Ng2f0VHSW5eyOwgOAZ+KsrSeVUwyM9CV10ig2hTksg==
+"@use-gesture/core@10.1.1":
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.1.1.tgz#e1a6ef6f2566fc5f2eaeb8b5549ebe93d5cafb82"
+  integrity sha512-IAHo/pus6kzgNErKnUoS9h/eAbRFByyHL+02MmBRa6A8zu8raXpwl/VIgHjBTUNh7fJtlhzyljIPI6r9Bwz6bA==
 
-"@use-gesture/react@10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.1.0.tgz#5584e455bbcd5ffa9afb5da6ae56afbe2e7c581d"
-  integrity sha512-85vve/W3aLRpsZFu5gh0uM9LF0ivEdOZgSBjKGerlTLOswJAKaATeFPi1nfiTVVR4J+UUKo6n6iugiVHP6ulXQ==
+"@use-gesture/react@10.1.1":
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.1.1.tgz#b0daa4baa81185f4732756568793e6a3e0efc913"
+  integrity sha512-wjaUJzhtHtkzg5QLirdgKyM0B4MweT8dWrP1vrz1uc6K9zcv78qwGR7k/k3tG2bXw/yGvZBYO+vKvLYTJu4hmA==
   dependencies:
-    "@use-gesture/core" "10.1.0"
+    "@use-gesture/core" "10.1.1"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
