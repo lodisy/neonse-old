@@ -10832,10 +10832,10 @@ detect-port@^1.3.0:
     address "^1.0.1"
     debug "^2.6.0"
 
-detox@18.22.2:
-  version "18.22.2"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-18.22.2.tgz#41e62414c613046123326b55bbbe2891c301ada8"
-  integrity sha512-1E8tP80O96a2jUxUSvPzjGprKkdv7IHKx++YiSf+yqMcqSQzeDEkFSQV3Idp9iPRYe/A3TnZhT1fXTQKfdNwPA==
+detox@18.23.0:
+  version "18.23.0"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-18.23.0.tgz#000f0aa3535e4e655932a6191a97880fe58e74cd"
+  integrity sha512-QixjyEFRH8iUVb/H9Dn4RqGQAyf3J6rn1Rjh+gCVHvfsTj15e0sm6X7FUavdtOJnCKM15z2vgjFFez57H1mYxA==
   dependencies:
     bunyan "^1.8.12"
     bunyan-debug-stream "^1.1.0"
