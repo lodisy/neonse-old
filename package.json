@@ -108,7 +108,7 @@
         "regenerator-runtime": "0.13.9",
         "remax": "2.15.6",
         "rxjs": "7.4.0",
-        "sharp": "0.29.1",
+        "sharp": "0.29.2",
         "slugify": "1.6.1",
         "socket.io": "4.3.1",
         "socket.io-client": "4.3.2",
