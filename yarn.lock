@@ -2640,28 +2640,26 @@
   dependencies:
     meilisearch "^0.22.1"
 
-"@milkdown/core@4.13.3":
-  version "4.13.3"
-  resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-4.13.3.tgz#6a3dbadbaef2e0987cd4f052f2f18b8c43ddbfe9"
-  integrity sha512-o9rDCM/T7GKQGgIjz7pi434Zk1JgoSFAxySPPbO7z2xYzhcg8EcVcacoamFgJyq3uqxmLX6mrdKlAKm5gPd6mQ==
+"@milkdown/core@4.14.1":
+  version "4.14.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-4.14.1.tgz#d770bcccfe084835273242f452e0e98e7e5fb5f1"
+  integrity sha512-dWC/kbOyLhFYaGGKimXvnXxADr+XWJh/3eiRE7knGnoGrNfiT8eDtEkFifwZwIY9n5Gw4GeAWat3dXD9CZLOmA==
   dependencies:
+    "@milkdown/ctx" " *"
     "@milkdown/design-system" " *"
     "@milkdown/exception" " *"
-    "@types/prosemirror-commands" "^1.0.4"
-    "@types/prosemirror-inputrules" "^1.0.4"
-    "@types/prosemirror-keymap" "^1.0.4"
-    "@types/prosemirror-model" "^1.12.0"
-    "@types/prosemirror-state" "^1.2.6"
-    "@types/prosemirror-view" "^1.17.1"
-    prosemirror-commands "^1.1.7"
-    prosemirror-inputrules "^1.1.3"
-    prosemirror-keymap "^1.1.4"
-    prosemirror-model "^1.13.3"
-    prosemirror-state "^1.3.4"
-    prosemirror-view "^1.18.2"
+    "@milkdown/prose" " *"
     remark "^13.0.0"
     tslib "^2.2.0"
     unified "^9.2.1"
+
+"@milkdown/ctx@ *":
+  version "4.14.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/ctx/-/ctx-4.14.1.tgz#c3b4fbe9f767d7deb990308174f7ac7292b5d74d"
+  integrity sha512-qcdhrs/h79JniT6+76Q/Jzp7fhASma8ccbiAme/Eaa1wHSCH5c1Q/a1Xrf2qchTr5n0wsCs2peggVxDkUdcudQ==
+  dependencies:
+    "@milkdown/exception" " *"
+    tslib "^2.2.0"
 
 "@milkdown/design-system@ *":
   version "4.12.0"
@@ -2688,6 +2686,28 @@
     "@types/prosemirror-schema-list" "^1.0.3"
     prosemirror-schema-list "^1.1.4"
     remark-inline-links "^5.0.0"
+    tslib "^2.2.0"
+
+"@milkdown/prose@ *":
+  version "4.14.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/prose/-/prose-4.14.1.tgz#2a0ecf861eb74933ada58617b2813011cd881f25"
+  integrity sha512-SyGzMO6o/SPbxifdCGQSJRApid/RKVIfdxl7E41ZYLxpgoiZ3WrdGxpsc75YQqENMiChIkWPn3gC8SXcniAr1A==
+  dependencies:
+    "@milkdown/exception" " *"
+    "@types/prosemirror-commands" "^1.0.4"
+    "@types/prosemirror-inputrules" "^1.0.4"
+    "@types/prosemirror-keymap" "^1.0.4"
+    "@types/prosemirror-model" "^1.12.0"
+    "@types/prosemirror-state" "^1.2.6"
+    "@types/prosemirror-transform" "^1.1.2"
+    "@types/prosemirror-view" "^1.17.1"
+    prosemirror-commands "^1.1.7"
+    prosemirror-inputrules "^1.1.3"
+    prosemirror-keymap "^1.1.4"
+    prosemirror-model "^1.13.3"
+    prosemirror-state "^1.3.4"
+    prosemirror-transform "^1.3.2"
+    prosemirror-view "^1.18.2"
     tslib "^2.2.0"
 
 "@milkdown/react@4.13.3":
@@ -6712,7 +6732,7 @@
     "@types/prosemirror-transform" "*"
     "@types/prosemirror-view" "*"
 
-"@types/prosemirror-transform@*":
+"@types/prosemirror-transform@*", "@types/prosemirror-transform@^1.1.2":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@types/prosemirror-transform/-/prosemirror-transform-1.1.4.tgz#c3565e81b2ef3ce3254e6927d6f63eb8d7bb20d0"
   integrity sha512-HP1PauvkqSgDquZut8HaLOTUDQ6jja/LAy4OA7tTS1XG7wqRnX3gLUyEj0mD6vFd4y8BPkNddNdOh/BeGHlUjg==
@@ -19571,6 +19591,13 @@ prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.3.2.tgz#5620ebe7379e6fae4f34ecc881886cb22ce96579"
   integrity sha512-/G6d/u9Mf6Bv3H1XR8VxhpjmUO75LYmnvj+s3ZfZpakU1hnQbsvCEybml1B3f2IWUAAQRFkbO1PnsbFhLZsYsw==
+  dependencies:
+    prosemirror-model "^1.0.0"
+
+prosemirror-transform@^1.3.2:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.3.3.tgz#5f6712b0577a119cc418686fe7588b6dd9b7464d"
+  integrity sha512-9NLVXy1Sfa2G6qPqhWMkEvwQQMTw7OyTqOZbJaGQWsCeH3hH5Cw+c5eNaLM1Uu75EyKLsEZhJ93XpHJBa6RX8A==
   dependencies:
     prosemirror-model "^1.0.0"
 
