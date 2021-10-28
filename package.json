@@ -37,7 +37,7 @@
         "@milkdown/react": "4.14.2",
         "@moxy/next-layout": "2.2.3",
         "@nestjs/common": "8.1.2",
-        "@nestjs/config": "1.0.2",
+        "@nestjs/config": "1.0.3",
         "@nestjs/core": "8.1.2",
         "@nestjs/graphql": "9.1.1",
         "@nestjs/jwt": "8.0.0",
