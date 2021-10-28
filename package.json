@@ -34,7 +34,7 @@
         "@meilisearch/instant-meilisearch": "0.5.9",
         "@milkdown/core": "4.14.2",
         "@milkdown/preset-commonmark": "4.14.2",
-        "@milkdown/react": "4.14.1",
+        "@milkdown/react": "4.14.2",
         "@moxy/next-layout": "2.2.3",
         "@nestjs/common": "8.1.2",
         "@nestjs/config": "1.0.2",
