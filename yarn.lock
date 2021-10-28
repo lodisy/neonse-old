@@ -2710,12 +2710,12 @@
     prosemirror-view "^1.18.2"
     tslib "^2.2.0"
 
-"@milkdown/react@4.14.1":
-  version "4.14.1"
-  resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-4.14.1.tgz#65869218df993c603ddb17b20d9f50b0682757ca"
-  integrity sha512-RgjdVjSnOLOlIaw6fVGP54kqA/+R0kJM318Cgm6T27Lrbf3rZ9YxXXkcWbZjKAPLn3W5rBKngCerwz1RsZdUHQ==
+"@milkdown/react@4.14.2":
+  version "4.14.2"
+  resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-4.14.2.tgz#4a0c2d05312cd2afdae8c0da525f6b2e238c2161"
+  integrity sha512-UJcXlAhrKjwnyBqiaSu7pbRvi8HylV2Z0TVXfrJYqE/oJVGSCOYBGFeCRPwC7kx29etg9PEBMcqAXmDxn1aKPw==
   dependencies:
-    "@milkdown/utils" "4.14.1"
+    "@milkdown/utils" "4.14.2"
     nanoid "^3.1.25"
     tslib "^2.2.0"
 
@@ -2727,10 +2727,10 @@
     "@milkdown/exception" " *"
     tslib "^2.2.0"
 
-"@milkdown/utils@4.14.1":
-  version "4.14.1"
-  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-4.14.1.tgz#d1dd01c64156da193a98aa09bf54927e4de2fc63"
-  integrity sha512-B07CMqgIcFaLC3MWCa9DPQhoopU4Q0jwK423uFDx8OId+p1gHqHm5kW9ty6NyCnJP93EJ44ujoLtNhZizKfzpg==
+"@milkdown/utils@4.14.2":
+  version "4.14.2"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-4.14.2.tgz#461816248f7d782f055bee6e4b5a1e5053a99fb4"
+  integrity sha512-uLDoRnUk8GNXd56WP1GhInTAr5ucEmB9WGuxfhLTd+PfpNt87wfonAUbXfgrGizJYKsASi7HINO3h9AgjIWVMA==
   dependencies:
     "@milkdown/exception" " *"
     tslib "^2.2.0"
