@@ -20705,10 +20705,10 @@ react-colorful@^5.1.2:
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.3.0.tgz#bcbae49c1affa9ab9a3c8063398c5948419296bd"
   integrity sha512-zWE5E88zmjPXFhv6mGnRZqKin9s5vip1O3IIGynY9EhZxN8MATUxZkT3e/9OwTEm4DjQBXc6PFWP6AetY+Px+A==
 
-react-dev-inspector@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/react-dev-inspector/-/react-dev-inspector-1.7.0.tgz#e1819ca406ed74cbe8bd7fcc394e4a35ba66d513"
-  integrity sha512-R4zshgUZ2MTmkwZix6t1NTHpfXN7A/jIpH53vSM2l5WKJ+2Xj/JRWrAdCDALcgi6108KGLDore6FHnaDDuQseA==
+react-dev-inspector@1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-dev-inspector/-/react-dev-inspector-1.7.1.tgz#4a37c3eeaaa332de6754cdb29dffc65711f5a52e"
+  integrity sha512-RMk4gQF6GE8cpcsUC2jCAPhPHPhHKTyVeMqKscVVXMdXBJQxWY38MSF0FQ8k5RgwVl++8/M3gXX6We1fE/biig==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/generator" "^7.11.6"
