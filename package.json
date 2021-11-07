@@ -109,7 +109,7 @@
         "remax": "2.15.6",
         "rxjs": "7.4.0",
         "sharp": "0.29.2",
-        "slugify": "1.6.1",
+        "slugify": "1.6.2",
         "socket.io": "4.3.1",
         "socket.io-client": "4.3.2",
         "stitches-native": "0.0.1-0",
