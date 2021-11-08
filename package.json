@@ -165,7 +165,7 @@
         "@types/passport-local": "1.0.34",
         "@types/react": "17.0.34",
         "@types/react-dom": "17.0.11",
-        "@types/react-native": "0.66.2",
+        "@types/react-native": "0.66.3",
         "@types/react-router-dom": "5.3.2",
         "@types/sharp": "0.29.3",
         "@typescript-eslint/eslint-plugin": "4.33.0",
