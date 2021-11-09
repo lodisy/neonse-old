@@ -84,7 +84,7 @@
         "graphql-type-json": "0.3.2",
         "keen-slider": "5.5.1",
         "lodash": "4.17.21",
-        "mime-types": "2.1.33",
+        "mime-types": "2.1.34",
         "nestjs-i18n": "8.1.6",
         "next": "11.1.2",
         "next-transpile-modules": "8.0.0",
