@@ -20913,10 +20913,10 @@ react-native-device-info@8.4.5:
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-8.4.5.tgz#89434849d6146c003b8a8b29f4ed5b6261d8009b"
   integrity sha512-0uKO9rBF4Uv8X+xLJdR6HkuyB2C4gNEcWdHPcS1MhtsIExP6NTbC3tgkrUUWZ7HODbn1MFx5LG5cGDe4X0zhWA==
 
-react-native@0.66.2:
-  version "0.66.2"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.66.2.tgz#11035172a73f0815c28699b1fce3a6651dd6355b"
-  integrity sha512-d5Kp23kqAH0EmcyxyfjAr4rhVVzyK/J0cZ/JuopX16CBD4Nkad65KcJi1pyOpbhpP9L1aUUs+mRyK5kg0uLqJQ==
+react-native@0.66.3:
+  version "0.66.3"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.66.3.tgz#25c7c4c7d81867326b3eb7a36f0fe6a61fa4104e"
+  integrity sha512-B/dQpuvta9YvF5MihDWefoGlTvxzUHK5X5RjdrXHAu/ihTehJXxEA+m6z/tufp1ZUMDjU+tMZK6gnehzCuYfzw==
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^6.0.0"
