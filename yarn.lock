@@ -18120,15 +18120,14 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-nestjs-i18n@8.1.6:
-  version "8.1.6"
-  resolved "https://registry.yarnpkg.com/nestjs-i18n/-/nestjs-i18n-8.1.6.tgz#f8f2af7f1158e45e71f0ee266b34917bbd9c73da"
-  integrity sha512-fTTMpiekply6RdiXTYdvHj3mAlxcZ2n2vu92wxUn0xCTqDtr+VUbg2j43qP+5TEiVAJeTpjzzrogOovWOAZjcA==
+nestjs-i18n@8.1.9:
+  version "8.1.9"
+  resolved "https://registry.yarnpkg.com/nestjs-i18n/-/nestjs-i18n-8.1.9.tgz#2c355f65d3bce072ac9be65d23058f6cc7234127"
+  integrity sha512-eR7zd4HCSLxmGPPp+CmihtDY5EgrArpFop0cTpAK6kGy3raweLYirwv2BnoAb6HNXQiADoHBttLbrHptALjRCQ==
   dependencies:
     accept-language-parser "^1.5.0"
     chokidar "^3.5.1"
     cookie "^0.4.1"
-    rxjs "^7.1.0"
     string-format "^2.0.0"
 
 next-transpile-modules@8.0.0:
@@ -21944,13 +21943,6 @@ rxjs@7.4.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.4.0.tgz#a12a44d7eebf016f5ff2441b87f28c9a51cebc68"
   integrity sha512-7SQDi7xeTMCJpqViXh8gL/lebcwlp3d831F05+9B44A4B0WfsEwUQHR64gsH1kvJ+Ep/J9K2+n1hVl1CsGN23w==
-  dependencies:
-    tslib "~2.1.0"
-
-rxjs@^7.1.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.3.0.tgz#39fe4f3461dc1e50be1475b2b85a0a88c1e938c6"
-  integrity sha512-p2yuGIg9S1epc3vrjKf6iVb3RCaAYjYskkO+jHIaV0IjOPlJop4UnodOoFb2xeNwlguqLYvGw1b1McillYb5Gw==
   dependencies:
     tslib "~2.1.0"
 
