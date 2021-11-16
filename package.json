@@ -126,7 +126,7 @@
         "@babel/preset-react": "7.16.0",
         "@babel/preset-typescript": "7.16.0",
         "@mdx-js/loader": "1.6.22",
-        "@nestjs/schematics": "8.0.4",
+        "@nestjs/schematics": "8.0.5",
         "@nestjs/testing": "8.2.1",
         "@nrwl/cli": "12.10.0",
         "@nrwl/cypress": "12.10.0",
