@@ -5038,10 +5038,10 @@
     "@react-spring/rafz" "~9.3.0"
     "@react-spring/types" "~9.3.0"
 
-"@react-spring/three@9.3.0":
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/@react-spring/three/-/three-9.3.0.tgz#e3fc49de1411eb1a7aa937fec8db33252f11d294"
-  integrity sha512-RKMXXdcNK0nbwLbmle/0KT/idGGpOxvI5lT1KtN8R3cgJWQBKYWVtzg+B/RgmQVNxO/QNlsKGWTjURockTRSVQ==
+"@react-spring/three@9.3.1":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/three/-/three-9.3.1.tgz#91a50851639c5a88fed8f76b4e25ff388d2b24e7"
+  integrity sha512-40iRIX2DrY+a81hIliOog6TMg/ZAtHGeZr95r0vKAsl+iX1g9Hs8XCS4wTeQIUgydZpbpShk/JL6mkcstEfBdw==
   dependencies:
     "@react-spring/animated" "~9.3.0"
     "@react-spring/core" "~9.3.0"
