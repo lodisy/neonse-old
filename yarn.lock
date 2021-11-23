@@ -3222,12 +3222,12 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@meilisearch/instant-meilisearch@0.5.9":
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.5.9.tgz#29dfe2bb08c7c91907832ea8337542d2adef64de"
-  integrity sha512-QdG2G9xORU6hmk6xz3JCZdc1JNhUz7++ENl46CRVGlVfCCvRHHXqr+geFl4oRCLQAhOw6v51SKdA33+iZJiiDQ==
+"@meilisearch/instant-meilisearch@0.5.10":
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.5.10.tgz#c65cf42895f88b75bef7fe64c3f7f8c92e646261"
+  integrity sha512-8AUxx+o9l+Jv/l54URhKeHWl4zOIySbuWwcIOXJId9+vGiig+uDekUYXmEc5BLe6O3hr6cF/Gg8Rrli8PLYHVw==
   dependencies:
-    meilisearch "^0.22.1"
+    meilisearch "^0.23.0"
 
 "@milkdown/core@4.14.2":
   version "4.14.2"
@@ -17179,10 +17179,10 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-meilisearch@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.22.1.tgz#8c6ebc412e6b1c8767a5525b69c39db2ccfd7f4b"
-  integrity sha512-mtPs/RPJSuXP8BEBdJsizfoTeqF+zYZYITLc42M8T+aUeF98rZebQAyAsIrp4ySS5/8TM7yoywSRJyWGS/zMmg==
+meilisearch@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.23.0.tgz#eed5098bd147c13658c3f92e658df9cbfb9e8953"
+  integrity sha512-bLNonPJK2pJz2akjwolcc/Eqnz/GKJ7y1I4Flg4zjL+v0yPFyIGFFdfe0dw93JWFJWj/RbLS2Q6dDTobZQ9Ehg==
   dependencies:
     cross-fetch "^3.1.4"
 
