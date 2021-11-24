@@ -103,7 +103,7 @@
         "react-native-device-info": "8.4.8",
         "react-router": "5.2.1",
         "react-router-dom": "5.3.0",
-        "react-stately": "3.9.0",
+        "react-stately": "3.10.0",
         "reflect-metadata": "0.1.13",
         "regenerator-runtime": "0.13.9",
         "remax": "2.15.8",
