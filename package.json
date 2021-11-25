@@ -188,7 +188,7 @@
         "jest": "27.3.1",
         "jest-circus": "27.3.1",
         "jest-react-native": "18.0.0",
-        "prettier": "2.4.1",
+        "prettier": "2.5.0",
         "prisma": "3.5.0",
         "prisma-nestjs-graphql": "14.6.0",
         "react-dev-inspector": "1.7.1",
