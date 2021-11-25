@@ -4053,13 +4053,12 @@
   dependencies:
     "@prisma/engines-version" "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
 
-"@prisma/debug@3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-3.2.1.tgz#bd659bc415a494f24327bfae268399e1ed45486d"
-  integrity sha512-gzE+z0JzpHH+A6cIf2+VqueUFiFYM9HGHyxHzGyvRTR15QWkowzyupjFjQTJ6bouMSalqEkeI3EKsRzJZUsyCQ==
+"@prisma/debug@3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-3.5.0.tgz#d94e4f5bc83ada10881f8f17f710114f8d4fc1b6"
+  integrity sha512-JWBmzqxtbq6rJfMyIIQVL/QSAIsiCOp20ArTl5zUHtSYH/MrNmuQ69YAn9RuUQBOTIAQaVTIMII2xpN5kB5RRg==
   dependencies:
     "@types/debug" "4.1.7"
-    debug "4.3.2"
     ms "2.1.3"
 
 "@prisma/engines-version@3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e":
@@ -4072,12 +4071,12 @@
   resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e.tgz#1873885836294060239f8a887452fd429dc03ae1"
   integrity sha512-MqZUrxuLlIbjB3wu8LrRJOKcvR4k3dunKoI4Q2bPfAwLQY0XlpsLZ3TRVW1c32ooVk939p6iGNkaCUo63Et36g==
 
-"@prisma/generator-helper@^3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-3.2.1.tgz#bdaafdaaf2575c3ca22f909cdb524a9a0e5a7f61"
-  integrity sha512-vjKOcHTkK4uJWgG8uBOst9qsTTgXDh2yUJ2uPCM0887b1epwCz+eYfe3XJXUIDXmZ0HzVVSlf045VcRT3peyJQ==
+"@prisma/generator-helper@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-3.5.0.tgz#542173559b983a6cd13926d4c948ec5dc358a334"
+  integrity sha512-GT4Fke2Cdzgut3jay+4JIBnE2/GZNcopJ1x6CdT4NgDn2CYI6FL43zJeSafK9PmnVlTdFthavIp7Da9EyuLixA==
   dependencies:
-    "@prisma/debug" "3.2.1"
+    "@prisma/debug" "3.5.0"
     "@types/cross-spawn" "6.0.2"
     chalk "4.1.2"
     cross-spawn "7.0.3"
@@ -11290,7 +11289,7 @@ debounce@^1.2.0:
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
   integrity sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==
 
-debug@*, debug@4, debug@4.3.2, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@~4.3.1, debug@~4.3.2:
+debug@*, debug@4, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@~4.3.1, debug@~4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
   integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
@@ -20410,12 +20409,12 @@ pretty-time@^1.1.0:
   resolved "https://registry.yarnpkg.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prisma-nestjs-graphql@14.6.0:
-  version "14.6.0"
-  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.6.0.tgz#6482e8870ebcf807d9c2f4794026832b22b26116"
-  integrity sha512-ggSaaaVj126sBZR9Khu/fq1W5E4oA+BDe3wsAKl1tMs1nY1Bg+rwDqJB0soZKIF6KsrlCtIzPlevXcHfOIHbUA==
+prisma-nestjs-graphql@14.6.1:
+  version "14.6.1"
+  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-14.6.1.tgz#c99fa95e0fb2e318a7a111396112f7c6b194c152"
+  integrity sha512-t8bdS8XzQCi998L7nq/PeejzDT+jROoZD//7ocV16SX9PN2qgg91d/vKfvvNyqR+FYr1Yv99fK8BVRkA+vsqTg==
   dependencies:
-    "@prisma/generator-helper" "^3.2.1"
+    "@prisma/generator-helper" "^3.5.0"
     await-event-emitter "^2.0.2"
     filenamify "4.X"
     flat "^5.0.2"
