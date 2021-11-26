@@ -10752,10 +10752,10 @@ corser@^2.0.1:
   resolved "https://registry.yarnpkg.com/corser/-/corser-2.0.1.tgz#8eda252ecaab5840dcd975ceb90d9370c819ff87"
   integrity sha1-jtolLsqrWEDc2XXOuQ2TcMgZ/4c=
 
-cos-nodejs-sdk-v5@2.11.2:
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/cos-nodejs-sdk-v5/-/cos-nodejs-sdk-v5-2.11.2.tgz#353ce31bdaef406a3e5b30997491198f7aa053a1"
-  integrity sha512-0/22YmN+yBDyr+wo+t4SzgIysX9n4bvNb941ebtF5YIglWn0fRNXKNQXKP7EvHhAiRssKwMeciVPcJR7pDIEsQ==
+cos-nodejs-sdk-v5@2.11.3:
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/cos-nodejs-sdk-v5/-/cos-nodejs-sdk-v5-2.11.3.tgz#91c77ea52c4abb872878c3cab624d48d8b029f22"
+  integrity sha512-rCFSc069qoBfaG5tCOEehU5DiDch7Kfawv+TilM+8XZlZpNj44nkFJAFGj+6+DEFuGZ4xkF8l83j0PpiDcWECA==
   dependencies:
     "@types/node" "^14.14.20"
     conf "^9.0.0"
