@@ -66,7 +66,7 @@
         "@reach/portal": "0.16.2",
         "@react-spring/three": "9.3.1",
         "@react-spring/web": "9.3.1",
-        "@react-three/fiber": "7.0.19",
+        "@react-three/fiber": "7.0.20",
         "@stitches/react": "1.2.5",
         "@use-gesture/react": "10.1.6",
         "apollo-server-express": "3.5.0",
