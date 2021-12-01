@@ -114,7 +114,7 @@
         "socket.io-client": "4.4.0",
         "stitches-native": "0.0.1-0",
         "swr": "1.1.0",
-        "tencentcloud-sdk-nodejs": "4.0.247",
+        "tencentcloud-sdk-nodejs": "4.0.248",
         "three": "0.135.0",
         "tslib": "2.3.1",
         "wechat-jssdk": "5.0.8",
