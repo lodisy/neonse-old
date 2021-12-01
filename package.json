@@ -68,7 +68,7 @@
         "@react-spring/web": "9.3.1",
         "@react-three/fiber": "7.0.21",
         "@stitches/react": "1.2.5",
-        "@use-gesture/react": "10.1.6",
+        "@use-gesture/react": "10.2.0",
         "apollo-server-express": "3.5.0",
         "bcrypt": "5.0.1",
         "class-validator": "0.13.2",
