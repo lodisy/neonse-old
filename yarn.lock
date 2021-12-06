@@ -5460,25 +5460,25 @@
     "@react-types/overlays" "^3.5.1"
     "@react-types/shared" "^3.8.0"
 
-"@remax/ali@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/ali/-/ali-2.15.8.tgz#a2f5799fc6bb81ad5dea32efe598a0d9504fce8a"
-  integrity sha512-VAcrejW1StoK+T29SDsKLuDeaxOQXs353zmZy7c8NJPXwjofuS1II/jaki10NRk/IsPOSk7tF+eOn7S4smywTQ==
+"@remax/ali@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/ali/-/ali-2.15.9.tgz#4a825ac3a207fdc0c2caa08b1f23db1960658f4c"
+  integrity sha512-OxJmptlAt3j1RzejC2Eh4I2qwUqUVQboMuZHJfLfTIM+kkUE8GFUvkm5gaMM2P6AsBsKCy6Qzd+p7T2UR0tynw==
   dependencies:
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
     mini-types "^0.1.1"
 
-"@remax/build-store@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/build-store/-/build-store-2.15.8.tgz#374603f15405966338dd58c6e4a18e9be1626ea8"
-  integrity sha512-M1lWeensqkVWubki0Qiez1inTyZ/WYna3C+un7qqWSgKPBHZCCE8ShiWIZIf0ysyI2q0u/l3O1BgE4yNzT5yeQ==
+"@remax/build-store@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/build-store/-/build-store-2.15.9.tgz#c560e1625ed2bf4a1203fc25dfe8a320e4f9b50a"
+  integrity sha512-IHvzw9GdKUZoURcnIiBEBKplSgs2thKmjn2pGC+leI8FdImwFiqUATV/DKUOY49sFHUJrREOFbVJoaA5NNdYHA==
   dependencies:
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
 
-"@remax/cli@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/cli/-/cli-2.15.8.tgz#12027359fd95d6e5e7de2ecd4e50dbaa2387af3c"
-  integrity sha512-n4SPMP4x/BmdfuStFlf6BMzWZYT0ih5S1xIjeHXyqrB6oEC5KDoP3xHw5GgSCbnU06yTGtacBGxtmNYXLNIuAw==
+"@remax/cli@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/cli/-/cli-2.15.9.tgz#5e4f9862014b039c5242971fbdb389e0d98f1886"
+  integrity sha512-FRStMTQ1DGbu0Rdu6O64lBj6ZB2bkfVNsATNe77yKX+WThCD7/VnaKriVYBB2hYX0/n0g24rpkXiVczrtl5nig==
   dependencies:
     "@babel/core" "^7.7.4"
     "@babel/helper-module-imports" "^7.7.4"
@@ -5486,21 +5486,21 @@
     "@babel/preset-typescript" "^7.7.4"
     "@babel/register" "^7.7.0"
     "@babel/types" "^7.7.4"
-    "@remax/build-store" "2.15.8"
-    "@remax/macro" "2.15.8"
-    "@remax/plugin-devtools" "2.15.8"
-    "@remax/plugin-error-screen" "2.15.8"
+    "@remax/build-store" "2.15.9"
+    "@remax/macro" "2.15.9"
+    "@remax/plugin-devtools" "2.15.9"
+    "@remax/plugin-error-screen" "2.15.9"
     "@remax/postcss-px2units" "^0.2.0"
-    "@remax/postcss-tag" "2.15.8"
-    "@remax/shared" "2.15.8"
+    "@remax/postcss-tag" "2.15.9"
+    "@remax/shared" "2.15.9"
     address "^1.1.2"
     babel-loader "^8.1.0"
     babel-plugin-module-resolver "^4.0.0"
-    babel-plugin-remax-host-component "2.15.8"
-    babel-plugin-remax-lifecycle "2.15.8"
-    babel-plugin-remax-regenerator-runtime "2.15.8"
-    babel-plugin-remax-turbo-render "2.15.8"
-    babel-preset-remax "2.15.8"
+    babel-plugin-remax-host-component "2.15.9"
+    babel-plugin-remax-lifecycle "2.15.9"
+    babel-plugin-remax-regenerator-runtime "2.15.9"
+    babel-plugin-remax-turbo-render "2.15.9"
+    babel-preset-remax "2.15.9"
     chokidar "^3.4.0"
     clean-webpack-plugin "^3.0.0"
     copy-webpack-plugin "^5.1.1"
@@ -5534,51 +5534,51 @@
     webpackbar "^4.0.0"
     yargs "^16.0.3"
 
-"@remax/framework-shared@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/framework-shared/-/framework-shared-2.15.8.tgz#49c8416a9c3880628353055d55f87b20bee84dbd"
-  integrity sha512-SJEVRBOsqF8vwvw+saSn/RlcEQ3HlNwpiNCXmy9yNm7RWq8UpT/ilIpMoaGd9OitTsglOqqHRI3M7UmrBQcoUA==
+"@remax/framework-shared@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/framework-shared/-/framework-shared-2.15.9.tgz#138baa737bfafbdb5a96517b962ebb25ac5ba05c"
+  integrity sha512-sodZSL0Yp8B78UVGJ03TzGYjs/M1rgngIa+Fyw7VaLTEPWb0/Ai+3pq4NZE7JzGtAoRYdwuzKkCD888CdbxnAw==
   dependencies:
-    react-is "^16.13.1"
+    react-is "^17.0.2"
 
-"@remax/macro@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/macro/-/macro-2.15.8.tgz#e2b49033414330fec7caf17341f57dbea2182236"
-  integrity sha512-uNupVEUnpnLgdQ+Y56mdLT0IVAuF12D1mMt6IyloI0cZXVONM6gj97j5z4v29z7DOcpvh9TahH0mHsc5BqruHg==
+"@remax/macro@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/macro/-/macro-2.15.9.tgz#5a17a6a5beb7bde843476288ad088930dd51534c"
+  integrity sha512-NfDWd337li0yjArF98ZmM+fHKmLpcaeJ8PHeNAMKP/KSlRv2m3o7neezejnQzFe5b401CgrwVHbBdCsqamc12g==
   dependencies:
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
 
-"@remax/one@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/one/-/one-2.15.8.tgz#3ea84f29ef05fb5ae34d0eee167a6c8bb1f60404"
-  integrity sha512-EAjkSIkIXtSFgXhpGNpLypXV8sLWhrLN+5KEBUO/ouejVUsSFUFO7KyP+UGRD07YAzuSUVK9RtCsEd0pwauPSQ==
+"@remax/one@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/one/-/one-2.15.9.tgz#6cfc1d7bc1512eef6199dd2d3afbd5e36764f00e"
+  integrity sha512-Aou/yLvLiNQml1qKIQOseh13xIsH2QNkGAgfjAuXxqGyPwFqMd/NFDBy5237OtQufi8qWiddNFASLhdWhamnWA==
   dependencies:
-    "@remax/ali" "2.15.8"
-    "@remax/framework-shared" "2.15.8"
-    "@remax/runtime" "2.15.8"
-    "@remax/toutiao" "2.15.8"
-    "@remax/web" "2.15.8"
-    "@remax/wechat" "2.15.8"
+    "@remax/ali" "2.15.9"
+    "@remax/framework-shared" "2.15.9"
+    "@remax/runtime" "2.15.9"
+    "@remax/toutiao" "2.15.9"
+    "@remax/web" "2.15.9"
+    "@remax/wechat" "2.15.9"
     clsx "^1.1.0"
     memoize-one "^5.1.1"
     react-autosize-textarea "^7.0.0"
 
-"@remax/plugin-devtools@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/plugin-devtools/-/plugin-devtools-2.15.8.tgz#57b9f1e7267c98e9b30625b37ee8b86d32db7609"
-  integrity sha512-GRGevu1+2H9pT3dgA5+i36bD2J7H7V2r06TsrLC+8EK1kipafcbLCHOmltQJpN6XJj47AhJ5/RJI6KkQGku80Q==
+"@remax/plugin-devtools@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/plugin-devtools/-/plugin-devtools-2.15.9.tgz#eb1491da6e18d992ce9567464c2a0952ac475fbb"
+  integrity sha512-PF5+ANXfzeNOkjRFVtwrEEoj7vdQ56+gqioZ8ahogUmnpOY5P9ocDhZAM4HFrNacklD8SsT36K+FnQRb86+WJA==
   dependencies:
     "@remax/react-devtools-core" "^4.7.1"
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
     webpack-inject-plugin "^1.5.4"
 
-"@remax/plugin-error-screen@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/plugin-error-screen/-/plugin-error-screen-2.15.8.tgz#68ec981e0522c35abc88372c7742548918d60af2"
-  integrity sha512-c4C3Sh0m3c2e8kkS4mgZZhjwGoda73c+ZYAl/Rq8YMIg/l5P1givO7f6sR3pMtf/HIg6RcKqvXgu8MqMJACUNA==
+"@remax/plugin-error-screen@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/plugin-error-screen/-/plugin-error-screen-2.15.9.tgz#3484b18f9b4d3fab0bd38f5ac1952114760c9ab1"
+  integrity sha512-mFqBMuPKeqTpzhBw7wwRBL7L5GDkdkIH1C0dTX8CnYOExbT5qIIuTqiiNY+Fjz0kdpI6ps58FzwWHGaqwOtRkA==
   dependencies:
     "@remax/redbox-react" "^1.0.0"
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
     webpack-virtual-modules "^0.3.1"
 
 "@remax/postcss-px2units@^0.2.0":
@@ -5589,10 +5589,10 @@
     object-assign "^4.1.1"
     postcss "^6.0.19"
 
-"@remax/postcss-tag@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/postcss-tag/-/postcss-tag-2.15.8.tgz#a84a13a178f2f46243391c84e60ca478084e2ba1"
-  integrity sha512-H+6xsspf12gXFpuMST5MD3IPgmbQVadD/xCwy00zLOO3H84DSdzHTe2UIuCSSC4wcm9B8kOnUq3QMrH3tB/nTg==
+"@remax/postcss-tag@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/postcss-tag/-/postcss-tag-2.15.9.tgz#6bf51ab7731c27c7e7e083d6b78386687c8a0526"
+  integrity sha512-3poYcKn5fvrz0EhtoYtzL84/uK0sGBcboGHvDjQZBgFJmIhJ97DF/ncNXQsXVQaMRPkHrDiDII4KV4mj+SmGHA==
 
 "@remax/react-devtools-core@^4.7.1":
   version "4.7.1"
@@ -5617,64 +5617,64 @@
     prop-types "^15.5.4"
     sourcemapped-stacktrace "^1.1.6"
 
-"@remax/runtime@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/runtime/-/runtime-2.15.8.tgz#9ca32dc6443c827cc3c20277d860570bf7ecc99e"
-  integrity sha512-lcINlal5nMwr68AzcFRH0B4lUKOLfVqqLL8WaPbZqbBY1HEnSFma4BpOTsNc+V089nYEco6sOo3tYMZf8kBISg==
+"@remax/runtime@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/runtime/-/runtime-2.15.9.tgz#196019c4ba047ffeda9bc243b43c17a6f876cd7e"
+  integrity sha512-rGy4tqH0YJdD648A34ZI0tuD2aML37dqAK+dRKD379AJhrUvEwUBv2stiJ9bMtJegO5Wt37uv4zK30OhT0aDMw==
   dependencies:
-    "@remax/framework-shared" "2.15.8"
-    "@remax/shared" "2.15.8"
-    "@remax/web" "2.15.8"
+    "@remax/framework-shared" "2.15.9"
+    "@remax/shared" "2.15.9"
+    "@remax/web" "2.15.9"
     qs "^6.9.3"
-    react-is "^16.3.1"
+    react-is "^17.0.2"
     react-reconciler "0.26.2"
     scheduler "0.19.1"
 
-"@remax/shared@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/shared/-/shared-2.15.8.tgz#3c1b5edcd61e91a554d3c2f8051035393744cce8"
-  integrity sha512-x+UJVDTt64H0nkFCS7s5sZEzZPQ7T0u8Cg7zfBWphIbG3p2Kb9A9ZRiGIp0FjJ4qs12Kg9V/EH1xVtZkZQkJ/w==
+"@remax/shared@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/shared/-/shared-2.15.9.tgz#c2a96c9b24507e8e1a6bb18b5c59555aaad3322e"
+  integrity sha512-WrqsKaFnjvW8DJUnlDrB3qgsf7bon3Le7vPXPc7ZTkInHqWqNFNwpgtAP/8UhEW8wDuXm0jAh31wl6ZeBgGjvg==
   dependencies:
     "@babel/parser" "^7.11.4"
     "@babel/traverse" "^7.11.0"
     htmlparser2 "^4.1.0"
 
-"@remax/toutiao@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/toutiao/-/toutiao-2.15.8.tgz#314975dbaf3784f497ae113a200ab6569f9a6c5a"
-  integrity sha512-vjg9s1Cbb1Rr7qQ7/ikmWB52k3Lp3YbRUHI1yZrifIrK2jirwnBsOiOOjzmcpNycGtUWBr2LARNneX+Ap75kqg==
+"@remax/toutiao@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/toutiao/-/toutiao-2.15.9.tgz#10fcd1011b6645e3d1d2d94e394419d712c4f1fd"
+  integrity sha512-cyWpyLbddLKhQ18YwOQ6BCEMfT7qGqYKit1FB57J3cQVlphziDpr9v6nQS/XXt9NiMK3xjnDKyXW1EeysFQgQw==
   dependencies:
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
 
-"@remax/types@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/types/-/types-2.15.8.tgz#b334590950e4e5bcb4b5ca3c08e4869a72dfab2c"
-  integrity sha512-YAbMBY2yZh0G+5L+//bgdZbWNGFC/CUB/lEy8KiM8M7GZt9S3oZpdZsmGhUAngMfAkL7MDbol5EZi+Lu/JO5ig==
+"@remax/types@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/types/-/types-2.15.9.tgz#ce178a7fcc47d274d361b792b795d355f029f2f8"
+  integrity sha512-AUZWtWPpKd9KYOK8t/NKVgwkwvbex0fbM8BiZlP6Amn7vX5J6xSWc8tdB36oVBCYCS7eDdxhDs/q2lxQvYW1Aw==
   dependencies:
     "@babel/types" "^7.8.0"
     "@types/react" "^16.9.56"
     "@types/yargs" "^15.0.0"
     webpack-chain "^6.4.0"
 
-"@remax/web@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/web/-/web-2.15.8.tgz#500684249f4e0ee1b72d2766a6c507dd7632ed4a"
-  integrity sha512-/MjSquIvwpoG+kbK6DGDr+EaeamBbeI1WuGdvMuU6R9/UO5zKvufz2AiDdoCNw+UlAQU+D+8RvoG/F54t5rKrQ==
+"@remax/web@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/web/-/web-2.15.9.tgz#4f66209be6fd14bef5c2332525a1ea25951a5ee2"
+  integrity sha512-LbeWDCuCb+NzES8CHlT8gV73XGcmT1UgYurp+JwTz2auJblaFsRL2Y6hGw0PrnxHqBkPiprSQiiN6aJMQJ9iEg==
   dependencies:
     "@loadable/component" "^5.12.0"
-    "@remax/framework-shared" "2.15.8"
+    "@remax/framework-shared" "2.15.9"
     "@remax/react-router-cache-route" "^1.8.4"
-    react-is "^16.3.1"
+    react-is "^17.0.2"
     react-router-dom "^5.2.0"
     rmc-pull-to-refresh "^1.0.12"
     umi-hd "^5.0.1"
 
-"@remax/wechat@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@remax/wechat/-/wechat-2.15.8.tgz#f28828d5907eca946f06b33a46d4e3de73a55872"
-  integrity sha512-gvBcKF5UDw1ru9VgdOK3KQChMPhjLFDpA86bFpWXnyxsVnjd4YXb/QIgwy6mfSUTj6nxMbgkEf4ign1xuGWzTA==
+"@remax/wechat@2.15.9":
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@remax/wechat/-/wechat-2.15.9.tgz#35e91d94ad2f76e493553bd4c74f562d7d1695b8"
+  integrity sha512-l1N0EJxsTkRLund0WI9bLFwKKBIx7EW0gNwhepsMpaZpGWxYVBzLEf4WemJPmzpfgthO63qE4ssdScpVkn4a+Q==
   dependencies:
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
     miniprogram-api-typings "^3.4.3"
 
 "@rollup/plugin-babel@^5.3.0":
@@ -9143,40 +9143,40 @@ babel-plugin-react-docgen@^4.2.1:
     lodash "^4.17.15"
     react-docgen "^5.0.0"
 
-babel-plugin-remax-host-component@2.15.8:
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remax-host-component/-/babel-plugin-remax-host-component-2.15.8.tgz#6d6e07baa72958cae91767b3edc7e62788dbd0fd"
-  integrity sha512-XPFTSwfTqbIAp7yqKAY017QNdqtzyqMsEKaZB/RlrFFWPT9MfVMEWtne5jo66auSXYBIgf5vnONH+tNJ74QSHA==
+babel-plugin-remax-host-component@2.15.9:
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remax-host-component/-/babel-plugin-remax-host-component-2.15.9.tgz#f1c15c01761b90655b64c95c8b0f23f7e667ff96"
+  integrity sha512-0A/geVo8bJL94fyc4b6aBPJ7BFkzGcrn7DeYrKXND3Z5kA99DleJ4oCYFSAw7pL2Yf+h6Xnfr0LDvRjX93sqzg==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
-    "@remax/macro" "2.15.8"
-    "@remax/shared" "2.15.8"
+    "@remax/macro" "2.15.9"
+    "@remax/shared" "2.15.9"
 
-babel-plugin-remax-lifecycle@2.15.8:
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remax-lifecycle/-/babel-plugin-remax-lifecycle-2.15.8.tgz#12b9b12123ba3b1e5f078f8486cc570f7402eaa8"
-  integrity sha512-uSAAHDjJQrgx3x9QBrQxy8hjeb10K3/oZTHsT8hxIY9O/MvNAgdFu75/xaZ2ijhU2ifnZAZnVsinxuX0rin2EQ==
+babel-plugin-remax-lifecycle@2.15.9:
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remax-lifecycle/-/babel-plugin-remax-lifecycle-2.15.9.tgz#f5e93d219bb6719634b33d3ba534a940528be8d3"
+  integrity sha512-RFtEi7K8pivTbrfE7YcvsijeGc1nEmdeZOXOPRrJmpDf91DRbSXU8xyb0/MlLZZwrnHMeEh3cLWdY4oty1eA/g==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
-    "@remax/shared" "2.15.8"
+    "@remax/shared" "2.15.9"
 
-babel-plugin-remax-regenerator-runtime@2.15.8:
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remax-regenerator-runtime/-/babel-plugin-remax-regenerator-runtime-2.15.8.tgz#90671ac98e29fb226874ed269b1d8d58c86f9d8f"
-  integrity sha512-j0jIK79uzgORUvIznlS+ehjXgNN5o2ig2BMUbLU1Saj12BKGEBqVq256xOmNl0LszS9gaC6RUz8866Vgc6YeYw==
+babel-plugin-remax-regenerator-runtime@2.15.9:
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remax-regenerator-runtime/-/babel-plugin-remax-regenerator-runtime-2.15.9.tgz#f15d3479123ddfe80a33883fd3b4b9cf2586af43"
+  integrity sha512-MgBorJmDL6NjoeDMEcMWSCwjNaah5zb5vtZvNlr/1ZjhxB7LlzMWP6AFdEskDFqKXB9Koh69dNe3YodESHk0gg==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
 
-babel-plugin-remax-turbo-render@2.15.8:
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remax-turbo-render/-/babel-plugin-remax-turbo-render-2.15.8.tgz#966805f4380f75ab69db0f88ee2c2248ceaaf966"
-  integrity sha512-FJEQeUagjLDMqq5+ygBGfP4g9f0PSxJAtegTcTdo2Vmyb4nSfWo2nOmQb5lvKgzRLMo9ZRpGRf5/SEMXBzHjRQ==
+babel-plugin-remax-turbo-render@2.15.9:
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remax-turbo-render/-/babel-plugin-remax-turbo-render-2.15.9.tgz#676684765a6e9927058a546ccfb0f0d62d16fe70"
+  integrity sha512-Ye9dzpLF/qCmQzkE8kAvJLe5baBt3Tqwpjk/GZxsoEoSAET8l/nU25vw1dPG73V1Git141Q1+U+sF/2WJCwcng==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
@@ -9271,10 +9271,10 @@ babel-preset-jest@^27.4.0:
     babel-plugin-jest-hoist "^27.4.0"
     babel-preset-current-node-syntax "^1.0.0"
 
-babel-preset-remax@2.15.8:
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/babel-preset-remax/-/babel-preset-remax-2.15.8.tgz#e024c63319bf52db3f83ef0fd1acad437a43ab96"
-  integrity sha512-iWbNBcQGBXlWNCvev/JY0VLYNagU4SbLY/muplayMTYumq7bZpDNfWWR355Vq9GCS14de1/TCQ5AyPqrRROkXA==
+babel-preset-remax@2.15.9:
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/babel-preset-remax/-/babel-preset-remax-2.15.9.tgz#f9d5890aff9989730dae246ec953db5e77287084"
+  integrity sha512-gFwDmsphoyyiXel/6G4l2xKtMHyceWaMJ1NC2MniTqOLe0DKLRvkcg/D5TpE+OZ2rxBfa1NzOyPte7jyOubIDA==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-proposal-class-properties" "^7.7.4"
@@ -21288,7 +21288,7 @@ react-is@17.0.2, "react-is@^16.12.0 || ^17.0.0", react-is@^17.0.1, react-is@^17.
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -21951,20 +21951,20 @@ remax-stats@^0.1.1:
     git-url-parse "^11.1.2"
     is-git-repository "^1.1.1"
 
-remax@2.15.8:
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/remax/-/remax-2.15.8.tgz#5d08db48983f5056eb4a0a8584f63ad9676d617a"
-  integrity sha512-QnGAHap6TyV9zNYj4Z8CkRuGI/VAE4mnIVW1SZXLoVqsBUZgXinJ3jNPmJJU1zC9gfSdc9iKYcNlKY13zw4u5A==
+remax@2.15.9:
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/remax/-/remax-2.15.9.tgz#2e4adc668cfc4e6b11d4d8c3f5a1cc95a5c5832e"
+  integrity sha512-bIpgbApC7hLR5jAoaBYq5YrmEdDtbziPVa0V0zouw1ir5wUkrS0hvr1y4pwTrg+vaRx+pR+CPbuh/Me/xVVAmA==
   dependencies:
-    "@remax/ali" "2.15.8"
-    "@remax/cli" "2.15.8"
-    "@remax/macro" "2.15.8"
-    "@remax/one" "2.15.8"
-    "@remax/runtime" "2.15.8"
-    "@remax/toutiao" "2.15.8"
-    "@remax/types" "2.15.8"
-    "@remax/web" "2.15.8"
-    "@remax/wechat" "2.15.8"
+    "@remax/ali" "2.15.9"
+    "@remax/cli" "2.15.9"
+    "@remax/macro" "2.15.9"
+    "@remax/one" "2.15.9"
+    "@remax/runtime" "2.15.9"
+    "@remax/toutiao" "2.15.9"
+    "@remax/types" "2.15.9"
+    "@remax/web" "2.15.9"
+    "@remax/wechat" "2.15.9"
     mini-types "^0.1.1"
     miniprogram-api-typings "^3.4.3"
 
