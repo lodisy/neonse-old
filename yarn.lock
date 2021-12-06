@@ -4019,19 +4019,19 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
-"@paljs/plugins@4.0.8":
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/@paljs/plugins/-/plugins-4.0.8.tgz#3ae4c57f2efaca51d44d90540ac598f9b079c985"
-  integrity sha512-USgRg9y3fSOZMKLdsKHsPPmUHvLtPPV+zaTFLSF0X5YIhjfgOiPd6e9nGooXIxdt2Bllc6vQbyMNLfZx2SF5bg==
+"@paljs/plugins@4.0.13":
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/@paljs/plugins/-/plugins-4.0.13.tgz#850fa3e8d43681733c47b6c97c41c045e2de5b36"
+  integrity sha512-GqgKUhrHvTH37oll16a2xm2lAHbwl61xngD+LzuRrxfKreasXtxEDMMxIX82248znioNQsrJbkN6genTykJCWg==
   dependencies:
-    "@paljs/types" "^4.0.0"
+    "@paljs/types" "^4.0.13"
     graphql-fields "2.0.3"
-    graphql-tag "2.12.5"
+    graphql-tag "2.12.6"
 
-"@paljs/types@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@paljs/types/-/types-4.0.0.tgz#853017eec13d1e2ea73bbafa6493896e636e29cb"
-  integrity sha512-1HsZjBUcdjXvgDPilpSZT4gPgfvXNezsf+z7FdaC00haiubkzSgDOnwTQXieGwrONVXDvGoAeEOOxiPBHS6suA==
+"@paljs/types@^4.0.13":
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/@paljs/types/-/types-4.0.13.tgz#d7b18e73cf7b3e114acec1d0b2859fa2be10bc62"
+  integrity sha512-5HQT0r01Jb020QHTdvkiGynzkSezAAY3ecj+33xWnVKezIz9Au4c2pqj6kxGcCAZkQqcyMSBVkiFuq1Msdws1g==
 
 "@parcel/watcher@2.0.0-alpha.11":
   version "2.0.0-alpha.11"
@@ -14124,7 +14124,14 @@ graphql-fields@2.0.3:
   resolved "https://registry.yarnpkg.com/graphql-fields/-/graphql-fields-2.0.3.tgz#5e68dff7afbb202be4f4f40623e983b22c96ab8f"
   integrity sha512-x3VE5lUcR4XCOxPIqaO4CE+bTK8u6gVouOdpQX9+EKHr+scqtK5Pp/l8nIGqIpN1TUlkKE6jDCCycm/WtLRAwA==
 
-graphql-tag@2.12.5, graphql-tag@^2.11.0:
+graphql-tag@2.12.6:
+  version "2.12.6"
+  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.12.6.tgz#d441a569c1d2537ef10ca3d1633b48725329b5f1"
+  integrity sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==
+  dependencies:
+    tslib "^2.1.0"
+
+graphql-tag@^2.11.0:
   version "2.12.5"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.12.5.tgz#5cff974a67b417747d05c8d9f5f3cb4495d0db8f"
   integrity sha512-5xNhP4063d16Pz3HBtKprutsPrmHZi5IdUGOWRxA2B6VF7BIRGOHZ5WQvDmJXZuPcBg7rYwaFxvQYjqkSdR3TQ==
