@@ -106,7 +106,7 @@
         "react-stately": "3.10.0",
         "reflect-metadata": "0.1.13",
         "regenerator-runtime": "0.13.9",
-        "remax": "2.15.8",
+        "remax": "2.15.9",
         "rxjs": "7.4.0",
         "sharp": "0.29.3",
         "slugify": "1.6.3",
