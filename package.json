@@ -80,7 +80,7 @@
         "document-register-element": "1.14.10",
         "embla-carousel": "5.0.1",
         "framer-motion": "4.1.17",
-        "graphql": "15.7.2",
+        "graphql": "15.8.0",
         "graphql-type-json": "0.3.2",
         "keen-slider": "5.5.1",
         "lodash": "4.17.21",
