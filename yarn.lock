@@ -4198,13 +4198,13 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-primitive" "0.1.1"
 
-"@radix-ui/react-aspect-ratio@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-aspect-ratio/-/react-aspect-ratio-0.1.1.tgz#c198819da318b88682e093f13a5d2732dc7b0e05"
-  integrity sha512-yi/BQqbx5/RO9IoZmny0tDNM645YukytyFRo6Wj06e8aU5GA9O1pHXEQObEkXIALqhoWr+5SCxvmwcSkr/rbHw==
+"@radix-ui/react-aspect-ratio@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-aspect-ratio/-/react-aspect-ratio-0.1.2.tgz#484c731725bd77dd7452dee361fb256cb7a6d7ae"
+  integrity sha512-n9KqDZy2g05Ac/A5MqOx8P1cgZkTRxyFVXtXZP07Yq4f86P0YNP3UDmKzkfFh2v16xR/Krb+kLPJyO4caGznAw==
   dependencies:
     "@babel/runtime" "^7.13.10"
-    "@radix-ui/react-primitive" "0.1.1"
+    "@radix-ui/react-primitive" "0.1.2"
 
 "@radix-ui/react-avatar@0.1.1":
   version "0.1.1"
