@@ -3285,6 +3285,13 @@
   dependencies:
     tslib "^2.2.0"
 
+"@milkdown/exception@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/exception/-/exception-5.5.0.tgz#f62ed4307a41b08928ce8ce567671dd09215098f"
+  integrity sha512-WmRSMStYueLAOkjUnIZDDqVIsiz+101yEBjRPDYBii2vjacPmB+utqVmIv24kLmQOYrrfl0xqW9E7xm7CVuvgg==
+  dependencies:
+    tslib "^2.3.1"
+
 "@milkdown/preset-commonmark@4.14.2":
   version "4.14.2"
   resolved "https://registry.yarnpkg.com/@milkdown/preset-commonmark/-/preset-commonmark-4.14.2.tgz#6627cd6e393818fe3091d7dcca1d933203047822"
@@ -3319,14 +3326,14 @@
     prosemirror-view "^1.18.2"
     tslib "^2.2.0"
 
-"@milkdown/react@4.14.2":
-  version "4.14.2"
-  resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-4.14.2.tgz#4a0c2d05312cd2afdae8c0da525f6b2e238c2161"
-  integrity sha512-UJcXlAhrKjwnyBqiaSu7pbRvi8HylV2Z0TVXfrJYqE/oJVGSCOYBGFeCRPwC7kx29etg9PEBMcqAXmDxn1aKPw==
+"@milkdown/react@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/react/-/react-5.5.0.tgz#087e83c892aad41397856107de4d96b110d2a369"
+  integrity sha512-0AXGoQq4xITraj5VScQXczcrsDNsDQo2IaF6e6ZakLs+54Qnd+MPHBDkHShyq6d50jk+m5s2X92otljqBytvwA==
   dependencies:
-    "@milkdown/utils" "4.14.2"
+    "@milkdown/utils" "5.5.0"
     nanoid "^3.1.25"
-    tslib "^2.2.0"
+    tslib "^2.3.1"
 
 "@milkdown/utils@ *":
   version "4.12.0"
@@ -3336,13 +3343,13 @@
     "@milkdown/exception" " *"
     tslib "^2.2.0"
 
-"@milkdown/utils@4.14.2":
-  version "4.14.2"
-  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-4.14.2.tgz#461816248f7d782f055bee6e4b5a1e5053a99fb4"
-  integrity sha512-uLDoRnUk8GNXd56WP1GhInTAr5ucEmB9WGuxfhLTd+PfpNt87wfonAUbXfgrGizJYKsASi7HINO3h9AgjIWVMA==
+"@milkdown/utils@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-5.5.0.tgz#05abc5842cc34d6238b4e1aa3535c54ea7f09cfb"
+  integrity sha512-p7dTjMJsE7v9UZbhTAM3brMvhQ7fNLUny6Z8ZI/iAipp8WbcXp59Tyl/hil5YBe5Aiuta8d9KzlzEYKudC6zQw==
   dependencies:
-    "@milkdown/exception" " *"
-    tslib "^2.2.0"
+    "@milkdown/exception" "5.5.0"
+    tslib "^2.3.1"
 
 "@moxy/next-layout@2.2.3":
   version "2.2.3"
@@ -24263,7 +24270,7 @@ tslib@2.1.0, tslib@~2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
-tslib@2.3.1, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0, tslib@~2.3.0:
+tslib@2.3.1, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0, tslib@^2.3.1, tslib@~2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
