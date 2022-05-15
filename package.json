@@ -82,7 +82,7 @@
         "framer-motion": "4.1.17",
         "graphql": "15.8.0",
         "graphql-type-json": "0.3.2",
-        "keen-slider": "5.5.1",
+        "keen-slider": "6.6.14",
         "lodash": "4.17.21",
         "mime-types": "2.1.34",
         "nestjs-i18n": "8.2.2",

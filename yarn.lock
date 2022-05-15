@@ -16751,10 +16751,10 @@ kareem@2.3.2:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.3.2.tgz#78c4508894985b8d38a0dc15e1a8e11078f2ca93"
   integrity sha512-STHz9P7X2L4Kwn72fA4rGyqyXdmrMSdxqHx9IXon/FXluXieaFA6KJ2upcHAHxQPQ0LeM/OjLrhFxifHewOALQ==
 
-keen-slider@5.5.1:
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-5.5.1.tgz#1493f552eadf0f5b8229defd83c626eb6dd58c13"
-  integrity sha512-QXGZGt5Hbe0YufR/RYbOG03MmOk43RQEXqkkSvjr8ZS67sVR7LRp5RIvJALfjl+A7BnHNr1wd1QBOemwy65Lfw==
+keen-slider@6.6.14:
+  version "6.6.14"
+  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-6.6.14.tgz#f34cb40ab6f4702bc930132c95f5a7cf520e1b00"
+  integrity sha512-G8vg8axjy9V5CTxtpF2HHa1oXem0OWSK9rcW7yIeKhUyp3JTHYSs+pwJgJCOYkBhfA+znJZfMd6qcU00BL3CWw==
 
 keyv@^3.0.0:
   version "3.1.0"
